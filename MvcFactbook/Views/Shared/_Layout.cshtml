@@ -6,67 +6,96 @@
     <title>@ViewData["Title"] - MvcFactbook</title>
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/MvcGrid/mvc-grid.css">
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/MvcGrid/mvc-grid.css">
     </environment>
 </head>
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">MvcFactbook</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
+<body class="bg-dark">
+    <div class="d-flex">
+        <div class="bg-secondary">
+            <div class="icon-bar p-0 ml-0" style="height:100%">
+                <a asp-controller="Home" asp-action="Index"><i class="fa fa-home"></i></a>
+                <a asp-controller="ArmedForce" asp-action="Index"><img src="/images/icons/star.png" style="height:20px;width:20px" /></a>
+                <a asp-controller="Flag" asp-action="Index"><img src="/images/icons/flag.png" style="height:20px;width:20px" /></a>
+
+
+                <a asp-controller="Continent" asp-action="Index"><i class="fas fa-globe-africa"></i></a>
+                <a asp-controller="TerritoryType" asp-action="Index"><i class="far fa-map"></i></a>
+                <a asp-controller="Territory" asp-action="Index"><i class="fas fa-atlas"></i></a>
+                <a asp-controller="Place" asp-action="Index"><i class="fas fa-map-marker-alt"></i></a>
+
+                <a asp-controller="PlaceGroup" asp-action="Index"><i class="fas fa-object-group"></i></a>
+                <a asp-controller="Drive" asp-action="Index"><i class="fas fa-road"></i></a>
+                <a asp-controller="Home" asp-action="Contact"><i class="fa fa-envelope"></i></a>
             </div>
         </div>
-    </nav>
+        <div class="bg-dark">
+            <div class="sidenav">
+                <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                <button class="dropdown-btn">
+                    Lists
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a asp-controller="Continent" asp-action="Index">Continents</a>
+                    <a asp-controller="TerritoryType" asp-action="Index">Territory Types</a>
+                    <a asp-controller="Territory" asp-action="Index">Territories</a>
+                    <a asp-controller="Place" asp-action="Index">Places</a>
+                    <a asp-controller="PlaceGroup" asp-action="Index">Place Groups</a>
+                    <a asp-controller="PlaceGroupSet" asp-action="Index">Place Group Sets</a>
+                    <a asp-controller="TerritoryPlace" asp-action="Index">Territory Places</a>
+                    <a asp-controller="Flag" asp-action="Index">Flags</a>
+                    <a asp-controller="Drive" asp-action="Index">Drives</a>
+                    <a asp-controller="DriveLeg" asp-action="Index">Drive Legs</a>
+                </div>
+                <button class="dropdown-btn">
+                    Imports
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a asp-controller="ImportContinent" asp-action="Index">Continents</a>
+                    <a asp-controller="ImportCountry" asp-action="Index">Countries</a>
+                    <a asp-controller="ImportRegion" asp-action="Index">Regions</a>
+                    <a asp-controller="ImportPlace" asp-action="Index">Places</a>
+                    <a asp-controller="ImportPlaceGroup" asp-action="Index">Place Groups</a>
+                    <a asp-controller="ImportPlaceGroupSet" asp-action="Index">Place Group Sets</a>
+                    <a asp-controller="ImportAirfield" asp-action="Index">Airfields</a>
+                    <a asp-controller="ImportDrive" asp-action="Index">Drives</a>
+                </div>
+                <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
+                <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
+            </div>
+        </div>
+        <div class="bg-dark flex-grow-1 p-3">
+            @RenderBody()
+        </div>
+        <br />
+        <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    </div>
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - MvcFactbook</p>
-        </footer>
-    </div>
-
     <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/mvc-grid.js"></script>
     </environment>
     <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/mvc-grid.js"></script>
     </environment>
 
     @RenderSection("Scripts", required: false)
