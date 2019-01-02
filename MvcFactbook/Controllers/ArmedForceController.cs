@@ -92,7 +92,10 @@ namespace MvcFactbook.Controllers
 
         protected override DataAccess<ArmedForce, ArmedForceView> LoadDataAccess()
         {
+            //TODO: AS Test
+
             return new DataAccess<ArmedForce, ArmedForceView>(Context, Context.ArmedForce);
+
         }
 
         protected override Func<int, ArmedForce> GetItemFunction()
