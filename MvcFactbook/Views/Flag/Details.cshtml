@@ -1,0 +1,42 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.FlagView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+
+<div class="card-deck">
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Details</h5></div>
+                <div class="ml-auto"><h5><i class="fas fa-info-circle"></i></h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.Id }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Name), Value = Model.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Code), Value = Model.Code }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Description), Value = Model.Description }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.StartDate), Value = Model.StartDateLabel }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.EndDate), Value = Model.EndDateLabel }' />
+        </div>
+    </div>
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Territories</h5></div>
+                <div class="ml-auto"><h5><i class='fas fa-atlas'></i></h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-transparent">
+            
+
+
+        </div>
+    </div>
+</div>

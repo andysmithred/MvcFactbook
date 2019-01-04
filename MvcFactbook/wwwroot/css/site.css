@@ -37,6 +37,11 @@ body {
 }
 
 
+a:hover {
+    text-decoration: none;
+}
+
+
 
 .icon-bar {
     width: 50px; /* Set a specific width */

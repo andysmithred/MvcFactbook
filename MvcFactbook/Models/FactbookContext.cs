@@ -14,13 +14,14 @@ namespace MvcFactbook.Models
             : base(options) { }
 
         public virtual DbSet<ArmedForce> ArmedForce { get; set; }
+        public virtual DbSet<Flag> Flag { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\Users\\AndyS\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\MvcFactbook\\MvcFactbook\\Database\\Factbook.mdf; Integrated Security = True;Connect Timeout=30");
-                //optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\dev\\MvcPlaces\\MvcPlaces\\Databases\\Travel.mdf; Integrated Security = True;Connect Timeout=30");
+                //optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\Users\\AndyS\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\MvcFactbook\\MvcFactbook\\Database\\Factbook.mdf; Integrated Security = True;Connect Timeout=30");
+                optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\dev\\MvcFactbook\\MvcFactbook\\Database\\MvcFactbook.mdf; Integrated Security = True;Connect Timeout=30");
             }
         }
 
@@ -38,6 +39,20 @@ namespace MvcFactbook.Models
                     .HasDefaultValueSql("((X))");
 
                 entity.Property(e => e.IsActive)
+                    .IsRequired();
+            });
+
+            modelBuilder.Entity<Flag>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Code)
+                    .IsRequired()
+                    .HasMaxLength(6);
+
+                entity.Property(e => e.Active)
                     .IsRequired();
             });
         }

@@ -24,9 +24,9 @@ namespace MvcFactbook.Models
         [Required]
         public string Code { get; set; }
 
+        [Display(Name = "Active")]
         [Required]
         public bool IsActive { get; set; }
-
 
         public long? Budget { get; set; }
     }
