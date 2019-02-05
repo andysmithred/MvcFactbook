@@ -1,0 +1,29 @@
+﻿@model MvcFactbook.Models.BranchFlag
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<partial name="DeleteMenu" model='new { RouteId = Model.Id, Icon = "fas fa-trash-alt" }' />
+<br />
+
+<div class="card border-0 w-75">
+    <div class="card-header bg-secondary text-white">
+        <div class="d-flex">
+            <div><h5>Branch Flag</h5></div>
+            <div class="ml-auto"><h5><i class='fas fa-map-marked-alt'></i></h5></div>
+        </div>
+    </div>
+    <div class="card-body bg-light text-dark rounded-bottom">
+        <h3>Are you sure you want to delete this?</h3>
+        <hr />
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.BranchId), Value = Model.Branch.Name }' />
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.FlagId), Value = Model.Flag.Name }' />
+        <hr />
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-dark" />
+        </form>
+    </div>
+</div>

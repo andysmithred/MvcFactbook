@@ -1,0 +1,8 @@
+﻿<div class="d-flex">
+    <a asp-controller="@Model.Controller" asp-action="@Model.Action" asp-route-id="@Model.RouteId" class="text-dark w-100">
+        <div class="w-100 p-1 pl-2 pb-2 mb-1 alert alert-secondary text-dark border-0">
+            <img class="rounded" src="@Model.Image" alt="Card image" style="height:20px;width:20px;object-fit: cover;overflow: hidden;opacity:0.4">
+            <span class="pl-2">@Model.Value</span>
+        </div>
+    </a>
+</div>

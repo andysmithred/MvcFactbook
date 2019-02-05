@@ -1,0 +1,57 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+
+<div class="d-flex bg-dark">
+    @if (Model.Builder != null)
+    {
+        <div class="mr-3">
+            <a asp-controller="Builder" asp-action="Details" asp-route-id="@Model.BuilderId" class="text-dark">
+                <div class="d-flex alert bg-warning">
+                    <div><img class="rounded" src="~/images/icons/ship.png" alt="Card image" style="height:25px;width:25px;object-fit: cover;overflow: hidden;opacity:0.3"></div>
+                    <div class="pl-3"><h5>@Model.Builder.Name</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
+<div class="card-deck">
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Details</h5></div>
+                <div class="ml-auto"><h5><i class="fas fa-info-circle"></i></h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.Id }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Launched), Value = Model.LaunchedLabel }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Builder), Value = Model.Builder.Name }' />
+        </div>
+    </div>
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Armed Forces</h5></div>
+                <div class="ml-auto">
+                    <h5><a asp-controller="ArmedForceFlag" asp-action="CreateByFlag" asp-route-id="@Model.Id" style="color:white" title="Add Armed Force"><i class="fas fa-plus"></i></a></h5>
+                </div>
+            </div>
+        </div>
+        <div class="card-body bg-transparent">
+           
+        </div>
+    </div>
+</div>

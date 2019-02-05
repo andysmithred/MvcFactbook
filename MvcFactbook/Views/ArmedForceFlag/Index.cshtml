@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.ArmedForceFlagView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='IndexMenu' model='new { Title = "Armed Force Flags", Icon = "/images/icons/star.png" }' />
+<br />
+<partial name="PartialListMainArmedForceFlags" model="@Model" />

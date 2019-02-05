@@ -1,0 +1,39 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.BuilderView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+
+<div class="card-deck">
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Details</h5></div>
+                <div class="ml-auto"><h5><i class="fas fa-info-circle"></i></h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.Id }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Founded), Value = Model.Founded }' />
+        </div>
+    </div>
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Ships</h5></div>
+                <div class="ml-auto">
+                    <h5><a asp-controller="Ship" asp-action="CreateByBuilder" asp-route-id="@Model.Id" style="color:white" title="Add Ship"><i class="fas fa-plus"></i></a></h5>
+                </div>
+            </div>
+        </div>
+        <div class="card-body bg-transparent">
+
+        </div>
+    </div>
+</div>

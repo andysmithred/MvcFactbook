@@ -1,0 +1,44 @@
+﻿@model MvcFactbook.Models.ArmedForceFlag
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<partial name="CreateMenu" model='new { Icon = "fas fa-plus-square" }' />
+<br />
+
+<div class="card border-0 w-75">
+    <div class="card-header bg-secondary text-white">
+        <div class="d-flex">
+            <div><h5>Armed Force Flag</h5></div>
+            <div class="ml-auto"><h5><i class='fas fa-map-marked-alt'></i></h5></div>
+        </div>
+    </div>
+    <div class="card-body bg-transparent text-dark">
+        <form asp-action="Create">
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="ArmedForceId" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="ArmedForceId" asp-items="ViewBag.ArmedForces" class="form-control rounded-right"></select>
+                <span asp-validation-for="ArmedForceId" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="FlagId" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="FlagId" asp-items="ViewBag.Flags" class="form-control rounded-right"></select>
+                <span asp-validation-for="FlagId" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

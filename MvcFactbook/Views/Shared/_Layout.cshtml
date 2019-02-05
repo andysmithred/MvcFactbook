@@ -3,19 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MvcFactbook</title>
-
+    <title>@ViewData["Title"] - WebApplication2</title>
     <environment include="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/css/vendor.min.css" />
+        <link rel="stylesheet" href="~/css/site.min.css" />
+        <link rel="stylesheet" href="~/css/MvcGrid/mvc-grid.css" >
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/css/MvcGrid/mvc-grid.css">
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-        <link rel="stylesheet" href="~/css/site.min.css" />
+        <link rel="stylesheet" href="~/css/vendor.min.css" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/MvcGrid/mvc-grid.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     </environment>
 </head>
 <body class="bg-dark">
@@ -25,16 +24,6 @@
                 <a asp-controller="Home" asp-action="Index"><i class="fa fa-home"></i></a>
                 <a asp-controller="ArmedForce" asp-action="Index"><img src="/images/icons/star.png" style="height:20px;width:20px" /></a>
                 <a asp-controller="Flag" asp-action="Index"><img src="/images/icons/flag.png" style="height:20px;width:20px" /></a>
-
-
-                <a asp-controller="Continent" asp-action="Index"><i class="fas fa-globe-africa"></i></a>
-                <a asp-controller="TerritoryType" asp-action="Index"><i class="far fa-map"></i></a>
-                <a asp-controller="Territory" asp-action="Index"><i class="fas fa-atlas"></i></a>
-                <a asp-controller="Place" asp-action="Index"><i class="fas fa-map-marker-alt"></i></a>
-
-                <a asp-controller="PlaceGroup" asp-action="Index"><i class="fas fa-object-group"></i></a>
-                <a asp-controller="Drive" asp-action="Index"><i class="fas fa-road"></i></a>
-                <a asp-controller="Home" asp-action="Contact"><i class="fa fa-envelope"></i></a>
             </div>
         </div>
         <div class="bg-dark">
@@ -45,30 +34,19 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-container">
-                    <a asp-controller="Continent" asp-action="Index">Continents</a>
-                    <a asp-controller="TerritoryType" asp-action="Index">Territory Types</a>
-                    <a asp-controller="Territory" asp-action="Index">Territories</a>
-                    <a asp-controller="Place" asp-action="Index">Places</a>
-                    <a asp-controller="PlaceGroup" asp-action="Index">Place Groups</a>
-                    <a asp-controller="PlaceGroupSet" asp-action="Index">Place Group Sets</a>
-                    <a asp-controller="TerritoryPlace" asp-action="Index">Territory Places</a>
+                    <a asp-controller="ArmedForce" asp-action="Index">Armed Forces</a>
+                    <a asp-controller="ArmedForceFlag" asp-action="Index">Armed Force Flags</a>
+                    <a asp-controller="Branch" asp-action="Index">Branches</a>
+                    <a asp-controller="BranchFlag" asp-action="Index">Branch Flags</a>
+                    <a asp-controller="BranchType" asp-action="Index">Branch Types</a>
+                    <a asp-controller="Builder" asp-action="Index">Builders</a>
                     <a asp-controller="Flag" asp-action="Index">Flags</a>
-                    <a asp-controller="Drive" asp-action="Index">Drives</a>
-                    <a asp-controller="DriveLeg" asp-action="Index">Drive Legs</a>
-                </div>
-                <button class="dropdown-btn">
-                    Imports
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-container">
-                    <a asp-controller="ImportContinent" asp-action="Index">Continents</a>
-                    <a asp-controller="ImportCountry" asp-action="Index">Countries</a>
-                    <a asp-controller="ImportRegion" asp-action="Index">Regions</a>
-                    <a asp-controller="ImportPlace" asp-action="Index">Places</a>
-                    <a asp-controller="ImportPlaceGroup" asp-action="Index">Place Groups</a>
-                    <a asp-controller="ImportPlaceGroupSet" asp-action="Index">Place Group Sets</a>
-                    <a asp-controller="ImportAirfield" asp-action="Index">Airfields</a>
-                    <a asp-controller="ImportDrive" asp-action="Index">Drives</a>
+                    <a asp-controller="Ship" asp-action="Index">Ships</a>
+                    <a asp-controller="ShipClass" asp-action="Index">Ship Classes</a>
+                    <a asp-controller="ShipService" asp-action="Index">Ship Services</a>
+                    <a asp-controller="ShipCategory" asp-action="Index">Ship Categories</a>
+                    <a asp-controller="ShipType" asp-action="Index">Ship Types</a>
+                    <a asp-controller="ShipSubType" asp-action="Index">Ship Sub-Types</a>
                 </div>
                 <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
                 <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
@@ -81,27 +59,23 @@
 
     <partial name="_CookieConsentPartial" />
 
+    @RenderSection("Scripts", required: false)
+
     <environment include="Development">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-        <script src="~/js/site.js" ></script>
-        <script src="~/js/mvc-grid.js"></script>
+        <script src="~/js/vendor.min.js"></script>
+        <script src="~/js/site.min.js"></script>
+        <script src="~/js/MvcGrid/mvc-grid.js"></script>
         <script>
-            $('.mvc-grid').mvcgrid();
+            [].forEach.call(document.getElementsByClassName('mvc-grid'), element => new MvcGrid(element));
         </script>
     </environment>
     <environment exclude="Development">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-        <script src="~/js/site.min.js"></script>
-        <script src="~/js/mvc-grid.js"></script>
+        <script src="~/js/vendor.min.js"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/MvcGrid/mvc-grid.js"></script>
         <script>
-            $('.mvc-grid').mvcgrid();
+            [].forEach.call(document.getElementsByClassName('mvc-grid'), element => new MvcGrid(element));
         </script>
     </environment>
-
-    @RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -1,17 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MvcFactbook.Models
 {
     public partial class Flag
     {
+        #region Constructor
+
         public Flag()
         {
-
+            ArmedForceFlags = new HashSet<ArmedForceFlag>();
+            BranchFlags = new HashSet<BranchFlag>();
         }
+
+        #endregion Constructor
+
+        #region Database Properties
 
         [Key]
         public int Id { get; set; }
@@ -37,5 +42,15 @@ namespace MvcFactbook.Models
 
         [Required]
         public bool Active { get; set; }
+
+        #endregion Database Properties
+
+        #region Foreign Properties
+
+        public ICollection<ArmedForceFlag> ArmedForceFlags { get; set; }
+
+        public ICollection<BranchFlag> BranchFlags { get; set; }
+
+        #endregion Foreign Properties
     }
 }

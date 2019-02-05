@@ -35,7 +35,7 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
-        public async Task<IActionResult> TerritoriesList(int? id)
+        public async Task<IActionResult> ArmedForcesList(int? id)
         {
             return await base.Details(id);
         }
@@ -105,12 +105,14 @@ namespace MvcFactbook.Controllers
         protected override Func<int, Flag> GetItemFunction()
         {
             return i => Context.Flag
+                        .Include(x => x.ArmedForceFlags).ThenInclude(x => x.ArmedForce)
                         .FirstOrDefault(x => x.Id == i);
         }
 
         protected override Func<IQueryable<Flag>> GetItemsFunction()
         {
-            return () => Context.Flag;
+            return () => Context.Flag
+                            .Include(x => x.ArmedForceFlags).ThenInclude(x => x.ArmedForce);
         }
 
         protected override Func<Flag, bool> GetExistsFunc(int id)

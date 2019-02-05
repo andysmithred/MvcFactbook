@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.BuilderView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='IndexMenu' model='new { Title = "Builders", Icon = "/images/icons/star.png" }' />
+<br />
+<partial name="PartialListMainBuilders" model="@Model" />

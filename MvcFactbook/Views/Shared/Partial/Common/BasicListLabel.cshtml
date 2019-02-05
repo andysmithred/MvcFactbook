@@ -1,0 +1,9 @@
+﻿<div class="d-flex">
+    <div class="w-100 p-1 pl-2 pb-2 mb-1 alert alert-secondary text-dark border-0">
+        @if (!String.IsNullOrEmpty(Model.Icon))
+        {
+            <i class='@Model.Icon' style='font-size:16px'></i>
+        }
+        <label>@Model.Value</label>
+    </div>
+</div>

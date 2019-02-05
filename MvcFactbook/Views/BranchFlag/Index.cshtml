@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.BranchFlagView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='IndexMenu' model='new { Title = "Branch Flags", Icon = "/images/icons/star.png" }' />
+<br />
+<partial name="PartialListMainBranchFlags" model="@Model" />

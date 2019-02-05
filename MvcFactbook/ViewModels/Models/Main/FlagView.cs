@@ -1,16 +1,20 @@
-﻿using MvcFactbook.Models;
+﻿using MvcFactbook.Code.Classes;
+using MvcFactbook.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MvcFactbook.ViewModels.Models.Main
 {
     public class FlagView : View<Flag>
     {
+        #region Private Declarations
+
         private const string FLAG_PATH = "/images/flags/";
         private const string FLAG_EXTENSION = ".png";
+
+        #endregion Private Declarations
 
         #region Database Properties
 
@@ -28,9 +32,11 @@ namespace MvcFactbook.ViewModels.Models.Main
         public string Description => ViewObject.Description;
 
         [Display(Name = "Start Date")]
+        [DataType(DataType.Date)]
         public DateTime? StartDate => ViewObject.StartDate;
 
         [Display(Name = "End Date")]
+        [DataType(DataType.Date)]
         public DateTime? EndDate => ViewObject.EndDate;
 
         [Required]
@@ -39,11 +45,10 @@ namespace MvcFactbook.ViewModels.Models.Main
         #endregion Database Properties
 
         #region Foreign Properties
+        
+        public ICollection<ArmedForceFlagView> ArmedForceFlags => GetViewList<ArmedForceFlagView, ArmedForceFlag>(ViewObject.ArmedForceFlags);
 
-        //public ContinentView Parent => GetView<ContinentView, Continent>(ViewObject.Parent);
-        //public ICollection<ContinentView> Children => GetViewList<ContinentView, Continent>(ViewObject.Children);
-
-        //public ICollection<TerritoryView> Territories => GetViewList<TerritoryView, Territory>(ViewObject.Territories);
+        public ICollection<BranchFlagView> BranchFlags => GetViewList<BranchFlagView, BranchFlag>(ViewObject.BranchFlags);
 
         #endregion Foreign Properties
 
@@ -55,15 +60,13 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string ImageSource => FLAG_PATH + Image;
 
-        //public int TerritoryCount => Territories.Count;
-
         public string StartDateLabel => GetDateLabel(StartDate);
 
         public string EndDateLabel => GetDateLabel(EndDate);
 
+        public ICollection<ArmedForceView> ArmedForces => ArmedForceFlags.Select(f => f.ArmedForce).Distinct(f => f.Id).ToList();
 
-
-
+        public ICollection<BranchView> Branches => BranchFlags.Select(f => f.Branch).Distinct(f => f.Id).ToList();
 
         #endregion Other Properties
 
@@ -81,9 +84,6 @@ namespace MvcFactbook.ViewModels.Models.Main
             }
         }
 
-
         #endregion Methods
-
-
     }
 }
