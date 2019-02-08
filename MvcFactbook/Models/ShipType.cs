@@ -24,12 +24,14 @@ namespace MvcFactbook.Models
         public string Type { get; set; }
 
         [Required]
+        [Display(Name = "Ship Category Id")]
         public int ShipCategoryId { get; set; }
 
         #endregion Database Properties
 
         #region Foreign Properties
 
+        [Display(Name = "Ship Category")]
         public ShipCategory ShipCategory { get; set; }
 
         public ICollection<ShipSubType> ShipSubTypes { get; set; }

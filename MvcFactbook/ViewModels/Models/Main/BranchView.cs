@@ -45,9 +45,13 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public override string ListName => Name + ":" + ArmedForce?.Name;
 
-        public bool HasFlag => false;
+        public bool HasFlag => Flags.Count > 0;
 
         public ICollection<FlagView> Flags => BranchFlags.Select(f => f.Flag).Distinct(f => f.Id).ToList();
+
+        public FlagView CurrentFlag => Flags.OrderByDescending(x => x.StartDate).FirstOrDefault();
+
+        public string ImageSource => CurrentFlag?.ImageSource;
 
         #endregion Other Properties
 

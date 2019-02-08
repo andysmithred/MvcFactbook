@@ -5,6 +5,6 @@
 }
 
 <br />
-<partial name='IndexMenu' model='new { Title = "Armed Force Flags", Icon = "/images/icons/star.png" }' />
+<partial name='IndexMenu' model='new { Title = "Armed Force Flags", Icon = "/images/icons/emptyflag-light.png" }' />
 <br />
-<partial name="PartialListMainArmedForceFlags" model="@Model" />
+<partial name="PartialListMainArmedForceFlags" model="@Model.OrderBy(x => x.ArmedForce.Name).ToList()" />

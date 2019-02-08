@@ -1,0 +1,44 @@
+﻿@model MvcFactbook.Models.ShipSubType
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<partial name='CreateByMenu' model='new { Text = "Ship Type", Action = "Details", Controller = "ShipType", RouteId = ViewBag.RouteId, Icon = "fas fa-plus-square" }' />
+<br />
+
+<div class="card border-0 w-75">
+    <div class="card-header bg-secondary text-white">
+        <div class="d-flex">
+            <div><h5>Ship Sub-Type</h5></div>
+            <div class="ml-auto"><h5><img src="~/images/icons/raf-light.png" style="height:20px;width:20px" /></h5></div>
+        </div>
+    </div>
+    <div class="card-body bg-transparent text-dark">
+        <form asp-action="Create">
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Type" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Type" class="form-control rounded-right" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="ShipType" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="ShipTypeId" asp-items="ViewBag.ShipTypes" class="form-control rounded-right"></select>
+                <span asp-validation-for="ShipTypeId" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

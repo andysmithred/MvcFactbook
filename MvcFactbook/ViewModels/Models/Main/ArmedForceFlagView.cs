@@ -1,6 +1,5 @@
 ﻿using MvcFactbook.Models;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MvcFactbook.ViewModels.Models.Main
@@ -13,9 +12,11 @@ namespace MvcFactbook.ViewModels.Models.Main
         public int Id => ViewObject.Id;
 
         [Required]
+        [Display(Name = "Amred Force Id")]
         public int ArmedForceId => ViewObject.ArmedForceId;
 
         [Required]
+        [Display(Name = "Flag Id")]
         public int FlagId => ViewObject.FlagId;
 
         [Display(Name = "Start Date")]
@@ -30,7 +31,10 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         #region Foreign Properties
 
+        [Display(Name = "Armed Force")]
         public ArmedForceView ArmedForce => GetView<ArmedForceView, ArmedForce>(ViewObject.ArmedForce);
+
+        [Display(Name = "Flag")]
         public FlagView Flag => GetView<FlagView, Flag>(ViewObject.Flag);
 
         #endregion Foreign Properties

@@ -194,8 +194,9 @@ namespace MvcFactbook.Controllers
         protected override Func<int, Branch> GetItemFunction()
         {
             return i => Context.Branch
-                        .Include(x => x.ArmedForce)
+                        .Include(x => x.ArmedForce).ThenInclude(x => x.ArmedForceFlags).ThenInclude(x => x.Flag)
                         .Include(x => x.BranchType)
+                        .Include(x => x.BranchFlags).ThenInclude(x => x.Flag)
                         .FirstOrDefault(x => x.Id == i);
         }
 
@@ -203,7 +204,8 @@ namespace MvcFactbook.Controllers
         {
             return () => Context.Branch
                                 .Include(x => x.ArmedForce)
-                                .Include(x => x.BranchType);
+                                .Include(x => x.BranchType)
+                                .Include(x => x.BranchFlags).ThenInclude(x => x.Flag);
         }
 
         protected override Func<Branch, bool> GetExistsFunc(int id)

@@ -12,15 +12,15 @@
     <div class="card-header bg-secondary text-white">
         <div class="d-flex">
             <div><h5>Flag</h5></div>
-            <div class="ml-auto"><h5><img src="~/images/icons/star.png" style="height:20px;width:20px" /></h5></div>
+            <div class="ml-auto"><h5><img src="~/images/icons/armedforce-light.png" style="height:20px;width:20px" /></h5></div>
         </div>
     </div>
     <div class="card-body bg-light text-dark rounded-bottom">
         <h3>Are you sure you want to delete this?</h3>
         <hr />
-        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.Id }' />
-        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Name), Value = Model.Name }' />
-        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Code), Value = Model.Code }' />
+        <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.Id }' />
+        <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
+        <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Code), Value = Model.Code }' />
         <hr />
         <form asp-action="Delete">
             <input type="hidden" asp-for="Id" />

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MvcFactbook.Code.Data;
 using MvcFactbook.Models;
 using MvcFactbook.ViewModels.Models.Main;
@@ -98,6 +99,7 @@ namespace MvcFactbook.Controllers
         protected override Func<int, ShipCategory> GetItemFunction()
         {
             return i => Context.ShipCategory
+                        .Include(x => x.ShipTypes)
                         .FirstOrDefault(x => x.Id == i);
         }
 

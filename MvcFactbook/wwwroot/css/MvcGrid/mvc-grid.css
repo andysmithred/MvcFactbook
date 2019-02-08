@@ -84,7 +84,7 @@
 
 .mvc-grid-filter::before {
     content: '\0041';
-    color:wheat;
+    color:white;
 }
 
 .mvc-grid-filter.applied::before {

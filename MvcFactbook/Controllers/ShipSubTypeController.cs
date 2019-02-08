@@ -29,7 +29,7 @@ namespace MvcFactbook.Controllers
 
         public ICollection<ShipTypeView> ShipTypesList
         {
-            get => shipTypesList ?? (shipTypesList = ShipTypes.GetViews().OrderBy(x => x.ListName).ToList());
+            get => shipTypesList ?? (shipTypesList = ShipTypes.GetViews().OrderBy(x => x.Type).ToList());
             set => shipTypesList = value;
         }
 
@@ -151,6 +151,7 @@ namespace MvcFactbook.Controllers
         {
             return i => Context.ShipSubType
                         .Include(x => x.ShipType)
+                        .Include(x => x.ShipServices)
                         .FirstOrDefault(x => x.Id == i);
         }
 

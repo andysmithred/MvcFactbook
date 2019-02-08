@@ -42,9 +42,13 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<FlagView> Flags => ArmedForceFlags.Select(f => f.Flag).Distinct(f => f.Id).ToList();
 
-        public bool HasFlag => Flags.Count > 0 ? true : false;
+        public bool HasFlag => Flags.Count > 0;
 
         public FlagView Flag => Flags.OrderByDescending(x => x.StartDate).FirstOrDefault();
+
+        public string ImageSource => Flag?.ImageSource;
+
+        public string BudgetLabel => Budget.HasValue ? "$" + Budget.Value.ToString("N0") : "--";
 
         #endregion Other Properties
 

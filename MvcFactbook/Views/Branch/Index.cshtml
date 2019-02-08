@@ -5,6 +5,6 @@
 }
 
 <br />
-<partial name='IndexMenu' model='new { Title = "Branches", Icon = "/images/icons/star.png" }' />
+<partial name='IndexMenu' model='new { Title = "Branches", Icon = "/images/icons/branch-light.png" }' />
 <br />
-<partial name="PartialListMainBranches" model="@Model" />
+<partial name="PartialListMainBranches" model="@Model.OrderBy(x => x.Name).ToList()" />

@@ -105,6 +105,7 @@ namespace MvcFactbook.Controllers
         {
             return i => Context.ArmedForce
                         .Include(x => x.ArmedForceFlags).ThenInclude(x => x.Flag)
+                        .Include(x => x.Branches).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag)
                         .FirstOrDefault(x => x.Id == i);
         }
 

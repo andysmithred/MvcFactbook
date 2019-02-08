@@ -3,7 +3,7 @@
         <div class="w-100 p-1 pl-2 pb-2 mb-1 alert alert-secondary text-dark border-0">
             @if (!String.IsNullOrEmpty(Model.Icon))
             {
-                <i class='@Model.Icon' style='font-size:15px;opacity:0.5'></i>
+                <img src="@Model.Icon" style="height:20px;opacity:0.5" />
             }
             <span class="pl-2">@Model.Value</span>
         </div>

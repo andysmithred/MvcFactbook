@@ -151,6 +151,7 @@ namespace MvcFactbook.Controllers
         {
             return i => Context.ShipType
                         .Include(x => x.ShipCategory)
+                        .Include(x => x.ShipSubTypes)
                         .FirstOrDefault(x => x.Id == i);
         }
 

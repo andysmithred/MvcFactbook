@@ -11,9 +11,11 @@ namespace MvcFactbook.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Armed Force Id")]
         public int ArmedForceId { get; set; }
 
         [Required]
+        [Display(Name = "Flag Id")]
         public int FlagId { get; set; }
 
         [Display(Name = "Start Date")]
@@ -28,7 +30,10 @@ namespace MvcFactbook.Models
 
         #region Foreign Properties
 
+        [Display(Name = "Armed Force")]
         public ArmedForce ArmedForce { get; set; }
+
+        [Display(Name = "Flag")]
         public Flag Flag { get; set; }
 
         #endregion Foreign Properties
