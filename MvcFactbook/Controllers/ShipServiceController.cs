@@ -297,7 +297,7 @@ namespace MvcFactbook.Controllers
                         .Include(x => x.Ship)
                         .Include(x => x.ShipClass)
                         .Include(x => x.ShipSubType)
-                        .Include(x => x.Branch)
+                        .Include(x => x.Branch).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag)
                         .FirstOrDefault(x => x.Id == i);
         }
 
@@ -305,9 +305,9 @@ namespace MvcFactbook.Controllers
         {
             return () => Context.ShipService
                                 .Include(x => x.Ship)
-                        .Include(x => x.ShipClass)
-                        .Include(x => x.ShipSubType)
-                        .Include(x => x.Branch);
+                                .Include(x => x.ShipClass)
+                                .Include(x => x.ShipSubType)
+                                .Include(x => x.Branch);
         }
 
         protected override Func<ShipService, bool> GetExistsFunc(int id)

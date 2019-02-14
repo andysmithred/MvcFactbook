@@ -73,6 +73,16 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
+        public async Task<IActionResult> FlagsList(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> ShipServicesList(int? id)
+        {
+            return await base.Details(id);
+        }
+
         #endregion Details
 
         #region Create
@@ -197,6 +207,9 @@ namespace MvcFactbook.Controllers
                         .Include(x => x.ArmedForce).ThenInclude(x => x.ArmedForceFlags).ThenInclude(x => x.Flag)
                         .Include(x => x.BranchType)
                         .Include(x => x.BranchFlags).ThenInclude(x => x.Flag)
+                        .Include(x => x.ShipServices).ThenInclude(x => x.Ship)
+                        .Include(x => x.ShipServices).ThenInclude(x => x.ShipClass)
+                        .Include(x => x.ShipServices).ThenInclude(x => x.ShipSubType)
                         .FirstOrDefault(x => x.Id == i);
         }
 

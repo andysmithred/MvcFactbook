@@ -32,7 +32,7 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         #region Other Properties
 
-        public override string ListName => Type + ":" + ShipType.Type;
+        public override string ListName => Type;
 
         #endregion Other Properties
 

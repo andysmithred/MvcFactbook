@@ -11,9 +11,11 @@ namespace MvcFactbook.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Branch Id")]
         public int BranchId { get; set; }
 
         [Required]
+        [Display(Name = "Flag Id")]
         public int FlagId { get; set; }
 
         [Display(Name = "Start Date")]

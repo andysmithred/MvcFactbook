@@ -39,6 +39,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<BranchFlagView> BranchFlags => GetViewList<BranchFlagView, BranchFlag>(ViewObject.BranchFlags);
 
+        public ICollection<ShipServiceView> ShipServices => GetViewList<ShipServiceView, ShipService>(ViewObject.ShipServices);
+
         #endregion Foreign Properties
 
         #region Other Properties

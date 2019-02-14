@@ -1,6 +1,6 @@
 ﻿<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <img src="~/images/icons/branch-light.png" style="height:24px;width:24px" />
-    <a class="navbar-brand pl-4 pr-4" href="#"><h4>Branch</h4></a>
+    <img src="~/images/icons/shipservice-light.png" style="height:24px;width:24px" />
+    <a class="navbar-brand pl-4 pr-4" href="#"><h4>Ship Service</h4></a>
     <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" asp-action="Index"><h4>Index</h4></a></li>
         <li class="nav-item"><a class="nav-link" asp-action="Edit" asp-route-id="@Model.Id"><h4>Edit</h4></a></li>
@@ -12,8 +12,7 @@
                 <h4>Lists</h4>
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" asp-action="FlagsList" asp-route-id="@Model.Id">Flags</a>
-                <a class="dropdown-item" asp-action="ShipServicesList" asp-route-id="@Model.Id">Ships</a>
+                <a class="dropdown-item" asp-action="ShipServicesList" asp-route-id="@Model.Id">Ship Services</a>
             </div>
         </li>
     </ul>

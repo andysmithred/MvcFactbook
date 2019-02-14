@@ -10,8 +10,8 @@
 <partial name="DetailsHeader" />
 
 <div class="card border-0">
-    <div class="card-header bg-secondary text-white">Flags</div>
+    <div class="card-header bg-secondary text-white">Branches</div>
     <div class="card-body bg-dark p-0">
-        <partial name="PartialListDetailsFlags" model="@Model.Flags.OrderBy(x => x.ListName)" />
+        <partial name="PartialListDetailsBranches" model="@Model.Branches.OrderBy(x => x.Name)" />
     </div>
 </div>

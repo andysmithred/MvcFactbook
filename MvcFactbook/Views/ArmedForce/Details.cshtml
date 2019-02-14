@@ -94,7 +94,7 @@
             {
                 foreach (var item in Model.Branches.OrderBy(x => x.Name))
                 {
-                    <partial name="ActionListFlag" model='new { Controller = "Branch", Action = "Details", Value = item.Name, RouteId = item.Id, Image = item.ImageSource }' />
+                    <partial name="ActionListFlag" model='new { Controller = "Branch", Action = "Details", Value = item.Name, RouteId = item.Id, Image = item.CurrentFlag?.ImageSource }' />
                 }
             }
             else

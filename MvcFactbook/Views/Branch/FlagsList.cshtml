@@ -1,4 +1,4 @@
-﻿@model MvcFactbook.ViewModels.Models.Main.ArmedForceView
+﻿@model MvcFactbook.ViewModels.Models.Main.BranchView
 
 @{
     ViewData["Title"] = "Details";
@@ -12,6 +12,6 @@
 <div class="card border-0">
     <div class="card-header bg-secondary text-white">Flags</div>
     <div class="card-body bg-dark p-0">
-        <partial name="PartialListDetailsFlags" model="@Model.Flags.OrderBy(x => x.ListName)" />
+        <partial name="PartialListDetailsBranchFlags" model="@Model.BranchFlags.OrderBy(x => x.ListName)" />
     </div>
 </div>

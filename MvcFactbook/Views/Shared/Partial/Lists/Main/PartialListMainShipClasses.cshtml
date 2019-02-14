@@ -4,7 +4,7 @@
     .Grid(Model)
     .Build(columns =>
     {
-        columns.Add().Encoded(false).RenderedAs(model => $"<img src='/images/icons/star.png' style='height: 20px; width: 20px' />");
+        columns.Add().Encoded(false).RenderedAs(model => $"<img src='/images/icons/shipclass-light.png' style='height: 20px; width: 20px' />");
         columns.Add(model => model.Name).Titled("Name");
         columns.Add(model => model.SubClassName).Titled("Sub-Class");
         columns.Add(model => model.Displacement).Titled("Displacement").Formatted("{0:N0}");
@@ -15,7 +15,9 @@
         columns.Add(model => model.Crew).Titled("Crew").Formatted("{0:N0}");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
-                $"<a class='btn btn-secondary btn-sm' href='/ShipClass/Details/{model.Id}'>Details</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded-left' href='/ShipClass/Edit/{model.Id}'>Edit</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded-0' href='/ShipClass/Details/{model.Id}'>Details</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded-right' href='/ShipClass/Delete/{model.Id}'>Delete</a>" +
             "</div>"
         );
     })

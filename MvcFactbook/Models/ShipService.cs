@@ -26,12 +26,15 @@ namespace MvcFactbook.Models
         public string Name { get; set; }
 
         [Required]
+        [Display(Name = "Ship Id")]
         public int ShipId { get; set; }
 
         [Required]
+        [Display(Name = "Ship Class Id")]
         public int ShipClassId { get; set; }
 
         [Required]
+        [Display(Name = "Ship Sub-Type Id")]
         public int ShipSubTypeId { get; set; }
 
         [Display(Name = "Start Service")]
@@ -42,6 +45,7 @@ namespace MvcFactbook.Models
         [DataType(DataType.Date)]
         public DateTime? EndService { get; set; }
 
+        [Display(Name = "Branch Id")]
         public int? BranchId { get; set; }
 
         public string Fate { get; set; }
@@ -54,8 +58,10 @@ namespace MvcFactbook.Models
 
         public Ship Ship { get; set; }
 
+        [Display(Name = "Ship Class")]
         public ShipClass ShipClass { get; set; }
 
+        [Display(Name = "Ship Sub-Type")]
         public ShipSubType ShipSubType { get; set; }
 
         public Branch Branch { get; set; }

@@ -1,0 +1,104 @@
+﻿@model MvcFactbook.Models.ShipService
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<partial name='CreateByMenu' model='new { Text = "Branch", Action = "Details", Controller = "Branch", RouteId = ViewBag.RouteId, Icon = "fas fa-plus-square" }' />
+<br />
+
+<div class="card border-0 w-75">
+    <div class="card-header bg-secondary text-white">
+        <div class="d-flex">
+            <div><h5>Ship Service</h5></div>
+            <div class="ml-auto"><h5><img src="~/images/icons/shipservice-light.png" style="height:20px;width:20px" /></h5></div>
+        </div>
+    </div>
+    <div class="card-body bg-transparent text-dark">
+        <form asp-action="Create">
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Penant" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Penant" class="form-control rounded-right" />
+                <span asp-validation-for="Penant" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Name" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Name" class="form-control rounded-right" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Ship" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="ShipId" asp-items="ViewBag.Ships" class="form-control rounded-right"></select>
+                <span asp-validation-for="ShipId" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="ShipClass" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="ShipClassId" asp-items="ViewBag.ShipClasses" class="form-control rounded-right"></select>
+                <span asp-validation-for="ShipClassId" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="ShipSubType" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="ShipSubTypeId" asp-items="ViewBag.ShipSubTypes" class="form-control rounded-right"></select>
+                <span asp-validation-for="ShipSubTypeId" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="StartService" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="StartService" class="form-control rounded-right" />
+                <span asp-validation-for="StartService" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="EndService" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="EndService" class="form-control rounded-right" />
+                <span asp-validation-for="EndService" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Branch" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="BranchId" asp-items="ViewBag.Branches" class="form-control rounded-right"></select>
+                <span asp-validation-for="BranchId" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Fate" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Fate" class="form-control rounded-right" />
+                <span asp-validation-for="Fate" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Active" class="input-group-text w-100"></label>
+                </div>
+                <div class="input-group-prepend">
+                    <div class="input-group-text  rounded-right">
+                        <input asp-for="Active" type="checkbox">
+                    </div>
+                </div>
+                <span asp-validation-for="Active" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

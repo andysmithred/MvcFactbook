@@ -10,9 +10,7 @@
         columns.Add(model => model.End).Titled("End date").Formatted("{0:d}");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
-                $"<a class='btn btn-secondary btn-sm rounded-left' href='/BranchFlag/Edit/{model.Id}'>Edit</a>" +
-                $"<a class='btn btn-secondary btn-sm rounded-0' href='/BranchFlag/Details/{model.Id}'>Details</a>" +
-                $"<a class='btn btn-secondary btn-sm rounded-right' href='/BranchFlag/Delete/{model.Id}'>Delete</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded' href='/BranchFlag/Details/{model.Id}'>Details</a>" +
             "</div>"
         );
     })

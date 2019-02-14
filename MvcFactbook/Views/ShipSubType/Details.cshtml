@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div class="card-body bg-transparent">
+        <div class="card-body bg-transparent" style="height:335px;max-height:335px;overflow-y:auto;">
             @if (Model.ShipServices.Count > 0)
             {
                 foreach (var item in Model.ShipServices.OrderBy(x => x.Name))

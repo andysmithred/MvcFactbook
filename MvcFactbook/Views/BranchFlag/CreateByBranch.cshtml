@@ -12,21 +12,21 @@
     <div class="card-header bg-secondary text-white">
         <div class="d-flex">
             <div><h5>Branch Flag</h5></div>
-            <div class="ml-auto"><h5><i class='fas fa-map-marked-alt'></i></h5></div>
+            <div class="ml-auto"><h5><img src="~/images/icons/emptyflag-light.png" style="height:20px;width:20px" /></h5></div>
         </div>
     </div>
     <div class="card-body bg-transparent text-dark">
         <form asp-action="Create">
             <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend w-25">
-                    <label asp-for="BranchId" class="input-group-text w-100"></label>
+                    <label asp-for="Branch" class="input-group-text w-100"></label>
                 </div>
                 <select asp-for="BranchId" asp-items="ViewBag.Branches" class="form-control rounded-right"></select>
                 <span asp-validation-for="BranchId" class="text-danger"></span>
             </div>
             <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend w-25">
-                    <label asp-for="FlagId" class="input-group-text w-100"></label>
+                    <label asp-for="Flag" class="input-group-text w-100"></label>
                 </div>
                 <select asp-for="FlagId" asp-items="ViewBag.Flags" class="form-control rounded-right"></select>
                 <span asp-validation-for="FlagId" class="text-danger"></span>

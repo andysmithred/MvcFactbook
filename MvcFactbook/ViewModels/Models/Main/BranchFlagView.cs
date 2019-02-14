@@ -12,9 +12,11 @@ namespace MvcFactbook.ViewModels.Models.Main
         public int Id => ViewObject.Id;
 
         [Required]
+        [Display(Name = "Branch Id")]
         public int BranchId => ViewObject.BranchId;
 
         [Required]
+        [Display(Name = "Flag Id")]
         public int FlagId => ViewObject.FlagId;
 
         [Display(Name = "Start Date")]

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MvcFactbook.Models
 {
@@ -25,6 +22,7 @@ namespace MvcFactbook.Models
         [Required]
         public string Name { get; set; }
 
+        [Display(Name = "Sub-class Name")]
         public string SubClassName { get; set; }
 
         public int? Displacement { get; set; }
