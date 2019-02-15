@@ -1,5 +1,6 @@
 ﻿using MvcFactbook.Models;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MvcFactbook.ViewModels.Models.Main
@@ -17,6 +18,7 @@ namespace MvcFactbook.ViewModels.Models.Main
         [DataType(DataType.Date)]
         public DateTime? Launched => ViewObject.Launched;
 
+        [Display(Name = "Builder Id")]
         public int? BuilderId => ViewObject.BuilderId;
 
         #endregion Database Properties
@@ -24,6 +26,8 @@ namespace MvcFactbook.ViewModels.Models.Main
         #region Foreign Properties
 
         public BuilderView Builder => GetView<BuilderView, Builder>(ViewObject.Builder);
+
+        public ICollection<ShipServiceView> ShipServices => GetViewList<ShipServiceView, ShipService>(ViewObject.ShipServices);
 
         #endregion Foreign Properties
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MvcFactbook.Code.Data;
 using MvcFactbook.Models;
 using MvcFactbook.ViewModels.Models.Main;
@@ -29,6 +30,11 @@ namespace MvcFactbook.Controllers
         #region Details
 
         public override async Task<IActionResult> Details(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> ShipsList(int? id)
         {
             return await base.Details(id);
         }
@@ -98,6 +104,7 @@ namespace MvcFactbook.Controllers
         protected override Func<int, Builder> GetItemFunction()
         {
             return i => Context.Builder
+                        .Include(x => x.Ships)
                         .FirstOrDefault(x => x.Id == i);
         }
 

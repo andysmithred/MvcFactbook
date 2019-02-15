@@ -1,0 +1,17 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.BranchTypeView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+
+<div class="card border-0">
+    <div class="card-header bg-secondary text-white">Branches</div>
+    <div class="card-body bg-dark p-0">
+        <partial name="PartialListDetailsBranches" model="@Model.Branches.OrderBy(x => x.Name)" />
+    </div>
+</div>

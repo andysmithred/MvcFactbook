@@ -26,6 +26,7 @@ namespace MvcFactbook.Models
         [DataType(DataType.Date)]
         public DateTime? Launched { get; set; }
 
+        [Display(Name = "Builder Id")]
         public int? BuilderId { get; set; }
 
         #endregion Database Properties

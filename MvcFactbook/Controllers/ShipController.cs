@@ -151,6 +151,7 @@ namespace MvcFactbook.Controllers
         {
             return i => Context.Ship
                         .Include(x => x.Builder)
+                        .Include(x => x.ShipServices).ThenInclude(x => x.Branch).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag)
                         .FirstOrDefault(x => x.Id == i);
         }
 

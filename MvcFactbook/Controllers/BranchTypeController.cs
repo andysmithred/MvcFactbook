@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MvcFactbook.Code.Data;
 using MvcFactbook.Models;
 using MvcFactbook.ViewModels.Models.Main;
@@ -32,7 +33,12 @@ namespace MvcFactbook.Controllers
         {
             return await base.Details(id);
         }
-        
+
+        public async Task<IActionResult> BranchesList(int? id)
+        {
+            return await base.Details(id);
+        }
+
         #endregion Details
 
         #region Create
@@ -98,6 +104,7 @@ namespace MvcFactbook.Controllers
         protected override Func<int, BranchType> GetItemFunction()
         {
             return i => Context.BranchType
+                        .Include(x => x.Branches).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag)
                         .FirstOrDefault(x => x.Id == i);
         }
 

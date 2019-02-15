@@ -40,6 +40,26 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public override string ListName => Branch.Name + ":" + Flag.Name;
 
+        public string StartDateLabel => GetDateLabel(Start);
+
+        public string EndDateLabel => GetDateLabel(End);
+
         #endregion Other Properties
+
+        #region Methods
+
+        private string GetDateLabel(DateTime? date)
+        {
+            if (date.HasValue)
+            {
+                return date.Value.ToString("dd MMMM yyyy");
+            }
+            else
+            {
+                return "--";
+            }
+        }
+
+        #endregion Methods
     }
 }

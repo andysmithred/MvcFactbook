@@ -7,4 +7,4 @@
 <br />
 <partial name='IndexMenu' model='new { Title = "Ships", Icon = "/images/icons/ship-light.png" }' />
 <br />
-<partial name="PartialListMainShips" model="@Model" />
+<partial name="PartialListMainShips" model="@Model.OrderBy(x => x.Name).ToList()" />

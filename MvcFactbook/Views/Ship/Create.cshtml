@@ -12,7 +12,7 @@
     <div class="card-header bg-secondary text-white">
         <div class="d-flex">
             <div><h5>Ship</h5></div>
-            <div class="ml-auto"><h5><img src="~/images/icons/star.png" style="height:20px;width:20px" /></h5></div>
+            <div class="ml-auto"><h5><img src="~/images/icons/ship-light.png" style="height:20px;width:20px" /></h5></div>
         </div>
     </div>
     <div class="card-body bg-transparent text-dark">
@@ -33,7 +33,7 @@
             </div>
             <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend w-25">
-                    <label asp-for="BuilderId" class="input-group-text w-100"></label>
+                    <label asp-for="Builder" class="input-group-text w-100"></label>
                 </div>
                 <select asp-for="BuilderId" asp-items="ViewBag.Builders" class="form-control rounded-right"></select>
                 <span asp-validation-for="BuilderId" class="text-danger"></span>

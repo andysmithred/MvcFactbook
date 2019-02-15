@@ -31,7 +31,9 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public override string ListName => Type + ":" + Code;
 
-        //public ICollection<FlagView> Flags => ArmedForceFlags.Select(f => f.Flag).Distinct(f => f.Id).ToList();
+        public string IconLight => Code + "-light.png";
+
+        public string IconDark => Code + "-dark.png";
 
         #endregion Other Properties
     }
