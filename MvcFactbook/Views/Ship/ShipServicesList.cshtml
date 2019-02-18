@@ -1,0 +1,17 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+
+<div class="card border-0">
+    <div class="card-header bg-secondary text-white">Service</div>
+    <div class="card-body bg-dark p-0">
+        <partial name="PartialListDetailsShipServices" model="@Model.ShipServices.OrderBy(x => x.StartService)" />
+    </div>
+</div>

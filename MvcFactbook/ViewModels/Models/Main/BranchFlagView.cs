@@ -1,4 +1,5 @@
-﻿using MvcFactbook.Models;
+﻿using MvcFactbook.Code.Classes;
+using MvcFactbook.Models;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -40,25 +41,19 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public override string ListName => Branch.Name + ":" + Flag.Name;
 
-        public string StartDateLabel => GetDateLabel(Start);
+        public string StartDateLabel => CommonFunctions.GetDateLabel(Start);
 
-        public string EndDateLabel => GetDateLabel(End);
+        public string EndDateLabel => CommonFunctions.GetDateLabel(End);
+
+        public DateTime AbsoluteStart => Start.HasValue ? Start.Value : DateTime.MinValue;
+
+        public DateTime AbsoluteEnd => End.HasValue ? End.Value : DateTime.MaxValue;
 
         #endregion Other Properties
 
         #region Methods
 
-        private string GetDateLabel(DateTime? date)
-        {
-            if (date.HasValue)
-            {
-                return date.Value.ToString("dd MMMM yyyy");
-            }
-            else
-            {
-                return "--";
-            }
-        }
+        
 
         #endregion Methods
     }

@@ -6,14 +6,5 @@
         <li class="nav-item"><a class="nav-link" asp-action="Edit" asp-route-id="@Model.Id"><h4>Edit</h4></a></li>
         <li class="nav-item"><a class="nav-link" asp-action="Delete" asp-route-id="@Model.Id"><h4>Delete</h4></a></li>
         <li class="nav-item"><a class="nav-link" asp-action="Details" asp-route-id="@Model.Id"><h4>Details</h4></a></li>
-        <!-- Dropdown -->
-        <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">
-                <h4>Lists</h4>
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" asp-action="ShipServicesList" asp-route-id="@Model.Id">Ship Services</a>
-            </div>
-        </li>
     </ul>
 </nav>

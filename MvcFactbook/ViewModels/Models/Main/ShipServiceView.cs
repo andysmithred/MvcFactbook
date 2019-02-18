@@ -1,6 +1,9 @@
-﻿using MvcFactbook.Models;
+﻿using MvcFactbook.Code.Classes;
+using MvcFactbook.Models;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace MvcFactbook.ViewModels.Models.Main
 {
@@ -67,12 +70,63 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public override string ListName => Name + ":" + Penant;
 
-        public bool HasFlag => Branch == null ? Branch.HasFlag : false;
+        public DateTime AbsoluteStartService => StartService.HasValue ? StartService.Value : DateTime.MinValue;
 
-        public FlagView Flag => HasFlag ? Branch.CurrentFlag : null;
+        public DateTime AbsoluteEndService => EndService.HasValue ? EndService.Value : DateTime.MaxValue;
 
-        public string ImageSource => Flag?.ImageSource;
+        public ICollection<BranchFlagView> BranchFlags => GetBranchFlags(AbsoluteStartService, AbsoluteEndService);
+
+        public bool HasFlag => BranchFlags.Count > 0;
+
+        public BranchFlagView CurrentBranchFlag => BranchFlags.OrderBy(x => x.AbsoluteStart).ToList().FirstOrDefault();
+
+        public FlagView CurrentFlag => CurrentBranchFlag?.Flag;
+
+        public string ImageSource => CurrentFlag?.ImageSource;
+
+        public string Image => CurrentFlag.Image;
+
+        public string StartServiceLabel => CommonFunctions.GetDateLabel(StartService);
+
+        public string EndServiceLabel => CommonFunctions.GetDateLabel(EndService);
 
         #endregion Other Properties
+
+        #region Methods
+
+
+        private ICollection<BranchFlagView> GetBranchFlags(DateTime startDate, DateTime endDate)
+        {
+            ICollection<BranchFlagView> result = new List<BranchFlagView>();
+
+            if(Branch != null)
+            {
+                foreach (var item in Branch.BranchFlags)
+                {
+                    if(IsValidBranchFlag(item, startDate,endDate))
+                    {
+                        result.Add(item);
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        private bool IsValidBranchFlag(BranchFlagView branchFlag, DateTime startDate, DateTime endDate)
+        {
+            if(branchFlag.AbsoluteEnd < startDate)
+            {
+                return false;
+            }
+            if(branchFlag.AbsoluteStart > endDate)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        #endregion Methods
     }
 }

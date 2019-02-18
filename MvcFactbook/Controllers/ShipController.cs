@@ -58,6 +58,11 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
+        public async Task<IActionResult> ShipServicesList(int? id)
+        {
+            return await base.Details(id);
+        }
+
         #endregion Details
 
         #region Create
@@ -158,7 +163,8 @@ namespace MvcFactbook.Controllers
         protected override Func<IQueryable<Ship>> GetItemsFunction()
         {
             return () => Context.Ship
-                                .Include(x => x.Builder);
+                            .Include(x => x.Builder)
+                            .Include(x => x.ShipServices).ThenInclude(x => x.Branch).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag);
         }
 
         protected override Func<Ship, bool> GetExistsFunc(int id)

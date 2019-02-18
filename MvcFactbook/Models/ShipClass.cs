@@ -22,7 +22,7 @@ namespace MvcFactbook.Models
         [Required]
         public string Name { get; set; }
 
-        [Display(Name = "Sub-class Name")]
+        [Display(Name = "Sub-class")]
         public string SubClassName { get; set; }
 
         public int? Displacement { get; set; }

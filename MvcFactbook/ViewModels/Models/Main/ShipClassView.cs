@@ -15,7 +15,7 @@ namespace MvcFactbook.ViewModels.Models.Main
         [Required]
         public string Name => ViewObject.Name;
 
-        [Display(Name = "Sub-class Name")]
+        [Display(Name = "Sub-class")]
         public string SubClassName => ViewObject.SubClassName;
 
         public int? Displacement => ViewObject.Displacement;
@@ -44,15 +44,15 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string SubClassNameLabel => String.IsNullOrEmpty(SubClassName) ? "--" : SubClassName;
 
-        public string DisplacementLabel => Displacement.HasValue ? Displacement.Value.ToString("N0") : "--";
+        public string DisplacementLabel => Displacement.HasValue ? Displacement.Value.ToString("N0") + " tons" : "--";
 
-        public string LengthLabel => Length.HasValue ? Length.Value.ToString("N0") : "--";
+        public string LengthLabel => Length.HasValue ? Length.Value.ToString("N0") + " m" : "--";
 
-        public string BeamLabel => Beam.HasValue ? Beam.Value.ToString("N0") : "--";
+        public string BeamLabel => Beam.HasValue ? Beam.Value.ToString("N0") + " m" : "--";
 
-        public string PropulsionLabel => Propulsion.HasValue ? Propulsion.Value.ToString("N0") : "--";
+        public string PropulsionLabel => Propulsion.HasValue ? Propulsion.Value.ToString("N0") + " hp" : "--";
 
-        public string SpeedLabel => Speed.HasValue ? Speed.Value.ToString("N0") : "--";
+        public string SpeedLabel => Speed.HasValue ? Speed.Value.ToString("N0") + " knots" : "--";
 
         public string CrewLabel => Crew.HasValue ? Crew.Value.ToString("N0") : "--";
 

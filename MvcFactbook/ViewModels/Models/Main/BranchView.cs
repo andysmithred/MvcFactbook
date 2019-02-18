@@ -1,5 +1,6 @@
 ﻿using MvcFactbook.Code.Classes;
 using MvcFactbook.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -55,9 +56,32 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string ImageSource => CurrentFlag?.ImageSource;
 
+        public string Image => CurrentFlag?.Image;
+
         #endregion Other Properties
 
         #region Methods
+
+        public FlagView GetFlagByDate(DateTime date)
+        {
+            if(BranchFlags.Count > 0)
+            {
+                foreach (var item in BranchFlags)
+                {
+                    if(item.AbsoluteStart <= date && date <= item.AbsoluteEnd)
+                    {
+                        return item.Flag;
+                    }
+                }
+
+                //If we get here return null
+                return null;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         #endregion Methods
     }
