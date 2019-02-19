@@ -45,6 +45,21 @@
     <div class="card border-0">
         <div class="card-header bg-secondary text-white">
             <div class="d-flex">
+                <div><h5>Details</h5></div>
+                <div class="ml-auto"><h5><i class="fas fa-info-circle"></i></h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.Id }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ArmedForce), Value = Model.ArmedForce.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Flag), Value = Model.Flag.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Start), Value = Model.StartLabel }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.End), Value = Model.EndLabel }' />
+        </div>
+    </div>
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
                 <div><h5>Armed Force</h5></div>
                 <div class="ml-auto"><h5><img src="~/images/icons/armedforce-light.png" style="height:20px;width:20px" /></h5></div>
             </div>

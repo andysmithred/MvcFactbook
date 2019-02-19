@@ -58,6 +58,11 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
+        public async Task<IActionResult> ShipServicesList(int? id)
+        {
+            return await base.Details(id);
+        }
+
         #endregion Details
 
         #region Create
@@ -151,7 +156,7 @@ namespace MvcFactbook.Controllers
         {
             return i => Context.ShipSubType
                         .Include(x => x.ShipType)
-                        .Include(x => x.ShipServices)
+                        .Include(x => x.ShipServices).ThenInclude(x => x.Branch).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag)
                         .FirstOrDefault(x => x.Id == i);
         }
 

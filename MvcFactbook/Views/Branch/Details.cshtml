@@ -96,7 +96,7 @@
         <div class="card-body bg-transparent">
             @if (Model.Flags.Count > 0)
             {
-                foreach (var item in Model.Flags.OrderBy(x => x.Name))
+                foreach (var item in Model.Flags.OrderByDescending(x => x.StartDate))
                 {
                     <partial name="ActionListFlag" model='new { Controller = "Flag", Action = "Details", Value = item.Name, RouteId = item.Id, Image = item.ImageSource }' />
                 }

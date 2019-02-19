@@ -20,6 +20,8 @@
         <hr />
         <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Branch), Value = Model.Branch.Name }' />
         <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Flag), Value = Model.Flag.Name }' />
+        <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Start), Value = Model.Start }' />
+        <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.End), Value = Model.End }' />
         <hr />
         <form asp-action="Delete">
             <input type="hidden" asp-for="Id" />

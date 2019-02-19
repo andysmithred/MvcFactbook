@@ -31,6 +31,20 @@
                 <select asp-for="FlagId" asp-items="ViewBag.Flags" class="form-control rounded-right"></select>
                 <span asp-validation-for="FlagId" class="text-danger"></span>
             </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Start" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Start" class="form-control rounded-right" />
+                <span asp-validation-for="Start" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="End" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="End" class="form-control rounded-right" />
+                <span asp-validation-for="End" class="text-danger"></span>
+            </div>
             <hr />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-dark" />

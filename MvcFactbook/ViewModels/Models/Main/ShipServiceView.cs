@@ -90,10 +90,14 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string EndServiceLabel => CommonFunctions.GetDateLabel(EndService);
 
+        [Display(Name = "Service")]
+        public TimeSpan TimeSpan => GetCareerTimepan();
+
+        public string TimeSpanLabel => CommonFunctions.Format(TimeSpan);
+
         #endregion Other Properties
 
         #region Methods
-
 
         private ICollection<BranchFlagView> GetBranchFlags(DateTime startDate, DateTime endDate)
         {
@@ -125,6 +129,36 @@ namespace MvcFactbook.ViewModels.Models.Main
             }
 
             return true;
+        }
+
+        private TimeSpan GetCareerTimepan()
+        {
+            if (StartService.HasValue)
+            {
+                if (Active)
+                {
+                    //Is active therefore will not have a decomissioned date, use DateTime.Now
+                    return DateTime.Now - StartService.Value;
+                }
+                else
+                {
+                    //Is not active, therefore will have been decomissioned.
+                    if (EndService.HasValue)
+                    {
+                        return EndService.Value - StartService.Value;
+                    }
+                    else
+                    {
+                        //No decomissioned value, therefore can't calculate.
+                        return TimeSpan.Zero;
+                    }
+                }
+            }
+            else
+            {
+                //Never commissioned (possibly fitting out)
+                return TimeSpan.Zero;
+            }
         }
 
         #endregion Methods

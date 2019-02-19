@@ -4,6 +4,7 @@
     .Grid(Model)
     .Build(columns =>
     {
+        columns.Add().Encoded(false).RenderedAs(model => $"<img class='rounded' src=" + model.Flag.ImageSource + " alt='Card image' style='height: 20px; width: 20px; object-fit: cover; overflow: hidden; opacity: 0.4'>");
         columns.Add(model => model.Branch.Name).Titled("Branch");
         columns.Add(model => model.Flag.Name).Titled("Flag");
         columns.Add(model => model.Start).Titled("Start date").Formatted("{0:d}");

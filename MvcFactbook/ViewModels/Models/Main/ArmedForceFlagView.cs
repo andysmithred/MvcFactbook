@@ -1,4 +1,5 @@
-﻿using MvcFactbook.Models;
+﻿using MvcFactbook.Code.Classes;
+using MvcFactbook.Models;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -42,6 +43,10 @@ namespace MvcFactbook.ViewModels.Models.Main
         #region Other Properties
 
         public override string ListName => ArmedForce.Name + ":" + Flag.Name;
+
+        public string StartLabel => CommonFunctions.GetDateLabel(Start);
+
+        public string EndLabel => CommonFunctions.GetDateLabel(End);
 
         #endregion Other Properties
     }
