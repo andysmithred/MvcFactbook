@@ -43,6 +43,10 @@ namespace MvcFactbook.Models
 
         public ICollection<ShipService> ShipServices { get; set; }
 
+        public ICollection<SucceedingClass> PrecedingClasses { get; set; }
+
+        public ICollection<SucceedingClass> SucceedingClasses { get; set; }
+
         #endregion Foreign Properties
     }
 }

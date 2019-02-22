@@ -2,7 +2,14 @@
 for details on configuring this project to bundle and minify static web assets. */
 body {
     /*padding-top: 50px;*/
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
+
+    font-family: objektiv-mk1, sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    color: white;
+    
+    /*font-size: 16px;*/
 }
 
 /* Wrapping element */
@@ -45,7 +52,7 @@ a:hover {
 
 .icon-bar {
     width: 50px; /* Set a specific width */
-    /*background-color: #555;*/ /* Dark-grey background */
+    /*background-color: #555;*/
 }
 
     .icon-bar a {
@@ -99,7 +106,7 @@ a:hover {
 /* Main content */
 .main {
     margin-left: 200px; /* Same as the width of the sidenav */
-    font-size: 20px; /* Increased text to enable scrolling */
+    font-size: 10px; /* Increased text to enable scrolling */
     padding: 0px 0px;
 }
 

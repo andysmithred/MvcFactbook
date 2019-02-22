@@ -16,7 +16,9 @@
         </div>
     </div>
     <div class="card-body bg-transparent text-dark">
-        <form asp-action="Create">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
             <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend w-25">
                     <label asp-for="Penant" class="input-group-text w-100"></label>

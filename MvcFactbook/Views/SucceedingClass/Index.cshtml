@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.SucceedingClassView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='IndexMenu' model='new { Title = "Succeeding Classes", Icon = "/images/icons/succeedingclass-light.png" }' />
+<br />
+<partial name="PartialListMainSucceedingClasses" model="@Model.OrderBy(x => x.PrecedingShipClass.Name).ToList()" />

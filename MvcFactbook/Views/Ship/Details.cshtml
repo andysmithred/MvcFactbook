@@ -40,7 +40,7 @@
         </div>
     }
 </div>
-<div class="card-deck w-75">
+<div class="card-deck">
     <div class="card border-0">
         <div class="card-header bg-secondary text-white">
             <div class="d-flex">
@@ -58,13 +58,24 @@
     <div class="card border-0">
         <div class="card-header bg-secondary text-white">
             <div class="d-flex">
+                <div><h5>Image</h5></div>
+                <div class="ml-auto"><h5><i class="fas fa-caret-down"></i></h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+           
+        </div>
+    </div>
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
                 <div><h5>Service</h5></div>
                 <div class="ml-auto">
                     <h5><a asp-controller="ShipService" asp-action="CreateByShip" asp-route-id="@Model.Id" style="color:white" title="Add Service"><i class="fas fa-plus"></i></a></h5>
                 </div>
             </div>
         </div>
-        <div class="card-body bg-transparent" style="height:250px;max-height:250px;overflow-y:auto;">
+        <div class="card-body bg-transparent" style="height:200px;max-height:200px;overflow-y:auto;">
             @if (Model.ShipServices.Count > 0)
             {
                 foreach (var item in Model.ShipServices.OrderBy(x => x.StartService))
@@ -77,5 +88,12 @@
                 <partial name="BasicListLabel" model='new { Value = "--", Icon = string.Empty }' />
             }
         </div>
+    </div>
+</div>
+<br />
+<div class="card border-0">
+    <div class="card-header bg-secondary text-white">Service</div>
+    <div class="card-body bg-dark p-0">
+        <partial name="PartialListDetailsShipServices" model="@Model.ShipServices.OrderBy(x => x.StartService)" />
     </div>
 </div>

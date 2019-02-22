@@ -26,6 +26,7 @@ namespace MvcFactbook.Models
         public virtual DbSet<ShipSubType> ShipSubType { get; set; }
         public virtual DbSet<ShipClass> ShipClass { get; set; }
         public virtual DbSet<ShipService> ShipService { get; set; }
+        public virtual DbSet<SucceedingClass> SucceedingClass { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -237,6 +238,26 @@ namespace MvcFactbook.Models
 
                 entity.Property(x => x.Active)
                     .IsRequired();
+            });
+
+            // Succeeding Class
+            modelBuilder.Entity<SucceedingClass>(entity =>
+            {
+                entity.Property(e => e.ShipClassId)
+                    .IsRequired();
+
+                entity.Property(e => e.SucceedingClassId)
+                    .IsRequired();
+
+                entity.HasOne(x => x.PrecedingShipClass)
+                    .WithMany(y => y.SucceedingClasses)
+                    .HasForeignKey(y => y.ShipClassId)
+                    .HasConstraintName("FK_SucceedingClass_ShipClassId_To_ShipClass");
+
+                entity.HasOne(x => x.SucceedingShipClass)
+                    .WithMany(f => f.PrecedingClasses)
+                    .HasForeignKey(f => f.SucceedingClassId)
+                    .HasConstraintName("FK_SucceedingClass_SucceedingClassId_To_ShipClass");
             });
         }
     }

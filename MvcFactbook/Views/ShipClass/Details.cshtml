@@ -81,3 +81,52 @@
         </div>
     </div>
 </div>
+<br />
+<div class="card-deck">
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Preceding Classes</h5></div>
+                <div class="ml-auto">
+                    <h5><a asp-controller="SucceedingClass" asp-action="CreatePrecedingShipClass" asp-route-id="@Model.Id" style="color:white" title="Add Class"><i class="fas fa-plus"></i></a></h5>
+                </div>
+            </div>
+        </div>
+        <div class="card-body bg-transparent" style="height:250px;max-height:250px;overflow-y:auto;">
+            @if (Model.PrecedingShipClasses.Count > 0)
+            {
+                foreach (var item in Model.PrecedingShipClasses)
+                {
+                    <partial name="ActionListLabel" model='new { Controller = "ShipClass", Action = "Details", Value = item.FullName, RouteId = item.Id, Icon = "/images/icons/shipclass-dark.png" }' />
+                }
+            }
+            else
+            {
+                <partial name="BasicListLabel" model='new { Value = "--", Icon = string.Empty }' />
+            }
+        </div>
+    </div>
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Succeeding Classes</h5></div>
+                <div class="ml-auto">
+                    <h5><a asp-controller="SucceedingClass" asp-action="CreateSucceedingShipClass" asp-route-id="@Model.Id" style="color:white" title="Add Class"><i class="fas fa-plus"></i></a></h5>
+                </div>
+            </div>
+        </div>
+        <div class="card-body bg-transparent" style="height:250px;max-height:250px;overflow-y:auto;">
+            @if (Model.SucceedingShipClasses.Count > 0)
+            {
+                foreach (var item in Model.SucceedingShipClasses)
+                {
+                    <partial name="ActionListLabel" model='new { Controller = "ShipClass", Action = "Details", Value = item.FullName, RouteId = item.Id, Icon = "/images/icons/shipclass-dark.png" }' />
+                }
+            }
+            else
+            {
+                <partial name="BasicListLabel" model='new { Value = "--", Icon = string.Empty }' />
+            }
+        </div>
+    </div>
+</div>

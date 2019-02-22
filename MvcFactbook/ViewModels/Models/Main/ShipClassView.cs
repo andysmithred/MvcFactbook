@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using MvcFactbook.Code.Classes;
 
 namespace MvcFactbook.ViewModels.Models.Main
 {
@@ -36,11 +38,17 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<ShipServiceView> ShipServices => GetViewList<ShipServiceView, ShipService>(ViewObject.ShipServices);
 
+        public ICollection<SucceedingClassView> PrecedingClasses => GetViewList<SucceedingClassView, SucceedingClass>(ViewObject.PrecedingClasses);
+
+        public ICollection<SucceedingClassView> SucceedingClasses => GetViewList<SucceedingClassView, SucceedingClass>(ViewObject.SucceedingClasses);
+
         #endregion Foreign Properties
 
         #region Other Properties
 
         public override string ListName => Name + ":" + SubClassNameLabel;
+
+        public string FullName => Name + " (" + SubClassNameLabel + ")";
 
         public string SubClassNameLabel => String.IsNullOrEmpty(SubClassName) ? "--" : SubClassName;
 
@@ -55,6 +63,10 @@ namespace MvcFactbook.ViewModels.Models.Main
         public string SpeedLabel => Speed.HasValue ? Speed.Value.ToString("N0") + " knots" : "--";
 
         public string CrewLabel => Crew.HasValue ? Crew.Value.ToString("N0") : "--";
+
+        public ICollection<ShipClassView> PrecedingShipClasses => PrecedingClasses.Select(x => x.PrecedingShipClass).Distinct(x => x.Id).ToList();
+
+        public ICollection<ShipClassView> SucceedingShipClasses => SucceedingClasses.Select(x => x.SucceedingShipClass).Distinct(x => x.Id).ToList();
 
         #endregion Other Properties
     }
