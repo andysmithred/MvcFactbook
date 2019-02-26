@@ -46,9 +46,9 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         #region Other Properties
 
-        public override string ListName => Name + ":" + SubClassNameLabel;
+        public override string ListName => Name + ":" + SubClassNameLabel + ":" + Year;
 
-        public string FullName => Name + " (" + SubClassNameLabel + ")";
+        public string FullName => Name + " (" + Year + ")";
 
         public string SubClassNameLabel => String.IsNullOrEmpty(SubClassName) ? "--" : SubClassName;
 
@@ -67,6 +67,23 @@ namespace MvcFactbook.ViewModels.Models.Main
         public ICollection<ShipClassView> PrecedingShipClasses => PrecedingClasses.Select(x => x.PrecedingShipClass).Distinct(x => x.Id).ToList();
 
         public ICollection<ShipClassView> SucceedingShipClasses => SucceedingClasses.Select(x => x.SucceedingShipClass).Distinct(x => x.Id).ToList();
+
+        public ICollection<ShipView> Ships => ShipServices.Select(x => x.Ship).Distinct(x => x.Id).ToList();
+
+        public ICollection<BranchView> Branches => ShipServices.Select(x => x.Branch).Distinct(x => x.Id).ToList();
+
+        public ICollection<ShipSubTypeView> ShipSubTypes => ShipServices.Select(x => x.ShipSubType).Distinct(x => x.Id).ToList();
+
+        public string Year => Ships.OrderBy(x => x.Launched).FirstOrDefault()?.Year;
+
+        public DateTime? StartService => ShipServices.OrderBy(x => x.StartService)?.FirstOrDefault().StartService;
+
+        public DateTime? EndService => ShipServices.OrderByDescending(x => x.EndService)?.FirstOrDefault().EndService;
+
+        [Display(Name = "Years Service")]
+        public TimeSpan? TimeSpan => CommonFunctions.GetTimepan(StartService, EndService);
+
+        public string TimeSpanLabel => CommonFunctions.Format(TimeSpan);
 
         #endregion Other Properties
     }

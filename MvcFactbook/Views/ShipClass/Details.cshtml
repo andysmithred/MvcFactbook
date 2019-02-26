@@ -10,14 +10,57 @@
 <partial name="DetailsHeader" />
 
 <div class="d-flex bg-dark">
+    @if (Model.Ships.Count > 0)
+    {
+        <div class="mr-3">
+            <a asp-action="ShipsList" asp-route-id="@Model.Id" class="text-dark">
+                <div class="d-flex alert bg-primary">
+                    <div><img src="~/images/icons/ship-dark.png" style="height:24px;width:24px" /></div>
+                    <div class="pl-3"><h5>Ships</h5></div>
+                    <div class="pl-3"><h5>@Model.Ships.Count</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
     @if (Model.ShipServices.Count > 0)
     {
         <div class="mr-3">
             <a asp-action="ShipServicesList" asp-route-id="@Model.Id" class="text-dark">
-                <div class="d-flex alert bg-primary">
+                <div class="d-flex alert bg-info">
                     <div><img src="~/images/icons/shipservice-dark.png" style="height:24px;width:24px" /></div>
                     <div class="pl-3"><h5>Services</h5></div>
                     <div class="pl-3"><h5>@Model.ShipServices.Count</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+    @foreach (var item in Model.Branches)
+    {
+        <div class="mr-3">
+            <a asp-controller="Branch" asp-action="Details" asp-route-id="@item.Id" class="text-dark">
+                <div class="d-flex alert bg-warning">
+                    <div><img class="rounded" src="@item.ImageSource" alt="Card image" style="height:25px;width:25px;object-fit: cover;overflow: hidden;opacity:0.3"></div>
+                    <div class="pl-3"><h5>@item.Name</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+    @foreach (var item in Model.ShipSubTypes)
+    {
+        <div class="mr-3">
+            <a asp-controller="ShipSubType" asp-action="Details" asp-route-id="@item.Id" class="text-dark">
+                <div class="d-flex alert bg-secondary">
+                    <div><img src="~/images/icons/shipsubtype-dark.png" style="height:24px;width:24px" /></div>
+                    <div class="pl-3"><h5>@item.Type</h5></div>
                     <div class="ml-auto pl-3">
                         <h5><i class='fas fa-angle-right'></i></h5>
                     </div>
@@ -39,6 +82,8 @@
             <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.Id }' />
             <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
             <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.SubClassName), Value = Model.SubClassName }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Year), Value = Model.Year }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.TimeSpan), Value = Model.TimeSpanLabel }' />
         </div>
     </div>
     <div class="card border-0">
@@ -57,6 +102,30 @@
             <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Crew), Value = Model.CrewLabel }' />
         </div>
     </div>
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Ships</h5></div>
+                <div class="ml-auto"><h5><img src="~/images/icons/ship-light.png" style="height:20px;width:20px" /></h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-transparent" style="height:250px;max-height:250px;overflow-y:auto;">
+            @if (Model.Ships.Count > 0)
+            {
+                foreach (var item in Model.Ships)
+                {
+                    <partial name="ActionListLabel" model='new { Controller = "Ship", Action = "Details", Value = item.ListName, RouteId = item.Id, Icon = "/images/icons/ship-dark.png" }' />
+                }
+            }
+            else
+            {
+                <partial name="BasicListLabel" model='new { Value = "--", Icon = string.Empty }' />
+            }
+        </div>
+    </div>
+</div>
+<br />
+<div class="card-deck">
     <div class="card border-0">
         <div class="card-header bg-secondary text-white">
             <div class="d-flex">
@@ -80,9 +149,6 @@
             }
         </div>
     </div>
-</div>
-<br />
-<div class="card-deck">
     <div class="card border-0">
         <div class="card-header bg-secondary text-white">
             <div class="d-flex">

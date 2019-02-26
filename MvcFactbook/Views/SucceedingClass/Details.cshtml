@@ -40,28 +40,28 @@
     }
 </div>
 <br />
-<div class="d-flex flex-row">
-    <div class="mr-auto w-50">
-        <div>
+<div class="card-deck">
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
             <div class="d-flex">
                 <div class="p-2"><img src="~/images/icons/shipclass-light.png" style="height:20px;width:20px" /></div>
                 <div class="p-2"><h5>Preceding Class</h5></div>
             </div>
         </div>
-        <div>
+        <div class="card-body bg-light rounded-bottom">
             <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.ShipClassId }' />
             <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.PrecedingShipClass), Value = Model.PrecedingShipClass.Name }' />
             <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.PrecedingShipClass.SubClassName), Value = Model.PrecedingShipClass.SubClassNameLabel }' />
         </div>
     </div>
-    <div class="mr-auto w-50">
-        <div>
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
             <div class="d-flex">
                 <div class="p-2"><h5><img src="~/images/icons/shipclass-light.png" style="height:20px;width:20px" /></h5></div>
                 <div class="p-2"><h5>Succeeding Class</h5></div>
             </div>
         </div>
-        <div>
+        <div class="card-body bg-light rounded-bottom">
             <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.SucceedingClassId }' />
             <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.SucceedingShipClass), Value = Model.SucceedingShipClass.Name }' />
             <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.SucceedingShipClass.SubClassName), Value = Model.SucceedingShipClass.SubClassNameLabel }' />

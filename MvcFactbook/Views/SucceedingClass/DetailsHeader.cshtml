@@ -1,18 +1,18 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.SucceedingClassView
 
-<div class="w-50">
+<div class="card alert alert-dark rounded p-2 w-100">
     <div class="d-flex">
-        <div>
-            <img src="~/images/icons/shipclass-light.png" style="height:40px;width:40px" />
+        <div class="p-2">
+            <img src="~/images/icons/shipclass-dark.png" style="height:40px;width:40px" />
         </div>
-        <div class="pl-3">
+        <div class="p-2 pl-3">
             <h3><strong>@Model.PrecedingShipClass.Name</strong></h3>
         </div>
-        <div class="pr-3 ml-auto">
+        <div class="p-2 pr-3 ml-auto">
             <h3><strong>@Model.SucceedingShipClass.Name</strong></h3>
         </div>
-        <div>
-            <img src="~/images/icons/shipclass-light.png" style="height:40px;width:40px" />
+        <div class="p-1">
+            <img src="~/images/icons/shipclass-dark.png" style="height:40px;width:40px" />
         </div>
     </div>
 </div>

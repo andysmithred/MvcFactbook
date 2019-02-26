@@ -1,13 +1,16 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ShipClassView
 
 <div class="alert alert-dark rounded p-2">
-    <div class="d-flex w-75">
+    <div class="d-flex">
         <div>
             <img class="card-img-top-50 rounded m-2" src="~/images/icons/shipclass-dark.png" alt="Card image" style="height:40px;">
         </div>
         <div class="p-2 pl-3">
             <h3><strong>@Model.Name</strong></h3>
             <h6><strong>@Model.SubClassName</strong></h6>
+        </div>
+        <div class="ml-auto p-2 pl-3">
+            <h3><strong>@Model.Year</strong></h3>
         </div>
     </div>
 </div>
