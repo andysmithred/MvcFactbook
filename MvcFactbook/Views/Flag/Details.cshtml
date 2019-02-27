@@ -29,7 +29,7 @@
     {
         <div class="mr-3">
             <a asp-action="BranchesList" asp-route-id="@Model.Id" class="text-dark">
-                <div class="d-flex alert bg-danger">
+                <div class="d-flex alert bg-warning">
                     <div><img src="~/images/icons/branch-dark.png" style="height:24px;width:24px" /></div>
                     <div class="pl-3"><h5>Branches</h5></div>
                     <div class="pl-3"><h5>@Model.Branches.Count</h5></div>
@@ -41,7 +41,6 @@
         </div>
     }
 </div>
-
 <div class="card-deck">
     <div class="card border-0">
         <div class="card-header bg-secondary text-white">

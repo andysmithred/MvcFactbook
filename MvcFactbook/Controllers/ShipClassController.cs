@@ -116,7 +116,14 @@ namespace MvcFactbook.Controllers
 
         protected override Func<IQueryable<ShipClass>> GetItemsFunction()
         {
-            return () => Context.ShipClass.Include(x => x.ShipServices);
+            return () => Context.ShipClass
+                        .Include(x => x.ShipServices).ThenInclude(x => x.Branch).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag)
+                        .Include(x => x.ShipServices).ThenInclude(x => x.ShipSubType)
+                        .Include(x => x.ShipServices).ThenInclude(x => x.Ship)
+                        .Include(x => x.PrecedingClasses).ThenInclude(x => x.PrecedingShipClass).ThenInclude(x => x.ShipServices).ThenInclude(x => x.Ship)
+                        .Include(x => x.PrecedingClasses).ThenInclude(x => x.SucceedingShipClass).ThenInclude(x => x.ShipServices).ThenInclude(x => x.Ship)
+                        .Include(x => x.SucceedingClasses).ThenInclude(x => x.PrecedingShipClass).ThenInclude(x => x.ShipServices).ThenInclude(x => x.Ship)
+                        .Include(x => x.SucceedingClasses).ThenInclude(x => x.SucceedingShipClass).ThenInclude(x => x.ShipServices).ThenInclude(x => x.Ship);
         }
 
         protected override Func<ShipClass, bool> GetExistsFunc(int id)

@@ -76,9 +76,9 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string Year => Ships.OrderBy(x => x.Launched).FirstOrDefault()?.Year;
 
-        public DateTime? StartService => ShipServices.OrderBy(x => x.StartService)?.FirstOrDefault().StartService;
+        public DateTime? StartService => ShipServices.OrderBy(x => x.StartService)?.FirstOrDefault()?.StartService;
 
-        public DateTime? EndService => ShipServices.OrderByDescending(x => x.EndService)?.FirstOrDefault().EndService;
+        public DateTime? EndService => ShipServices.OrderByDescending(x => x.EndService)?.FirstOrDefault()?.EndService;
 
         [Display(Name = "Years Service")]
         public TimeSpan? TimeSpan => CommonFunctions.GetTimepan(StartService, EndService);
