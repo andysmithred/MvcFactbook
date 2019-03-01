@@ -1,6 +1,8 @@
-﻿using MvcFactbook.Models;
+﻿using MvcFactbook.Code.Classes;
+using MvcFactbook.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace MvcFactbook.ViewModels.Models.Main
 {
@@ -33,6 +35,8 @@ namespace MvcFactbook.ViewModels.Models.Main
         #region Other Properties
 
         public override string ListName => Type;
+
+        public ICollection<BranchView> Branches => ShipServices.Select(x => x.Branch).Distinct(x => x.Id).ToList();
 
         #endregion Other Properties
 
