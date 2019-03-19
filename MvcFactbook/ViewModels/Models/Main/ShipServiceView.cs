@@ -78,7 +78,7 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public bool HasFlag => BranchFlags.Count > 0;
 
-        public BranchFlagView CurrentBranchFlag => BranchFlags.OrderBy(x => x.AbsoluteStart).ToList().FirstOrDefault();
+        public BranchFlagView CurrentBranchFlag => BranchFlags.OrderByDescending(x => x.AbsoluteStart).ToList().FirstOrDefault();
 
         public FlagView CurrentFlag => CurrentBranchFlag?.Flag;
 
