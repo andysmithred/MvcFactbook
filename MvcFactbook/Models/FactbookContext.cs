@@ -25,6 +25,8 @@ namespace MvcFactbook.Models
         public virtual DbSet<ShipType> ShipType { get; set; }
         public virtual DbSet<ShipSubType> ShipSubType { get; set; }
         public virtual DbSet<ShipClass> ShipClass { get; set; }
+        public virtual DbSet<ShipGroup> ShipGroup { get; set; }
+        public virtual DbSet<ShipGroupSet> ShipGroupSet { get; set; }
         public virtual DbSet<ShipService> ShipService { get; set; }
         public virtual DbSet<SucceedingClass> SucceedingClass { get; set; }
 
@@ -205,6 +207,33 @@ namespace MvcFactbook.Models
             {
                 entity.Property(e => e.Name)
                     .IsRequired();
+            });
+
+            // Ship Group
+            modelBuilder.Entity<ShipGroup>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .IsRequired();
+            });
+
+            // Ship Group Set
+            modelBuilder.Entity<ShipGroupSet>(entity =>
+            {
+                entity.Property(e => e.ShipServiceId)
+                    .IsRequired();
+
+                entity.Property(e => e.ShipGroupId)
+                    .IsRequired();
+
+                entity.HasOne(x => x.ShipService)
+                    .WithMany(y => y.ShipGroupSets)
+                    .HasForeignKey(y => y.ShipServiceId)
+                    .HasConstraintName("FK_ShipGroupSet_To_ShipService");
+
+                entity.HasOne(x => x.ShipGroup)
+                    .WithMany(f => f.ShipGroupSets)
+                    .HasForeignKey(f => f.ShipGroupId)
+                    .HasConstraintName("FK_ShipGroupSet_To_ShipGroup");
             });
 
             // Ship Service

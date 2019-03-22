@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MvcFactbook.Models
@@ -9,7 +10,7 @@ namespace MvcFactbook.Models
 
         public ShipService()
         {
-
+            ShipGroupSets = new HashSet<ShipGroupSet>();
         }
 
         #endregion Constructor
@@ -65,6 +66,8 @@ namespace MvcFactbook.Models
         public ShipSubType ShipSubType { get; set; }
 
         public Branch Branch { get; set; }
+
+        public ICollection<ShipGroupSet> ShipGroupSets { get; set; }
 
         #endregion Foreign Properties
     }

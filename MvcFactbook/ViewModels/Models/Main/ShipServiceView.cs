@@ -64,6 +64,8 @@ namespace MvcFactbook.ViewModels.Models.Main
         [Display(Name = "Branch")]
         public BranchView Branch => GetView<BranchView, Branch>(ViewObject.Branch);
 
+        public ICollection<ShipGroupSetView> ShipGroupSets => GetViewList<ShipGroupSetView, ShipGroupSet>(ViewObject.ShipGroupSets);
+
         #endregion Foreign Properties
 
         #region Other Properties
@@ -94,6 +96,8 @@ namespace MvcFactbook.ViewModels.Models.Main
         public TimeSpan TimeSpan => GetCareerTimepan();
 
         public string TimeSpanLabel => CommonFunctions.Format(TimeSpan);
+
+        public ICollection<ShipGroupView> ShipGroups => ShipGroupSets.Select(f => f.ShipGroup).Distinct(f => f.Id).ToList();
 
         #endregion Other Properties
 

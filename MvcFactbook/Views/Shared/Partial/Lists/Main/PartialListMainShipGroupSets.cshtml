@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.ShipGroupSetView>
+
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add().Encoded(false).RenderedAs(model => $"<img src='/images/icons/shipgroupset-light.png' style='height: 20px; width: 20px' />");
+        columns.Add(model => model.ShipService.Name).Titled("Ship");
+        columns.Add(model => model.ShipGroup.Name).Titled("Group");
+        columns.Add().Encoded(false).RenderedAs(model =>
+            "<div class='btn-group float-right'>" +
+                $"<a class='btn btn-secondary btn-sm rounded-left' href='/ShipGroupSet/Edit/{model.Id}'>Edit</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded-0' href='/ShipGroupSet/Details/{model.Id}'>Details</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded-right' href='/ShipGroupSet/Delete/{model.Id}'>Delete</a>" +
+            "</div>"
+        );
+    })
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+    .AppendCss("table-dark table-striped table-hover rounded-bottom")
+)

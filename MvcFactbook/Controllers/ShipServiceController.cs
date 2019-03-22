@@ -299,6 +299,7 @@ namespace MvcFactbook.Controllers
                         .Include(x => x.ShipSubType).ThenInclude(x => x.ShipType).ThenInclude(x => x.ShipCategory)
                         .Include(x => x.Branch).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag)
                         .Include(x => x.Branch).ThenInclude(x => x.ArmedForce)
+                        .Include(x => x.ShipGroupSets).ThenInclude(x => x.ShipGroup)
                         .FirstOrDefault(x => x.Id == i);
         }
 

@@ -149,12 +149,24 @@
     <div class="card border-0">
         <div class="card-header bg-secondary text-white">
             <div class="d-flex">
-                <div><h5>Ship</h5></div>
-                <div class="ml-auto"><h5><img src="~/images/icons/shipclass-light.png" style="height:20px;width:20px" /></h5></div>
+                <div><h5>Ship Groups</h5></div>
+                <div class="ml-auto">
+                    <h5><a asp-controller="ShipGroupSet" asp-action="CreateByShipService" asp-route-id="@Model.Id" style="color:white" title="Add Ship Group"><i class="fas fa-plus"></i></a></h5>
+                </div>
             </div>
         </div>
-        <div class="card-body bg-light rounded-bottom">
-            
+        <div class="card-body bg-transparent" style="height:200px;max-height:200px;overflow-y:auto;">
+            @if (Model.ShipGroups.Count > 0)
+            {
+                foreach (var item in Model.ShipGroups.OrderBy(x => x.Name))
+                {
+                    <partial name="ActionListLabel" model='new { Controller = "ShipGroup", Action = "Details", Value = item.Name, RouteId = item.Id, Icon = item.IconDarkFullPath }' />
+                }
+            }
+            else
+            {
+                <partial name="BasicListLabel" model='new { Value = "--", Icon = string.Empty }' />
+            }
         </div>
     </div>
 </div>
