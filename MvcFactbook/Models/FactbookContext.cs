@@ -20,6 +20,7 @@ namespace MvcFactbook.Models
         public virtual DbSet<BranchType> BranchType { get; set; }
         public virtual DbSet<Builder> Builder { get; set; }
         public virtual DbSet<Flag> Flag { get; set; }
+        public virtual DbSet<PoliticalEntityType> PoliticalEntityType { get; set; }
         public virtual DbSet<Ship> Ship { get; set; }
         public virtual DbSet<ShipCategory> ShipCategory { get; set; }
         public virtual DbSet<ShipType> ShipType { get; set; }
@@ -155,6 +156,13 @@ namespace MvcFactbook.Models
             modelBuilder.Entity<Builder>(entity =>
             {
                 entity.Property(e => e.Name)
+                    .IsRequired();
+            });
+
+            // Political Entity Type
+            modelBuilder.Entity<PoliticalEntityType>(entity =>
+            {
+                entity.Property(e => e.Type)
                     .IsRequired();
             });
 
