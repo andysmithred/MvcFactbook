@@ -1,0 +1,25 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.PoliticalEntityView>
+
+    @(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add().Encoded(false).RenderedAs(model => $"<img src='/images/icons/embassy-light.png' style='height: 20px; width: 20px' />");
+        columns.Add(model => model.ShortName).Titled("Short Name");
+        columns.Add(model => model.Name).Titled("Name");
+        columns.Add(model => model.FullName).Titled("Full Name");
+        columns.Add(model => model.Code).Titled("Code");
+        columns.Add().Encoded(false).RenderedAs(model =>
+            "<div class='btn-group float-right'>" +
+                $"<a class='text-white pl-2' href='/PoliticalEntity/Edit/{model.Id}'> Edit </a>" +
+                $"<a class='text-white pl-2' href='/PoliticalEntity/Details/{model.Id}'> Details </a>" +
+                $"<a class='text-white pl-2' href='/PoliticalEntity/Delete/{model.Id}'> Delete </a>" +
+            "</div>"
+        );
+    })
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+    .AppendCss("table-hover")
+    )

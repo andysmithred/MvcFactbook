@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.PoliticalEntityTypeView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='IndexMenu' model='new { Title = "Political Entity Types", Icon = "/images/icons/government-light.png" }' />
+<br />
+<partial name="PartialListMainPoliticalEntityTypes" model="@Model" />

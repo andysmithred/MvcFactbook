@@ -12,7 +12,8 @@ namespace MvcFactbook.Models
 
         public PoliticalEntityType()
         {
-            //BranchFlags = new HashSet<BranchFlag>();
+            PoliticalEntities = new HashSet<PoliticalEntity>();
+
            // ShipServices = new HashSet<ShipService>();
         }
 
@@ -31,7 +32,7 @@ namespace MvcFactbook.Models
 
         #region Foreign Properties
 
-        //public ICollection<BranchFlag> BranchFlags { get; set; }
+        public ICollection<PoliticalEntity> PoliticalEntities { get; set; }
 
         //public ICollection<ShipService> ShipServices { get; set; }
 

@@ -12,6 +12,7 @@ namespace MvcFactbook.Models
         {
             ArmedForceFlags = new HashSet<ArmedForceFlag>();
             BranchFlags = new HashSet<BranchFlag>();
+            PoliticalEntityFlags = new HashSet<PoliticalEntityFlag>();
         }
 
         #endregion Constructor
@@ -50,6 +51,8 @@ namespace MvcFactbook.Models
         public ICollection<ArmedForceFlag> ArmedForceFlags { get; set; }
 
         public ICollection<BranchFlag> BranchFlags { get; set; }
+
+        public ICollection<PoliticalEntityFlag> PoliticalEntityFlags { get; set; }
 
         #endregion Foreign Properties
     }

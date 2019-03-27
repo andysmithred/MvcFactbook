@@ -20,6 +20,8 @@ namespace MvcFactbook.Models
         public virtual DbSet<BranchType> BranchType { get; set; }
         public virtual DbSet<Builder> Builder { get; set; }
         public virtual DbSet<Flag> Flag { get; set; }
+        public virtual DbSet<PoliticalEntity> PoliticalEntity { get; set; }
+        public virtual DbSet<PoliticalEntityFlag> PoliticalEntityFlag { get; set; }
         public virtual DbSet<PoliticalEntityType> PoliticalEntityType { get; set; }
         public virtual DbSet<Ship> Ship { get; set; }
         public virtual DbSet<ShipCategory> ShipCategory { get; set; }
@@ -35,8 +37,8 @@ namespace MvcFactbook.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\Users\\AndyS\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\MvcFactbook\\MvcFactbook\\Database\\MvcFactbook.mdf; Integrated Security = True;Connect Timeout=30");
-                //optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\dev\\MvcFactbook\\MvcFactbook\\Database\\MvcFactbook.mdf; Integrated Security = True;Connect Timeout=30");
+                //optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\Users\\AndyS\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\MvcFactbook\\MvcFactbook\\Database\\MvcFactbook.mdf; Integrated Security = True;Connect Timeout=30");
+                optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\dev\\MvcFactbook\\MvcFactbook\\Database\\MvcFactbook.mdf; Integrated Security = True;Connect Timeout=30");
             }
         }
 
@@ -157,6 +159,54 @@ namespace MvcFactbook.Models
             {
                 entity.Property(e => e.Name)
                     .IsRequired();
+            });
+
+            // Political Entity
+            modelBuilder.Entity<PoliticalEntity>(entity =>
+            {
+                entity.Property(e => e.ShortName)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Name)
+                    .IsRequired();
+
+                entity.Property(e => e.Code)
+                    .IsRequired();
+
+                entity.Property(e => e.Exists)
+                    .IsRequired();
+
+                entity.Property(e => e.HasEmblem)
+                    .IsRequired();
+
+                entity.Property(e => e.PoliticalEntityTypeId)
+                    .IsRequired();
+
+                entity.HasOne(x => x.PoliticalEntityType)
+                    .WithMany(y => y.PoliticalEntities)
+                    .HasForeignKey(y => y.PoliticalEntityTypeId)
+                    .HasConstraintName("FK_PoliticalEntity_To_PoliticalEntityType");
+            });
+
+            // Political Entity Flag
+            modelBuilder.Entity<PoliticalEntityFlag>(entity =>
+            {
+                entity.Property(e => e.PoliticalEntityId)
+                    .IsRequired();
+
+                entity.Property(e => e.FlagId)
+                    .IsRequired();
+
+                entity.HasOne(x => x.PoliticalEntity)
+                    .WithMany(y => y.PoliticalEntityFlags)
+                    .HasForeignKey(y => y.PoliticalEntityId)
+                    .HasConstraintName("FK_PolitcalEntityFlag_To_PoliticalEntity");
+
+                entity.HasOne(x => x.Flag)
+                    .WithMany(f => f.PoliticalEntityFlags)
+                    .HasForeignKey(f => f.FlagId)
+                    .HasConstraintName("FK_PolitcalEntityFlag_To_Flag");
             });
 
             // Political Entity Type
