@@ -58,6 +58,12 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<PoliticalEntityFlagView> PoliticalEntityFlags => GetViewList<PoliticalEntityFlagView, PoliticalEntityFlag>(ViewObject.PoliticalEntityFlags);
 
+        [Display(Name = "Preceding Entities")]
+        public ICollection<PoliticalEntitySucceedingView> PrecedingEntities => GetViewList<PoliticalEntitySucceedingView, PoliticalEntitySucceeding>(ViewObject.PrecedingEntities);
+
+        [Display(Name = "Succeeding Entities")]
+        public ICollection<PoliticalEntitySucceedingView> SucceedingEntities => GetViewList<PoliticalEntitySucceedingView, PoliticalEntitySucceeding>(ViewObject.SucceedingEntities);
+
         #endregion Foreign Properties
 
         #region Other Properties
@@ -81,6 +87,10 @@ namespace MvcFactbook.ViewModels.Models.Main
         public string ImageSource => CurrentFlag?.ImageSource;
 
         public string Image => CurrentFlag?.Image;
+
+        public ICollection<PoliticalEntityView> PrecedingPoliticalEntities => PrecedingEntities.Select(x => x.PrecedingEntity).Distinct(x => x.Id).ToList();
+
+        public ICollection<PoliticalEntityView> SucceedingPoliticalEntities => SucceedingEntities.Select(x => x.SucceedingEntity).Distinct(x => x.Id).ToList();
 
         #endregion Other Properties
 

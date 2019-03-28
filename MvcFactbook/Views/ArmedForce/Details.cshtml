@@ -4,22 +4,21 @@
     ViewData["Title"] = "Details";
 }
 
-<br />
 <partial name="DetailsMenu" />
 <br />
 <partial name="DetailsHeader" />
-
-<div class="d-flex bg-dark">
+<hr class="bg-secondary" />
+<div class="d-flex mt-3 p-2">
     @if (Model.Flags.Count > 0)
     {
-        <div class="mr-3">
+        <div class="mr-4">
             <a asp-action="FlagsList" asp-route-id="@Model.Id" class="text-dark">
-                <div class="d-flex alert bg-success">
-                    <div><img src="~/images/icons/flag-dark.png" style="height:24px;width:24px" /></div>
-                    <div class="pl-3"><h5>Flags</h5></div>
-                    <div class="pl-3"><h5>@Model.Flags.Count</h5></div>
+                <div class="d-flex">
+                    <div><img src="~/images/icons/flag-light.png" style="height:20px;width:20px" /></div>
+                    <div class="pl-3 text-white">Flags</div>
+                    <div class="pl-3 text-white">@Model.Flags.Count</div>
                     <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right'></i></h5>
+                        <h5><i class='fas fa-angle-right text-white'></i></h5>
                     </div>
                 </div>
             </a>
@@ -27,80 +26,83 @@
     }
     @if (Model.Branches.Count > 0)
     {
-        <div class="mr-3">
+        <div class="mr-4">
             <a asp-action="BranchesList" asp-route-id="@Model.Id" class="text-dark">
-                <div class="d-flex alert bg-warning">
-                    <div><img src="~/images/icons/branch-dark.png" style="height:24px;width:24px" /></div>
-                    <div class="pl-3"><h5>Branches</h5></div>
-                    <div class="pl-3"><h5>@Model.Branches.Count</h5></div>
+                <div class="d-flex">
+                    <div><img src="~/images/icons/branch-light.png" style="height:20px;width:20px" /></div>
+                    <div class="pl-3 text-white">Branches</div>
+                    <div class="pl-3 text-white">@Model.Branches.Count</div>
                     <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right'></i></h5>
+                        <h5><i class='fas fa-angle-right text-white'></i></h5>
                     </div>
                 </div>
             </a>
         </div>
     }
 </div>
-
-<div class="card-deck">
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Details</h5></div>
-                <div class="ml-auto"><h5><i class="fas fa-info-circle"></i></h5></div>
-            </div>
-        </div>
-        <div class="card-body bg-light rounded-bottom">
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.Id }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Code), Value = Model.Code }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Budget), Value = Model.BudgetLabel }' />
-        </div>
+<hr class="bg-secondary" />
+<div class="d-flex flex-row flex-wrap mt-2">
+    <div class="flex-fill p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Id)</h6></div>
+        <div class="text-white"><h4>@Model.Id</h4></div>
     </div>
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Flags</h5></div>
-                <div class="ml-auto">
-                    <h5><a asp-controller="ArmedForceFlag" asp-action="CreateByArmedForce" asp-route-id="@Model.Id" style="color:white" title="Add Flag"><i class="fas fa-plus"></i></a></h5>
-                </div>
-            </div>
-        </div>
-        <div class="card-body bg-transparent">
-            @if (Model.Flags.Count > 0)
-            {
-                foreach (var item in Model.Flags.OrderByDescending(x => x.StartDate))
-                {
-                    <partial name="ActionListFlag" model='new { Controller = "Flag", Action = "Details", Value = item.Name, RouteId = item.Id, Image = item.ImageSource }' />
-                }
-            }
-            else
-            {
-                <partial name="BasicListLabel" model='new { Value = "--", Icon = string.Empty }' />
-            }
-        </div>
+    <div class="flex-fill p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Name)</h6></div>
+        <div class="text-white"><h4>@Model.Name</h4></div>
     </div>
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Branches</h5></div>
-                <div class="ml-auto">
-                    <h5><a asp-controller="Branch" asp-action="CreateByArmedForce" asp-route-id="@Model.Id" style="color:white" title="Add Branch"><i class="fas fa-plus"></i></a></h5>
-                </div>
-            </div>
-        </div>
-        <div class="card-body bg-transparent">
-            @if (Model.Branches.Count > 0)
-            {
-                foreach (var item in Model.Branches.OrderBy(x => x.Name))
-                {
-                    <partial name="ActionListFlag" model='new { Controller = "Branch", Action = "Details", Value = item.Name, RouteId = item.Id, Image = item.CurrentFlag?.ImageSource }' />
-                }
-            }
-            else
-            {
-                <partial name="BasicListLabel" model='new { Value = "--", Icon = string.Empty }' />
-            }
-        </div>
+    <div class="flex-fill p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Code)</h6></div>
+        <div class="text-white"><h4>@Model.Code</h4></div>
+    </div>
+    <div class="flex-fill p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Budget)</h6></div>
+        <div class="text-white"><h4>@Model.BudgetLabel</h4></div>
     </div>
 </div>
+<hr class="bg-secondary" />
+@if (Model.Branches.Count > 0)
+{
+    <div class="text-muted p-2"><h5>Branches</h5></div>
+    <div class="d-flex flex-row flex-wrap mt-2">
+        @foreach (var item in Model.Branches.OrderBy(x => x.Name))
+        {
+            <div class="pr-4 pl-2 w-25">
+                <a asp-controller="Branch" asp-action="Details" asp-route-id="@item.Id">
+                    <div class="d-flex flex-row">
+                        <div class="pt-2 pr-2">
+                            <img class="rounded" src="@item.ImageSource" alt="Card image" style="height:40px;width:40px;object-fit: cover;overflow: hidden;opacity:0.4" />
+                        </div>
+                        <div class="p-2">
+                            <div class="text-white"><h4>@item.Name</h4></div>
+                            <div class="text-muted"><h6>@item.BranchType.Type</h6></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+    <hr class="bg-secondary" />
+}
+@if (Model.ArmedForceFlags.Count > 0)
+{
+    <div class="text-muted p-2"><h5>Flags</h5></div>
+    <div class="d-flex flex-row flex-wrap mt-2">
+        @foreach (var item in Model.ArmedForceFlags.OrderBy(x => x.Start))
+        {
+            <div class="pr-4 pl-2 w-25">
+                <a asp-controller="Flag" asp-action="Details" asp-route-id="@item.FlagId">
+                    <div class="d-flex flex-row">
+                        <div class="pt-2 pr-2">
+                            <img class="rounded" src="@item.Flag.ImageSource" alt="Card image" style="height:40px;width:40px;object-fit: cover;overflow: hidden;opacity:0.4" />
+                        </div>
+                        <div class="p-2">
+                            <div class="text-white"><h4>@item.Flag.Name</h4></div>
+                            <div class="text-muted"><h6>@item.StartLabel to @item.EndLabel</h6></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+    <hr class="bg-secondary" />
+}

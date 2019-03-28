@@ -11,9 +11,9 @@
             //columns.Add(model => model.Budget.HasValue ? model.Budget.Value : "--").Titled("Budget");
             columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-right'>" +
-                    $"<a class='btn btn-secondary btn-sm rounded-left' href='/ArmedForce/Edit/{model.Id}'>Edit</a>" +
-                    $"<a class='btn btn-secondary btn-sm rounded-0' href='/ArmedForce/Details/{model.Id}'>Details</a>" +
-                    $"<a class='btn btn-secondary btn-sm rounded-right' href='/ArmedForce/Delete/{model.Id}'>Delete</a>" +
+                    $"<a class='text-white pl-2' href='/ArmedForce/Edit/{model.Id}'>Edit</a>" +
+                    $"<a class='text-white pl-2' href='/ArmedForce/Details/{model.Id}'>Details</a>" +
+                    $"<a class='text-white pl-2' href='/ArmedForce/Delete/{model.Id}'>Delete</a>" +
                 "</div>"
             );
         })
@@ -21,5 +21,5 @@
         .Filterable()
         .Sortable()
         .Pageable()
-        .AppendCss("table-dark table-striped table-hover rounded-bottom")
+        .AppendCss("table-hover")
 )

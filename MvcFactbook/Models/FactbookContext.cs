@@ -23,6 +23,7 @@ namespace MvcFactbook.Models
         public virtual DbSet<PoliticalEntity> PoliticalEntity { get; set; }
         public virtual DbSet<PoliticalEntityFlag> PoliticalEntityFlag { get; set; }
         public virtual DbSet<PoliticalEntityType> PoliticalEntityType { get; set; }
+        public virtual DbSet<PoliticalEntitySucceeding> PoliticalEntitySucceeding { get; set; }
         public virtual DbSet<Ship> Ship { get; set; }
         public virtual DbSet<ShipCategory> ShipCategory { get; set; }
         public virtual DbSet<ShipType> ShipType { get; set; }
@@ -37,8 +38,8 @@ namespace MvcFactbook.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\Users\\AndyS\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\MvcFactbook\\MvcFactbook\\Database\\MvcFactbook.mdf; Integrated Security = True;Connect Timeout=30");
-                optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\dev\\MvcFactbook\\MvcFactbook\\Database\\MvcFactbook.mdf; Integrated Security = True;Connect Timeout=30");
+                optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\Users\\AndyS\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\MvcFactbook\\MvcFactbook\\Database\\MvcFactbook.mdf; Integrated Security = True;Connect Timeout=30");
+                //optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\dev\\MvcFactbook\\MvcFactbook\\Database\\MvcFactbook.mdf; Integrated Security = True;Connect Timeout=30");
             }
         }
 
@@ -214,6 +215,26 @@ namespace MvcFactbook.Models
             {
                 entity.Property(e => e.Type)
                     .IsRequired();
+            });
+
+            // Political Entity Succeeding
+            modelBuilder.Entity<PoliticalEntitySucceeding>(entity =>
+            {
+                entity.Property(e => e.PoliticalEntityId)
+                    .IsRequired();
+
+                entity.Property(e => e.SucceedingPoliticalEntityId)
+                    .IsRequired();
+
+                entity.HasOne(x => x.PrecedingPoliticalEntity)
+                    .WithMany(y => y.SucceedingEntities)
+                    .HasForeignKey(y => y.PoliticalEntityId)
+                    .HasConstraintName("FK_PoliticalEntitySucceeding_PoliticalEntityId_To_PoliticalEntity");
+
+                entity.HasOne(x => x.SucceedingPoliticalEntity)
+                    .WithMany(f => f.PrecedingEntities)
+                    .HasForeignKey(f => f.SucceedingPoliticalEntityId)
+                    .HasConstraintName("FK_PoliticalEntitySucceeding_SucceedingPoliticalEntityId_To_PoliticalEntity");
             });
 
             // Ship

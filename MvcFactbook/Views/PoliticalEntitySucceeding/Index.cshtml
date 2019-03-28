@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.PoliticalEntitySucceedingView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='IndexMenu' model='new { Title = "Succeeding Entities", Icon = "/images/icons/succeedingclass-light.png" }' />
+<br />
+<partial name="PartialListMainSucceedingPoliticalEntities" model="@Model.OrderBy(x => x.PrecedingEntity.Name).ToList()" />

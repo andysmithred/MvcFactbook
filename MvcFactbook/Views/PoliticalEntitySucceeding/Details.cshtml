@@ -1,0 +1,113 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.PoliticalEntitySucceedingView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+<hr class="bg-secondary" />
+<div class="d-flex mt-3 p-2">
+    @if (Model.PrecedingEntity != null)
+    {
+        <div class="mr-5">
+            <a asp-controller="PoliticalEntity" asp-action="Details" asp-route-id="@Model.PoliticalEntityId">
+                <div class="d-flex">
+                    <div><img class="rounded" src="@Model.PrecedingEntity.ImageSource" alt="Card image" style="height:25px;width:25px;object-fit: cover;overflow: hidden;opacity:0.3"></div>
+                    <div class="pl-3 text-white">@Model.PrecedingEntity.ListName</div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right text-white'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+    @if (Model.SucceedingEntity != null)
+    {
+        <div class="mr-5">
+            <a asp-controller="PoliticalEntity" asp-action="Details" asp-route-id="@Model.SucceedingPoliticalEntityId">
+                <div class="d-flex">
+                    <div><img class="rounded" src="@Model.SucceedingEntity.ImageSource" alt="Card image" style="height:25px;width:25px;object-fit: cover;overflow: hidden;opacity:0.3"></div>
+                    <div class="pl-3 text-white">@Model.SucceedingEntity.ListName</div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right text-white'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+<hr class="bg-secondary" />
+<div class="text-muted p-2"><h5>Preceding Entity</h5></div>
+<div class="d-flex flex-row flex-wrap mt-2">
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PrecedingEntity.Id)</h6></div>
+        <div class="text-white"><h4>@Model.PrecedingEntity.Id</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PrecedingEntity.ShortName)</h6></div>
+        <div class="text-white"><h4>@Model.PrecedingEntity.ShortName</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PrecedingEntity.Name)</h6></div>
+        <div class="text-white"><h4>@Model.PrecedingEntity.Name</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PrecedingEntity.FullName)</h6></div>
+        <div class="text-white"><h4>@Model.PrecedingEntity.FullName</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PrecedingEntity.Code)</h6></div>
+        <div class="text-white"><h4>@Model.PrecedingEntity.Code</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PrecedingEntity.StartDate)</h6></div>
+        <div class="text-white"><h4>@Model.PrecedingEntity.StartDateLabel</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PrecedingEntity.EndDate)</h6></div>
+        <div class="text-white"><h4>@Model.PrecedingEntity.EndDateLabel</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PrecedingEntity.PoliticalEntityType)</h6></div>
+        <div class="text-white"><h4>@Model.PrecedingEntity.PoliticalEntityType.Type</h4></div>
+    </div>
+</div>
+<hr class="bg-secondary" />
+<div class="text-muted p-2"><h5>Succeeding Entity</h5></div>
+<div class="d-flex flex-row flex-wrap mt-2">
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.SucceedingEntity.Id)</h6></div>
+        <div class="text-white"><h4>@Model.SucceedingEntity.Id</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.SucceedingEntity.ShortName)</h6></div>
+        <div class="text-white"><h4>@Model.SucceedingEntity.ShortName</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.SucceedingEntity.Name)</h6></div>
+        <div class="text-white"><h4>@Model.SucceedingEntity.Name</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.SucceedingEntity.FullName)</h6></div>
+        <div class="text-white"><h4>@Model.SucceedingEntity.FullName</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.SucceedingEntity.Code)</h6></div>
+        <div class="text-white"><h4>@Model.SucceedingEntity.Code</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.SucceedingEntity.StartDate)</h6></div>
+        <div class="text-white"><h4>@Model.SucceedingEntity.StartDateLabel</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.SucceedingEntity.EndDate)</h6></div>
+        <div class="text-white"><h4>@Model.SucceedingEntity.EndDateLabel</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.SucceedingEntity.PoliticalEntityType)</h6></div>
+        <div class="text-white"><h4>@Model.SucceedingEntity.PoliticalEntityType.Type</h4></div>
+    </div>
+</div>
+<hr class="bg-secondary" />

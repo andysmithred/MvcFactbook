@@ -61,10 +61,11 @@ namespace MvcFactbook.Models
         [Display(Name = "Political Entity Type")]
         public PoliticalEntityType PoliticalEntityType { get; set; }
 
-        [Display(Name = "Political Entity Flags")]
         public ICollection<PoliticalEntityFlag> PoliticalEntityFlags { get; set; }
 
-        //public ICollection<BranchFlag> BranchFlags { get; set; }
+        public ICollection<PoliticalEntitySucceeding> PrecedingEntities { get; set; }
+
+        public ICollection<PoliticalEntitySucceeding> SucceedingEntities { get; set; }
 
         #endregion Foreign Properties
     }

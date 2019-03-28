@@ -11,7 +11,7 @@
         columns.Add(model => model.End).Titled("End Date").Formatted("{0:d}");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
-                $"<a class='btn btn-secondary btn-sm rounded' href='/ArmedForceFlag/Details/{model.Id}'>Details</a>" +
+                $"<a class='text-white pl-2' href='/ArmedForceFlag/Details/{model.Id}'>Details</a>" +
             "</div>"
         );
     })
@@ -19,5 +19,5 @@
     .Filterable()
     .Sortable()
     .Pageable()
-    .AppendCss("table-dark table-striped table-hover rounded-bottom")
+    .AppendCss("table-hover")
 )
