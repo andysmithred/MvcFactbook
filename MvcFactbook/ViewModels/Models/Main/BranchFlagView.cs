@@ -49,11 +49,13 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public DateTime AbsoluteEnd => End.HasValue ? End.Value : DateTime.MaxValue;
 
+        public string DateLabel => CommonFunctions.GetDateLabel(Start, End);
+
         #endregion Other Properties
 
         #region Methods
 
-        
+
 
         #endregion Methods
     }

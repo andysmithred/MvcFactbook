@@ -1,0 +1,32 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipServiceView
+
+<div class="d-flex flex-row flex-wrap mt-2">
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Ship)</h6></div>
+        <div class="text-white"><h4>@Model.Ship.Name</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Ship.Launched)</h6></div>
+        <div class="text-white"><h4>@Model.Ship.LaunchedLabel</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.StartService)</h6></div>
+        <div class="text-white"><h4>@Model.StartServiceLabel</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.EndService)</h6></div>
+        <div class="text-white"><h4>@Model.EndServiceLabel</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.TimeSpan)</h6></div>
+        <div class="text-white"><h4>@Model.TimeSpanLabel</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Fate)</h6></div>
+        <div class="text-white"><h4>@Model.Fate</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Ship.Builder)</h6></div>
+        <div class="text-white"><h4>@Model.Ship.Builder.Name</h4></div>
+    </div>
+</div>

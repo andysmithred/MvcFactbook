@@ -15,15 +15,18 @@
         columns.Add(model => model.Crew).Titled("Crew").Formatted("{0:N0}");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
-                $"<a class='btn btn-secondary btn-sm rounded-left' href='/ShipClass/Edit/{model.Id}'>Edit</a>" +
-                $"<a class='btn btn-secondary btn-sm rounded-0' href='/ShipClass/Details/{model.Id}'>Details</a>" +
-                $"<a class='btn btn-secondary btn-sm rounded-right' href='/ShipClass/Delete/{model.Id}'>Delete</a>" +
+                $"<a class='btn btn-outline-secondary btn-sm' href='/ShipClass/Edit/{model.Id}'>Edit</a>" +
+                $"<a class='btn btn-outline-secondary btn-sm' href='/ShipClass/Details/{model.Id}'>Details</a>" +
+                $"<a class='btn btn-outline-secondary btn-sm' href='/ShipClass/Delete/{model.Id}'>Delete</a>" +
             "</div>"
         );
     })
     .Empty("No data found")
     .Filterable()
     .Sortable()
-    .Pageable()
-    .AppendCss("table-dark table-striped table-hover rounded-bottom")
+    .Pageable(pager =>
+    {
+        pager.RowsPerPage = 15;
+    })
+    .AppendCss("table-hover")
 )

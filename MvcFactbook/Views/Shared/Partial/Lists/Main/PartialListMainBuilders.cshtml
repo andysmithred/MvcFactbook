@@ -7,17 +7,21 @@
         columns.Add().Encoded(false).RenderedAs(model => $"<img src='/images/icons/builder-light.png' style='height: 20px; width: 20px' />");
         columns.Add(model => model.Name).Titled("Name");
         columns.Add(model => model.Founded).Titled("Founded");
+        columns.Add(model => model.Ships.Count).Titled("Ships");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
-                $"<a class='btn btn-secondary btn-sm rounded-left' href='/Builder/Edit/{model.Id}'>Edit</a>" +
-                $"<a class='btn btn-secondary btn-sm rounded-0' href='/Builder/Details/{model.Id}'>Details</a>" +
-                $"<a class='btn btn-secondary btn-sm rounded-right' href='/Builder/Delete/{model.Id}'>Delete</a>" +
+                $"<a class='btn btn-outline-secondary btn-sm' href='/Builder/Edit/{model.Id}'>Edit</a>" +
+                $"<a class='btn btn-outline-secondary btn-sm' href='/Builder/Details/{model.Id}'>Details</a>" +
+                $"<a class='btn btn-outline-secondary btn-sm' href='/Builder/Delete/{model.Id}'>Delete</a>" +
             "</div>"
         );
     })
     .Empty("No data found")
     .Filterable()
     .Sortable()
-    .Pageable()
-    .AppendCss("table-dark table-striped table-hover rounded-bottom")
+    .Pageable(pager =>
+    {
+        pager.RowsPerPage = 15;
+    })
+    .AppendCss("table-hover")
 )

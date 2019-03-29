@@ -4,84 +4,15 @@
     ViewData["Title"] = "Details";
 }
 
-<br />
-<partial name="DetailsMenu" />
-<br />
-<partial name="DetailsHeader" />
+<partial name="DetailsMain" />
 
-<div class="d-flex flex-wrap bg-dark">
-    @if (Model.Builder != null)
-    {
-        <div class="mr-3">
-            <a asp-controller="Builder" asp-action="Details" asp-route-id="@Model.BuilderId" class="text-dark">
-                <div class="d-flex alert bg-warning">
-                    <div><img src="~/images/icons/builder-dark.png" style="height:24px;width:24px" /></div>
-                    <div class="pl-3"><h5>@Model.Builder.Name</h5></div>
-                    <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right'></i></h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }
-    @if (Model.ShipServices.Count > 0)
-    {
-        <div class="mr-3">
-            <a asp-action="ShipServicesList" asp-route-id="@Model.Id" class="text-dark">
-                <div class="d-flex alert bg-info">
-                    <div><img src="~/images/icons/shipservice-dark.png" style="height:24px;width:24px" /></div>
-                    <div class="pl-3"><h5>Service</h5></div>
-                    <div class="pl-3"><h5>@Model.ShipServices.Count</h5></div>
-                    <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right'></i></h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }
-    @foreach (var item in Model.ShipSubTypes)
-    {
-        <div class="mr-3">
-            <a asp-controller="ShipSubType" asp-action="Details" asp-route-id="@item.Id" class="text-dark">
-                <div class="d-flex alert bg-secondary">
-                    <div><img src="~/images/icons/shipsubtype-dark.png" style="height:24px;width:24px" /></div>
-                    <div class="pl-3"><h5>@item.Type</h5></div>
-                    <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right'></i></h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }
-    @foreach (var item in Model.Branches)
-    {
-        <div class="mr-3">
-            <a asp-controller="Branch" asp-action="Details" asp-route-id="@item.Id" class="text-dark">
-                <div class="d-flex alert bg-warning">
-                    <div><img class="rounded" src="@item.ImageSource" alt="Card image" style="height:25px;width:25px;object-fit: cover;overflow: hidden;opacity:0.3"></div>
-                    <div class="pl-3"><h5>@item.Name</h5></div>
-                    <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right'></i></h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }
-    @foreach (var item in Model.ShipClasses)
-    {
-        <div class="mr-3">
-            <a asp-controller="ShipClass" asp-action="Details" asp-route-id="@item.Id" class="text-dark">
-                <div class="d-flex alert bg-success">
-                    <div><img src="~/images/icons/shipclass-dark.png" style="height:24px;width:24px" /></div>
-                    <div class="pl-3"><h5>@item.Name</h5></div>
-                    <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right'></i></h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }
-</div>
+<partial name="DetailsShip" />
+<hr class="bg-secondary" />
+
+
+
+
+
 <div class="card-deck">
     <div class="card border-0">
         <div class="card-header bg-secondary text-white">
@@ -106,7 +37,7 @@
             </div>
         </div>
         <div class="card-body bg-light rounded-bottom">
-           
+
         </div>
     </div>
     <div class="card border-0">

@@ -103,14 +103,17 @@ namespace MvcFactbook.Controllers
 
         protected override Func<int, Builder> GetItemFunction()
         {
-            return i => Context.Builder
+            return i => Context
+                        .Builder
                         .Include(x => x.Ships)
                         .FirstOrDefault(x => x.Id == i);
         }
 
         protected override Func<IQueryable<Builder>> GetItemsFunction()
         {
-            return () => Context.Builder;         
+            return () => Context
+                        .Builder
+                        .Include(x => x.Ships);         
         }
 
         protected override Func<Builder, bool> GetExistsFunc(int id)

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.ArmedForceFlagView>
+
+<div class="p-2">
+    <div class="text-muted"><h6>Flags</h6></div>
+    <div class="w-75">
+        @(Html
+            .Grid(Model)
+            .Build(columns =>
+            {
+                columns.Add().Encoded(false).RenderedAs(model => $"<img class='rounded' src=" + model.Flag.ImageSource + " alt='Card image' style='height: 20px; width: 20px; object-fit: cover; overflow: hidden; opacity: 0.4'>");
+                columns.Add(model => model.ArmedForce.Name).Titled("Armed Force");
+                columns.Add(model => model.Flag.Name).Titled("Flag");
+                columns.Add(model => model.Start).Titled("Start Date").Formatted("{0:d}");
+                columns.Add(model => model.End).Titled("End Date").Formatted("{0:d}");
+                columns.Add().Encoded(false).RenderedAs(model =>
+                    "<div class='btn-group float-right'>" +
+                        $"<a class='btn btn-outline-secondary btn-sm' href='/ArmedForceFlag/Details/{model.Id}'>Details</a>" +
+                    "</div>"
+                );
+            })
+            .Empty("No data found")
+            .Filterable()
+            .Sortable()
+            .Pageable()
+            .AppendCss("table-hover")
+        )
+    </div>
+</div>

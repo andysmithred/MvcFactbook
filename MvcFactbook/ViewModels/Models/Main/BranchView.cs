@@ -34,8 +34,10 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         #region Foreign Properties
 
+        [Display(Name = "Branch Type")]
         public BranchTypeView BranchType => GetView<BranchTypeView, BranchType>(ViewObject.BranchType);
 
+        [Display(Name = "Armed Force")]
         public ArmedForceView ArmedForce => GetView<ArmedForceView, ArmedForce>(ViewObject.ArmedForce);
 
         public ICollection<BranchFlagView> BranchFlags => GetViewList<BranchFlagView, BranchFlag>(ViewObject.BranchFlags);

@@ -13,15 +13,18 @@
         columns.Add(model => model.ShipSubType.Type).Titled("Type");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
-                $"<a class='btn btn-secondary btn-sm rounded-left' href='/ShipService/Edit/{model.Id}'>Edit</a>" +
-                $"<a class='btn btn-secondary btn-sm rounded-0' href='/ShipService/Details/{model.Id}'>Details</a>" +
-                $"<a class='btn btn-secondary btn-sm rounded-right' href='/ShipService/Delete/{model.Id}'>Delete</a>" +
+                $"<a class='btn btn-outline-secondary btn-sm' href='/ShipService/Edit/{model.Id}'>Edit</a>" +
+                $"<a class='btn btn-outline-secondary btn-sm' href='/ShipService/Details/{model.Id}'>Details</a>" +
+                $"<a class='btn btn-outline-secondary btn-sm' href='/ShipService/Delete/{model.Id}'>Delete</a>" +
             "</div>"
         );
     })
     .Empty("No data found")
     .Filterable()
     .Sortable()
-    .Pageable()
-    .AppendCss("table-dark table-striped table-hover rounded-bottom")
+    .Pageable(pager =>
+    {
+        pager.RowsPerPage = 15;
+    })
+    .AppendCss("table-hover")
 )

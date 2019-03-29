@@ -12,7 +12,7 @@
         columns.Add(model => model.Active).Titled("Active");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
-                $"<a class='btn btn-secondary btn-sm' href='/Flag/Details/{model.Id}'>Details</a>" +
+                $"<a class='btn btn-outline-secondary btn-sm' href='/Flag/Details/{model.Id}'>Details</a>" +
             "</div>"
         );
     })
@@ -20,5 +20,5 @@
     .Filterable()
     .Sortable()
     .Pageable()
-    .AppendCss("table-dark table-striped table-hover rounded-bottom")
+    .AppendCss("table-hover")
 )

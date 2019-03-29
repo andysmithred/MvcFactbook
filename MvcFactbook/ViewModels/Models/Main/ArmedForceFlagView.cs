@@ -48,6 +48,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string EndLabel => CommonFunctions.GetDateLabel(End);
 
+        public string DateLabel => CommonFunctions.GetDateLabel(Start, End);
+
         #endregion Other Properties
     }
 }

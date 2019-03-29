@@ -1,0 +1,15 @@
+﻿@if (Model.Items.Count > 0)
+{
+<div class="mr-4">
+    <a asp-action="DetailsShipServicesList" asp-route-id="@Model.Id" class="text-dark">
+        <div class="d-flex">
+            <div><img src="~/images/icons/shipservice-light.png" style="height:20px;width:20px" /></div>
+            <div class="pl-2 text-white">Services</div>
+            <div class="pl-2 text-white">@Model.Items.Count</div>
+            <div class="ml-auto pl-2">
+                <h5><i class='fas fa-angle-right text-white'></i></h5>
+            </div>
+        </div>
+    </a>
+</div>
+}

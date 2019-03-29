@@ -1,0 +1,7 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ArmedForceView
+
+<div class="d-flex mt-3 p-2">
+    <partial name="LinkDetails" model='new { Id = Model.Id }' />
+    <partial name="LinkFlags" model='new { Id = Model.Id, Flags = Model.Flags }' />
+    <partial name="LinkBranches" model='new { Id = Model.Id, Items = Model.Branches }' />
+</div>

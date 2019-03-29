@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.PoliticalEntityView>
 
-    @(Html
+@(Html
     .Grid(Model)
     .Build(columns =>
     {
@@ -11,15 +11,18 @@
         columns.Add(model => model.Code).Titled("Code");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
-                $"<a class='text-white pl-2' href='/PoliticalEntity/Edit/{model.Id}'> Edit </a>" +
-                $"<a class='text-white pl-2' href='/PoliticalEntity/Details/{model.Id}'> Details </a>" +
-                $"<a class='text-white pl-2' href='/PoliticalEntity/Delete/{model.Id}'> Delete </a>" +
+                $"<a class='btn btn-outline-secondary btn-sm' href='/PoliticalEntity/Edit/{model.Id}'> Edit </a>" +
+                $"<a class='btn btn-outline-secondary btn-sm' href='/PoliticalEntity/Details/{model.Id}'> Details </a>" +
+                $"<a class='btn btn-outline-secondary btn-sm' href='/PoliticalEntity/Delete/{model.Id}'> Delete </a>" +
             "</div>"
         );
     })
     .Empty("No data found")
     .Filterable()
     .Sortable()
-    .Pageable()
+    .Pageable(pager =>
+    {
+        pager.RowsPerPage = 15;
+    })
     .AppendCss("table-hover")
-    )
+)

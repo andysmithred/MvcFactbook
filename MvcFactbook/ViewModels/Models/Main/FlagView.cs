@@ -60,9 +60,11 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string ImageSource => FLAG_PATH + Image;
 
-        public string StartDateLabel => GetDateLabel(StartDate);
+        public string StartDateLabel => CommonFunctions.GetDateLabel(StartDate);
 
-        public string EndDateLabel => GetDateLabel(EndDate);
+        public string EndDateLabel => CommonFunctions.GetDateLabel(EndDate);
+
+        public string DateLabel => CommonFunctions.GetDateLabel(StartDate, EndDate);
 
         public ICollection<ArmedForceView> ArmedForces => ArmedForceFlags.Select(f => f.ArmedForce).Distinct(f => f.Id).ToList();
 
@@ -70,20 +72,5 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         #endregion Other Properties
 
-        #region Methods
-
-        private string GetDateLabel(DateTime? date)
-        {
-            if (date.HasValue)
-            {
-                return date.Value.ToString("dd MMMM yyyy");
-            }
-            else
-            {
-                return "--";
-            }
-        }
-
-        #endregion Methods
     }
 }

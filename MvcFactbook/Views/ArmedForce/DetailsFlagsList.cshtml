@@ -1,0 +1,10 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ArmedForceView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<partial name="DetailsMain" />
+
+<partial name="ListDetailsArmedForceFlags" model="@Model.ArmedForceFlags.OrderBy(x => x.Start)" />
+<hr class="bg-secondary" />

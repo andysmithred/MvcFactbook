@@ -4,169 +4,21 @@
     ViewData["Title"] = "Details";
 }
 
-<br />
-<partial name="DetailsMenu" />
-<br />
-<partial name="DetailsHeader" />
+<partial name="DetailsMain" />
 
-<div class="d-flex bg-dark">
-    @if (Model.Ship != null)
-    {
-        <div class="mr-3">
-            <a asp-controller="Ship" asp-action="Details" asp-route-id="@Model.ShipId" class="text-dark">
-                <div class="d-flex alert bg-primary">
-                    <div><img src="~/images/icons/ship-dark.png" style="height:24px;width:24px" /></div>
-                    <div class="pl-3"><h5>@Model.Ship.Name</h5></div>
-                    <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right'></i></h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }
-    @if (Model.ShipClass != null)
-    {
-        <div class="mr-3">
-            <a asp-controller="ShipClass" asp-action="Details" asp-route-id="@Model.ShipClassId" class="text-dark">
-                <div class="d-flex alert bg-light">
-                    <div><img src="~/images/icons/shipclass-dark.png" style="height:24px;width:24px" /></div>
-                    <div class="pl-3"><h5>@Model.ShipClass.Name</h5></div>
-                    <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right'></i></h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }
-    @if (Model.ShipSubType != null)
-    {
-        <div class="mr-3">
-            <a asp-controller="ShipSubType" asp-action="Details" asp-route-id="@Model.ShipSubTypeId" class="text-dark">
-                <div class="d-flex alert bg-secondary">
-                    <div><img src="~/images/icons/shipsubtype-dark.png" style="height:24px;width:24px" /></div>
-                    <div class="pl-3"><h5>@Model.ShipSubType.Type</h5></div>
-                    <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right'></i></h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }
-    @if (Model.Branch != null)
-    {
-        <div class="mr-3">
-            <a asp-controller="Branch" asp-action="Details" asp-route-id="@Model.BranchId" class="text-dark">
-                <div class="d-flex alert bg-warning">
-                    <div><img class="rounded" src="@Model.Branch.ImageSource" alt="Card image" style="height:25px;width:25px;object-fit: cover;overflow: hidden;opacity:0.3"></div>
-                    <div class="pl-3"><h5>@Model.Branch.Name</h5></div>
-                    <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right'></i></h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }
-</div>
-
-<div class="card-deck">
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Details</h5></div>
-                <div class="ml-auto"><h5><i class="fas fa-info-circle"></i></h5></div>
-            </div>
-        </div>
-        <div class="card-body bg-light rounded-bottom">
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.Id }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Penant), Value = Model.Penant }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Branch), Value = Model.Branch.Name }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ShipClass), Value = Model.ShipClass.Name }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ShipSubType), Value = Model.ShipSubType.Type }' />
+<partial name="DetailsShipService" />
+<hr class="bg-secondary" />
+<partial name="DetailsShip" />
+<hr class="bg-secondary" />
+<div>
+    <div class="d-flex p-2">
+        <div class="text-muted"><h6>Tags</h6></div>
+        <div class="pl-3 text-muted">
+            <h6><a asp-controller="ShipGroupSet" asp-action="CreateByShipService" class="text-muted" asp-route-id="@Model.Id" title="Add Tag"><i class="fas fa-plus"></i></a></h6>
         </div>
     </div>
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Ship Details</h5></div>
-                <div class="ml-auto"><h5><img src="~/images/icons/ship-light.png" style="height:20px;width:20px" /></h5></div>
-            </div>
-        </div>
-        <div class="card-body bg-light rounded-bottom">
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Ship), Value = Model.Ship.Name }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Ship.Launched), Value = Model.Ship.LaunchedLabel }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.StartService), Value = Model.StartServiceLabel }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.EndService), Value = Model.EndServiceLabel }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.TimeSpan), Value = Model.TimeSpanLabel }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Fate), Value = Model.Fate }' />
-        </div>
+    <div>
+        <partial name="ListLinkShipGroups" model=@Model.ShipGroups.OrderBy(x => x.Name) />
     </div>
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Class Stats</h5></div>
-                <div class="ml-auto"><h5><img src="~/images/icons/shipclass-light.png" style="height:20px;width:20px" /></h5></div>
-            </div>
-        </div>
-        <div class="card-body bg-light rounded-bottom">
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ShipClass), Value = Model.ShipClass.Name }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ShipClass.Displacement), Value = Model.ShipClass.DisplacementLabel }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ShipClass.Length), Value = Model.ShipClass.LengthLabel }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ShipClass.Beam), Value = Model.ShipClass.BeamLabel }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ShipClass.Propulsion), Value = Model.ShipClass.PropulsionLabel }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ShipClass.Speed), Value = Model.ShipClass.SpeedLabel }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ShipClass.Crew), Value = Model.ShipClass.CrewLabel }' />
-        </div>
-    </div>
-</div>
-<br />
-<div class="card-deck">
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Ship Type</h5></div>
-                <div class="ml-auto"><h5><img src="~/images/icons/shipsubtype-light.png" style="height:20px;width:20px" /></h5></div>
-            </div>
-        </div>
-        <div class="card-body bg-light rounded-bottom">
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ShipSubType), Value = Model.ShipSubType.Type }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ShipSubType.ShipType), Value = Model.ShipSubType.ShipType.Type }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ShipSubType.ShipType.ShipCategory), Value = Model.ShipSubType.ShipType.ShipCategory.Category }' />
-        </div>
-    </div>
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Branch</h5></div>
-                <div class="ml-auto"><h5><img src="~/images/icons/branch-light.png" style="height:20px;width:20px" /></h5></div>
-            </div>
-        </div>
-        <div class="card-body bg-light rounded-bottom">
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Branch), Value = Model.Branch.Name }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Branch.ArmedForce), Value = Model.Branch.ArmedForce.Name }' />
-        </div>
-    </div>
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Ship Groups</h5></div>
-                <div class="ml-auto">
-                    <h5><a asp-controller="ShipGroupSet" asp-action="CreateByShipService" asp-route-id="@Model.Id" style="color:white" title="Add Ship Group"><i class="fas fa-plus"></i></a></h5>
-                </div>
-            </div>
-        </div>
-        <div class="card-body bg-transparent" style="height:200px;max-height:200px;overflow-y:auto;">
-            @if (Model.ShipGroups.Count > 0)
-            {
-                foreach (var item in Model.ShipGroups.OrderBy(x => x.Name))
-                {
-                    <partial name="ActionListLabel" model='new { Controller = "ShipGroup", Action = "Details", Value = item.Name, RouteId = item.Id, Icon = item.IconDarkFullPath }' />
-                }
-            }
-            else
-            {
-                <partial name="BasicListLabel" model='new { Value = "--", Icon = string.Empty }' />
-            }
-        </div>
-    </div>
+    <hr class="bg-secondary" />
 </div>

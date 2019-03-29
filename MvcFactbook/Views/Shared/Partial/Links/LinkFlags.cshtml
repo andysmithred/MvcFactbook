@@ -1,0 +1,15 @@
+﻿@if (Model.Flags.Count > 0)
+{
+    <div class="mr-4">
+        <a asp-action="DetailsFlagsList" asp-route-id="@Model.Id" class="text-dark">
+            <div class="d-flex">
+                <div><img src="~/images/icons/flag-light.png" style="height:20px;width:20px" /></div>
+                <div class="pl-2 text-white">Flags</div>
+                <div class="pl-2 text-white">@Model.Flags.Count</div>
+                <div class="ml-auto pl-2">
+                    <h5><i class='fas fa-angle-right text-white'></i></h5>
+                </div>
+            </div>
+        </a>
+    </div>
+}

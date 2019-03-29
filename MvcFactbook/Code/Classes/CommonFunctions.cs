@@ -18,7 +18,30 @@ namespace MvcFactbook.Code.Classes
 
         public static string GetDateLabel(DateTime date)
         {
-            return date.ToString("dd MMMM yyyy");
+            return date.ToString("dd MMM yyyy");
+        }
+
+        public static string GetDateLabel(DateTime? startDate, DateTime? endDate)
+        {
+            if (startDate.HasValue && endDate.HasValue)
+            {
+                return GetDateLabel(startDate) + " to " + GetDateLabel(endDate);
+            }
+            else if (startDate.HasValue)
+            {
+                // Have a start date but if we are here then no end date
+                return GetDateLabel(startDate) + " to ...";
+            }
+            else if (endDate.HasValue)
+            {
+                // Have an enddate but no start date.
+                return "? to " + GetDateLabel(endDate);
+            }
+            else
+            {
+                // If we are here then no start or end date.
+                return "--";
+            }
         }
 
         public static TimeSpan? GetTimepan(DateTime? date)

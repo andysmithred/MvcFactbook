@@ -1,0 +1,32 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipServiceView
+
+<div class="d-flex flex-row flex-wrap mt-2">
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Name)</h6></div>
+        <div class="text-white"><h4>@Model.Name</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Penant)</h6></div>
+        <div class="text-white"><h4>@Model.Penant</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Branch)</h6></div>
+        <div class="text-white"><h4>@Model.Branch.Name</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.ShipClass)</h6></div>
+        <div class="text-white"><h4>@Model.ShipClass.Name</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.ShipSubType)</h6></div>
+        <div class="text-white"><h4>@Model.ShipSubType.Type</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.ShipSubType.ShipType)</h6></div>
+        <div class="text-white"><h4>@Model.ShipSubType.ShipType.Type</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.ShipSubType.ShipType.ShipCategory)</h6></div>
+        <div class="text-white"><h4>@Model.ShipSubType.ShipType.ShipCategory.Category</h4></div>
+    </div>
+</div>

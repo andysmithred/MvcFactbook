@@ -1,0 +1,16 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ArmedForceView
+
+<div class="d-flex flex-row flex-wrap mt-2">
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Name)</h6></div>
+        <div class="text-white"><h4>@Model.Name</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Code)</h6></div>
+        <div class="text-white"><h4>@Model.Code</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Budget)</h6></div>
+        <div class="text-white"><h4>@Model.BudgetLabel</h4></div>
+    </div>
+</div>
