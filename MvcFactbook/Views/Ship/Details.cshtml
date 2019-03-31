@@ -9,65 +9,60 @@
 <partial name="DetailsShip" />
 <hr class="bg-secondary" />
 
-
-
-
-
-<div class="card-deck">
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Details</h5></div>
-                <div class="ml-auto"><h5><i class="fas fa-info-circle"></i></h5></div>
-            </div>
-        </div>
-        <div class="card-body bg-light rounded-bottom">
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.Id }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Launched), Value = Model.LaunchedLabel }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.TimeSpan), Value = Model.TimeSpanLabel }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Builder), Value = Model.Builder.Name }' />
-        </div>
-    </div>
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Image</h5></div>
-                <div class="ml-auto"><h5><i class="fas fa-caret-down"></i></h5></div>
-            </div>
-        </div>
-        <div class="card-body bg-light rounded-bottom">
-
-        </div>
-    </div>
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Service</h5></div>
-                <div class="ml-auto">
-                    <h5><a asp-controller="ShipService" asp-action="CreateByShip" asp-route-id="@Model.Id" style="color:white" title="Add Service"><i class="fas fa-plus"></i></a></h5>
+@if (Model.ShipServices.Count > 0)
+{
+    <div class="d-flex flex-column">
+        @foreach (var item in Model.ShipServices.OrderBy(x => x.StartService))
+        {
+            <div class="w-100 p-2">
+                <div class="d-flex flex-column">
+                    <a asp-controller="ShipService" asp-action="Details" asp-route-id="@item.Id">
+                        <div class="d-flex flex-row">
+                            <div>
+                                <img class="rounded" src="@item.ImageSource" alt="Card image" style="height:40px;object-fit: cover;overflow: hidden;opacity:0.4">
+                            </div>
+                            <div class="text-white p-1 pl-2">
+                                <h4>@item.Name</h4>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="d-flex flex-row flex-wrap">
+                        <div class="w-25">
+                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.Penant)</h6></div>
+                            <div class="text-white"><h4>@item.Penant</h4></div>
+                        </div>
+                        <div class="w-25">
+                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.Branch)</h6></div>
+                            <div class="text-white"><h4>@item.Branch.Name</h4></div>
+                        </div>
+                        <div class="w-25">
+                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.ShipClass)</h6></div>
+                            <div class="text-white"><h4>@item.ShipClass.Name</h4></div>
+                        </div>
+                        <div class="w-25">
+                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.ShipSubType)</h6></div>
+                            <div class="text-white"><h4>@item.ShipSubType.Type</h4></div>
+                        </div>
+                        <div class="w-25">
+                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.StartService)</h6></div>
+                            <div class="text-white"><h4>@item.StartServiceLabel</h4></div>
+                        </div>
+                        <div class="w-25">
+                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.EndService)</h6></div>
+                            <div class="text-white"><h4>@item.EndServiceLabel</h4></div>
+                        </div>
+                        <div class="w-25">
+                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.TimeSpan)</h6></div>
+                            <div class="text-white"><h4>@item.TimeSpanLabel</h4></div>
+                        </div>
+                        <div class="w-25">
+                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.Fate)</h6></div>
+                            <div class="text-white"><h4>@item.Fate</h4></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="card-body bg-transparent" style="height:200px;max-height:200px;overflow-y:auto;">
-            @if (Model.ShipServices.Count > 0)
-            {
-                foreach (var item in Model.ShipServices.OrderBy(x => x.StartService))
-                {
-                    <partial name="ActionListFlag" model='new { Controller = "ShipService", Action = "Details", Value = item.Name, RouteId = item.Id, Image = item.ImageSource }' />
-                }
-            }
-            else
-            {
-                <partial name="BasicListLabel" model='new { Value = "--", Icon = string.Empty }' />
-            }
-        </div>
+        }
     </div>
-</div>
-<br />
-<div class="card border-0">
-    <div class="card-header bg-secondary text-white">Service</div>
-    <div class="card-body bg-dark p-0">
-        <partial name="PartialListDetailsShipServices" model="@Model.ShipServices.OrderBy(x => x.StartService)" />
-    </div>
-</div>
+    <hr class="bg-secondary" />
+}
