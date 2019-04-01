@@ -39,7 +39,7 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string Year => Launched.HasValue ? Launched.Value.Year.ToString() : "--";
 
-        public string LaunchedLabel => Launched.HasValue ? Launched.Value.ToString("dd MMMM yyyy") : "--";
+        public string LaunchedLabel => CommonFunctions.GetDateLabel(Launched);
 
         [Display(Name = "Years Ago")]
         public TimeSpan? TimeSpan => CommonFunctions.GetTimepan(Launched);

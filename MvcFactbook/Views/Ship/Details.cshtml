@@ -11,10 +11,16 @@
 
 @if (Model.ShipServices.Count > 0)
 {
-    <div class="d-flex flex-column">
+    <div class="d-flex pl-2">
+        <div class="text-muted"><h6>Service</h6></div>
+        <div class="pl-3 text-muted">
+            <h6><a asp-controller="ShipService" asp-action="CreateByShip" class="text-muted" asp-route-id="@Model.Id" title="Add Service"><i class="fas fa-plus"></i></a></h6>
+        </div>
+    </div>
+    <div class="d-flex flex-column" style="max-height:450px;overflow-y:auto;">
         @foreach (var item in Model.ShipServices.OrderBy(x => x.StartService))
         {
-            <div class="w-100 p-2">
+            <div class="w-100 p-2 pt-4">
                 <div class="d-flex flex-column">
                     <a asp-controller="ShipService" asp-action="Details" asp-route-id="@item.Id">
                         <div class="d-flex flex-row">

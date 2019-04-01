@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.ArmedForceFlagView>
+
+<div>
+    @(Html
+        .Grid(Model)
+        .Build(columns =>
+        {
+            columns.Add().Encoded(false).RenderedAs(model => $"<img src='/images/icons/emptyflag-light.png' style='height: 20px; width: 20px' />");
+            columns.Add(model => model.ArmedForce.Name).Titled("Armed Force");
+            columns.Add(model => model.Flag.Name).Titled("Flag");
+            columns.Add(model => model.Start).Titled("Start Date").Formatted("{0:d}");
+            columns.Add(model => model.End).Titled("End Date").Formatted("{0:d}");
+            columns.Add().Encoded(false).RenderedAs(model =>
+                "<div class='btn-group float-right'>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/ArmedForceFlag/Edit/{model.Id}'>Edit</a>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/ArmedForceFlag/Details/{model.Id}'>Details</a>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/ArmedForceFlag/Delete/{model.Id}'>Delete</a>" +
+                "</div>"
+            );
+        })
+        .Empty("No data found")
+        .Filterable()
+        .Sortable()
+        .Pageable(pager =>
+        {
+            pager.RowsPerPage = 15;
+        })
+        .AppendCss("table-hover")
+    )
+</div>

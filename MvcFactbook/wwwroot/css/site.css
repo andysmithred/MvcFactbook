@@ -17,6 +17,26 @@ body {
     padding-right: 15px;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: darkgrey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
@@ -126,3 +146,5 @@ a:hover {
     float: right;
     padding-right: 8px;
 }
+
+

@@ -28,6 +28,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public override string ListName => Name;
 
+        public string FoundedLabel => Founded.HasValue ? Founded.Value.ToString() : "--";
+
         #endregion Other Properties
 
         #region Methods

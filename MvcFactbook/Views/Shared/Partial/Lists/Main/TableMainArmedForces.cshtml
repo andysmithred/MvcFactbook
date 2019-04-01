@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.ArmedForceView>
+
+<div>
+    @(Html
+            .Grid(Model)
+            .Build(columns =>
+            {
+                columns.Add().Encoded(false).RenderedAs(model => $"<img class='rounded' src='{model.Flag.ImageSource}' alt='Card image' style='height:20px;width:20px;object-fit:cover;overflow:hidden;opacity:0.4'>");
+                columns.Add(model => model.Name).Titled("Name");
+                columns.Add(model => model.Code).Titled("Code");
+                columns.Add(model => model.IsActive).Titled("Active");
+                columns.Add(model => model.Budget).Titled("Budget").Formatted("${0:#,0}");
+                columns.Add().Encoded(false).RenderedAs(model =>
+                    "<div class='btn-group float-right'>" +
+                        $"<a class='btn btn-outline-secondary btn-sm' href='/ArmedForce/Edit/{model.Id}'>Edit</a>" +
+                        $"<a class='btn btn-outline-secondary btn-sm' href='/ArmedForce/Details/{model.Id}'>Details</a>" +
+                        $"<a class='btn btn-outline-secondary btn-sm' href='/ArmedForce/Delete/{model.Id}'>Delete</a>" +
+                    "</div>"
+                );
+            })
+            .Empty("No data found")
+            .Filterable()
+            .Sortable()
+            .Pageable(pager =>
+            {
+                pager.RowsPerPage = 15;
+            })
+            .AppendCss("table-hover")
+    )
+</div>
