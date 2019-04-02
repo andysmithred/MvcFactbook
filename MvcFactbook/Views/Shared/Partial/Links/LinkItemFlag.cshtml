@@ -1,0 +1,11 @@
+﻿<div class="p-1 mr-2">
+    <a asp-controller="@Model.Controller" asp-action="@Model.Action" asp-route-id="@Model.RouteId">
+        <div class="d-flex">
+            <div><img class="rounded" src="@Model.Image" alt="Card image" style="height:20px;width:20px;object-fit: cover;overflow: hidden;opacity:0.3"></div>
+            <div class="pl-2 text-white">@Model.Label</div>
+            <div class="ml-auto pl-2">
+                <h5><i class='fas fa-angle-right text-white'></i></h5>
+            </div>
+        </div>
+    </a>
+</div>

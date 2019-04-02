@@ -9,21 +9,32 @@
 <partial name="DetailsArmedForce" />
 <hr class="bg-secondary" />
 
-@if ((Model.Branches.Count > 0) || (Model.ArmedForceFlags.Count > 0))
-{
-    <div class="d-flex flex-row">
-        @if (Model.Branches.Count > 0)
-        {
-            <div class="w-50">
-                <partial name="ListLinkBranches" model=@Model.Branches.OrderBy(x => x.Name) />
+<div class="d-flex flex-row p-1">
+    <div class="w-100 mr-4">
+        <div class="d-flex pb-1 border-bottom border-secondary">
+            <div class="text-white header-large">BRANCHES</div>
+            <div class="ml-2">
+                <a asp-controller="Branch" asp-action="CreateByArmedForce" class="text-white" asp-route-id="@Model.Id" title="Add Branch">
+                    <img src="~/images/icons/add-new-light.png" alt="Card image" style="height:20px;" />
+                </a>
             </div>
-        }
-        @if (Model.ArmedForceFlags.Count > 0)
-        {
-            <div class="w-50">
-                <partial name="ListLinkArmedForceFlags" model=@Model.ArmedForceFlags.OrderBy(x => x.Start) />
-            </div>
-        }
+        </div>
+        <div class="mt-3" style="max-height:300px;overflow-y:auto;">
+            <partial name="MediumListLinkBranches" model=@Model.Branches.OrderBy(x => x.Name) />
+        </div>
     </div>
-    <hr class="bg-secondary" />
-}
+    <div class="w-100 mr-4">
+        <div class="d-flex pb-1 border-bottom border-secondary">
+            <div class="text-white header-large">FLAGS</div>
+            <div class="ml-2">
+                <a asp-controller="ArmedForceFlag" asp-action="CreateByArmedForce" class="text-white" asp-route-id="@Model.Id" title="Add Flag">
+                    <img src="~/images/icons/add-new-light.png" alt="Card image" style="height:20px;" />
+                </a>
+            </div>
+        </div>
+        <div class="mt-3" style="max-height:300px;overflow-y:auto;">
+            <partial name="MediumListLinkArmedForceFlags" model=@Model.ArmedForceFlags.OrderBy(x => x.Start) />
+        </div>
+    </div>
+</div>
+<hr class="bg-light" />

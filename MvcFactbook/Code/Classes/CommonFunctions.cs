@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,10 @@ namespace MvcFactbook.Code.Classes
 {
     public static class CommonFunctions
     {
+        private const string FLAG_PATH = "/images/flags/";
+        private const string ICON_PATH = "/images/icons/";
+        private const string EXTENSION = ".png";
+
         private const decimal DaysInAYear = 365.242M;
 
         public static string GetDateLabel(DateTime? date)
@@ -120,6 +125,21 @@ namespace MvcFactbook.Code.Classes
             var length = builder.ToString();
             return length;
 
+        }
+
+        public static string GetFullPath(string path, string fileName)
+        {
+            return Path.Combine(path, fileName + EXTENSION);
+        }
+
+        public static string GetImageFullPath(string fileName)
+        {
+            return GetFullPath(FLAG_PATH, fileName);
+        }
+
+        public static string GetIconFullPath(string fileName)
+        {
+            return GetFullPath(ICON_PATH, fileName);
         }
 
     }

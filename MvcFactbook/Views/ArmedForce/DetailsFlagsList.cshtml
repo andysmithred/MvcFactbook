@@ -6,5 +6,17 @@
 
 <partial name="DetailsMain" />
 
-<partial name="ListDetailsArmedForceFlags" model="@Model.ArmedForceFlags.OrderBy(x => x.Start)" />
-<hr class="bg-secondary" />
+<div class="w-75 p-1">
+    <div class="d-flex pb-1 border-bottom border-secondary">
+        <div class="text-white header-large">FLAGS</div>
+        <div class="ml-2">
+            <a asp-controller="ArmedForceFlag" asp-action="CreateByArmedForce" class="text-white" asp-route-id="@Model.Id" title="Add Flag">
+                <img src="~/images/icons/add-new-light.png" alt="Card image" style="height:20px;" />
+            </a>
+        </div>
+    </div>
+    <div class="mt-3">
+        <partial name="TableDetailsArmedForceFlags" model="@Model.ArmedForceFlags.OrderBy(x => x.Start)" />
+    </div>
+</div>
+<hr class="bg-light" />

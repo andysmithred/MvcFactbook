@@ -6,5 +6,18 @@
 
 <partial name="DetailsMain" />
 
-<partial name="ListDetailsBranches" model="@Model.Branches.OrderBy(x => x.Name)" />
-<hr class="bg-secondary" />
+<div class="w-75 p-1">
+    <div class="d-flex pb-1 border-bottom border-secondary">
+        <div class="text-white header-large">BRANCHES</div>
+        <div class="ml-2">
+            <a asp-controller="Branch" asp-action="CreateByArmedForce" class="text-white" asp-route-id="@Model.Id" title="Add Branch">
+                <img src="~/images/icons/add-new-light.png" alt="Card image" style="height:20px;" />
+            </a>
+        </div>
+    </div>
+    <div class="mt-3">
+        <partial name="TableDetailsBranches" model="@Model.Branches.OrderBy(x => x.Name)" />
+    </div>
+</div>
+<hr class="bg-light" />
+

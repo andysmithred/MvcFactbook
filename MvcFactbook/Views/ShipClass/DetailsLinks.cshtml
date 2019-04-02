@@ -1,6 +1,6 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ShipClassView
 
-<div class="d-flex mt-3 p-2">
+<div class="d-flex flex-row flex-wrap mt-3 p-2">
     <partial name="LinkDetails" model='new { Id = Model.Id }' />
 
     <partial name="LinkShips" model='new { Id = Model.Id, Items = Model.Ships }' />

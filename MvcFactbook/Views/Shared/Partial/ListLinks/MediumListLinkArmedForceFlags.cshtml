@@ -1,0 +1,23 @@
+﻿<div class="d-flex flex-column">
+    @foreach (var item in Model)
+    {
+        <div class="w-100 mb-2">
+            <a asp-controller="Flag" asp-action="Details" asp-route-id="@item.FlagId">
+                <div class="d-flex flex-row">
+                    <div class="mr-2">
+                        <img class="rounded" src="@item.Flag.ImageSource" alt="Card image" style="height:30px;width:30px;object-fit: cover;overflow: hidden;opacity:0.4" />
+                    </div>
+                    <div class="mr-2">
+                        <div class="text-white"><h5>@item.Flag.Name</h5></div>
+                    </div>
+                    <div class="mr-2">
+                        <img src="~/images/icons/chevron-right-light.png" style="height:30px;width:30px" />
+                    </div>
+                    <div class="mr-2">
+                        <div class="text-muted"><h5>@item.DateLabel</h5></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>

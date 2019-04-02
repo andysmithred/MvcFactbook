@@ -4,85 +4,14 @@
     ViewData["Title"] = "Details";
 }
 
-<br />
-<partial name="DetailsMenu" />
-<br />
-<partial name="DetailsHeader" />
+<partial name="DetailsMain" />
 
-<div class="d-flex bg-dark mt-3">
-    @if (Model.ArmedForce != null)
-    {
-        <div class="mr-3">
-            <a asp-controller="ArmedForce" asp-action="Details" asp-route-id="@Model.ArmedForceId" class="text-dark">
-                <div class="d-flex alert bg-danger">
-                    <div><img src="~/images/icons/armedforce-dark.png" style="height:25px;width:25px" /></div>
-                    <div class="pl-3"><h5>@Model.ArmedForce.Name</h5></div>
-                    <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right'></i></h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }
-
-    @if (Model.Flag != null)
-    {
-        <div class="mr-3">
-            <a asp-controller="Flag" asp-action="Details" asp-route-id="@Model.FlagId" class="text-dark">
-                <div class="d-flex alert bg-success">
-                    <div><img class="rounded" src="@Model.Flag.ImageSource" alt="Card image" style="height:25px;width:25px;object-fit: cover;overflow: hidden;opacity:0.3"></div>
-                    <div class="pl-3"><h5>@Model.Flag.Name</h5></div>
-                    <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right'></i></h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }
-</div>
-
-<div class="card-deck">
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Details</h5></div>
-                <div class="ml-auto"><h5><i class="fas fa-info-circle"></i></h5></div>
-            </div>
-        </div>
-        <div class="card-body bg-light rounded-bottom">
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.Id }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ArmedForce), Value = Model.ArmedForce.Name }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Flag), Value = Model.Flag.Name }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Start), Value = Model.StartLabel }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.End), Value = Model.EndLabel }' />
-        </div>
-    </div>
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Armed Force</h5></div>
-                <div class="ml-auto"><h5><img src="~/images/icons/armedforce-light.png" style="height:20px;width:20px" /></h5></div>
-            </div>
-        </div>
-        <div class="card-body bg-light rounded-bottom">
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.ArmedForceId }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ArmedForce.Name), Value = Model.ArmedForce.Name }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ArmedForce.Code), Value = Model.ArmedForce.Code }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.ArmedForce.Budget), Value = Model.ArmedForce.BudgetLabel }' />
-        </div>
-    </div>
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Flag</h5></div>
-                <div class="ml-auto"><h5><img src="~/images/icons/flag-light.png" style="height:20px;width:20px" /></h5></div>
-            </div>
-        </div>
-        <div class="card-body bg-light rounded-bottom">
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.FlagId }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Flag.Name), Value = Model.Flag.Name }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Flag.Description), Value = Model.Flag.Description }' />
-            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Flag.Code), Value = Model.Flag.Code }' />
-        </div>
-    </div>
-</div>
+<partial name="DetailsItemHeader" model='new { Label = "DETAILS", Icon = "/images/icons/info-light.png" }' />
+<partial name="DetailsArmedForceFlag" />
+<hr class="bg-light" />
+<partial name="DetailsItemHeader" model='new { Label = "ARMED FORCE", Icon = "/images/icons/armedforce-light.png" }' />
+<partial name="DetailsArmedForce" model=@Model.ArmedForce />
+<hr class="bg-light" />
+<partial name="DetailsItemHeader" model='new { Label = "FLAG", Icon = "/images/icons/flag-light.png" }' />
+<partial name="DetailsFlag" model=@Model.Flag />
+<hr class="bg-light" />

@@ -1,0 +1,48 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.BranchView
+
+<partial name="LinkDetails" model='new { Id = Model.Id }' />
+
+@if (!Model.ArmedForce.Equals(null))
+{
+    <partial name="LinkItemFlag" model='new {
+        Controller = "ArmedForce",
+        Action = "Details",
+        RouteId = Model.ArmedForceId,
+        Image = Model.ArmedForce.ImageSource,
+        Label = Model.ArmedForce.Name
+    }' />
+}
+
+@if (!Model.BranchType.Equals(null))
+{
+    <partial name="LinkItem" model='new {
+        Controller = "BranchType",
+        Action = "Details",
+        RouteId = Model.BranchTypeId,
+        Icon = Model.BranchType.IconLightPath,
+        Label = Model.BranchType.Type
+    }' />
+}
+
+@if (Model.Flags.Count > 0)
+{
+    <partial name="LinkItems" model='new {
+    Controller = "Branch",
+    Action = "DetailsFlagsList",
+    RouteId = Model.Id,
+    Icon = "/images/icons/flag-light.png",
+    Label = "Flags",
+    Count = Model.Flags.Count }' />
+}
+
+@if (Model.ShipServices.Count > 0)
+{
+    <partial name="LinkItems" model='new {
+        Controller = "Branch",
+        Action = "DetailsShipServicesList",
+        RouteId = Model.Id,
+        Icon = "/images/icons/shipservice-light.png",
+        Label = "Ships",
+        Count = Model.ShipServices.Count
+    }' />
+}

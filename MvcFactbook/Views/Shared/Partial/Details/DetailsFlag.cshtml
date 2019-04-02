@@ -1,0 +1,8 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.FlagView
+
+<div class="d-flex flex-row flex-wrap p-1">
+    <partial name="DetailsItem" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
+    <partial name="DetailsItem" model='new { Label = Html.DisplayNameFor(x => x.Code), Value = Model.Code }' />
+    <partial name="DetailsItem" model='new { Label = Html.DisplayNameFor(x => x.StartDate), Value = Model.StartDateLabel }' />
+    <partial name="DetailsItem" model='new { Label = Html.DisplayNameFor(x => x.EndDate), Value = Model.EndDateLabel }' />
+</div>
