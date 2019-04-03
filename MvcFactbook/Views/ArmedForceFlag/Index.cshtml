@@ -6,7 +6,7 @@
 
 <partial name='IndexMenu' model='new { Title = "ARMED FORCE FLAGS", Icon = "/images/icons/emptyflag-light.png" }' />
 <hr class="bg-light" />
-<div class="pl-2 w-75">
-    <partial name="TableMainArmedForceFlags" model="@Model.OrderBy(x => x.ArmedForce.Name)" />
+<div class="p-2 w-75">
+    <partial name="TableIndexArmedForceFlags" model="@Model.OrderBy(x => x.ArmedForce.Name)" />
 </div>
 <hr class="bg-light" />

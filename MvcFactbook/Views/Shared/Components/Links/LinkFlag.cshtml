@@ -1,0 +1,12 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.FlagView
+
+@if (Model != null)
+{
+    <partial name="LinkItemFlag" model='new {
+             Controller = "Flag",
+             Action = "Details",
+             RouteId = Model.Id,
+             Image = Model.ImageSource,
+             Label = Model.Name
+            }' />
+}
