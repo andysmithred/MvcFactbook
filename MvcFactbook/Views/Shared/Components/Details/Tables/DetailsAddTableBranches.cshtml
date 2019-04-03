@@ -1,0 +1,13 @@
+﻿<div class="w-100 p-2">
+    <partial name="DetailsItemAddHeader" model='new {
+                Icon = "/images/icons/branch-light.png",
+                Label = "BRANCHES",
+                Controller = "Branch",
+                Action = Model.Action,
+                RouteId = Model.RouteId,
+                Tooltip = "Add Branch"
+    }' />
+    <div class="mt-3">
+        <partial name="TableBranches" model="@Model.Items" />
+    </div>
+</div>

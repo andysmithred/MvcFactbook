@@ -1,6 +1,6 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ArmedForceView
 
-<div class="d-flex flex-row flex-wrap p-1">
+<div class="d-flex flex-row flex-wrap">
     <partial name="DetailsItem" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
     <partial name="DetailsItem" model='new { Label = Html.DisplayNameFor(x => x.Code), Value = Model.Code }' />
     <partial name="DetailsItem" model='new { Label = Html.DisplayNameFor(x => x.Budget), Value = Model.BudgetLabel }' />

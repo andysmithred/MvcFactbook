@@ -34,12 +34,12 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
-        public async Task<IActionResult> DetailsFlagsList(int? id)
+        public async Task<IActionResult> DetailsFlags(int? id)
         {
             return await base.Details(id);
         }
 
-        public async Task<IActionResult> DetailsBranchesList(int? id)
+        public async Task<IActionResult> DetailsBranches(int? id)
         {
             return await base.Details(id);
         }

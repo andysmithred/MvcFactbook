@@ -1,0 +1,18 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ArmedForceView
+
+<partial name="DetailsInfoMain" model='new { Partial = "InfoArmedForce", Item = @Model }' />
+
+<div class="d-flex flex-row">
+    <partial name="DetailsAddListBranches" model='new { 
+             Action = "CreateByArmedForce", 
+             RouteId = Model.Id, 
+             Items = Model.Branches.OrderBy(x => x.Name)
+             }' />
+    <partial name="DetailsAddListArmedForceFlags" model='new { 
+             Action = "CreateByArmedForce", 
+             RouteId = Model.Id, 
+             Items = Model.ArmedForceFlags.OrderBy(x => x.Start)
+             }' />
+</div>
+
+<hr class="bg-light" />

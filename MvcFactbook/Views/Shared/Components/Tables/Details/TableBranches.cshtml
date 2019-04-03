@@ -19,7 +19,10 @@
         .Empty("No data found")
         .Filterable()
         .Sortable()
-        .Pageable()
+        .Pageable(pager =>
+        {
+            pager.RowsPerPage = 14;
+        })
         .AppendCss("table-hover")
     )
 </div>

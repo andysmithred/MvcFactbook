@@ -1,19 +1,5 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ArmedForceView
 
-<partial name="LinkDetails" model='new { Id = Model.Id }' />
-<partial name="LinkItems" model='new {
-    Id = Model.Id,
-    Items = Model.Flags,
-    Controller = "ArmedForce",
-    Action = "DetailsFlagsList",
-    Icon = "/images/icons/flag-light.png",
-    Label = "Flags"
-}' />
-<partial name="LinkItems" model='new {
-    Id = Model.Id,
-    Items = Model.Branches,
-    Controller = "ArmedForce",
-    Action = "DetailsBranchesList",
-    Icon = "/images/icons/branch-light.png",
-    Label = "Branches"
-}' />
+<partial name="LinkDetails" model='new { RouteId = Model.Id }' />
+<partial name="LinkFlags" model='new { Controller = "ArmedForce", RouteId = Model.Id, Items = Model.Flags }' />
+<partial name="LinkBranches" model='new { Controller = "ArmedForce", RouteId = Model.Id, Items = Model.Branches }' />

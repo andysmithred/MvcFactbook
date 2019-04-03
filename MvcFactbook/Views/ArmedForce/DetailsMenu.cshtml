@@ -7,11 +7,11 @@
         <li class="nav-item"><a class="nav-link" asp-action="Delete" asp-route-id="@Model.Id">Delete</a></li>
         <li class="nav-item"><a class="nav-link" asp-action="Details" asp-route-id="@Model.Id">Details</a></li>
         <!-- Dropdown -->
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown bg-dark">
             <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Lists</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" asp-action="DetailsFlagsList" asp-route-id="@Model.Id">Flags</a>
-                <a class="dropdown-item" asp-action="DetailsBranchesList" asp-route-id="@Model.Id">Branches</a>
+                <a class="dropdown-item" asp-action="DetailsFlags" asp-route-id="@Model.Id">Flags</a>
+                <a class="dropdown-item" asp-action="DetailsBranches" asp-route-id="@Model.Id">Branches</a>
             </div>
         </li>
     </ul>
