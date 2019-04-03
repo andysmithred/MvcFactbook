@@ -1,17 +1,15 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.BranchView
 
-<partial name="LinkDetails" model='new { Id = Model.Id }' />
+<partial name="LinkDetails" model='new { RouteId = Model.Id }' />
+<partial name="LinkArmedForce" model="Model.ArmedForce" />
+<partial name="LinkBranchType" model="Model.BranchType" />
 
-@if (!Model.ArmedForce.Equals(null))
-{
-    <partial name="LinkItemFlag" model='new {
-        Controller = "ArmedForce",
-        Action = "Details",
-        RouteId = Model.ArmedForceId,
-        Image = Model.ArmedForce.ImageSource,
-        Label = Model.ArmedForce.Name
-    }' />
-}
+
+
+
+@*
+
+
 
 @if (!Model.BranchType.Equals(null))
 {
@@ -45,4 +43,4 @@
         Label = "Ships",
         Count = Model.ShipServices.Count
     }' />
-}
+}*@
