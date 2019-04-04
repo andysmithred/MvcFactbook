@@ -1,0 +1,12 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.BranchView
+
+@if (Model != null)
+{
+    <partial name="LinkItemFlag" model='new {
+             Controller = "Branch",
+             Action = "Details",
+             RouteId = Model.Id,
+             Image = Model.ImageSource,
+             Label = Model.Name
+            }' />
+}

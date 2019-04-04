@@ -1,0 +1,19 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.BranchFlagView
+
+<partial name="DetailsInfoMain" model='new { Partial = "InfoBranchFlag", Item = @Model }' />
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "BRANCH", Icon = "/images/icons/branch-light.png" }' />
+</div>
+<div class="p-2">
+    <partial name="InfoBranch" model=@Model.Branch />
+</div>
+<hr class="bg-light" />
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "FLAG", Icon = "/images/icons/flag-light.png" }' />
+</div>
+<div class="p-2">
+    <partial name="InfoFlag" model=@Model.Flag />
+</div>
+<hr class="bg-light" />
