@@ -1,0 +1,29 @@
+﻿<div class="d-flex flex-column">
+    @foreach (var item in Model)
+    {
+        <div class="w-100 mb-2">
+            <a asp-controller="ArmedForce" asp-action="Details" asp-route-id="@item.PoliticalEntityId">
+                <div class="d-flex flex-row">
+                    <div class="mr-2">
+                        <img src="~/images/icons/embassy-light.png" style="height:20px;" />
+                    </div>
+                    <div class="mr-2">
+                        <div class="text-white">@item.PoliticalEntity.ShortName</div>
+                    </div>
+                    <div class="mr-2">
+                        <img src="~/images/icons/chevron-right-light.png" style="height:20px;width:20px" />
+                    </div>
+                    <div class="mr-2">
+                        <div class="text-muted">@item.StartDateLabel</div>
+                    </div>
+                    <div class="mr-2">
+                        <img src="~/images/icons/chevron-right-light.png" style="height:20px;width:20px" />
+                    </div>
+                    <div class="mr-2">
+                        <div class="text-muted">@item.EndDateLabel</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>

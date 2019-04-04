@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.FlagView>
+
+<div>
+    @(Html
+        .Grid(Model)
+        .Build(columns =>
+        {
+            columns.Add().Encoded(false).RenderedAs(model => $"<img class='rounded' src='{model.ImageSource}' alt='Card image' style='height:20px;width:20px;object-fit:cover;overflow:hidden;opacity:0.4'>");
+            columns.Add(model => model.Name).Titled("Name");
+            columns.Add(model => model.Code).Titled("Code");
+            columns.Add(model => model.StartDate).Titled("Start Date").Formatted("{0:d}");
+            columns.Add(model => model.EndDate).Titled("End Date").Formatted("{0:d}");
+            columns.Add(model => model.Active).Titled("Active");
+            columns.Add().Encoded(false).RenderedAs(model =>
+                "<div class='btn-group float-right'>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/Flag/Edit/{model.Id}'>Edit</a>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/Flag/Details/{model.Id}'>Details</a>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/Flag/Delete/{model.Id}'>Delete</a>" +
+                "</div>"
+            );
+        })
+        .Empty("No data found")
+        .Filterable()
+        .Sortable()
+        .Pageable(pager =>
+        {
+            pager.RowsPerPage = 14;
+        })
+        .AppendCss("table-hover")
+    )
+</div>

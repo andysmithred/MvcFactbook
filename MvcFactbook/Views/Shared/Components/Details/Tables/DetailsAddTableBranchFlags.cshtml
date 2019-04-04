@@ -1,11 +1,11 @@
 ﻿<div class="w-100 p-2">
     <partial name="DetailsItemAddHeader" model='new {
-                Icon = "/images/icons/flag-light.png",
-                Label = "FLAGS",
+                Icon = "/images/icons/emptyflag-light.png",
+                Label = "BRANCH FLAGS",
                 Controller = "BranchFlags",
                 Action = Model.Action,
                 RouteId = Model.RouteId,
-                Tooltip = "Add Flag"
+                Tooltip = "Add Branch Flag"
     }' />
     <div class="mt-3">
         <partial name="TableBranchFlags" model="@Model.Items" />

@@ -1,0 +1,6 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.FlagView
+
+<partial name="LinkDetails" model='new { RouteId = Model.Id }' />
+<partial name="LinkPoliticalEntities" model='new { Controller = "Flag", RouteId = Model.Id, Items = Model.PoliticalEntities }' />
+<partial name="LinkArmedForces" model='new { Controller = "Flag", RouteId = Model.Id, Items = Model.ArmedForces }' />
+<partial name="LinkBranches" model='new { Controller = "Flag", RouteId = Model.Id, Items = Model.Branches }' />

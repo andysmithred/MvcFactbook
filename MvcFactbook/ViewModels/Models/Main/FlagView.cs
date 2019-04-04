@@ -50,6 +50,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<BranchFlagView> BranchFlags => GetViewList<BranchFlagView, BranchFlag>(ViewObject.BranchFlags);
 
+        public ICollection<PoliticalEntityFlagView> PoliticalEntityFlags => GetViewList<PoliticalEntityFlagView, PoliticalEntityFlag>(ViewObject.PoliticalEntityFlags);
+
         #endregion Foreign Properties
 
         #region Other Properties
@@ -69,6 +71,8 @@ namespace MvcFactbook.ViewModels.Models.Main
         public ICollection<ArmedForceView> ArmedForces => ArmedForceFlags.Select(f => f.ArmedForce).Distinct(f => f.Id).ToList();
 
         public ICollection<BranchView> Branches => BranchFlags.Select(f => f.Branch).Distinct(f => f.Id).ToList();
+
+        public ICollection<PoliticalEntityView> PoliticalEntities => PoliticalEntityFlags.Select(f => f.PoliticalEntity).Distinct(f => f.Id).ToList();
 
         #endregion Other Properties
 

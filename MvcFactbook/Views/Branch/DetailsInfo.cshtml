@@ -8,7 +8,7 @@
              RouteId = Model.Id,
              Items = Model.ShipServices.OrderBy(x => x.Name)
              }' />
-    <partial name="DetailsAddListBranchFlags" model='new {
+    <partial name="DetailsAddListBranchFlagsFlags" model='new {
              Action = "CreateByBranch",
              RouteId = Model.Id,
              Items = Model.BranchFlags.OrderBy(x => x.Start)

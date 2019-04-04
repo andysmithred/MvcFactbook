@@ -1,0 +1,23 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.FlagView
+
+<partial name="DetailsInfoMain" model='new { Partial = "InfoFlag", Item = @Model }' />
+
+<div class="d-flex flex-row flex-fill">
+    <partial name="DetailsAddListPoliticalEntityFlagsPoliticalEntities" model='new {
+             Action = "CreateByFlag",
+             RouteId = Model.Id,
+             Items = Model.PoliticalEntityFlags.OrderBy(x => x.StartDate)
+             }' />
+    <partial name="DetailsAddListArmedForceFlagsArmedForces" model='new {
+             Action = "CreateByFlag",
+             RouteId = Model.Id,
+             Items = Model.ArmedForceFlags.OrderBy(x => x.Start)
+             }' />
+    <partial name="DetailsAddListBranchFlagsBranches" model='new {
+             Action = "CreateByFlag",
+             RouteId = Model.Id,
+             Items = Model.BranchFlags.OrderBy(x => x.Start)
+             }' />
+</div>
+
+<hr class="bg-light" />

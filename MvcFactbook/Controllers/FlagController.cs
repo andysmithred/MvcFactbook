@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MvcFactbook.Code.Data;
 using MvcFactbook.Models;
 using MvcFactbook.ViewModels.Models.Main;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MvcFactbook.Controllers
 {
@@ -35,12 +34,17 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
-        public async Task<IActionResult> ArmedForcesList(int? id)
+        public async Task<IActionResult> DetailsPoliticalEntities(int? id)
         {
             return await base.Details(id);
         }
 
-        public async Task<IActionResult> BranchesList(int? id)
+        public async Task<IActionResult> DetailsArmedForces(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsBranches(int? id)
         {
             return await base.Details(id);
         }
@@ -112,6 +116,7 @@ namespace MvcFactbook.Controllers
             return i => Context.Flag
                         .Include(x => x.ArmedForceFlags).ThenInclude(x => x.ArmedForce)
                         .Include(x => x.BranchFlags).ThenInclude(x => x.Branch)
+                        .Include(x => x.PoliticalEntityFlags).ThenInclude(x => x.PoliticalEntity)
                         .FirstOrDefault(x => x.Id == i);
         }
 
