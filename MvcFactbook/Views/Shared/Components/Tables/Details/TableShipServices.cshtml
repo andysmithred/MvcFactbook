@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.ShipServiceView>
+
+<div>
+    @(Html
+        .Grid(Model)
+        .Build(columns =>
+        {
+            columns.Add().Encoded(false).RenderedAs(model => $"<img class='rounded' src='{model.ImageSource}' alt='Card image' style='height:20px;width:20px;object-fit:cover;overflow:hidden;opacity:0.4'>");
+            columns.Add(model => model.Penant).Titled("Penant");
+            columns.Add(model => model.Name).Titled("Name");
+            columns.Add(model => model.ShipClass.Name).Titled("Class");
+            columns.Add(model => model.Branch.Name).Titled("Branch");
+            columns.Add(model => model.ShipSubType.Type).Titled("Type");
+            columns.Add(model => model.StartService).Titled("Start Service").Formatted("{0:d}");
+            columns.Add(model => model.EndService).Titled("End Service").Formatted("{0:d}");
+            columns.Add().Encoded(false).RenderedAs(model =>
+                "<div class='btn-group float-right'>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/ShipService/Details/{model.Id}'>Details</a>" +
+                "</div>"
+            );
+        })
+        .Empty("No data found")
+        .Filterable()
+        .Sortable()
+        .Pageable(pager =>
+        {
+            pager.RowsPerPage = 14;
+        })
+        .AppendCss("table-hover")
+    )
+</div>

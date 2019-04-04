@@ -92,6 +92,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string EndServiceLabel => CommonFunctions.GetDateLabel(EndService);
 
+        public string DatesLabel => CommonFunctions.GetDateLabel(StartService, EndService);
+
         [Display(Name = "Service")]
         public TimeSpan TimeSpan => GetCareerTimepan();
 

@@ -45,18 +45,13 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string EndDateLabel => CommonFunctions.GetDateLabel(End);
 
-        public DateTime AbsoluteStart => Start.HasValue ? Start.Value : DateTime.MinValue;
+        public DateTime AbsoluteStart => Start ?? DateTime.MinValue;
 
-        public DateTime AbsoluteEnd => End.HasValue ? End.Value : DateTime.MaxValue;
+        public DateTime AbsoluteEnd => End ?? DateTime.MaxValue;
 
         public string DateLabel => CommonFunctions.GetDateLabel(Start, End);
 
         #endregion Other Properties
 
-        #region Methods
-
-
-
-        #endregion Methods
     }
 }

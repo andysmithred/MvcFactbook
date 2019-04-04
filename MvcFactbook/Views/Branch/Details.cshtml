@@ -5,7 +5,7 @@
 }
 
 <partial name="DetailsMain" />
-@*<partial name="DetailsInfo" />*@
+<partial name="DetailsInfo" />
 
 
 
@@ -18,21 +18,7 @@
 
 
 
-    <hr class="bg-secondary" />
-    <div class="d-flex flex-row flex-wrap mt-2">
-        <div class="p-2 w-25">
-            <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Name)</h6></div>
-            <div class="text-white"><h4>@Model.Name</h4></div>
-        </div>
-        <div class="p-2 w-25">
-            <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.ArmedForce)</h6></div>
-            <div class="text-white"><h4>@Model.ArmedForce.Name</h4></div>
-        </div>
-        <div class="p-2 w-25">
-            <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.BranchType)</h6></div>
-            <div class="text-white"><h4>@Model.BranchType.Type</h4></div>
-        </div>
-    </div>
+   
     <hr class="bg-secondary" />
     @if (Model.BranchFlags.Count > 0)
     {

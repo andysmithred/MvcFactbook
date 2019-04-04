@@ -1,7 +1,0 @@
-﻿@model MvcFactbook.ViewModels.Models.Main.BranchView
-
-<div class="d-flex flex-row flex-wrap p-1">
-    <partial name="DetailsItem" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
-    <partial name="DetailsItem" model='new { Label = Html.DisplayNameFor(x => x.ArmedForce), Value = Model.ArmedForce.Name }' />
-    <partial name="DetailsItem" model='new { Label = Html.DisplayNameFor(x => x.BranchType), Value = Model.BranchType.Type }' />
-</div>

@@ -1,0 +1,17 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.BranchView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<partial name="DetailsMain" />
+
+<div class="d-flex flex-row">
+    <partial name="DetailsAddTableShipServices" model='new {
+             Action = "CreateByBranch",
+             RouteId = Model.Id,
+             Items = Model.ShipServices.OrderBy(x => x.Name)
+             }' />
+</div>
+
+<hr class="bg-light" />
