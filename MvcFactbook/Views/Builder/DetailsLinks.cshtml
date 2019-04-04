@@ -1,6 +1,4 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.BuilderView
 
-<div class="d-flex flex-row flex-wrap mt-3">
-    <partial name="LinkDetails" model='new { Id = Model.Id }' />
-    <partial name="LinkShips" model='new { Id = Model.Id, Items = Model.Ships }' />
-</div>
+<partial name="LinkDetails" model='new { RouteId = Model.Id }' />
+<partial name="LinkShips" model='new { Controller = "Builder", RouteId = Model.Id, Items = Model.Ships }' />

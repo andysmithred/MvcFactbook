@@ -34,7 +34,7 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
-        public async Task<IActionResult> ShipsList(int? id)
+        public async Task<IActionResult> DetailsShips(int? id)
         {
             return await base.Details(id);
         }
