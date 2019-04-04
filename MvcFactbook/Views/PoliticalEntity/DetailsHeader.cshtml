@@ -1,15 +1,11 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.PoliticalEntityView
 
-<div>
-    <div class="d-flex">
-        @if (Model.HasFlag)
-        {
-            <div class="p-2">
-                <img class="card-img-top-50 rounded" src="@Model.ImageSource" alt="Card image" style="height:40px;object-fit: cover;overflow: hidden;opacity:0.3" />
-            </div>
-        }
-        <div class="text-white p-2 pl-3">
-            <h2>@Model.ShortName</h2>
-        </div>
+@if (Model.HasFlag)
+{
+    <div class="pr-2">
+        <img class="card-img-top-50 rounded" src="@Model.ImageSource" alt="Card image" style="height:50px;object-fit: cover;overflow: hidden;opacity:0.3" />
     </div>
+}
+<div class="ml-2 text-white">
+    <h2>@Model.ShortName</h2>
 </div>

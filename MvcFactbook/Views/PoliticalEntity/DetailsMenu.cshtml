@@ -1,6 +1,6 @@
 ﻿<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <img src="~/images/icons/embassy-light.png" style="height:24px;width:24px" />
-    <a class="navbar-brand pl-4 pr-4" href="#">Political Entity</a>
+    <a class="navbar-brand pl-4 pr-4" href="#">POLITICAL ENTITY</a>
     <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" asp-action="Index">Index</a></li>
         <li class="nav-item"><a class="nav-link" asp-action="Edit" asp-route-id="@Model.Id">Edit</a></li>
@@ -10,7 +10,9 @@
         <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Lists</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" asp-action="PoliticalEntitiesList" asp-route-id="@Model.Id">Political Entities</a>
+                <a class="dropdown-item" asp-action="DetailsFlags" asp-route-id="@Model.Id">Flags</a>
+                <a class="dropdown-item" asp-action="DetailsPrecedingEntities" asp-route-id="@Model.Id">Preceding Entities</a>
+                <a class="dropdown-item" asp-action="DetailsSucceedingEntities" asp-route-id="@Model.Id">Succeeding Entities</a>
             </div>
         </li>
     </ul>

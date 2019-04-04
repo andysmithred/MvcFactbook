@@ -1,0 +1,12 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.PoliticalEntityView
+
+<div class="d-flex flex-row flex-wrap">
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.FullName), Value = Model.FullName }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Code), Value = Model.Code }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.PoliticalEntityType), Value = Model.PoliticalEntityType.Type }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.StartDate), Value = Model.StartDateLabel }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.EndDate), Value = Model.EndDateLabel }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.TimeSpan), Value = Model.TimeSpanLabel }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Exists), Value = Model.Exists }' />
+</div>

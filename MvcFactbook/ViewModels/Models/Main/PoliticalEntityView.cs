@@ -78,6 +78,11 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string EndDateLabel => CommonFunctions.GetDateLabel(EndDate);
 
+        [Display(Name = "Time Span")]
+        public TimeSpan? TimeSpan => CommonFunctions.GetTimepan(StartDate, EndDate);
+
+        public string TimeSpanLabel => CommonFunctions.Format(TimeSpan);
+
         public ICollection<FlagView> Flags => PoliticalEntityFlags.Select(f => f.Flag).Distinct(f => f.Id).ToList();
 
         public bool HasFlag => Flags.Count > 0;

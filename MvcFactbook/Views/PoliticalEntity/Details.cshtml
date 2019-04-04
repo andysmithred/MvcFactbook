@@ -4,101 +4,18 @@
     ViewData["Title"] = "Details";
 }
 
-<partial name="DetailsMenu" />
-<br />
-<partial name="DetailsHeader" />
-<hr class="bg-secondary" />
-<div class="d-flex mt-3 p-2">
-    @if (Model.PoliticalEntityType != null)
-    {
-        <div class="mr-4">
-            <a asp-controller="PoliticalEntityType" asp-action="Details" asp-route-id="@Model.PoliticalEntityTypeId">
-                <div class="d-flex">
-                    <div><img src="~/images/icons/government-light.png" style="height:20px;width:20px" /></div>
-                    <div class="pl-3 text-white">@Model.PoliticalEntityType.Type</div>
-                    <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right text-white'></i></h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }
-    @if (Model.Flags.Count > 0)
-    {
-        <div class="mr-3">
-            <a asp-action="FlagsList" asp-route-id="@Model.Id" class="text-dark">
-                <div class="d-flex">
-                    <div><img src="~/images/icons/flag-light.png" style="height:20px;width:20px" /></div>
-                    <div class="pl-3 text-white">Flags</div>
-                    <div class="pl-3 text-white">@Model.Flags.Count</div>
-                    <div class="ml-auto pl-3">
-                        <h5><i class='fas fa-angle-right text-white'></i></h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    }
-</div>
-<hr class="bg-secondary" />
-<div class="d-flex flex-row flex-wrap mt-2">
-    <div class="flex-fill p-2 w-25">
-        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Id)</h6></div>
-        <div class="text-white"><h4>@Model.Id</h4></div>
-    </div>
-    <div class="flex-fill p-2 w-25">
-        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Name)</h6></div>
-        <div class="text-white"><h4>@Model.Name</h4></div>
-    </div>
-    <div class="flex-fill p-2 w-25">
-        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.FullName)</h6></div>
-        <div class="text-white"><h4>@Model.FullName</h4></div>
-    </div>
-    <div class="flex-fill p-2 w-25">
-        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Code)</h6></div>
-        <div class="text-white"><h4>@Model.Code</h4></div>
-    </div>
-    <div class="flex-fill p-2 w-25">
-        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.StartDate)</h6></div>
-        <div class="text-white"><h4>@Model.StartDateLabel</h4></div>
-    </div>
-    <div class="flex-fill p-2 w-25">
-        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.EndDate)</h6></div>
-        <div class="text-white"><h4>@Model.EndDateLabel</h4></div>
-    </div>
-    <div class="flex-fill p-2 w-25">
-        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Exists)</h6></div>
-        <div class="text-white"><h4>@Model.Exists</h4></div>
-    </div>
-    <div class="flex-fill p-2 w-25">
-        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PoliticalEntityType)</h6></div>
-        <div class="text-white"><h4>@Model.PoliticalEntityType.Type</h4></div>
-    </div>
-</div>
-<hr class="bg-secondary" />
-@if (Model.PoliticalEntityFlags.Count > 0)
+<partial name="DetailsMain" />
+<partial name="DetailsInfo" />
+
+
+
+
+@*@if (Model.PoliticalEntityFlags.Count > 0)
 {
-    <div class="text-muted p-2"><h5>Flags</h5></div>
-    <div class="d-flex flex-row flex-wrap mt-2">
-        @foreach (var item in Model.PoliticalEntityFlags.OrderBy(x => x.StartDate))
-        {
-            <div class="pr-4 pl-2 w-25">
-                <a asp-controller="Flag" asp-action="Details" asp-route-id="@item.FlagId">
-                    <div class="d-flex flex-row">
-                        <div class="pt-2 pr-2">
-                            <img class="rounded" src="@item.Flag.ImageSource" alt="Card image" style="height:40px;object-fit: cover;overflow: hidden;opacity:0.3;" />
-                        </div>
-                        <div class="p-2">
-                            <div class="text-white"><h4>@item.Flag.Name</h4></div>
-                            <div class="text-muted"><h6>@item.StartDateLabel to @item.EndDateLabel</h6></div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        }
-    </div>
-    <hr class="bg-secondary" />
-}
-@if (Model.PrecedingPoliticalEntities.Count > 0 || Model.SucceedingPoliticalEntities.Count > 0)
+    
+}*@
+
+@*@if (Model.PrecedingPoliticalEntities.Count > 0 || Model.SucceedingPoliticalEntities.Count > 0)
 {
     <div class="d-flex flex-row">
         <div class="w-50">
@@ -145,4 +62,4 @@
         </div>
     </div>
     <hr class="bg-secondary" />
-}
+}*@

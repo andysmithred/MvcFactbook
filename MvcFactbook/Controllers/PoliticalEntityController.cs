@@ -58,6 +58,21 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
+        public async Task<IActionResult> DetailsFlags(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsPrecedingEntities(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsSucceedingEntities(int? id)
+        {
+            return await base.Details(id);
+        }
+
         #endregion Details
 
         #region Create

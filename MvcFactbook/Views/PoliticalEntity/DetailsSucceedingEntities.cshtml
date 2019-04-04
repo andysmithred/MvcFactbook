@@ -1,0 +1,17 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.PoliticalEntityView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<partial name="DetailsMain" />
+
+<div class="d-flex flex-row">
+    <partial name="DetailsAddTableSucceedingEntities" model='new {
+             Action = "CreateSucceedingPoliticalEntity",
+             RouteId = Model.Id,
+             Items = Model.SucceedingPoliticalEntities.OrderBy(x => x.StartDate)
+             }' />
+</div>
+
+<hr class="bg-light" />
