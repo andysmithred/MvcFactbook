@@ -196,6 +196,8 @@ namespace MvcFactbook.Controllers
             return i => Context
                         .ShipGroupSet
                         .Include(x => x.ShipService).ThenInclude(x => x.Branch).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag)
+                        .Include(x => x.ShipService).ThenInclude(x => x.ShipClass)
+                        .Include(x => x.ShipService).ThenInclude(x => x.ShipSubType).ThenInclude(x => x.ShipType).ThenInclude(x => x.ShipCategory)
                         .Include(x => x.ShipGroup)
                         .FirstOrDefault(x => x.Id == i);
         }
