@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.ShipView>
 
-@(Html
+<div>
+    @(Html
     .Grid(Model)
     .Build(columns =>
     {
@@ -21,7 +22,8 @@
     .Sortable()
     .Pageable(pager =>
     {
-        pager.RowsPerPage = 15;
+        pager.RowsPerPage = 14;
     })
     .AppendCss("table-hover")
-)
+    )
+</div>

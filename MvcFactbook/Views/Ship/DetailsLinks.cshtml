@@ -1,21 +1,25 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ShipView
 
-<div class="d-flex mt-3 p-2">
-    <partial name="LinkDetails" model='new { Id = Model.Id }' />
-    <partial name="LinkBuilder" model='new { Item = Model.Builder }' />
-    <partial name="LinkShipServices" model='new { Id = Model.Id, Items = Model.ShipServices }' />
+<partial name="LinkDetails" model='new { RouteId = Model.Id }' />
+<partial name="LinkShipSubTypes" model='new { Controller = "Ship", RouteId = Model.Id, Items = Model.ShipSubTypes }' />
+<partial name="LinkShipClasses" model='new { Controller = "Ship", RouteId = Model.Id, Items = Model.ShipClasses }' />
+<partial name="LinkBranches" model='new { Controller = "Ship", RouteId = Model.Id, Items = Model.Branches }' />
+<partial name="LinkShipServices" model='new { Controller = "Ship", RouteId = Model.Id, Items = Model.ShipServices }' />
+<partial name="LinkBuilder" model="Model.Builder" />
 
-    @foreach (var item in Model.ShipSubTypes)
-    {
-        <partial name="LinkShipSubType" model='new { Item = item }' />
-    }
+@*<partial name="LinkFlags" model='new { Controller = "PoliticalEntity", RouteId = Model.Id, Items = Model.Flags }' />
+<partial name="LinkPrecedingEntities" model='new { Controller = "PoliticalEntity", RouteId = Model.Id, Items = Model.PrecedingEntities }' />
+<partial name="LinkSucceedingEntities" model='new { Controller = "PoliticalEntity", RouteId = Model.Id, Items = Model.SucceedingEntities }' />
+<partial name="LinkPoliticalEntityType" model="Model.PoliticalEntityType" />
 
-    @foreach (var item in Model.ShipClasses)
-    {
-        <partial name="LinkShipClass" model='new { Item = item }' />
-    }
-    @foreach (var item in Model.Branches)
-    {
-        <partial name="LinkBranch" model='new { Item = item }' />
-    }
-</div>
+
+
+
+    
+    
+
+  
+
+   
+   
+</div>*@

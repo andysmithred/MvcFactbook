@@ -5,70 +5,8 @@
 }
 
 <partial name="DetailsMain" />
+<partial name="DetailsInfo" />
 
-<partial name="DetailsShip" />
-<hr class="bg-secondary" />
 
-@if (Model.ShipServices.Count > 0)
-{
-    <div class="d-flex pl-2">
-        <div class="text-muted"><h6>Service</h6></div>
-        <div class="pl-3 text-muted">
-            <h6><a asp-controller="ShipService" asp-action="CreateByShip" class="text-muted" asp-route-id="@Model.Id" title="Add Service"><i class="fas fa-plus"></i></a></h6>
-        </div>
-    </div>
-    <div class="d-flex flex-column" style="max-height:450px;overflow-y:auto;">
-        @foreach (var item in Model.ShipServices.OrderBy(x => x.StartService))
-        {
-            <div class="w-100 p-2 pt-4">
-                <div class="d-flex flex-column">
-                    <a asp-controller="ShipService" asp-action="Details" asp-route-id="@item.Id">
-                        <div class="d-flex flex-row">
-                            <div>
-                                <img class="rounded" src="@item.ImageSource" alt="Card image" style="height:40px;object-fit: cover;overflow: hidden;opacity:0.4">
-                            </div>
-                            <div class="text-white p-1 pl-2">
-                                <h4>@item.Name</h4>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="d-flex flex-row flex-wrap">
-                        <div class="w-25">
-                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.Penant)</h6></div>
-                            <div class="text-white"><h4>@item.Penant</h4></div>
-                        </div>
-                        <div class="w-25">
-                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.Branch)</h6></div>
-                            <div class="text-white"><h4>@item.Branch.Name</h4></div>
-                        </div>
-                        <div class="w-25">
-                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.ShipClass)</h6></div>
-                            <div class="text-white"><h4>@item.ShipClass.Name</h4></div>
-                        </div>
-                        <div class="w-25">
-                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.ShipSubType)</h6></div>
-                            <div class="text-white"><h4>@item.ShipSubType.Type</h4></div>
-                        </div>
-                        <div class="w-25">
-                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.StartService)</h6></div>
-                            <div class="text-white"><h4>@item.StartServiceLabel</h4></div>
-                        </div>
-                        <div class="w-25">
-                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.EndService)</h6></div>
-                            <div class="text-white"><h4>@item.EndServiceLabel</h4></div>
-                        </div>
-                        <div class="w-25">
-                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.TimeSpan)</h6></div>
-                            <div class="text-white"><h4>@item.TimeSpanLabel</h4></div>
-                        </div>
-                        <div class="w-25">
-                            <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.Fate)</h6></div>
-                            <div class="text-white"><h4>@item.Fate</h4></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-    <hr class="bg-secondary" />
-}
+
+

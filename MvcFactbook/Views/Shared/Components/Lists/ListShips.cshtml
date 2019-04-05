@@ -2,7 +2,7 @@
     @foreach (var item in Model)
     {
         <div class="w-100 mb-2">
-            <a asp-controller="ShipService" asp-action="Details" asp-route-id="@item.Id">
+            <a asp-controller="Ship" asp-action="Details" asp-route-id="@item.Id">
                 <div class="d-flex flex-row">
                     <div class="mr-2">
                         <img src="~/images/icons/ship-light.png" style="height:20px;opacity:0.4" />
