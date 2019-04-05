@@ -1,12 +1,8 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ShipGroupView
 
-<div class="alert alert-dark rounded p-2">
-    <div class="d-flex w-75">
-        <div>
-            <img class="card-img-top-50 rounded m-2" src=@Model.IconDarkFullPath alt="Card image" style="height:40px;">
-        </div>
-        <div class="p-2 pl-3">
-            <h3><strong>@Model.Name</strong></h3>
-        </div>
-    </div>
+<div class="pr-2">
+    <img src=@Model.IconLightFullPath style="height:40px;width:40px" />
+</div>
+<div class="text-white ml-2 pr-2">
+    <h2>@Model.Name</h2>
 </div>
