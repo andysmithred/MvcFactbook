@@ -1,0 +1,12 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipTypeView
+
+@if (Model != null)
+{
+<partial name="LinkItem" model='new {
+             Controller = "ShipType",
+             Action = "Details",
+             RouteId = Model.Id,
+             Icon = "/images/icons/shiptype-light.png",
+             Label = Model.Type
+            }' />
+}

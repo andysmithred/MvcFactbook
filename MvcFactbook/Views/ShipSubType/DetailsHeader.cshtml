@@ -1,12 +1,11 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ShipSubTypeView
 
-<div class="alert alert-dark rounded p-2">
-    <div class="d-flex w-75">
-        <div>
-            <img class="card-img-top-50 rounded m-2" src="~/images/icons/shipsubtype-dark.png" alt="Card image" style="height:40px;">
-        </div>
-        <div class="p-2 pl-3">
-            <h3><strong>@Model.Type</strong></h3>
-        </div>
-    </div>
+<div class="pr-2">
+    <img src="~/images/icons/shipsubtype-light.png" style="height:40px;width:40px" />
+</div>
+<div class="text-white ml-2 pr-2">
+    <h2>@Model.Type</h2>
+</div>
+<div class="text-muted ml-2 pr-2">
+    <h2>@Model.ShipType.Type</h2>
 </div>

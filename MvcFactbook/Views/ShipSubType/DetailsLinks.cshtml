@@ -1,0 +1,5 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipSubTypeView
+
+<partial name="LinkShipType" model="Model.ShipType" />
+<partial name="LinkShipCategory" model="Model.ShipType.ShipCategory" />
+<partial name="LinkShipServices" model='new { Controller = "ShipSubType", RouteId = Model.Id, Items = Model.ShipServices }' />

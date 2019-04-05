@@ -160,7 +160,7 @@ namespace MvcFactbook.Controllers
         protected override Func<int, ShipSubType> GetItemFunction()
         {
             return i => Context.ShipSubType
-                        .Include(x => x.ShipType)
+                        .Include(x => x.ShipType).ThenInclude(x => x.ShipCategory)
                         .Include(x => x.ShipServices).ThenInclude(x => x.Branch).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag)
                         .Include(x => x.ShipServices).ThenInclude(x => x.Branch).ThenInclude(x => x.ArmedForce)
                         .Include(x => x.ShipServices).ThenInclude(x => x.Branch).ThenInclude(x => x.BranchType)
@@ -171,7 +171,7 @@ namespace MvcFactbook.Controllers
         protected override Func<IQueryable<ShipSubType>> GetItemsFunction()
         {
             return () => Context.ShipSubType
-                                .Include(x => x.ShipType);
+                                .Include(x => x.ShipType).ThenInclude(x => x.ShipCategory);
         }
 
         protected override Func<ShipSubType, bool> GetExistsFunc(int id)
