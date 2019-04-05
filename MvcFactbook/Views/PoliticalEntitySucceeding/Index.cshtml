@@ -4,7 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
-<br />
-<partial name='IndexMenu' model='new { Title = "Succeeding Entities", Icon = "/images/icons/succeedingclass-light.png" }' />
-<br />
-<partial name="PartialListMainSucceedingPoliticalEntities" model="@Model.OrderBy(x => x.PrecedingEntity.Name).ToList()" />
+<partial name='IndexMenu' model='new { Title = "SUCCEEDING ENTITIES", Icon = "/images/icons/succeedingclass-light.png" }' />
+<hr class="bg-light" />
+<div class="p-2 w-100">
+    <partial name="TableIndexSucceedingPoliticalEntities" model="@Model.OrderBy(x => x.PrecedingEntity.ShortName)" />
+</div>
+<hr class="bg-light" />
