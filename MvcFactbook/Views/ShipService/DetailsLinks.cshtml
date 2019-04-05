@@ -1,9 +1,7 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ShipServiceView
 
-<div class="d-flex mt-3 p-2">
-    <partial name="LinkDetails" model='new { Id = Model.Id }' />
-    <partial name="LinkShip" model='new { Item = Model.Ship }' />
-    <partial name="LinkShipClass" model='new { Item = Model.ShipClass }' />
-    <partial name="LinkShipSubType" model='new { Item = Model.ShipSubType }' />
-    <partial name="LinkBranch" model='new { Item = Model.Branch }' />
-</div>
+<partial name="LinkDetails" model='new { RouteId = Model.Id }' />
+<partial name="LinkShip" model="Model.Ship" />
+<partial name="LinkShipClass" model="Model.ShipClass" />
+<partial name="LinkShipSubType" model="Model.ShipSubType" />
+<partial name="LinkBranch" model="Model.Branch" />

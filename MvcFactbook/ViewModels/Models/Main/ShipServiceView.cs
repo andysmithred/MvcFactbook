@@ -101,6 +101,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<ShipGroupView> ShipGroups => ShipGroupSets.Select(f => f.ShipGroup).Distinct(f => f.Id).ToList();
 
+        public string PenantLabel => !String.IsNullOrEmpty(Penant) ? Penant : "--";
+
         #endregion Other Properties
 
         #region Methods
