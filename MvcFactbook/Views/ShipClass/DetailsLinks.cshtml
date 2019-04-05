@@ -1,18 +1,15 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ShipClassView
 
-<div class="d-flex flex-row flex-wrap mt-3 p-2">
-    <partial name="LinkDetails" model='new { Id = Model.Id }' />
+<partial name="LinkDetails" model='new { RouteId = Model.Id }' />
+<partial name="LinkShips" model='new { Controller = "ShipClass", RouteId = Model.Id, Items = Model.Ships }' />
+<partial name="LinkShipServices" model='new { Controller = "ShipClass", RouteId = Model.Id, Items = Model.ShipServices }' />
 
-    <partial name="LinkShips" model='new { Id = Model.Id, Items = Model.Ships }' />
-    <partial name="LinkShipServices" model='new { Id = Model.Id, Items = Model.ShipServices }' />
+@foreach (var item in Model.ShipSubTypes)
+{
+    <partial name="LinkShipSubType" model="item" />
+}
 
-    @foreach (var item in Model.ShipSubTypes)
-    {
-        <partial name="LinkShipSubType" model='new { Item = item }' />
-    }
-
-    @foreach (var item in Model.Branches)
-    {
-        <partial name="LinkBranch" model='new { Item = item }' />
-    }
-</div>
+@foreach (var item in Model.Branches)
+{
+    <partial name="LinkBranch" model="item" />
+}

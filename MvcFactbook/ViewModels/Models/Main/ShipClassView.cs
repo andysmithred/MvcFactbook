@@ -17,7 +17,7 @@ namespace MvcFactbook.ViewModels.Models.Main
         [Required]
         public string Name => ViewObject.Name;
 
-        [Display(Name = "Sub-class")]
+        [Display(Name = "Sub-Class")]
         public string SubClassName => ViewObject.SubClassName;
 
         public int? Displacement => ViewObject.Displacement;
