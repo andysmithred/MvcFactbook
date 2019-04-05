@@ -4,12 +4,20 @@
     ViewData["Title"] = "Details";
 }
 
-<br />
+
+<partial name="DetailsMain" />
+<partial name="DetailsInfo" />
+
+
+
+
+
+@*<br />
 <partial name="DetailsMenu" />
 <br />
-<partial name="DetailsHeader" />
+<partial name="DetailsHeader" />*@
 
-<div class="d-flex bg-dark">
+@*@*<div class="d-flex bg-dark">
     @if (Model.ShipCategory != null)
     {
         <div class="mr-3">
@@ -40,9 +48,9 @@
             </a>
         </div>
     }
-</div>
+</div>*@
 
-<div class="card-deck w-75">
+@*<div class="card-deck w-75">
     <div class="card border-0">
         <div class="card-header bg-secondary text-white">
             <div class="d-flex">
@@ -79,4 +87,4 @@
             }
         </div>
     </div>
-</div>
+</div>*@
