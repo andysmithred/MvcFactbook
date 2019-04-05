@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MvcFactbook.Models
 {
@@ -13,8 +10,6 @@ namespace MvcFactbook.Models
         public PoliticalEntityType()
         {
             PoliticalEntities = new HashSet<PoliticalEntity>();
-
-           // ShipServices = new HashSet<ShipService>();
         }
 
         #endregion Constructor
@@ -33,8 +28,6 @@ namespace MvcFactbook.Models
         #region Foreign Properties
 
         public ICollection<PoliticalEntity> PoliticalEntities { get; set; }
-
-        //public ICollection<ShipService> ShipServices { get; set; }
 
         #endregion Foreign Properties
     }

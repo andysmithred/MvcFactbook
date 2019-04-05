@@ -1,9 +1,6 @@
 ﻿using MvcFactbook.Models;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MvcFactbook.ViewModels.Models.Main
 {
@@ -22,9 +19,7 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         #region Foreign Properties
 
-        //public ICollection<BranchFlagView> BranchFlags => GetViewList<BranchFlagView, BranchFlag>(ViewObject.BranchFlags);
-
-        //public ICollection<ShipServiceView> ShipServices => GetViewList<ShipServiceView, ShipService>(ViewObject.ShipServices);
+        public ICollection<PoliticalEntityView> PoliticalEntities => GetViewList<PoliticalEntityView, PoliticalEntity>(ViewObject.PoliticalEntities);
 
         #endregion Foreign Properties
 
@@ -34,10 +29,5 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         #endregion Other Properties
 
-        #region Methods
-
-        
-
-        #endregion Methods
     }
 }
