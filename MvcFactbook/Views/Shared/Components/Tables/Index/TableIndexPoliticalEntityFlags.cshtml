@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.PoliticalEntityFlagView>
+
+<div>
+    @(Html
+        .Grid(Model)
+        .Build(columns =>
+        {
+            columns.Add().Encoded(false).RenderedAs(model => $"<img src='/images/icons/emptyflag-light.png' style='height: 20px; width: 20px' />");
+            columns.Add(model => model.PoliticalEntity.Name).Titled("Political Entity");
+            columns.Add(model => model.Flag.Name).Titled("Flag");
+            columns.Add(model => model.StartDate).Titled("Start date").Formatted("{0:d}");
+            columns.Add(model => model.EndDate).Titled("End date").Formatted("{0:d}");
+            columns.Add().Encoded(false).RenderedAs(model =>
+                "<div class='btn-group float-right'>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/PoliticalEntityFlag/Edit/{model.Id}'>Edit</a>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/PoliticalEntityFlag/Details/{model.Id}'>Details</a>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/PoliticalEntityFlag/Delete/{model.Id}'>Delete</a>" +
+                "</div>"
+            );
+        })
+        .Empty("No data found")
+        .Filterable()
+        .Sortable()
+        .Pageable(pager =>
+        {
+            pager.RowsPerPage = 14;
+        })
+        .AppendCss("table-hover")
+    )
+</div>

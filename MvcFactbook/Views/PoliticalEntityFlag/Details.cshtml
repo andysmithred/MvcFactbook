@@ -4,11 +4,20 @@
     ViewData["Title"] = "Details";
 }
 
-<partial name="DetailsMenu" />
+<partial name="DetailsMain" />
+<partial name="DetailsInfo" />
+
+
+
+
+
+@*<partial name="DetailsMenu" />
 <br />
 <partial name="DetailsHeader" />
-<hr class="bg-secondary" />
-<div class="d-flex mt-3 p-2">
+<hr class="bg-secondary" />*@
+
+
+@*<div class="d-flex mt-3 p-2">
     @if (Model.PoliticalEntity != null)
     {
         <div class="mr-5">
@@ -38,8 +47,11 @@
         </div>
     }
 </div>
-<hr class="bg-secondary" />
-<div class="d-flex flex-row flex-wrap mt-2">
+<hr class="bg-secondary" />*@
+
+
+
+@*<div class="d-flex flex-row flex-wrap mt-2">
     <div class="flex-fill p-2 w-20">
         <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Id)</h6></div>
         <div class="text-white"><h4>@Model.Id</h4></div>
@@ -61,8 +73,11 @@
         <div class="text-white"><h4>@Model.EndDateLabel</h4></div>
     </div>
 </div>
-<hr class="bg-secondary" />
-<div class="text-muted p-2"><h5>Political Entity</h5></div>
+<hr class="bg-secondary" />*@
+
+
+
+@*<div class="text-muted p-2"><h5>Political Entity</h5></div>
 <div class="d-flex flex-row flex-wrap mt-2">
     <div class="p-2 w-25">
         <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PoliticalEntity.Id)</h6></div>
@@ -93,8 +108,11 @@
         <div class="text-white"><h4>@Model.PoliticalEntity.EndDateLabel</h4></div>
     </div>
 </div>
-<hr class="bg-secondary"/>
-<div class="text-muted p-2"><h5>Flag</h5></div>
+<hr class="bg-secondary" />*@
+
+
+
+@*<div class="text-muted p-2"><h5>Flag</h5></div>
 <div class="d-flex flex-row flex-wrap mt-2">
     <div class="p-2 w-25">
         <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Flag.Id)</h6></div>
@@ -125,4 +143,4 @@
         <div class="text-white"><h4>@Model.Flag.Active</h4></div>
     </div>
 </div>
-<hr class="bg-secondary" />
+<hr class="bg-secondary" />*@

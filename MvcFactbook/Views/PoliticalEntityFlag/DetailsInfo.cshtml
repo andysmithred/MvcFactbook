@@ -1,0 +1,19 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.PoliticalEntityFlagView
+
+<partial name="DetailsInfoMain" model='new { Partial = "InfoPoliticalEntityFlag", Item = @Model }' />
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "POLITICAL ENTITY", Icon = "/images/icons/embassy-light.png" }' />
+</div>
+<div class="p-2">
+    <partial name="InfoPoliticalEntity" model=@Model.PoliticalEntity />
+</div>
+<hr class="bg-light" />
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "FLAG", Icon = "/images/icons/flag-light.png" }' />
+</div>
+<div class="p-2">
+    <partial name="InfoFlag" model=@Model.Flag />
+</div>
+<hr class="bg-light" />
