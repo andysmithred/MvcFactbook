@@ -4,12 +4,18 @@
     ViewData["Title"] = "Details";
 }
 
-<br />
+<partial name="DetailsMain" />
+<partial name="DetailsInfo" />
+
+
+@*<br />
 <partial name="DetailsMenu" />
 <br />
 <partial name="DetailsHeader" />
-<br />
-<div class="d-flex mt-3">
+<br />*@
+
+
+@*<div class="d-flex mt-3">
     @if (Model.PrecedingShipClass != null)
     {
         <div class="mr-5">
@@ -39,8 +45,11 @@
         </div>
     }
 </div>
-<br />
-<div class="card-deck">
+<br />*@
+
+
+
+@*<div class="card-deck">
     <div class="card border-0">
         <div class="card-header bg-secondary text-white">
             <div class="d-flex">
@@ -67,4 +76,4 @@
             <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.SucceedingShipClass.SubClassName), Value = Model.SucceedingShipClass.SubClassNameLabel }' />
         </div>
     </div>
-</div>
+</div>*@

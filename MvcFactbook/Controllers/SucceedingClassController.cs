@@ -179,8 +179,8 @@ namespace MvcFactbook.Controllers
         protected override Func<int, SucceedingClass> GetItemFunction()
         {
             return i => Context.SucceedingClass
-                        .Include(x => x.PrecedingShipClass)
-                        .Include(x => x.SucceedingShipClass)
+                        .Include(x => x.PrecedingShipClass).ThenInclude(x => x.ShipServices).ThenInclude(x => x.Ship)
+                        .Include(x => x.SucceedingShipClass).ThenInclude(x => x.ShipServices).ThenInclude(x => x.Ship)
                         .FirstOrDefault(x => x.Id == i);
         }
 
