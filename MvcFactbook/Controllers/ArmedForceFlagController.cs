@@ -86,7 +86,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ArmedForceId,FlagId,Start,End")] ArmedForceFlag item)
+        public async Task<IActionResult> Create([Bind("ArmedForceId,FlagId,Start,End")] ArmedForceFlag item)
         {
             if (ModelState.IsValid)
             {
@@ -108,7 +108,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByArmedForce([Bind("Id,ArmedForceId,FlagId,Start,End")] ArmedForceFlag item)
+        public async Task<IActionResult> CreateByArmedForce([Bind("ArmedForceId,FlagId,Start,End")] ArmedForceFlag item)
         {
             if (ModelState.IsValid)
             {
@@ -131,7 +131,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByFlag([Bind("Id,ArmedForceId,FlagId,Start,End")] ArmedForceFlag item)
+        public async Task<IActionResult> CreateByFlag([Bind("ArmedForceId,FlagId,Start,End")] ArmedForceFlag item)
         {
             if (ModelState.IsValid)
             {

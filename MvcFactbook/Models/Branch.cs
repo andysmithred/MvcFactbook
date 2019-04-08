@@ -40,8 +40,10 @@ namespace MvcFactbook.Models
 
         #region Foreign Properties
 
+        [Display(Name = "Armed Force")]
         public ArmedForce ArmedForce { get; set; }
 
+        [Display(Name = "Branch Type")]
         public BranchType BranchType { get; set; }
 
         public ICollection<BranchFlag> BranchFlags { get; set; }

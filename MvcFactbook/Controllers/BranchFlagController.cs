@@ -88,7 +88,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,BranchId,FlagId,Start,End")] BranchFlag item)
+        public async Task<IActionResult> Create([Bind("BranchId,FlagId,Start,End")] BranchFlag item)
         {
             if (ModelState.IsValid)
             {
@@ -110,7 +110,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByBranch([Bind("Id,BranchId,FlagId,Start,End")] BranchFlag item)
+        public async Task<IActionResult> CreateByBranch([Bind("BranchId,FlagId,Start,End")] BranchFlag item)
         {
             if (ModelState.IsValid)
             {
@@ -133,7 +133,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByFlag([Bind("Id,BranchId,FlagId,Start,End")] BranchFlag item)
+        public async Task<IActionResult> CreateByFlag([Bind("BranchId,FlagId,Start,End")] BranchFlag item)
         {
             if (ModelState.IsValid)
             {
