@@ -1,0 +1,31 @@
+﻿@model MvcFactbook.Models.Builder
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<partial name="DeleteMenu" model='new { RouteId = Model.Id, Icon = "fas fa-trash-alt" }' />
+<hr class="bg-light" />
+
+<div class="pl-2 pr-2">
+    <div class="d-flex flex-row w-100">
+        <div class="pr-2">
+            <img src="~/images/icons/builder-light.png" style="height:40px;" />
+        </div>
+        <div class="text-white">
+            <h2>Builder</h2>
+        </div>
+    </div>
+    <hr class="bg-secondary" />
+    <div class="d-flex flex-row flex-wrap">
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.Id }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Founded), Value = Model.Founded }' />
+    </div>
+    <hr class="bg-secondary" />
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-outline-secondary btn-sm" />
+    </form>
+</div>
+<hr class="bg-light" />

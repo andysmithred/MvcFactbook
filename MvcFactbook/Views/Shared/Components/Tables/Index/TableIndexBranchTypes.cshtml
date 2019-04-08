@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.BranchTypeView>
+
+<div>
+    @(Html
+        .Grid(Model)
+        .Build(columns =>
+        {
+            columns.Add().Encoded(false).RenderedAs(model => $"<img src='{model.IconLightPath}' style='height: 20px; width: 20px' />");
+            columns.Add(model => model.Type).Titled("Type");
+            columns.Add(model => model.Code).Titled("Code");
+            columns.Add().Encoded(false).RenderedAs(model =>
+                "<div class='btn-group float-right'>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/BranchType/Edit/{model.Id}'>Edit</a>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/BranchType/Details/{model.Id}'>Details</a>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/BranchType/Delete/{model.Id}'>Delete</a>" +
+                "</div>"
+            );
+        })
+        .Empty("No data found")
+        .Filterable()
+        .Sortable()
+        .Pageable(pager =>
+        {
+            pager.RowsPerPage = 14;
+        })
+        .AppendCss("table-hover")
+    )
+</div>

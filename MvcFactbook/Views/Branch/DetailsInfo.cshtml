@@ -1,0 +1,18 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.BranchView
+
+<partial name="DetailsInfoMain" model='new { Partial = "InfoBranch", Item = @Model }' />
+
+<div class="d-flex flex-row">
+    <partial name="DetailsAddListShipServices" model='new {
+             Action = "CreateByBranch",
+             RouteId = Model.Id,
+             Items = Model.ShipServices.OrderBy(x => x.Name)
+             }' />
+    <partial name="DetailsAddListBranchFlagsFlags" model='new {
+             Action = "CreateByBranch",
+             RouteId = Model.Id,
+             Items = Model.BranchFlags.OrderBy(x => x.Start)
+             }' />
+</div>
+
+<hr class="bg-light" />

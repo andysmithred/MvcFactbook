@@ -1,0 +1,76 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipView
+
+<partial name="DetailsInfoMain" model='new { Partial = "InfoShip", Item = @Model }' />
+
+@*<div class="w-100 p-2">
+    
+    <div class="mt-3" style="max-height:300px;overflow-y:auto;">
+        <partial name="ListArmedForceFlagsArmedForces" model=@Model.Items />
+    </div>
+</div>*@
+
+<div class="w-100 p-2">
+    <partial name="DetailsItemAddHeader" model='new {
+                Icon = "/images/icons/shipservice-light.png",
+                Label = "SERVICE",
+                Controller = "ShipService",
+                Action = "CreateByShip",
+                RouteId = Model.Id,
+                Tooltip = "Add Service"
+    }' />
+</div>
+<div class="d-flex flex-column pr-2 pl-2 pb-2" style="max-height:450px;overflow-y:auto;">
+    @foreach (var item in Model.ShipServices.OrderBy(x => x.StartService))
+    {
+        <div class="w-100 pt-2 border-bottom border-secondary">
+            <div class="d-flex flex-column">
+                <a asp-controller="ShipService" asp-action="Details" asp-route-id="@item.Id">
+                    <div class="d-flex flex-row">
+                        <div>
+                            <img class="rounded" src="@item.ImageSource" alt="Card image" style="height:40px;object-fit: cover;overflow: hidden;opacity:0.4">
+                        </div>
+                        <div class="text-white p-1 pl-2">
+                            <h4>@item.Name</h4>
+                        </div>
+                    </div>
+                </a>
+                <div class="d-flex flex-row flex-wrap">
+                    <div class="w-25">
+                        <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.Penant)</h6></div>
+                        <div class="text-white"><h4>@item.Penant</h4></div>
+                    </div>
+                    <div class="w-25">
+                        <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.Branch)</h6></div>
+                        <div class="text-white"><h4>@item.Branch.Name</h4></div>
+                    </div>
+                    <div class="w-25">
+                        <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.ShipClass)</h6></div>
+                        <div class="text-white"><h4>@item.ShipClass.Name</h4></div>
+                    </div>
+                    <div class="w-25">
+                        <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.ShipSubType)</h6></div>
+                        <div class="text-white"><h4>@item.ShipSubType.Type</h4></div>
+                    </div>
+                    <div class="w-25">
+                        <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.StartService)</h6></div>
+                        <div class="text-white"><h4>@item.StartServiceLabel</h4></div>
+                    </div>
+                    <div class="w-25">
+                        <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.EndService)</h6></div>
+                        <div class="text-white"><h4>@item.EndServiceLabel</h4></div>
+                    </div>
+                    <div class="w-25">
+                        <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.TimeSpan)</h6></div>
+                        <div class="text-white"><h4>@item.TimeSpanLabel</h4></div>
+                    </div>
+                    <div class="w-25">
+                        <div class="text-muted"><h6>@Html.DisplayNameFor(x => item.Fate)</h6></div>
+                        <div class="text-white"><h4>@item.Fate</h4></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<hr class="bg-light" />

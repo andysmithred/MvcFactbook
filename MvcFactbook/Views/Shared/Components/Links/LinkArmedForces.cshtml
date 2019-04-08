@@ -1,0 +1,11 @@
+﻿@if (Model.Items.Count > 0)
+{
+    <partial name="LinkItems" model='new {
+        Controller = Model.Controller,
+        Action = "DetailsArmedForces",
+        RouteId = Model.RouteId,
+        Icon = "/images/icons/armedforce-light.png",
+        Label = "Armed Forces",
+        Count = Model.Items.Count
+    }' />
+}

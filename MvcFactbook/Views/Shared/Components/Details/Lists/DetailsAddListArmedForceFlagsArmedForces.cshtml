@@ -1,0 +1,13 @@
+﻿<div class="w-100 p-2">
+    <partial name="DetailsItemAddHeader" model='new {
+                Icon = "/images/icons/armedforce-light.png",
+                Label = "ARMED FORCES",
+                Controller = "ArmedForceFlag",
+                Action = Model.Action,
+                RouteId = Model.RouteId,
+                Tooltip = "Add Armed Force"
+    }' />
+    <div class="mt-3" style="max-height:300px;overflow-y:auto;">
+        <partial name="ListArmedForceFlagsArmedForces" model=@Model.Items />
+    </div>
+</div>

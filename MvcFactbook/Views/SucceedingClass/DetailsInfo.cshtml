@@ -1,0 +1,19 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.SucceedingClassView
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "PRECEDING CLASS", Icon = "/images/icons/shipclass-light.png" }' />
+</div>
+<div class="p-2">
+    <partial name="InfoShipClass" model=@Model.PrecedingShipClass />
+    <partial name="InfoShipClassStats" model=@Model.PrecedingShipClass />
+</div>
+<hr class="bg-light" />
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "SUCCEEDING CLASS", Icon = "/images/icons/shipclass-light.png" }' />
+</div>
+<div class="p-2">
+    <partial name="InfoShipClass" model=@Model.SucceedingShipClass />
+    <partial name="InfoShipClassStats" model=@Model.SucceedingShipClass />
+</div>
+<hr class="bg-light" />

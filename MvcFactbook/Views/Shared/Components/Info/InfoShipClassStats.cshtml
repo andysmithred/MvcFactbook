@@ -1,0 +1,10 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipClassView
+
+<div class="d-flex flex-row flex-wrap">
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Displacement), Value = Model.DisplacementLabel }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Length), Value = Model.LengthLabel }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Beam), Value = Model.BeamLabel }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Propulsion), Value = Model.PropulsionLabel }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Speed), Value = Model.SpeedLabel }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Crew), Value = Model.CrewLabel }' />
+</div>

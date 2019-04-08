@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.ShipGroupSetView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name='IndexMenu' model='new { Title = "SHIP GROUP SETS", Icon = "/images/icons/shipgroupset-light.png" }' />
+<hr class="bg-light" />
+<div class="p-2 w-50">
+    <partial name="TableIndexShipGroupSets" model="@Model.OrderBy(x => x.ShipGroup.Name)" />
+</div>
+<hr class="bg-light" />

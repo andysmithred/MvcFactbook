@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.ArmedForceFlagView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name='IndexMenu' model='new { Title = "ARMED FORCE FLAGS", Icon = "/images/icons/emptyflag-light.png" }' />
+<hr class="bg-light" />
+<div class="p-2 w-75">
+    <partial name="TableIndexArmedForceFlags" model="@Model.OrderBy(x => x.ArmedForce.Name)" />
+</div>
+<hr class="bg-light" />

@@ -1,0 +1,9 @@
+﻿<div class="w-100 p-2">
+    <partial name="DetailsItemHeader" model='new {
+                Icon = "/images/icons/ship-light.png",
+                Label = "SHIPS"
+    }' />
+    <div class="mt-3" style="max-height:300px;overflow-y:auto;">
+        <partial name="ListShips" model=@Model.Items />
+    </div>
+</div>

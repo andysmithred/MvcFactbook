@@ -1,0 +1,46 @@
+﻿@model MvcFactbook.Models.PoliticalEntitySucceeding
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br />
+<partial name="EditMenu" model='new { RouteId = Model.Id, Icon = "fas fa-edit" }' />
+<br />
+
+<div class="card border-0 w-75">
+    <div class="card-header bg-secondary text-white">
+        <div class="d-flex">
+            <div><h5>Succeeding Entity</h5></div>
+            <div class="ml-auto"><h5><img src="~/images/icons/succeedingclass-light.png" style="height:20px;width:20px" /></h5></div>
+        </div>
+    </div>
+    <div class="card-body bg-transparent text-dark">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="PrecedingPoliticalEntity" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="PoliticalEntityId" asp-items="ViewBag.PrecedingEntities" class="form-control rounded-right"></select>
+                <span asp-validation-for="PoliticalEntityId" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="SucceedingPoliticalEntity" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="SucceedingPoliticalEntityId" asp-items="ViewBag.SucceedingEntities" class="form-control rounded-right"></select>
+                <span asp-validation-for="SucceedingPoliticalEntityId" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

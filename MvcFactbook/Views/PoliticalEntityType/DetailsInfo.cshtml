@@ -1,0 +1,11 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.PoliticalEntityTypeView
+
+<div class="d-flex flex-row">
+    <partial name="DetailsAddTablePoliticalEntities" model='new {
+             Action="CreateByPoliticalEntityType" ,
+             RouteId=Model.Id,
+             Items=Model.PoliticalEntities.OrderBy(x => x.ShortName)
+        }' />
+</div>
+
+<hr class="bg-light" />

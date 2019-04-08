@@ -1,0 +1,11 @@
+﻿<div class="d-flex border-bottom border-secondary">
+    <div class="mr-2">
+        <img src="@Model.Icon" alt="Card image" style="height:20px;" />
+    </div>
+    <div class="text-white header-large">@Model.Label</div>
+    <div class="ml-auto">
+        <a asp-controller="@Model.Controller" asp-action="@Model.Action" class="text-white" asp-route-id="@Model.RouteId" title="@Model.Tooltip">
+            <img src="~/images/icons/add-new-light.png" alt="Card image" style="height:20px;" />
+        </a>
+    </div>
+</div>

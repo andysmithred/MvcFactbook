@@ -1,0 +1,11 @@
+﻿@if (Model.Items.Count > 0)
+{
+    <partial name="LinkItems" model='new {
+        Controller = Model.Controller,
+        Action = "DetailsSucceedingEntities",
+        RouteId = Model.RouteId,
+        Icon = "/images/icons/embassy-light.png",
+        Label = "Succeeding Entities",
+        Count = Model.Items.Count
+    }' />
+}

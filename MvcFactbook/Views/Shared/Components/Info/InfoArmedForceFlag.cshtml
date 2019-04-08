@@ -1,0 +1,8 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ArmedForceFlagView
+
+<div class="d-flex flex-row flex-wrap">
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.ArmedForce), Value = Model.ArmedForce.Name }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Flag), Value = Model.Flag.Name }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Start), Value = Model.StartLabel }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.End), Value = Model.EndLabel }' />
+</div>

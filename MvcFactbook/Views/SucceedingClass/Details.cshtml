@@ -1,0 +1,79 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.SucceedingClassView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<partial name="DetailsMain" />
+<partial name="DetailsInfo" />
+
+
+@*<br />
+<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+<br />*@
+
+
+@*<div class="d-flex mt-3">
+    @if (Model.PrecedingShipClass != null)
+    {
+        <div class="mr-5">
+            <a asp-controller="ShipClass" asp-action="Details" asp-route-id="@Model.ShipClassId" class="text-white">
+                <div class="d-flex">
+                    <div>
+                        <h5><i class='fas fa-angle-left'></i></h5>
+                    </div>
+                    <div class="pl-3"><h5>@Model.PrecedingShipClass.FullName</h5></div>
+                    <div class="ml-auto pl-3"><img src="~/images/icons/shipclass-light.png" style="height:25px;width:25px" /></div>
+                </div>
+            </a>
+        </div>
+    }
+    @if (Model.SucceedingShipClass != null)
+    {
+        <div class="mr-3">
+            <a asp-controller="ShipClass" asp-action="Details" asp-route-id="@Model.SucceedingClassId" class="text-white">
+                <div class="d-flex">
+                    <div><img src="~/images/icons/shipclass-light.png" style="height:25px;width:25px" /></div>
+                    <div class="pl-3"><h5>@Model.SucceedingShipClass.FullName</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+<br />*@
+
+
+
+@*<div class="card-deck">
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div class="p-2"><img src="~/images/icons/shipclass-light.png" style="height:20px;width:20px" /></div>
+                <div class="p-2"><h5>Preceding Class</h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.ShipClassId }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.PrecedingShipClass), Value = Model.PrecedingShipClass.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.PrecedingShipClass.SubClassName), Value = Model.PrecedingShipClass.SubClassNameLabel }' />
+        </div>
+    </div>
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div class="p-2"><h5><img src="~/images/icons/shipclass-light.png" style="height:20px;width:20px" /></h5></div>
+                <div class="p-2"><h5>Succeeding Class</h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.SucceedingClassId }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.SucceedingShipClass), Value = Model.SucceedingShipClass.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.DisplayNameFor(x => x.SucceedingShipClass.SubClassName), Value = Model.SucceedingShipClass.SubClassNameLabel }' />
+        </div>
+    </div>
+</div>*@

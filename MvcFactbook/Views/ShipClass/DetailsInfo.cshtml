@@ -1,0 +1,29 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipClassView
+
+<partial name="DetailsInfoMain" model='new { Partial = "InfoShipClass", Item = @Model }' />
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "CLASS STATS", Icon = "/images/icons/shipclass-light.png" }' />
+</div>
+<div class="p-2">
+    <partial name="InfoShipClassStats" model=@Model />
+</div>
+<hr class="bg-light" />
+
+<div class="d-flex flex-row flex-fill">
+    <partial name="DetailsListShips" model='new {
+                    Items=Model.Ships.OrderBy(x => x.Launched)
+        }' />
+    <partial name="DetailsAddListPrecedingClasses" model='new {
+                Action="CreatePrecedingShipClass" ,
+                RouteId=Model.Id,
+                Items=Model.PrecedingShipClasses.OrderBy(x => x.Name)
+        }' />
+    <partial name="DetailsAddListSucceedingClasses" model='new {
+                Action="CreateSucceedingShipClass" ,
+                RouteId=Model.Id,
+                Items=Model.SucceedingShipClasses.OrderBy(x => x.Name)
+        }' />
+</div>
+
+<hr class="bg-light" />

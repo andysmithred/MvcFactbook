@@ -1,0 +1,7 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.BranchView
+
+<partial name="LinkDetails" model='new { RouteId = Model.Id }' />
+<partial name="LinkFlags" model='new { Controller = "Branch", RouteId = Model.Id, Items = Model.Flags }' />
+<partial name="LinkShipServices" model='new { Controller = "Branch", RouteId = Model.Id, Items = Model.ShipServices }' />
+<partial name="LinkArmedForce" model="Model.ArmedForce" />
+<partial name="LinkBranchType" model="Model.BranchType" />

@@ -1,0 +1,8 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipClassView
+
+<div class="d-flex flex-row flex-wrap">
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.SubClassName), Value = Model.SubClassNameLabel }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Year), Value = Model.Year }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.TimeSpan), Value = Model.TimeSpanLabel }' />
+</div>

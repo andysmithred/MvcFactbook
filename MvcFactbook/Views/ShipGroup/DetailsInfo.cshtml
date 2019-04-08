@@ -1,0 +1,19 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipGroupView
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "DESCRIPTION", Icon = "/images/icons/info-light.png" }' />
+</div>
+<div class="p-2 text-white">
+    <span>@Model.Description</span>
+</div>
+<hr class="bg-light" />
+
+<div class="d-flex flex-row">
+    <partial name="DetailsAddTableShipGroupSetShipServices" model='new {
+             Action="CreateByShipGroup" ,
+             RouteId=Model.Id,
+             Items=Model.ShipServices.OrderBy(x => x.Name)
+        }' />
+</div>
+
+<hr class="bg-light" />

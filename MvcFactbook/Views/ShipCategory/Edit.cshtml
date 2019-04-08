@@ -1,0 +1,39 @@
+﻿@model MvcFactbook.Models.ShipCategory
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br />
+<partial name="EditMenu" model='new { RouteId = Model.Id, Icon = "fas fa-edit" }' />
+<br />
+
+<div class="card border-0 w-75">
+    <div class="card-header bg-secondary text-white">
+        <div class="d-flex">
+            <div><h5>Ship Category</h5></div>
+            <div class="ml-auto"><h5><img src="~/images/icons/shipcategory-light.png" style="height:20px;width:20px" /></h5></div>
+        </div>
+    </div>
+    <div class="card-body bg-transparent text-dark">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Category" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Category" class="form-control rounded-right" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

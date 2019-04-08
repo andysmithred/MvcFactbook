@@ -1,0 +1,11 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ArmedForceView
+
+@if (Model.HasFlag)
+{
+    <div class="pr-2">
+        <img class="card-img-top-50 rounded" src="@Model.Flag.ImageSource" alt="Card image" style="height:50px;object-fit: cover;overflow: hidden;opacity:0.3" />
+    </div>
+}
+<div class="text-white">
+    <h2>@Model.Name</h2>
+</div>

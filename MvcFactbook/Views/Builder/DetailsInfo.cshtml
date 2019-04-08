@@ -1,0 +1,13 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.BuilderView
+
+<partial name="DetailsInfoMain" model='new { Partial = "InfoBuilder", Item = @Model }' />
+
+<div class="d-flex flex-row">
+    <partial name="DetailsAddListShips" model='new {
+             Action="CreateByBuilder" ,
+             RouteId=Model.Id,
+             Items=Model.Ships.OrderBy(x => x.Launched)
+        }' />
+</div>
+
+<hr class="bg-light" />

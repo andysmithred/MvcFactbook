@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MvcFactbook.Code.Data;
 using MvcFactbook.Models;
 using MvcFactbook.ViewModels.Models.Main;
@@ -29,6 +30,16 @@ namespace MvcFactbook.Controllers
         #region Details
 
         public override async Task<IActionResult> Details(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsFlags(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsBranches(int? id)
         {
             return await base.Details(id);
         }
@@ -98,12 +109,16 @@ namespace MvcFactbook.Controllers
         protected override Func<int, ArmedForce> GetItemFunction()
         {
             return i => Context.ArmedForce
+                        .Include(x => x.ArmedForceFlags).ThenInclude(x => x.Flag)
+                        .Include(x => x.Branches).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag)
+                        .Include(x => x.Branches).ThenInclude(x => x.BranchType)
                         .FirstOrDefault(x => x.Id == i);
         }
 
         protected override Func<IQueryable<ArmedForce>> GetItemsFunction()
         {
-            return () => Context.ArmedForce;
+            return () => Context.ArmedForce
+                                .Include(x => x.ArmedForceFlags).ThenInclude(x => x.Flag);
         }
 
         protected override Func<ArmedForce, bool> GetExistsFunc(int id)

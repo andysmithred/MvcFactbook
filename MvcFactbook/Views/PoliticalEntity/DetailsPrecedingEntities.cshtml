@@ -1,0 +1,17 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.PoliticalEntityView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<partial name="DetailsMain" />
+
+<div class="d-flex flex-row">
+    <partial name="DetailsAddTablePrecedingEntities" model='new {
+             Action = "CreatePrecedingPoliticalEntity",
+             RouteId = Model.Id,
+             Items = Model.PrecedingPoliticalEntities.OrderBy(x => x.StartDate)
+             }' />
+</div>
+
+<hr class="bg-light" />

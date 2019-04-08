@@ -4,7 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
-<br />
-@*<partial name='IndexMenu' model='new { Title = "Armed Forces", Icon = "/images/icons/star.png" }' />*@
-<br />
-<partial name="PartialListMainArmedForces" model="@Model" />
+<partial name='IndexMenu' model='new { Title = "ARMED FORCES", Icon = "/images/icons/armedforce-light.png" }' />
+<hr class="bg-light" />
+<div class="p-2 w-75">
+    <partial name="TableIndexArmedForces" model="@Model.OrderBy(x => x.Name)" />
+</div>
+<hr class="bg-light" />

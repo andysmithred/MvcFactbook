@@ -1,0 +1,19 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ArmedForceFlagView
+
+<partial name="DetailsInfoMain" model='new { Partial = "InfoArmedForceFlag", Item = @Model }' />
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "ARMED FORCE", Icon = "/images/icons/armedforce-light.png" }' />
+</div>
+<div class="p-2">
+    <partial name="InfoArmedForce" model=@Model.ArmedForce />
+</div>
+<hr class="bg-light" />
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "FLAG", Icon = "/images/icons/flag-light.png" }' />
+</div>
+<div class="p-2">
+    <partial name="InfoFlag" model=@Model.Flag />
+</div>
+<hr class="bg-light" />

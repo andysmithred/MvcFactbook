@@ -1,0 +1,61 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.BranchView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<partial name="DetailsMain" />
+<partial name="DetailsInfo" />
+
+
+
+
+@*<partial name="DetailsMain" />
+
+    <partial name="DetailsItemHeader" model='new { Label = "DETAILS", Icon = "/images/icons/info-light.png" }' />
+    <partial name="DetailsBranch" />
+
+
+
+
+   
+    <hr class="bg-secondary" />
+    @if (Model.BranchFlags.Count > 0)
+    {
+        <div class="text-muted p-2"><h5>Flags</h5></div>
+        <div class="d-flex flex-row flex-wrap mt-2">
+            @foreach (var item in Model.BranchFlags.OrderBy(x => x.Start))
+            {
+                <div class="pr-4 pl-2 w-25">
+                    <a asp-controller="Flag" asp-action="Details" asp-route-id="@item.FlagId">
+                        <div class="d-flex flex-row">
+                            <div class="pt-2 pr-2">
+                                <img class="rounded" src="@item.Flag.ImageSource" alt="Card image" style="height:40px;width:40px;object-fit: cover;overflow: hidden;opacity:0.4" />
+                            </div>
+                            <div class="p-2">
+                                <div class="text-white"><h4>@item.Flag.Name</h4></div>
+                                <div class="text-muted"><h6>@item.DateLabel</h6></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+        <hr class="bg-secondary" />
+    }
+    @if (Model.ShipServices.Count > 0)
+    {
+        <div class="text-muted p-2"><h5>Ships</h5></div>
+        <div class="d-flex flex-row flex-wrap mt-2">
+            @foreach (var item in Model.ShipServices.OrderBy(x => x.Name))
+            {
+                <a asp-controller="ShipService" asp-action="Details" asp-route-id="@item.Id" class="text-dark w-25 p-2">
+                    <div class="text-white">
+                        <img class="rounded" src="@item.ImageSource" alt="Card image" style="height:20px;width:20px;object-fit: cover;overflow: hidden;opacity:0.4">
+                        <span class="pl-2">@item.Name</span>
+                    </div>
+                </a>
+            }
+        </div>
+        <hr class="bg-secondary" />
+    }*@

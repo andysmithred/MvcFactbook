@@ -1,0 +1,15 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipClassView
+
+<partial name="LinkDetails" model='new { RouteId = Model.Id }' />
+<partial name="LinkShips" model='new { Controller = "ShipClass", RouteId = Model.Id, Items = Model.Ships }' />
+<partial name="LinkShipServices" model='new { Controller = "ShipClass", RouteId = Model.Id, Items = Model.ShipServices }' />
+
+@foreach (var item in Model.ShipSubTypes)
+{
+    <partial name="LinkShipSubType" model="item" />
+}
+
+@foreach (var item in Model.Branches)
+{
+    <partial name="LinkBranch" model="item" />
+}

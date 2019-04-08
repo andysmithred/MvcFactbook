@@ -1,0 +1,23 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.PoliticalEntityView
+
+<partial name="DetailsInfoMain" model='new { Partial = "InfoPoliticalEntity", Item = @Model }' />
+
+<div class="d-flex flex-row flex-fill">
+    <partial name="DetailsAddListPoliticalEntityFlagsFlags" model='new {
+                 Action="CreateByPoliticalEntity" ,
+                 RouteId=Model.Id,
+                 Items=Model.PoliticalEntityFlags.OrderBy(x => x.StartDate)
+        }' />
+    <partial name="DetailsAddListPrecedingEntities" model='new {
+                Action="CreatePrecedingPoliticalEntity" ,
+                RouteId=Model.Id,
+                Items=Model.PrecedingPoliticalEntities.OrderBy(x => x.ShortName)
+        }' />
+    <partial name="DetailsAddListSucceedingEntities" model='new {
+                Action="CreateSucceedingPoliticalEntity" ,
+                RouteId=Model.Id,
+                Items=Model.SucceedingPoliticalEntities.OrderBy(x => x.ShortName)
+        }' />      
+</div>
+
+<hr class="bg-light" />

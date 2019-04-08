@@ -1,0 +1,146 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.PoliticalEntityFlagView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<partial name="DetailsMain" />
+<partial name="DetailsInfo" />
+
+
+
+
+
+@*<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+<hr class="bg-secondary" />*@
+
+
+@*<div class="d-flex mt-3 p-2">
+    @if (Model.PoliticalEntity != null)
+    {
+        <div class="mr-5">
+            <a asp-controller="PoliticalEntity" asp-action="Details" asp-route-id="@Model.PoliticalEntityId">
+                <div class="d-flex">
+                    <div><img src="~/images/icons/embassy-light.png" style="height:25px;width:25px" /></div>
+                    <div class="pl-3 text-white">@Model.PoliticalEntity.ShortName</div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right text-white'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+    @if (Model.Flag != null)
+    {
+        <div class="mr-5">
+            <a asp-controller="Flag" asp-action="Details" asp-route-id="@Model.FlagId">
+                <div class="d-flex">
+                    <div><img class="rounded" src="@Model.Flag.ImageSource" alt="Card image" style="height:25px;width:25px;object-fit: cover;overflow: hidden;opacity:0.3"></div>
+                    <div class="pl-3 text-white">@Model.Flag.Name</div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right text-white'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+<hr class="bg-secondary" />*@
+
+
+
+@*<div class="d-flex flex-row flex-wrap mt-2">
+    <div class="flex-fill p-2 w-20">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Id)</h6></div>
+        <div class="text-white"><h4>@Model.Id</h4></div>
+    </div>
+    <div class="flex-fill p-2 w-20">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PoliticalEntity)</h6></div>
+        <div class="text-white"><h4>@Model.PoliticalEntity.ShortName</h4></div>
+    </div>
+    <div class="flex-fill p-2 w-20">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Flag)</h6></div>
+        <div class="text-white"><h4>@Model.Flag.Name</h4></div>
+    </div>
+    <div class="flex-fill p-2 w-20">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.StartDate)</h6></div>
+        <div class="text-white"><h4>@Model.StartDateLabel</h4></div>
+    </div>
+    <div class="flex-fill p-2 w-20">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.EndDate)</h6></div>
+        <div class="text-white"><h4>@Model.EndDateLabel</h4></div>
+    </div>
+</div>
+<hr class="bg-secondary" />*@
+
+
+
+@*<div class="text-muted p-2"><h5>Political Entity</h5></div>
+<div class="d-flex flex-row flex-wrap mt-2">
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PoliticalEntity.Id)</h6></div>
+        <div class="text-white"><h4>@Model.PoliticalEntity.Id</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PoliticalEntity.ShortName)</h6></div>
+        <div class="text-white"><h4>@Model.PoliticalEntity.ShortName</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PoliticalEntity.Name)</h6></div>
+        <div class="text-white"><h4>@Model.PoliticalEntity.Name</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PoliticalEntity.FullName)</h6></div>
+        <div class="text-white"><h4>@Model.PoliticalEntity.FullName</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PoliticalEntity.Code)</h6></div>
+        <div class="text-white"><h4>@Model.PoliticalEntity.Code</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PoliticalEntity.StartDate)</h6></div>
+        <div class="text-white"><h4>@Model.PoliticalEntity.StartDateLabel</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.PoliticalEntity.EndDate)</h6></div>
+        <div class="text-white"><h4>@Model.PoliticalEntity.EndDateLabel</h4></div>
+    </div>
+</div>
+<hr class="bg-secondary" />*@
+
+
+
+@*<div class="text-muted p-2"><h5>Flag</h5></div>
+<div class="d-flex flex-row flex-wrap mt-2">
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Flag.Id)</h6></div>
+        <div class="text-white"><h4>@Model.Flag.Id</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Flag.Name)</h6></div>
+        <div class="text-white"><h4>@Model.Flag.Name</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Flag.Code)</h6></div>
+        <div class="text-white"><h4>@Model.Flag.Code</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Flag.Description)</h6></div>
+        <div class="text-white"><h4>@Model.Flag.Description</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Flag.StartDate)</h6></div>
+        <div class="text-white"><h4>@Model.Flag.StartDateLabel</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Flag.EndDate)</h6></div>
+        <div class="text-white"><h4>@Model.Flag.EndDateLabel</h4></div>
+    </div>
+    <div class="p-2 w-25">
+        <div class="text-muted"><h6>@Html.DisplayNameFor(x => x.Flag.Active)</h6></div>
+        <div class="text-white"><h4>@Model.Flag.Active</h4></div>
+    </div>
+</div>
+<hr class="bg-secondary" />*@

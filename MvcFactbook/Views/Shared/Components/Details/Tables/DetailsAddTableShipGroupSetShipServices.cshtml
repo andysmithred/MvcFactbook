@@ -1,0 +1,13 @@
+﻿<div class="w-100 p-2">
+    <partial name="DetailsItemAddHeader" model='new {
+                Icon = "/images/icons/shipservice-light.png",
+                Label = "SERVICES",
+                Controller = "ShipGroupSet",
+                Action = Model.Action,
+                RouteId = Model.RouteId,
+                Tooltip = "Add Service"
+    }' />
+    <div class="mt-3">
+        <partial name="TableShipServices" model="@Model.Items" />
+    </div>
+</div>

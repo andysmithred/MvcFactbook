@@ -1,0 +1,12 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipGroupView
+
+@if (Model != null)
+{
+    <partial name="LinkItem" model='new {
+             Controller = "ShipGroup",
+             Action = "Details",
+             RouteId = Model.Id,
+             Icon = Model.IconLightFullPath,
+             Label = Model.Name
+            }' />
+}

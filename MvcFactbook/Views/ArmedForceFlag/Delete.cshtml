@@ -1,0 +1,32 @@
+﻿@model MvcFactbook.Models.ArmedForceFlag
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<partial name="DeleteMenu" model='new { RouteId = Model.Id, Icon = "fas fa-trash-alt" }' />
+<hr class="bg-light" />
+
+<div class="pl-2 pr-2">
+    <div class="d-flex flex-row w-100">
+        <div class="pr-2">
+            <img src="~/images/icons/emptyflag-light.png" style="height:40px;" />
+        </div>
+        <div class="text-white">
+            <h2>Armed Force Flag</h2>
+        </div>
+    </div>
+    <hr class="bg-secondary" />
+    <div class="d-flex flex-row flex-wrap">
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.ArmedForce), Value = Model.ArmedForce.Name }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Flag), Value = Model.Flag.Name }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Start), Value = Model.Start }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.End), Value = Model.End }' />
+    </div>
+    <hr class="bg-secondary" />
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-outline-secondary btn-sm" />
+    </form>
+</div>
+<hr class="bg-light" />

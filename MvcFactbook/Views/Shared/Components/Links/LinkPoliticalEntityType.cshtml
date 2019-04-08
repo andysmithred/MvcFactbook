@@ -1,0 +1,12 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.PoliticalEntityTypeView
+
+@if (Model != null)
+{
+    <partial name="LinkItem" model='new {
+             Controller = "PoliticalEntityType",
+             Action = "Details",
+             RouteId = Model.Id,
+             Icon = "/images/icons/government-light.png",
+             Label = Model.Type
+            }' />
+}

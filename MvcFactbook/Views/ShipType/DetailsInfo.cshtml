@@ -1,0 +1,11 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipTypeView
+
+<div class="d-flex flex-row w-75">
+    <partial name="DetailsAddTableShipSubTypes" model='new {
+             Action="CreateByShipType" ,
+             RouteId=Model.Id,
+             Items=Model.ShipSubTypes.OrderBy(x => x.Type)
+        }' />
+</div>
+
+<hr class="bg-light" />

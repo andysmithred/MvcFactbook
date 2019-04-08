@@ -1,0 +1,6 @@
+﻿<div class="d-flex">
+    <div class="w-25 p-1 pr-2 mb-1 bg-secondary text-white text-right rounded-left"><label>@Model.Label</label></div>
+    <div class="w-75 p-1 pl-3 mb-1 bg-white rounded-right">
+        <a asp-action="Details" asp-route-id="@Model.RouteId" class="text-dark">@Model.Value</a>
+    </div>
+</div>

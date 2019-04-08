@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.SucceedingClassView>
+
+<div>
+    @(Html
+        .Grid(Model)
+        .Build(columns =>
+        {
+            columns.Add().Encoded(false).RenderedAs(model => $"<img src='/images/icons/succeedingclass-light.png' style='height: 20px; width: 20px' />");
+            columns.Add(model => model.PrecedingShipClass.Name).Titled("Preceding");
+            columns.Add(model => model.SucceedingShipClass.Name).Titled("Succeeding");
+            columns.Add().Encoded(false).RenderedAs(model =>
+                "<div class='btn-group float-left'>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/SucceedingClass/Edit/{model.Id}'>Edit</a>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/SucceedingClass/Details/{model.Id}'>Details</a>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/SucceedingClass/Delete/{model.Id}'>Delete</a>" +
+                "</div>"
+            );
+        })
+        .Empty("No data found")
+        .Filterable()
+        .Sortable()
+        .Pageable(pager =>
+        {
+            pager.RowsPerPage = 14;
+        })
+        .AppendCss("bg-dark table-hover")
+    )
+</div>
