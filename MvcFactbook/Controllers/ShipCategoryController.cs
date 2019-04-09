@@ -45,7 +45,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Category")] ShipCategory item)
+        public async Task<IActionResult> Create([Bind("Category")] ShipCategory item)
         {
             if (ModelState.IsValid)
             {
