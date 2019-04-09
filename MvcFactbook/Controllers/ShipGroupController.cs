@@ -45,7 +45,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Icon")] ShipGroup item)
+        public async Task<IActionResult> Create([Bind("Name,Description,Icon")] ShipGroup item)
         {
             if (ModelState.IsValid)
             {

@@ -7,23 +7,3 @@
 
 <partial name="DetailsBasicMain" />
 <partial name="DetailsInfo" />
-
-
-
-
-@*<div class="alert alert-dark rounded p-2">
-        @Model.Description
-    </div>
-    <div class="card border-0">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Ship Services</h5></div>
-                <div class="ml-auto">
-                    <h5><a asp-controller="ShipGroupSet" asp-action="CreateByShipGroup" asp-route-id="@Model.Id" style="color:white" title="Add Ship Service"><i class="fas fa-plus"></i></a></h5>
-                </div>
-            </div>
-        </div>
-        <div class="card-body bg-dark p-0">
-            <partial name="PartialListDetailsShipServices" model="@Model.ShipServices.OrderBy(x => x.Name)" />
-        </div>
-    </div>*@
