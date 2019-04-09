@@ -75,7 +75,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Launched,BuilderId")] Ship item)
+        public async Task<IActionResult> Create([Bind("Name,Launched,BuilderId")] Ship item)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByBuilder([Bind("Id,Name,Launched,BuilderId")] Ship item)
+        public async Task<IActionResult> CreateByBuilder([Bind("Name,Launched,BuilderId")] Ship item)
         {
             if (ModelState.IsValid)
             {
