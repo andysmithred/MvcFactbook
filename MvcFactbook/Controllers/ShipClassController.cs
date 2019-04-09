@@ -50,7 +50,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,SubClassName,Displacement,Length,Beam,Propulsion,Speed,Crew")] ShipClass item)
+        public async Task<IActionResult> Create([Bind("Name,SubClassName,Displacement,Length,Beam,Propulsion,Speed,Crew")] ShipClass item)
         {
             if (ModelState.IsValid)
             {

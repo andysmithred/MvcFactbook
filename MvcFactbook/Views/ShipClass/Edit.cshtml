@@ -4,84 +4,85 @@
     ViewData["Title"] = "Edit";
 }
 
-<br />
 <partial name="EditMenu" model='new { RouteId = Model.Id, Icon = "fas fa-edit" }' />
-<br />
+<hr class="bg-light" />
 
-<div class="card border-0 w-75">
-    <div class="card-header bg-secondary text-white">
-        <div class="d-flex">
-            <div><h5>Ship Class</h5></div>
-            <div class="ml-auto"><h5><img src="~/images/icons/shipclass-light.png" style="height:20px;width:20px" /></h5></div>
+<div class="pl-2 pr-2">
+    <div class="d-flex flex-row w-100">
+        <div class="pr-2">
+            <img src="~/images/icons/shipclass-light.png" style="height:40px;" />
+        </div>
+        <div class="text-white">
+            <h2>Ship Class</h2>
         </div>
     </div>
-    <div class="card-body bg-transparent text-dark">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="input-group mb-3 input-group">
-                <div class="input-group-prepend w-25">
-                    <label asp-for="Name" class="input-group-text w-100"></label>
-                </div>
-                <input asp-for="Name" class="form-control rounded-right" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+    <hr class="bg-secondary" />
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="input-group input-group-sm mb-3 w-50">
+            <div class="input-group-prepend w-25">
+                <label asp-for="Name" class="input-group-text w-100"></label>
             </div>
-            <div class="input-group mb-3 input-group">
-                <div class="input-group-prepend w-25">
-                    <label asp-for="SubClassName" class="input-group-text w-100"></label>
-                </div>
-                <input asp-for="SubClassName" class="form-control rounded-right" />
-                <span asp-validation-for="SubClassName" class="text-danger"></span>
+            <input asp-for="Name" class="form-control rounded-right" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="input-group input-group-sm mb-3 w-50">
+            <div class="input-group-prepend w-25">
+                <label asp-for="SubClassName" class="input-group-text w-100"></label>
             </div>
-            <div class="input-group mb-3 input-group">
-                <div class="input-group-prepend w-25">
-                    <label asp-for="Displacement" class="input-group-text w-100"></label>
-                </div>
-                <input asp-for="Displacement" class="form-control rounded-right" />
-                <span asp-validation-for="Displacement" class="text-danger"></span>
+            <input asp-for="SubClassName" class="form-control rounded-right" />
+            <span asp-validation-for="SubClassName" class="text-danger"></span>
+        </div>
+        <div class="input-group input-group-sm mb-3 w-50">
+            <div class="input-group-prepend w-25">
+                <label asp-for="Displacement" class="input-group-text w-100"></label>
             </div>
-            <div class="input-group mb-3 input-group">
-                <div class="input-group-prepend w-25">
-                    <label asp-for="Length" class="input-group-text w-100"></label>
-                </div>
-                <input asp-for="Length" class="form-control rounded-right" />
-                <span asp-validation-for="Length" class="text-danger"></span>
+            <input asp-for="Displacement" class="form-control rounded-right" />
+            <span asp-validation-for="Displacement" class="text-danger"></span>
+        </div>
+        <div class="input-group input-group-sm mb-3 w-50">
+            <div class="input-group-prepend w-25">
+                <label asp-for="Length" class="input-group-text w-100"></label>
             </div>
-            <div class="input-group mb-3 input-group">
-                <div class="input-group-prepend w-25">
-                    <label asp-for="Beam" class="input-group-text w-100"></label>
-                </div>
-                <input asp-for="Beam" class="form-control rounded-right" />
-                <span asp-validation-for="Beam" class="text-danger"></span>
+            <input asp-for="Length" class="form-control rounded-right" />
+            <span asp-validation-for="Length" class="text-danger"></span>
+        </div>
+        <div class="input-group input-group-sm mb-3 w-50">
+            <div class="input-group-prepend w-25">
+                <label asp-for="Beam" class="input-group-text w-100"></label>
             </div>
-            <div class="input-group mb-3 input-group">
-                <div class="input-group-prepend w-25">
-                    <label asp-for="Propulsion" class="input-group-text w-100"></label>
-                </div>
-                <input asp-for="Propulsion" class="form-control rounded-right" />
-                <span asp-validation-for="Propulsion" class="text-danger"></span>
+            <input asp-for="Beam" class="form-control rounded-right" />
+            <span asp-validation-for="Beam" class="text-danger"></span>
+        </div>
+        <div class="input-group input-group-sm mb-3 w-50">
+            <div class="input-group-prepend w-25">
+                <label asp-for="Propulsion" class="input-group-text w-100"></label>
             </div>
-            <div class="input-group mb-3 input-group">
-                <div class="input-group-prepend w-25">
-                    <label asp-for="Speed" class="input-group-text w-100"></label>
-                </div>
-                <input asp-for="Speed" class="form-control rounded-right" />
-                <span asp-validation-for="Speed" class="text-danger"></span>
+            <input asp-for="Propulsion" class="form-control rounded-right" />
+            <span asp-validation-for="Propulsion" class="text-danger"></span>
+        </div>
+        <div class="input-group input-group-sm mb-3 w-50">
+            <div class="input-group-prepend w-25">
+                <label asp-for="Speed" class="input-group-text w-100"></label>
             </div>
-            <div class="input-group mb-3 input-group">
-                <div class="input-group-prepend w-25">
-                    <label asp-for="Crew" class="input-group-text w-100"></label>
-                </div>
-                <input asp-for="Crew" class="form-control rounded-right" />
-                <span asp-validation-for="Crew" class="text-danger"></span>
+            <input asp-for="Speed" class="form-control rounded-right" />
+            <span asp-validation-for="Speed" class="text-danger"></span>
+        </div>
+        <div class="input-group input-group-sm mb-3 w-50">
+            <div class="input-group-prepend w-25">
+                <label asp-for="Crew" class="input-group-text w-100"></label>
             </div>
-            <hr />
-            <div class="form-group">
-                <input type="submit" value="Update" class="btn btn-dark" />
-            </div>
-        </form>
-    </div>
+            <input asp-for="Crew" class="form-control rounded-right" />
+            <span asp-validation-for="Crew" class="text-danger"></span>
+        </div>
+        <hr class="bg-secondary" />
+        <div class="form-group">
+            <input type="submit" value="Update" class="btn btn-outline-secondary btn-sm" />
+        </div>
+    </form>
 </div>
+<hr class="bg-light" />
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
