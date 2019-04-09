@@ -70,7 +70,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Type,ShipCategoryId")] ShipType item)
+        public async Task<IActionResult> Create([Bind("Type,ShipCategoryId")] ShipType item)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByShipCategory([Bind("Id,Type,ShipCategoryId")] ShipType item)
+        public async Task<IActionResult> CreateByShipCategory([Bind("Type,ShipCategoryId")] ShipType item)
         {
             if (ModelState.IsValid)
             {
