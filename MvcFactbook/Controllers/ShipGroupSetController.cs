@@ -86,7 +86,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ShipServiceId,ShipGroupId")] ShipGroupSet item)
+        public async Task<IActionResult> Create([Bind("ShipServiceId,ShipGroupId")] ShipGroupSet item)
         {
             if (ModelState.IsValid)
             {
@@ -108,7 +108,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByShipService([Bind("Id,ShipServiceId,ShipGroupId")] ShipGroupSet item)
+        public async Task<IActionResult> CreateByShipService([Bind("ShipServiceId,ShipGroupId")] ShipGroupSet item)
         {
             if (ModelState.IsValid)
             {
@@ -131,7 +131,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByShipGroup([Bind("Id,ShipServiceId,ShipGroupId")] ShipGroupSet item)
+        public async Task<IActionResult> CreateByShipGroup([Bind("ShipServiceId,ShipGroupId")] ShipGroupSet item)
         {
             if (ModelState.IsValid)
             {
