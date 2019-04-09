@@ -86,7 +86,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,PoliticalEntityId,FlagId,StartDate,EndDate")] PoliticalEntityFlag item)
+        public async Task<IActionResult> Create([Bind("PoliticalEntityId,FlagId,StartDate,EndDate")] PoliticalEntityFlag item)
         {
             if (ModelState.IsValid)
             {
@@ -108,7 +108,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByPoliticalEntity([Bind("Id,PoliticalEntityId,FlagId,StartDate,EndDate")] PoliticalEntityFlag item)
+        public async Task<IActionResult> CreateByPoliticalEntity([Bind("PoliticalEntityId,FlagId,StartDate,EndDate")] PoliticalEntityFlag item)
         {
             if (ModelState.IsValid)
             {
@@ -131,7 +131,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByFlag([Bind("Id,PoliticalEntityId,FlagId,StartDate,EndDate")] PoliticalEntityFlag item)
+        public async Task<IActionResult> CreateByFlag([Bind("PoliticalEntityId,FlagId,StartDate,EndDate")] PoliticalEntityFlag item)
         {
             if (ModelState.IsValid)
             {
