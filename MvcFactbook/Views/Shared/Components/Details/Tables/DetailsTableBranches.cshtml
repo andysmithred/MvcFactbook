@@ -1,0 +1,9 @@
+﻿<div class="w-100 p-2">
+    <partial name="DetailsItemHeader" model='new {
+                Icon = "/images/icons/branch-light.png",
+                Label = "BRANCHES"
+    }' />
+    <div class="mt-3">
+        <partial name="TableBranches" model="@Model.Items" />
+    </div>
+</div>
