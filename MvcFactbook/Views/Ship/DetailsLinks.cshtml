@@ -1,25 +1,20 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ShipView
 
 <partial name="LinkDetails" model='new { RouteId = Model.Id }' />
-<partial name="LinkShipSubTypes" model='new { Controller = "Ship", RouteId = Model.Id, Items = Model.ShipSubTypes }' />
-<partial name="LinkShipClasses" model='new { Controller = "Ship", RouteId = Model.Id, Items = Model.ShipClasses }' />
-<partial name="LinkBranches" model='new { Controller = "Ship", RouteId = Model.Id, Items = Model.Branches }' />
 <partial name="LinkShipServices" model='new { Controller = "Ship", RouteId = Model.Id, Items = Model.ShipServices }' />
 <partial name="LinkBuilder" model="Model.Builder" />
 
-@*<partial name="LinkFlags" model='new { Controller = "PoliticalEntity", RouteId = Model.Id, Items = Model.Flags }' />
-<partial name="LinkPrecedingEntities" model='new { Controller = "PoliticalEntity", RouteId = Model.Id, Items = Model.PrecedingEntities }' />
-<partial name="LinkSucceedingEntities" model='new { Controller = "PoliticalEntity", RouteId = Model.Id, Items = Model.SucceedingEntities }' />
-<partial name="LinkPoliticalEntityType" model="Model.PoliticalEntityType" />
+@foreach (var item in Model.ShipSubTypes)
+{
+    <partial name="LinkShipSubType" model="item" />
+}
 
+@foreach (var item in Model.ShipClasses)
+{
+    <partial name="LinkShipClass" model="item" />
+}
 
-
-
-    
-    
-
-  
-
-   
-   
-</div>*@
+@foreach (var item in Model.Branches)
+{
+    <partial name="LinkBranch" model="item" />
+}
