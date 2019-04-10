@@ -1,0 +1,17 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipClassView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<partial name="DetailsMain" />
+
+<div class="d-flex flex-row">
+    <partial name="DetailsAddTableSucceedingClasses" model='new {
+             Action="CreateSucceedingShipClass" ,
+             RouteId=Model.Id,
+             Items=Model.SucceedingShipClasses.OrderBy(x => x.Name)
+        }' />
+</div>
+
+<hr class="bg-light" />

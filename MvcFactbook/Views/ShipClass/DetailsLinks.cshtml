@@ -3,6 +3,9 @@
 <partial name="LinkDetails" model='new { RouteId = Model.Id }' />
 <partial name="LinkShips" model='new { Controller = "ShipClass", RouteId = Model.Id, Items = Model.Ships }' />
 <partial name="LinkShipServices" model='new { Controller = "ShipClass", RouteId = Model.Id, Items = Model.ShipServices }' />
+<partial name="LinkPrecedingClasses" model='new { Controller = "ShipClass", RouteId = Model.Id, Items = Model.PrecedingShipClasses }' />
+<partial name="LinkSucceedingClasses" model='new { Controller = "ShipClass", RouteId = Model.Id, Items = Model.SucceedingShipClasses }' />
+
 
 @foreach (var item in Model.ShipSubTypes)
 {

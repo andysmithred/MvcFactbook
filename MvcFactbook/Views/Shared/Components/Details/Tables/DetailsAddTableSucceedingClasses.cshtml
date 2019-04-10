@@ -1,0 +1,13 @@
+﻿<div class="w-100 p-2">
+    <partial name="DetailsItemAddHeader" model='new {
+                Icon = "/images/icons/shipclass-light.png",
+                Label = "SUCCEEDING CLASSES",
+                Controller = "SucceedingClass",
+                Action = Model.Action,
+                RouteId = Model.RouteId,
+                Tooltip = "Add Succeeding Class"
+    }' />
+    <div class="mt-3">
+        <partial name="TableShipClasses" model="@Model.Items" />
+    </div>
+</div>

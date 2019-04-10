@@ -34,7 +34,22 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
-        public async Task<IActionResult> ShipServicesList(int? id)
+        public async Task<IActionResult> DetailsShips(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsShipServices(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsPrecedingClasses(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsSucceedingClasses(int? id)
         {
             return await base.Details(id);
         }
@@ -106,7 +121,7 @@ namespace MvcFactbook.Controllers
             return i => Context.ShipClass
                         .Include(x => x.ShipServices).ThenInclude(x => x.Branch).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag)
                         .Include(x => x.ShipServices).ThenInclude(x => x.ShipSubType)
-                        .Include(x => x.ShipServices).ThenInclude(x => x.Ship)
+                        .Include(x => x.ShipServices).ThenInclude(x => x.Ship).ThenInclude(x => x.Builder)
                         .Include(x => x.PrecedingClasses).ThenInclude(x => x.PrecedingShipClass).ThenInclude(x => x.ShipServices).ThenInclude(x => x.Ship)
                         .Include(x => x.PrecedingClasses).ThenInclude(x => x.SucceedingShipClass).ThenInclude(x => x.ShipServices).ThenInclude(x => x.Ship)
                         .Include(x => x.SucceedingClasses).ThenInclude(x => x.PrecedingShipClass).ThenInclude(x => x.ShipServices).ThenInclude(x => x.Ship)

@@ -1,0 +1,11 @@
+﻿@if (Model.Items.Count > 0)
+{
+    <partial name="LinkItems" model='new {
+        Controller = Model.Controller,
+        Action = "DetailsPrecedingClasses",
+        RouteId = Model.RouteId,
+        Icon = "/images/icons/shipclass-light.png",
+        Label = "Preceding Classes",
+        Count = Model.Items.Count
+    }' />
+}
