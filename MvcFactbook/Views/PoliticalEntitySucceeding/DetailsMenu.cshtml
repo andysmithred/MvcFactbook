@@ -5,13 +5,18 @@
         <li class="nav-item"><a class="nav-link" asp-action="Index">Index</a></li>
         <li class="nav-item"><a class="nav-link" asp-action="Edit" asp-route-id="@Model.Id">Edit</a></li>
         <li class="nav-item"><a class="nav-link" asp-action="Delete" asp-route-id="@Model.Id">Delete</a></li>
-        <li class="nav-item"><a class="nav-link" asp-action="Details" asp-route-id="@Model.Id">Details</a></li>
         <!-- Dropdown -->
         <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Items</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" asp-controller="PoliticalEntity" asp-action="Details" asp-route-id="@Model.PoliticalEntityId">@Model.PrecedingEntity.Name</a>
-                <a class="dropdown-item" asp-controller="PoliticalEntity" asp-action="Details" asp-route-id="@Model.SucceedingPoliticalEntityId">@Model.SucceedingEntity.Name</a>
+                @if (Model.PrecedingEntity != null)
+                {
+                    <a class="dropdown-item" asp-controller="PoliticalEntity" asp-action="Details" asp-route-id="@Model.PoliticalEntityId">@Model.PrecedingEntity.Name</a>
+                }
+                @if (Model.SucceedingEntity != null)
+                {
+                    <a class="dropdown-item" asp-controller="PoliticalEntity" asp-action="Details" asp-route-id="@Model.SucceedingPoliticalEntityId">@Model.SucceedingEntity.Name</a>
+                }
             </div>
         </li>
     </ul>

@@ -5,6 +5,26 @@
         <li class="nav-item"><a class="nav-link" asp-action="Index">Index</a></li>
         <li class="nav-item"><a class="nav-link" asp-action="Edit" asp-route-id="@Model.Id">Edit</a></li>
         <li class="nav-item"><a class="nav-link" asp-action="Delete" asp-route-id="@Model.Id">Delete</a></li>
-        <li class="nav-item"><a class="nav-link" asp-action="Details" asp-route-id="@Model.Id">Details</a></li>
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Items</a>
+            <div class="dropdown-menu">
+                @if (Model.Ship != null)
+                {
+                    <a class="dropdown-item" asp-controller="Ship" asp-action="Details" asp-route-id="@Model.ShipId">@Model.Ship.Name</a>
+                }
+                @if (Model.ShipClass != null)
+                {
+                    <a class="dropdown-item" asp-controller="ShipClass" asp-action="Details" asp-route-id="@Model.ShipClassId">@Model.ShipClass.Name</a>
+                }
+                @if (Model.ShipSubType != null)
+                {
+                    <a class="dropdown-item" asp-controller="ShipSubType" asp-action="Details" asp-route-id="@Model.ShipSubTypeId">@Model.ShipSubType.Type</a>
+                }
+                @if (Model.Branch != null)
+                {
+                    <a class="dropdown-item" asp-controller="Branch" asp-action="Details" asp-route-id="@Model.BranchId">@Model.Branch.Name</a>
+                }
+            </div>
+        </li>
     </ul>
 </nav>

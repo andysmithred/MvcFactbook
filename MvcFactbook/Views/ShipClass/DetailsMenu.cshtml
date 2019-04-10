@@ -10,10 +10,23 @@
         <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Lists</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" asp-action="DetailsShips" asp-route-id="@Model.Id">Ship Services</a>
+                <a class="dropdown-item" asp-action="DetailsShips" asp-route-id="@Model.Id">Ships</a>
                 <a class="dropdown-item" asp-action="DetailsShipServices" asp-route-id="@Model.Id">Ship Services</a>
                 <a class="dropdown-item" asp-action="DetailsPrecedingClasses" asp-route-id="@Model.Id">Preceding Classes</a>
                 <a class="dropdown-item" asp-action="DetailsSucceedingClasses" asp-route-id="@Model.Id">Succeeding Classes</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Items</a>
+            <div class="dropdown-menu">
+                @foreach (var item in Model.ShipSubTypes)
+                {
+                    <a class="dropdown-item" asp-controller="ShipSubType" asp-action="Details" asp-route-id="@item.Id">@item.Type</a>
+                }
+                @foreach (var item in Model.Branches)
+                {
+                    <a class="dropdown-item" asp-controller="Branch" asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
+                }
             </div>
         </li>
     </ul>

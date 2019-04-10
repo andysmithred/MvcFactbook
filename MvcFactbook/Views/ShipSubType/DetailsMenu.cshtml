@@ -8,17 +8,23 @@
         <li class="nav-item"><a class="nav-link" asp-action="Details" asp-route-id="@Model.Id">Details</a></li>
         <!-- Dropdown -->
         <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Items</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" asp-controller="ShipType" asp-action="Details" asp-route-id="@Model.ShipTypeId">@Model.ShipType.Type</a>
-                <a class="dropdown-item" asp-controller="ShipCategory" asp-action="Details" asp-route-id="@Model.ShipType.ShipCategoryId">@Model.ShipType.ShipCategory.Category</a>
-            </div>
-        </li>
-        <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Lists</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" asp-action="DetailsShipServices" asp-route-id="@Model.Id">Ship Services</a>
                 <a class="dropdown-item" asp-action="DetailsBranches" asp-route-id="@Model.Id">Branches</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Items</a>
+            <div class="dropdown-menu">
+                @if (Model.ShipType != null)
+                {
+                    <a class="dropdown-item" asp-controller="ShipType" asp-action="Details" asp-route-id="@Model.ShipTypeId">@Model.ShipType.Type</a>
+                }
+                @if (Model.ShipType?.ShipCategory != null)
+                {
+                    <a class="dropdown-item" asp-controller="ShipCategory" asp-action="Details" asp-route-id="@Model.ShipType.ShipCategoryId">@Model.ShipType.ShipCategory.Category</a>
+                }
             </div>
         </li>
     </ul>

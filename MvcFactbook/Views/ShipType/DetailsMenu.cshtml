@@ -5,12 +5,15 @@
         <li class="nav-item"><a class="nav-link" asp-action="Index">Index</a></li>
         <li class="nav-item"><a class="nav-link" asp-action="Edit" asp-route-id="@Model.Id">Edit</a></li>
         <li class="nav-item"><a class="nav-link" asp-action="Delete" asp-route-id="@Model.Id">Delete</a></li>
-        <li class="nav-item"><a class="nav-link" asp-action="Details" asp-route-id="@Model.Id">Details</a></li>
         <!-- Dropdown -->
         <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Lists</a>
+            <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Items</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" asp-action="ShipSubTypesList" asp-route-id="@Model.Id">Ship Sub-Types</a>
+                @if(Model.ShipCategory != null)
+                {
+                    <a class="dropdown-item" asp-controller="ShipCategory" asp-action="Details" asp-route-id="@Model.ShipCategoryId">@Model.ShipCategory.Category</a>
+                }
+                
             </div>
         </li>
     </ul>
