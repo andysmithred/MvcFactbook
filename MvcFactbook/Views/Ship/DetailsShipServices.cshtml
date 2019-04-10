@@ -8,7 +8,7 @@
 
 <div class="d-flex flex-row">
     <partial name="DetailsAddTableShipServices" model='new {
-             Action = "CreateByBranch",
+             Action = "CreateByShip",
              RouteId = Model.Id,
              Items = Model.ShipServices.OrderBy(x => x.Name)
              }' />
