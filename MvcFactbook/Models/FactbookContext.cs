@@ -21,6 +21,7 @@ namespace MvcFactbook.Models
         public virtual DbSet<Builder> Builder { get; set; }
         public virtual DbSet<Flag> Flag { get; set; }
         public virtual DbSet<PoliticalEntity> PoliticalEntity { get; set; }
+        public virtual DbSet<PoliticalEntityBuilder> PoliticalEntityBuilder { get; set; }
         public virtual DbSet<PoliticalEntityFlag> PoliticalEntityFlag { get; set; }
         public virtual DbSet<PoliticalEntityType> PoliticalEntityType { get; set; }
         public virtual DbSet<PoliticalEntitySucceeding> PoliticalEntitySucceeding { get; set; }
@@ -188,6 +189,26 @@ namespace MvcFactbook.Models
                     .WithMany(y => y.PoliticalEntities)
                     .HasForeignKey(y => y.PoliticalEntityTypeId)
                     .HasConstraintName("FK_PoliticalEntity_To_PoliticalEntityType");
+            });
+
+            // Political Entity Flag
+            modelBuilder.Entity<PoliticalEntityBuilder>(entity =>
+            {
+                entity.Property(e => e.PoliticalEntityId)
+                    .IsRequired();
+
+                entity.Property(e => e.BuilderId)
+                    .IsRequired();
+
+                entity.HasOne(x => x.PoliticalEntity)
+                    .WithMany(y => y.PoliticalEntityBuilders)
+                    .HasForeignKey(y => y.PoliticalEntityId)
+                    .HasConstraintName("FK_PolitcalEntityBuilder_To_PoliticalEntity");
+
+                entity.HasOne(x => x.Builder)
+                    .WithMany(f => f.PoliticalEntityBuilders)
+                    .HasForeignKey(f => f.BuilderId)
+                    .HasConstraintName("FK_PolitcalEntityBuilder_To_Builder");
             });
 
             // Political Entity Flag

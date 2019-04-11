@@ -11,7 +11,7 @@ namespace MvcFactbook.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "Political EntitId")]
+        [Display(Name = "Political Entity Id")]
         public int PoliticalEntityId { get; set; }
 
         [Required]

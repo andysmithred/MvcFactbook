@@ -1,0 +1,45 @@
+﻿@model MvcFactbook.Models.PoliticalEntityBuilder
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<partial name="CreateMenu" model='new { Icon = "fas fa-plus-square" }' />
+<hr class="bg-light" />
+
+<div class="pl-2 pr-2">
+    <div class="d-flex flex-row w-100">
+        <div class="pr-2">
+            <img src="~/images/icons/join-light.png" style="height:40px;" />
+        </div>
+        <div class="text-white">
+            <h2>Political Entity Builder</h2>
+        </div>
+    </div>
+    <hr class="bg-secondary" />
+    <form asp-action="Create">
+        <div class="input-group input-group-sm mb-3 w-50">
+            <div class="input-group-prepend w-25">
+                <label asp-for="PoliticalEntity" class="input-group-text w-100"></label>
+            </div>
+            <select asp-for="PoliticalEntityId" asp-items="ViewBag.PoliticalEntities" class="form-control rounded-right"></select>
+            <span asp-validation-for="PoliticalEntityId" class="text-danger"></span>
+        </div>
+        <div class="input-group input-group-sm mb-3 w-50">
+            <div class="input-group-prepend w-25">
+                <label asp-for="Builder" class="input-group-text w-100"></label>
+            </div>
+            <select asp-for="BuilderId" asp-items="ViewBag.Builders" class="form-control rounded-right"></select>
+            <span asp-validation-for="BuilderId" class="text-danger"></span>
+        </div>
+        <hr class="bg-secondary" />
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-outline-secondary btn-sm" />
+        </div>
+    </form>
+</div>
+<hr class="bg-light" />
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

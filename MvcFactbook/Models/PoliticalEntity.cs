@@ -11,6 +11,7 @@ namespace MvcFactbook.Models
         public PoliticalEntity()
         {
             PoliticalEntityFlags = new HashSet<PoliticalEntityFlag>();
+            PoliticalEntityBuilders = new HashSet<PoliticalEntityBuilder>();
         }
 
         #endregion Constructor
@@ -60,6 +61,8 @@ namespace MvcFactbook.Models
 
         [Display(Name = "Political Entity Type")]
         public PoliticalEntityType PoliticalEntityType { get; set; }
+
+        public ICollection<PoliticalEntityBuilder> PoliticalEntityBuilders { get; set; }
 
         public ICollection<PoliticalEntityFlag> PoliticalEntityFlags { get; set; }
 

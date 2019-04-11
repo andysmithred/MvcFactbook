@@ -10,6 +10,7 @@ namespace MvcFactbook.Models
         public Builder()
         {
             Ships = new HashSet<Ship>();
+            PoliticalEntityBuilders = new HashSet<PoliticalEntityBuilder>();
         }
 
         #endregion Constructor
@@ -29,6 +30,8 @@ namespace MvcFactbook.Models
         #region Foreign Properties
 
         public ICollection<Ship> Ships { get; set; }
+
+        public ICollection<PoliticalEntityBuilder> PoliticalEntityBuilders { get; set; }
 
         #endregion Foreign Properties
     }

@@ -1,6 +1,8 @@
-﻿using MvcFactbook.Models;
+﻿using MvcFactbook.Code.Classes;
+using MvcFactbook.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace MvcFactbook.ViewModels.Models.Main
 {
@@ -22,6 +24,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<ShipView> Ships => GetViewList<ShipView, Ship>(ViewObject.Ships);
 
+        public ICollection<PoliticalEntityBuilderView> PoliticalEntityBuilders => GetViewList<PoliticalEntityBuilderView, PoliticalEntityBuilder>(ViewObject.PoliticalEntityBuilders);
+
         #endregion Foreign Properties
 
         #region Other Properties
@@ -30,10 +34,20 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string FoundedLabel => Founded.HasValue ? Founded.Value.ToString() : "--";
 
+        public ICollection<PoliticalEntityView> PoliticalEntities => PoliticalEntityBuilders.Select(f => f.PoliticalEntity).Distinct(f => f.Id).ToList();
+
+
+
+
+       
+        public bool HasFlag => PoliticalEntities.Count > 0;
+
+        public FlagView Flag => PoliticalEntities.OrderByDescending(x => x.StartDate).FirstOrDefault().CurrentFlag;
+
+        public string ImageSource => Flag?.ImageSource;
+
+
         #endregion Other Properties
 
-        #region Methods
-
-        #endregion Methods
     }
 }

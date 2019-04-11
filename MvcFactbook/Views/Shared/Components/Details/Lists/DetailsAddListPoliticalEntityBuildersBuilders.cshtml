@@ -1,0 +1,13 @@
+﻿<div class="w-100 p-2">
+    <partial name="DetailsItemAddHeader" model='new {
+                Icon = "/images/icons/builder-light.png",
+                Label = "BUILDERS",
+                Controller = "PoliticalEntityBuilder",
+                Action = Model.Action,
+                RouteId = Model.RouteId,
+                Tooltip = "Add Builder"
+    }' />
+    <div class="mt-3" style="max-height:300px;overflow-y:auto;">
+        <partial name="ListBuilders" model=@Model.Items />
+    </div>
+</div>

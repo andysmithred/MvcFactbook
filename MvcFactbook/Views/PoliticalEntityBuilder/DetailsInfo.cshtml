@@ -1,0 +1,17 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.PoliticalEntityBuilderView
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "POLITICAL ENTITY", Icon = "/images/icons/embassy-light.png" }' />
+</div>
+<div class="p-2">
+    <partial name="InfoPoliticalEntity" model=@Model.PoliticalEntity />
+</div>
+<hr class="bg-light" />
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "BUILDER", Icon = "/images/icons/builder-light.png" }' />
+</div>
+<div class="p-2">
+    <partial name="InfoBuilder" model=@Model.Builder />
+</div>
+<hr class="bg-light" />

@@ -1,0 +1,23 @@
+﻿<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <img src="~/images/icons/join-light.png" style="height:24px;width:24px" />
+    <a class="navbar-brand pl-4 pr-4" href="#">POLITICAL ENTITY BUILDER</a>
+    <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" asp-action="Index">Index</a></li>
+        <li class="nav-item"><a class="nav-link" asp-action="Edit" asp-route-id="@Model.Id">Edit</a></li>
+        <li class="nav-item"><a class="nav-link" asp-action="Delete" asp-route-id="@Model.Id">Delete</a></li>
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Items</a>
+            <div class="dropdown-menu">
+                @if (Model.PoliticalEntity != null)
+                {
+                    <a class="dropdown-item" asp-controller="PoliticalEntity" asp-action="Details" asp-route-id="@Model.PoliticalEntityId">@Model.PoliticalEntity.ShortName</a>
+                }
+                @if (Model.Builder != null)
+                {
+                    <a class="dropdown-item" asp-controller="Builder" asp-action="Details" asp-route-id="@Model.BuilderId">@Model.Builder.Name</a>
+                }
+            </div>
+        </li>
+    </ul>
+</nav>
