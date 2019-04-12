@@ -8,6 +8,11 @@
              RouteId=Model.Id,
              Items=Model.Ships.OrderBy(x => x.Launched)
         }' />
+    <partial name="DetailsAddListPoliticalEntityBuildersPoliticalEntities" model='new {
+             Action="CreateByBuilder" ,
+             RouteId=Model.Id,
+             Items=Model.PoliticalEntities.OrderBy(x => x.ShortName)
+        }' />
 </div>
 
 <hr class="bg-light" />
