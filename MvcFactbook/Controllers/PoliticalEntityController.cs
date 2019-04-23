@@ -73,6 +73,11 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
+        public async Task<IActionResult> DetailsBuilders(int? id)
+        {
+            return await base.Details(id);
+        }
+
         #endregion Details
 
         #region Create
@@ -180,6 +185,7 @@ namespace MvcFactbook.Controllers
         {
             return () => Context
                         .PoliticalEntity
+                        .Include(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
                         .Include(x => x.PoliticalEntityType);
         }
 

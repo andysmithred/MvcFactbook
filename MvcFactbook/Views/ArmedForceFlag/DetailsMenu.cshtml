@@ -13,7 +13,7 @@
                 {
                     <a class="dropdown-item" asp-controller="ArmedForce" asp-action="Details" asp-route-id="@Model.ArmedForceId">@Model.ArmedForce.Name</a>
                 }
-                if(Model.Flag != null)
+                @if(Model.Flag != null)
                 {
                     <a class="dropdown-item" asp-controller="Flag" asp-action="Details" asp-route-id="@Model.FlagId">@Model.Flag.Name</a>
                 }
