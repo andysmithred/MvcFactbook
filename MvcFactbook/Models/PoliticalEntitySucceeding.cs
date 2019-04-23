@@ -23,6 +23,8 @@ namespace MvcFactbook.Models
         [Display(Name = "Succeeding Entity Id")]
         public int SucceedingPoliticalEntityId { get; set; }
 
+        public int? Year { get; set; }
+
         #endregion Database Properties
 
         #region Foreign Properties

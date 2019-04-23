@@ -119,7 +119,8 @@ namespace MvcFactbook.Controllers
         {
             return () => Context
                         .Builder
-                        .Include(x => x.Ships);         
+                        .Include(x => x.Ships)
+                        .Include(x => x.PoliticalEntityBuilders).ThenInclude(x => x.PoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag);         
         }
 
         protected override Func<Builder, bool> GetExistsFunc(int id)

@@ -18,6 +18,8 @@ namespace MvcFactbook.ViewModels.Models.Main
         [Display(Name = "Succeeding Entity Id")]
         public int SucceedingPoliticalEntityId => ViewObject.SucceedingPoliticalEntityId;
 
+        public int? Year => ViewObject.Year;
+
         #endregion Database Properties
 
         #region Foreign Properties
@@ -33,6 +35,8 @@ namespace MvcFactbook.ViewModels.Models.Main
         #region Other Properties
 
         public override string ListName => PrecedingEntity.Name + ":" + SucceedingEntity.Name;
+
+        public string YearLabel => Year.HasValue ? Year.Value.ToString() : "--";
 
         #endregion Other Properties
 

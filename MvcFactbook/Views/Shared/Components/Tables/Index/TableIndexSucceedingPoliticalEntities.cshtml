@@ -8,6 +8,7 @@
             columns.Add().Encoded(false).RenderedAs(model => $"<img src='/images/icons/succeedingclass-light.png' style='height: 20px; width: 20px' />");
             columns.Add(model => model.PrecedingEntity.Name).Titled("Preceding");
             columns.Add(model => model.SucceedingEntity.Name).Titled("Succeeding");
+            columns.Add(model => model.YearLabel).Titled("Year");
             columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-left'>" +
                     $"<a class='btn btn-outline-secondary btn-sm' href='/PoliticalEntitySucceeding/Edit/{model.Id}'>Edit</a>" +
