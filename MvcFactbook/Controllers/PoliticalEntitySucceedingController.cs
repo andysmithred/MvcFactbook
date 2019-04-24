@@ -71,7 +71,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PoliticalEntityId,SucceedingPoliticalEntityId")] PoliticalEntitySucceeding item)
+        public async Task<IActionResult> Create([Bind("PoliticalEntityId,SucceedingPoliticalEntityId,Year")] PoliticalEntitySucceeding item)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreatePrecedingPoliticalEntity([Bind("PoliticalEntityId,SucceedingPoliticalEntityId")] PoliticalEntitySucceeding item)
+        public async Task<IActionResult> CreatePrecedingPoliticalEntity([Bind("PoliticalEntityId,SucceedingPoliticalEntityId,Year")] PoliticalEntitySucceeding item)
         {
             if (ModelState.IsValid)
             {
@@ -116,7 +116,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateSucceedingPoliticalEntity([Bind("PoliticalEntityId,SucceedingPoliticalEntityId")] PoliticalEntitySucceeding item)
+        public async Task<IActionResult> CreateSucceedingPoliticalEntity([Bind("PoliticalEntityId,SucceedingPoliticalEntityId,Year")] PoliticalEntitySucceeding item)
         {
             if (ModelState.IsValid)
             {
@@ -143,7 +143,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public override async Task<IActionResult> Edit(int id, [Bind("Id,PoliticalEntityId,SucceedingPoliticalEntityId")] PoliticalEntitySucceeding item)
+        public override async Task<IActionResult> Edit(int id, [Bind("Id,PoliticalEntityId,SucceedingPoliticalEntityId,Year")] PoliticalEntitySucceeding item)
         {
             IActionResult result = await base.Edit(id, item);
             ViewBag.PrecedingEntities = GetSelectList<PoliticalEntityView>(PoliticalEntitiesList, item.PoliticalEntityId);

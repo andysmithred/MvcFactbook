@@ -6,12 +6,12 @@
     <partial name="DetailsAddListPrecedingEntities" model='new {
                 Action="CreatePrecedingPoliticalEntity" ,
                 RouteId=Model.Id,
-                Items=Model.PrecedingPoliticalEntities.OrderBy(x => x.ShortName)
+                Items=Model.PrecedingEntities.OrderBy(x => x.Year)
         }' />
     <partial name="DetailsAddListSucceedingEntities" model='new {
                 Action="CreateSucceedingPoliticalEntity" ,
                 RouteId=Model.Id,
-                Items=Model.SucceedingPoliticalEntities.OrderBy(x => x.ShortName)
+                Items=Model.SucceedingEntities.OrderBy(x => x.Year)
         }' />
 </div>
 
