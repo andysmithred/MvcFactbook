@@ -142,5 +142,15 @@ namespace MvcFactbook.Code.Classes
             return GetFullPath(ICON_PATH, fileName);
         }
 
+        public static double GetAverage(int x, int y)
+        {
+            return GetAverage((double)x, y);
+        }
+
+        public static double GetAverage(double x, int y)
+        {
+            return x / y;
+        }
+
     }
 }
