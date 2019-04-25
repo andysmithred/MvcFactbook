@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MvcFactbook.Code.Classes;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MvcFactbook.Models

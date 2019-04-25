@@ -9,6 +9,14 @@ namespace MvcFactbook.ViewModels.Models.Main
 {
     public class BranchView : View<Branch>
     {
+        #region Private Variables
+
+        private Fleet totalFleet = null;
+        private Fleet activeFleet = null;
+        private Fleet inactiveFleet = null;
+
+        #endregion Private Variables
+
         #region Database Properties
 
         [Key]
@@ -59,6 +67,21 @@ namespace MvcFactbook.ViewModels.Models.Main
         public string ImageSource => CurrentFlag?.ImageSource;
 
         public string Image => CurrentFlag?.Image;
+
+
+
+
+        public ICollection<ShipServiceView> ActiveServices => ShipServices.Where(x => x.Active).ToList();
+
+        public ICollection<ShipServiceView> InactiveServices => ShipServices.Where(x => !x.Active).ToList();
+
+        public bool HasFleet => ShipServices.Count > 0;
+
+        public Fleet TotalFleet => totalFleet ?? (totalFleet = new Fleet(ShipServices));
+
+        public Fleet ActiveFleet => activeFleet ?? (activeFleet = new Fleet(ActiveServices));
+
+        public Fleet InactiveFleet => inactiveFleet ?? (inactiveFleet = new Fleet(InactiveServices));
 
         #endregion Other Properties
 

@@ -18,13 +18,15 @@ namespace MvcFactbook.Code.Classes
 
         #region Constructors
 
-        public FleetItem(IEnumerable<ShipServiceView> services)
+        public FleetItem(string name, IEnumerable<ShipServiceView> services)
         {
+            Name = name;
             ServicesList = services;
         }
 
-        public FleetItem(IEnumerable<ShipView> ships)
+        public FleetItem(string name, IEnumerable<ShipView> ships)
         {
+            Name = name;
             ShipsList = ships;
         }
 
@@ -45,29 +47,25 @@ namespace MvcFactbook.Code.Classes
         }
 
         public string Name { get; set; }
-
         public string Description { get; set; }
-
         public int Id { get; set; }
 
-
-
         public int Tonnage => ServicesList.Sum(x => x.ShipClass.Displacement.HasValue ? x.ShipClass.Displacement.Value : 0);
+        public string TonnageLabel => DisplacementCount > 0 ? Tonnage.ToString("N0") + " tons" : "--";
 
         public int DisplacementCount => ServicesList.Sum(x => x.ShipClass.Displacement.HasValue ? 1: 0);
-
         public double DisplacementAverage => CommonFunctions.GetAverage(Tonnage, DisplacementCount);
+        public string DisplacementAverageLabel => DisplacementCount > 0 ? DisplacementAverage.ToString("N0") + " tons" : "--";
 
         public double LengthTotal => ServicesList.Sum(x => x.ShipClass.Length.HasValue ? x.ShipClass.Length.Value : 0);
-
         public int LengthCount => ServicesList.Sum(x => x.ShipClass.Length.HasValue ? 1 : 0);
-
         public double LengthAverage => CommonFunctions.GetAverage(LengthTotal, LengthCount);
+        public string LengthAverageLabel => LengthCount > 0 ? LengthAverage.ToString("N0") + " m" : "--";
+
         public double BeamTotal => ServicesList.Sum(x => x.ShipClass.Beam.HasValue ? x.ShipClass.Beam.Value : 0);
-
         public int BeamCount => ServicesList.Sum(x => x.ShipClass.Beam.HasValue ? 1 : 0);
-
         public double BeamAverage => CommonFunctions.GetAverage(BeamTotal, BeamCount);
+        public string BeamAverageLabel => BeamCount > 0 ? BeamAverage.ToString("N0") + " m" : "--";
 
         #endregion Public Properties
 

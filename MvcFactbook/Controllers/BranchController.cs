@@ -83,6 +83,21 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
+        public async Task<IActionResult> DetailsTotalFleet(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsActiveFleet(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsInactiveFleet(int? id)
+        {
+            return await base.Details(id);
+        }
+
         #endregion Details
 
         #region Create
@@ -208,8 +223,8 @@ namespace MvcFactbook.Controllers
                         .Include(x => x.BranchType)
                         .Include(x => x.BranchFlags).ThenInclude(x => x.Flag)
                         .Include(x => x.ShipServices).ThenInclude(x => x.Ship)
-                        .Include(x => x.ShipServices).ThenInclude(x => x.ShipClass)
-                        .Include(x => x.ShipServices).ThenInclude(x => x.ShipSubType)
+                        .Include(x => x.ShipServices).ThenInclude(x => x.ShipClass).ThenInclude(x => x.ShipServices).ThenInclude(x => x.Ship)
+                        .Include(x => x.ShipServices).ThenInclude(x => x.ShipSubType).ThenInclude(x => x.ShipType).ThenInclude(x => x.ShipCategory)
                         .FirstOrDefault(x => x.Id == i);
         }
 
