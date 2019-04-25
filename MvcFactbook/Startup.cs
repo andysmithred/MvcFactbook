@@ -47,20 +47,10 @@ namespace MvcFactbook
                     o.ViewLocationFormats.Add("/Views/Shared/Components/Menus/{0}" + RazorViewEngine.ViewExtension);
                     o.ViewLocationFormats.Add("/Views/Shared/Components/Tables/Details/{0}" + RazorViewEngine.ViewExtension);
                     o.ViewLocationFormats.Add("/Views/Shared/Components/Tables/Index/{0}" + RazorViewEngine.ViewExtension);
-
-
-                    //o.ViewLocationFormats.Add("/Views/Shared/Partial/Common/{0}" + RazorViewEngine.ViewExtension);
-                    //o.ViewLocationFormats.Add("/Views/Shared/Partial/Details/{0}" + RazorViewEngine.ViewExtension);
-                    //o.ViewLocationFormats.Add("/Views/Shared/Partial/Links/{0}" + RazorViewEngine.ViewExtension);
-                    //o.ViewLocationFormats.Add("/Views/Shared/Partial/ListLinks/{0}" + RazorViewEngine.ViewExtension);
-                    //o.ViewLocationFormats.Add("/Views/Shared/Partial/Lists/{0}" + RazorViewEngine.ViewExtension);
-                    //o.ViewLocationFormats.Add("/Views/Shared/Partial/Lists/Main/{0}" + RazorViewEngine.ViewExtension);
-                    //o.ViewLocationFormats.Add("/Views/Shared/Partial/Lists/Details/{0}" + RazorViewEngine.ViewExtension);
-                    //o.ViewLocationFormats.Add("/Views/Shared/Partial/Components/{0}" + RazorViewEngine.ViewExtension);
                 });
 
-            var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\AndyS\OneDrive\Documents\Visual Studio 2017\Projects\MvcFactbook\MvcFactbook\Database\MvcFactbook.mdf;Integrated Security=True;Connect Timeout=30";
-            //var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\dev\MvcFactbook\MvcFactbook\Database\MvcFactbook.mdf;Integrated Security=True;Connect Timeout=30";
+            //var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\AndyS\OneDrive\Documents\Visual Studio 2017\Projects\MvcFactbook\MvcFactbook\Database\MvcFactbook.mdf;Integrated Security=True;Connect Timeout=30";
+            var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\dev\MvcFactbook\MvcFactbook\Database\MvcFactbook.mdf;Integrated Security=True;Connect Timeout=30";
             services.AddDbContext<FactbookContext>(options => options.UseSqlServer(connection));
         }
 
