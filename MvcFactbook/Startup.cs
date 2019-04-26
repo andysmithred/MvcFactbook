@@ -38,6 +38,7 @@ namespace MvcFactbook
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddRazorOptions(o =>
                 {
+                    o.ViewLocationFormats.Add("/Views/Shared/Components/Charts/{0}" + RazorViewEngine.ViewExtension);
                     o.ViewLocationFormats.Add("/Views/Shared/Components/Details/Lists/{0}" + RazorViewEngine.ViewExtension);
                     o.ViewLocationFormats.Add("/Views/Shared/Components/Details/Main/{0}" + RazorViewEngine.ViewExtension);
                     o.ViewLocationFormats.Add("/Views/Shared/Components/Details/Tables/{0}" + RazorViewEngine.ViewExtension);

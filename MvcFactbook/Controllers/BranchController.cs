@@ -98,6 +98,11 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
+        public async Task<IActionResult> ChartTest(int? id)
+        {
+            return await base.Details(id);
+        }
+
         #endregion Details
 
         #region Create

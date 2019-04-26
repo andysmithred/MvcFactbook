@@ -1,0 +1,71 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.BranchView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<partial name="DetailsMain" />
+
+<div class="w-100 p-2">
+    <partial name="DetailsItemHeader" model='new {
+                Icon = "/images/icons/ship-light.png",
+                Label = "TOTAL FLEET"
+    }' />
+    <div class="d-flex flex-row flex-wrap mt-3">
+        <div style="width:20%">
+            <div class="text-muted"><h6>Ships</h6></div>
+            <div class="text-white"><h4>@Model.TotalFleet.ServicesList.Count()</h4></div>
+        </div>
+        <div style="width:20%">
+            <div class="text-muted"><h6>Tonnage</h6></div>
+            <div class="text-white"><h4>@Model.TotalFleet.FleetServicesTotal.TonnageLabel</h4></div>
+        </div>
+        <div style="width:20%">
+            <div class="text-muted"><h6>Average Displacement</h6></div>
+            <div class="text-white"><h4>@Model.TotalFleet.FleetServicesTotal.DisplacementAverageLabel</h4></div>
+        </div>
+        <div style="width:20%">
+            <div class="text-muted"><h6>Average Length</h6></div>
+            <div class="text-white"><h4>@Model.TotalFleet.FleetServicesTotal.LengthAverageLabel</h4></div>
+        </div>
+        <div style="width:20%">
+            <div class="text-muted"><h6>Average Beam</h6></div>
+            <div class="text-white"><h4>@Model.TotalFleet.FleetServicesTotal.BeamAverageLabel</h4></div>
+        </div>
+    </div>
+</div>
+
+<hr class="bg-light" />
+
+<div class="d-flex flex-row">
+    <div class="w-100 p-2">
+        <partial name="DetailsItemHeader" model='new {
+                Icon = "/images/icons/shipcategory-light.png",
+                Label = "BY SHIP CATEGORY"
+            }' />
+        <partial name="ChartDonut" model='new { Id="ByCategoryChart", Items=@Model.TotalFleet.FleetServicesByShipCategory }' />
+    </div>
+    <div class="w-100 p-2">
+        <partial name="DetailsItemHeader" model='new {
+                Icon = "/images/icons/shiptype-light.png",
+                Label = "BY SHIP TYPE"
+            }' />
+        <partial name="ChartDonut" model='new { Id="ByTypeChart", Items=@Model.TotalFleet.FleetServicesByShipType }' />
+    </div>
+    <div class="w-100 p-2">
+        <partial name="DetailsItemHeader" model='new {
+                Icon = "/images/icons/shipsubtype-light.png",
+                Label = "BY SHIP SUB-TYPE"
+            }' />
+        <partial name="ChartDonut" model='new { Id="BySubTypeChart", Items=@Model.TotalFleet.FleetServicesByShipSubType }' />
+    </div>
+    <div class="w-100 p-2">
+        <partial name="DetailsItemHeader" model='new {
+                Icon = "/images/icons/shipclass-light.png",
+                Label = "BY SHIP CLASS"
+            }' />
+        <partial name="ChartDonut" model='new { Id="ByClassChart", Items=@Model.TotalFleet.FleetServicesByShipClass }' />
+    </div>
+</div>
+
+<hr class="bg-light" />

@@ -49,6 +49,7 @@ namespace MvcFactbook.Code.Classes
         public string Name { get; set; }
         public string Description { get; set; }
         public int Id { get; set; }
+        public int Services => ServicesList.Count();
 
         public int Tonnage => ServicesList.Sum(x => x.ShipClass.Displacement.HasValue ? x.ShipClass.Displacement.Value : 0);
         public string TonnageLabel => DisplacementCount > 0 ? Tonnage.ToString("N0") + " tons" : "--";
