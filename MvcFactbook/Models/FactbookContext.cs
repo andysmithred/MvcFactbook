@@ -22,6 +22,7 @@ namespace MvcFactbook.Models
         public virtual DbSet<Flag> Flag { get; set; }
         public virtual DbSet<PoliticalEntity> PoliticalEntity { get; set; }
         public virtual DbSet<PoliticalEntityBuilder> PoliticalEntityBuilder { get; set; }
+        public virtual DbSet<PoliticalEntityEra> PoliticalEntityEra { get; set; }
         public virtual DbSet<PoliticalEntityFlag> PoliticalEntityFlag { get; set; }
         public virtual DbSet<PoliticalEntityType> PoliticalEntityType { get; set; }
         public virtual DbSet<PoliticalEntitySucceeding> PoliticalEntitySucceeding { get; set; }
@@ -39,8 +40,8 @@ namespace MvcFactbook.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\Users\\AndyS\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\MvcFactbook\\MvcFactbook\\Database\\MvcFactbook.mdf; Integrated Security = True;Connect Timeout=30");
-                //optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\dev\\MvcFactbook\\MvcFactbook\\Database\\MvcFactbook.mdf; Integrated Security = True;Connect Timeout=30");
+                //optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\Users\\AndyS\\OneDrive\\Documents\\Visual Studio 2017\\Projects\\MvcFactbook\\MvcFactbook\\Database\\MvcFactbook.mdf; Integrated Security = True;Connect Timeout=30");
+                optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\dev\\MvcFactbook\\MvcFactbook\\Database\\MvcFactbook.mdf; Integrated Security = True;Connect Timeout=30");
             }
         }
 
@@ -191,7 +192,7 @@ namespace MvcFactbook.Models
                     .HasConstraintName("FK_PoliticalEntity_To_PoliticalEntityType");
             });
 
-            // Political Entity Flag
+            // Political Entity Builder
             modelBuilder.Entity<PoliticalEntityBuilder>(entity =>
             {
                 entity.Property(e => e.PoliticalEntityId)
@@ -209,6 +210,18 @@ namespace MvcFactbook.Models
                     .WithMany(f => f.PoliticalEntityBuilders)
                     .HasForeignKey(f => f.BuilderId)
                     .HasConstraintName("FK_PolitcalEntityBuilder_To_Builder");
+            });
+
+            // Political Entity Era
+            modelBuilder.Entity<PoliticalEntityEra>(entity =>
+            {
+                entity.Property(e => e.PoliticalEntityId)
+                    .IsRequired();
+
+                entity.HasOne(x => x.PoliticalEntity)
+                    .WithMany(y => y.PoliticalEntityEras)
+                    .HasForeignKey(y => y.PoliticalEntityId)
+                    .HasConstraintName("FK_PolitcalEntityEra_To_PoliticalEntity");
             });
 
             // Political Entity Flag
