@@ -1,5 +1,6 @@
 ﻿using MvcFactbook.Code.Classes;
 using MvcFactbook.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public int? Founded => ViewObject.Founded;
 
+        public int? Defunct => ViewObject.Defunct;
+
         #endregion Database Properties
 
         #region Foreign Properties
@@ -34,20 +37,55 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string FoundedLabel => Founded.HasValue ? Founded.Value.ToString() : "--";
 
+        public string DefunctLabel => Defunct.HasValue ? Defunct.Value.ToString() : "--";
+
         public ICollection<PoliticalEntityView> PoliticalEntities => PoliticalEntityBuilders.Select(f => f.PoliticalEntity).Distinct(f => f.Id).ToList();
 
-
-
-
-       
         public bool HasFlag => PoliticalEntities.Count > 0;
 
         public FlagView Flag => PoliticalEntities.OrderByDescending(x => x.StartDate).FirstOrDefault().CurrentFlag;
 
         public string ImageSource => Flag?.ImageSource;
 
-
         #endregion Other Properties
+
+        #region Methods
+
+        public PoliticalEntityView GetPoliticalEntityForDate(DateTime date)
+        {
+            if(PoliticalEntities.Count > 0)
+            {
+                foreach (var item in PoliticalEntities)
+                {
+                    if(item.AbsoluteStart < date && date <= item.AbsoluteEnd)
+                    {
+                        return item;
+                    }
+                }
+
+                return null;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public FlagView GetFlagForDate(DateTime date)
+        {
+            var politicalEntity = GetPoliticalEntityForDate(date);
+
+            if(politicalEntity != null)
+            {
+                return politicalEntity.GetFlagForDate(date);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        #endregion Methods
 
     }
 }

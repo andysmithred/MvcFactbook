@@ -3,5 +3,6 @@
 <div class="d-flex flex-row flex-wrap">
     <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
     <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Founded), Value = Model.FoundedLabel }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Defunct), Value = Model.DefunctLabel }' />
     <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Ships), Value = Model.Ships.Count }' />
 </div>

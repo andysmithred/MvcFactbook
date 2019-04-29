@@ -1,4 +1,4 @@
-﻿@model MvcFactbook.Models.Builder
+﻿@model MvcFactbook.Models.PoliticalEntityEra
 
 @{
     ViewData["Title"] = "Delete";
@@ -10,18 +10,17 @@
 <div class="pl-2 pr-2">
     <div class="d-flex flex-row w-100">
         <div class="pr-2">
-            <img src="~/images/icons/builder-light.png" style="height:40px;" />
+            <img src="~/images/icons/time-light.png" style="height:40px;" />
         </div>
         <div class="text-white">
-            <h2>Builder</h2>
+            <h2>Political Entity Era</h2>
         </div>
     </div>
     <hr class="bg-secondary" />
     <div class="d-flex flex-row flex-wrap">
-        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Id), Value = Model.Id }' />
-        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
-        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Founded), Value = Model.Founded }' />
-        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Defunct), Value = Model.Defunct }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.PoliticalEntity), Value = Model.PoliticalEntity.ShortName }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.StartDate), Value = Model.StartDate }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.EndDate), Value = Model.EndDate }' />
     </div>
     <hr class="bg-secondary" />
     <form asp-action="Delete">

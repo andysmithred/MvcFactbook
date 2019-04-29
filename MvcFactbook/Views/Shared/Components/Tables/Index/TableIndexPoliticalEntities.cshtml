@@ -10,6 +10,7 @@
             columns.Add(model => model.Name).Titled("Name");
             columns.Add(model => model.FullName).Titled("Full Name");
             columns.Add(model => model.Code).Titled("Code");
+            columns.Add(model => model.PoliticalEntityEras.Count()).Titled("Eras");
             columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-right'>" +
                     $"<a class='btn btn-outline-secondary btn-sm' href='/PoliticalEntity/Edit/{model.Id}'> Edit </a>" +

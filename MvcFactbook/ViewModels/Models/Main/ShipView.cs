@@ -56,6 +56,10 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<ShipClassView> ShipClasses => ShipServices.Select(f => f.ShipClass).Distinct(f => f.Id).ToList();
 
+        public bool HasFlag => Flag != null;
+
+        public FlagView Flag => Launched.HasValue ? Builder.GetFlagForDate(Launched.Value) : null;
+
         #endregion Other Properties
 
         #region Methods

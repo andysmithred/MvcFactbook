@@ -1,0 +1,12 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.PoliticalEntityEraView
+
+    <div class="d-flex flex-row flex-wrap">
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.PoliticalEntity), Value = Model.PoliticalEntity.Name }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.StartDate), Value = Model.StartDateLabel }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.EndDate), Value = Model.EndDateLabel }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.TimeSpan), Value = Model.TimeSpanLabel }' />
+        <div class="w-100">
+            <div class="text-muted"><h6>Description</h6></div>
+            <div class="text-white"><h4>@Model.Description</h4></div>
+        </div>
+    </div>

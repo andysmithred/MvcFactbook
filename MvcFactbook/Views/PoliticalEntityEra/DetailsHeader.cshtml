@@ -1,0 +1,23 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.PoliticalEntityEraView
+
+<div class="pr-4">
+    <img class="card-img-top-50 rounded" src="@Model.PoliticalEntity.ImageSource" alt="Card image" style="height:40px;object-fit: cover;overflow: hidden;opacity:0.3">
+</div>
+<div class="text-white pr-2">
+    <h2>@Model.PoliticalEntity.ShortName</h2>
+</div>
+<div class="pr-2 ml-2 mr-2">
+    <img src="~/images/icons/advance-light.png" style="height:40px;width:40px" />
+</div>
+<div class="pr-2">
+    <img src="~/images/icons/time-light.png" style="height:40px;width:40px" />
+</div>
+<div class="text-white pr-2">
+    <h2>@Model.StartDateLabel</h2>
+</div>
+<div class="text-white pr-2">
+    <h2> to </h2>
+</div>
+<div class="text-white pr-2">
+    <h2>@Model.EndDateLabel</h2>
+</div>

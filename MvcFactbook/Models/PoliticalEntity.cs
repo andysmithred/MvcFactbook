@@ -12,6 +12,7 @@ namespace MvcFactbook.Models
         {
             PoliticalEntityFlags = new HashSet<PoliticalEntityFlag>();
             PoliticalEntityBuilders = new HashSet<PoliticalEntityBuilder>();
+            PoliticalEntityEras = new HashSet<PoliticalEntityEra>();
         }
 
         #endregion Constructor
@@ -69,6 +70,8 @@ namespace MvcFactbook.Models
         public ICollection<PoliticalEntitySucceeding> PrecedingEntities { get; set; }
 
         public ICollection<PoliticalEntitySucceeding> SucceedingEntities { get; set; }
+
+        public ICollection<PoliticalEntityEra> PoliticalEntityEras { get; set; }
 
         #endregion Foreign Properties
     }

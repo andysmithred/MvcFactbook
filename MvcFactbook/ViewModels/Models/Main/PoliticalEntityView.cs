@@ -66,6 +66,9 @@ namespace MvcFactbook.ViewModels.Models.Main
         [Display(Name = "Succeeding Entities")]
         public ICollection<PoliticalEntitySucceedingView> SucceedingEntities => GetViewList<PoliticalEntitySucceedingView, PoliticalEntitySucceeding>(ViewObject.SucceedingEntities);
 
+        [Display(Name = "Political Entity Era")]
+        public ICollection<PoliticalEntityEraView> PoliticalEntityEras => GetViewList<PoliticalEntityEraView, PoliticalEntityEra>(ViewObject.PoliticalEntityEras);
+
         #endregion Foreign Properties
 
         #region Other Properties
@@ -79,6 +82,10 @@ namespace MvcFactbook.ViewModels.Models.Main
         public string StartDateLabel => CommonFunctions.GetDateLabel(StartDate);
 
         public string EndDateLabel => CommonFunctions.GetDateLabel(EndDate);
+
+        public DateTime AbsoluteStart => StartDate.HasValue ? StartDate.Value : DateTime.MinValue;
+
+        public DateTime AbsoluteEnd => EndDate.HasValue ? EndDate.Value : DateTime.MaxValue;
 
         [Display(Name = "Time Span")]
         public TimeSpan? TimeSpan => CommonFunctions.GetTimepan(StartDate, EndDate);
@@ -94,6 +101,12 @@ namespace MvcFactbook.ViewModels.Models.Main
         public string ImageSource => CurrentFlag?.ImageSource;
 
         public string Image => CurrentFlag?.Image;
+
+        public FlagView FirstFlag => Flags.OrderBy(x => x.StartDate).FirstOrDefault();
+
+        public string FirstFlagImageSource => FirstFlag?.ImageSource;
+
+        public string FirstFlagImage => CurrentFlag?.Image;
 
         public ICollection<PoliticalEntityView> PrecedingPoliticalEntities => PrecedingEntities.Select(x => x.PrecedingEntity).Distinct(x => x.Id).ToList();
 
@@ -148,6 +161,26 @@ namespace MvcFactbook.ViewModels.Models.Main
             }
 
             return s.ToString();
+        }
+
+        public FlagView GetFlagForDate(DateTime date)
+        {
+            if(PoliticalEntityFlags.Count > 0)
+            {
+                foreach (var item in PoliticalEntityFlags)
+                {
+                    if(item.AbsoluteStart < date && date <= item.AbsoluteEnd)
+                    {
+                        return item.Flag;
+                    }
+                }
+
+                return null;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         #endregion Methods

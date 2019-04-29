@@ -3,21 +3,11 @@
 <partial name="DetailsInfoMain" model='new { Partial = "InfoPoliticalEntity", Item = @Model }' />
 
 <div class="d-flex flex-row flex-fill">
-    <partial name="DetailsAddListPrecedingEntities" model='new {
-                Action="CreatePrecedingPoliticalEntity" ,
-                RouteId=Model.Id,
-                Items=Model.PrecedingEntities.OrderBy(x => x.Year)
+    <partial name="DetailsAddListPoliticalEntityEras" model='new {
+                 Action="CreateByPoliticalEntity" ,
+                 RouteId=Model.Id,
+                 Items=Model.PoliticalEntityEras.OrderBy(x => x.StartDate)
         }' />
-    <partial name="DetailsAddListSucceedingEntities" model='new {
-                Action="CreateSucceedingPoliticalEntity" ,
-                RouteId=Model.Id,
-                Items=Model.SucceedingEntities.OrderBy(x => x.Year)
-        }' />
-</div>
-
-<hr class="bg-light" />
-
-<div class="d-flex flex-row flex-fill">
     <partial name="DetailsAddListPoliticalEntityFlagsFlags" model='new {
                  Action="CreateByPoliticalEntity" ,
                  RouteId=Model.Id,
@@ -27,6 +17,21 @@
                 Action="CreateByPoliticalEntity" ,
                 RouteId=Model.Id,
                 Items=Model.Builders.OrderBy(x => x.Name)
+        }' />
+</div>
+
+<hr class="bg-light" />
+
+<div class="d-flex flex-row flex-fill">
+    <partial name="DetailsAddListPrecedingEntities" model='new {
+                Action="CreatePrecedingPoliticalEntity" ,
+                RouteId=Model.Id,
+                Items=Model.PrecedingEntities.OrderBy(x => x.Year)
+        }' />
+    <partial name="DetailsAddListSucceedingEntities" model='new {
+                Action="CreateSucceedingPoliticalEntity" ,
+                RouteId=Model.Id,
+                Items=Model.SucceedingEntities.OrderBy(x => x.Year)
         }' />
 </div>
 

@@ -25,6 +25,8 @@ namespace MvcFactbook.Models
 
         public int? Founded { get; set; }
 
+        public int? Defunct { get; set; }
+
         #endregion Database Properties
 
         #region Foreign Properties

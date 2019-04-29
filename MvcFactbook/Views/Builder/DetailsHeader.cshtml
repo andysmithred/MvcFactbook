@@ -12,3 +12,12 @@
 <div class="text-muted pl-2 pr-2">
     <h2>@Model.Founded</h2>
 </div>
+@if (Model.Defunct.HasValue)
+{
+    <div class="text-muted pl-2 pr-2">
+        <h2>-</h2>
+    </div>
+    <div class="text-muted pl-2 pr-2">
+        <h2>@Model.Defunct</h2>
+    </div>
+}
