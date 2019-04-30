@@ -73,6 +73,40 @@ namespace MvcFactbook.Code.Classes
             }
         }
 
+        public static string GetYears(DateTime? startDate, DateTime? endDate)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            if (startDate.HasValue || endDate.HasValue)
+            {
+                if (startDate.HasValue)
+                {
+                    sb.Append(startDate.Value.Year.ToString());
+                }
+                else
+                {
+                    sb.Append("?");
+                }
+
+                sb.Append(" to ");
+
+                if (endDate.HasValue)
+                {
+                    sb.Append(endDate.Value.Year.ToString());
+                }
+                else
+                {
+                    sb.Append("-");
+                }
+            }
+            else
+            {
+                sb.Append("--");
+            }
+
+            return sb.ToString();
+        }
+
         public static string Format(TimeSpan? timeSpan)
         {
             if(timeSpan.HasValue)

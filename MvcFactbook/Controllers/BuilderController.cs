@@ -111,7 +111,13 @@ namespace MvcFactbook.Controllers
             return i => Context
                         .Builder
                         .Include(x => x.Ships)
-                        .Include(x => x.PoliticalEntityBuilders).ThenInclude(x => x.PoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
+                        .Include(x => x.PoliticalEntityBuilders)
+                            .ThenInclude(x => x.PoliticalEntity)
+                                .ThenInclude(x => x.PoliticalEntityFlags)
+                                    .ThenInclude(x => x.Flag)
+                        .Include(x => x.PoliticalEntityBuilders)
+                            .ThenInclude(x => x.PoliticalEntity)
+                                .ThenInclude(x => x.PoliticalEntityEras)
                         .FirstOrDefault(x => x.Id == i);
         }
 

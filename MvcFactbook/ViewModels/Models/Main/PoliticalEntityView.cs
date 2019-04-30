@@ -30,13 +30,13 @@ namespace MvcFactbook.ViewModels.Models.Main
         [Required]
         public string Code => ViewObject.Code;
 
-        [Display(Name = "Start Date")]
+        [Display(Name = "Start Date OLD")]
         [DataType(DataType.Date)]
-        public DateTime? StartDate => ViewObject.StartDate;
+        public DateTime? StartDateOLD => ViewObject.StartDate;
 
-        [Display(Name = "End Date")]
+        [Display(Name = "End Date OLD")]
         [DataType(DataType.Date)]
-        public DateTime? EndDate => ViewObject.EndDate;
+        public DateTime? EndDateOLD => ViewObject.EndDate;
 
         [Required]
         public bool Exists => ViewObject.Exists;
@@ -77,6 +77,10 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public override string ListName => ShortName + " " + Years;
 
+        public DateTime? StartDate => PoliticalEntityEras.OrderBy(x => x.StartDate).FirstOrDefault()?.StartDate;
+
+        public DateTime? EndDate => PoliticalEntityEras.OrderByDescending(x => x.StartDate).FirstOrDefault()?.EndDate;
+
         public string Years => GetYears();
 
         public string StartDateLabel => CommonFunctions.GetDateLabel(StartDate);
@@ -88,7 +92,7 @@ namespace MvcFactbook.ViewModels.Models.Main
         public DateTime AbsoluteEnd => EndDate.HasValue ? EndDate.Value : DateTime.MaxValue;
 
         [Display(Name = "Time Span")]
-        public TimeSpan? TimeSpan => CommonFunctions.GetTimepan(StartDate, EndDate);
+        public TimeSpan? TimeSpan => new TimeSpan(PoliticalEntityEras.Sum(x => x.TimeSpan.Value.Ticks));
 
         public string TimeSpanLabel => CommonFunctions.Format(TimeSpan);
 
@@ -120,47 +124,33 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         private string GetYears()
         {
-            StringBuilder s = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
+            bool firstTime = true;
 
-            if (StartDate.HasValue || EndDate.HasValue)
+            if(PoliticalEntityEras.Count > 0)
             {
-                s.Append(" [");
+                sb.Append(" [");
 
-                if (StartDate.HasValue)
+                foreach (var item in PoliticalEntityEras)
                 {
-                    s.Append(StartDate.Value.Year.ToString());
-                }
-                else
-                {
-                    s.Append("?");
-                }
-
-                s.Append(" - ");
-
-                if (EndDate.HasValue)
-                {
-                    s.Append(EndDate.Value.Year.ToString());
-                }
-                else
-                {
-                    if (Exists)
+                    if(!firstTime)
                     {
-                        s.Append("now");
+                        sb.Append(":");
                     }
-                    else
-                    {
-                        s.Append("?");
-                    }
+
+                    sb.Append(item.Years);
+
+                    firstTime = false;
                 }
 
-                s.Append("]");
+                sb.Append("]");
             }
             else
             {
-                s.Append(" [--]");
+                sb.Append(" [--]");
             }
 
-            return s.ToString();
+            return sb.ToString();
         }
 
         public FlagView GetFlagForDate(DateTime date)

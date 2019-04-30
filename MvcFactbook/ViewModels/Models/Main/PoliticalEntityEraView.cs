@@ -2,6 +2,7 @@
 using MvcFactbook.Models;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace MvcFactbook.ViewModels.Models.Main
 {
@@ -49,6 +50,8 @@ namespace MvcFactbook.ViewModels.Models.Main
         public TimeSpan? TimeSpan => CommonFunctions.GetTimepan(StartDate, EndDate);
 
         public string TimeSpanLabel => CommonFunctions.Format(TimeSpan);
+
+        public string Years => CommonFunctions.GetYears(StartDate, EndDate);
 
         #endregion Other Properties
 

@@ -155,10 +155,23 @@ namespace MvcFactbook.Controllers
         protected override Func<int, Ship> GetItemFunction()
         {
             return i => Context.Ship
-                        .Include(x => x.Builder).ThenInclude(x => x.PoliticalEntityBuilders).ThenInclude(x => x.PoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
-                        .Include(x => x.ShipServices).ThenInclude(x => x.Branch).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag)
-                        .Include(x => x.ShipServices).ThenInclude(x => x.ShipSubType)
-                        .Include(x => x.ShipServices).ThenInclude(x => x.ShipClass)
+                        .Include(x => x.Builder)
+                            .ThenInclude(x => x.PoliticalEntityBuilders)
+                                .ThenInclude(x => x.PoliticalEntity)
+                                    .ThenInclude(x => x.PoliticalEntityFlags)
+                                        .ThenInclude(x => x.Flag)
+                        .Include(x => x.Builder)
+                            .ThenInclude(x => x.PoliticalEntityBuilders)
+                                .ThenInclude(x => x.PoliticalEntity)
+                                    .ThenInclude(x => x.PoliticalEntityEras)
+                        .Include(x => x.ShipServices)
+                            .ThenInclude(x => x.Branch)
+                                .ThenInclude(x => x.BranchFlags)
+                                    .ThenInclude(x => x.Flag)
+                        .Include(x => x.ShipServices)
+                            .ThenInclude(x => x.ShipSubType)
+                        .Include(x => x.ShipServices)
+                            .ThenInclude(x => x.ShipClass)
                         .FirstOrDefault(x => x.Id == i);
         }
 
@@ -166,7 +179,10 @@ namespace MvcFactbook.Controllers
         {
             return () => Context.Ship
                             .Include(x => x.Builder)
-                            .Include(x => x.ShipServices).ThenInclude(x => x.Branch).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag);
+                            .Include(x => x.ShipServices)
+                                .ThenInclude(x => x.Branch)
+                                    .ThenInclude(x => x.BranchFlags)
+                                        .ThenInclude(x => x.Flag);
         }
 
         protected override Func<Ship, bool> GetExistsFunc(int id)

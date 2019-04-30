@@ -43,7 +43,7 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public bool HasFlag => PoliticalEntities.Count > 0;
 
-        public FlagView Flag => PoliticalEntities.OrderByDescending(x => x.StartDate).FirstOrDefault().CurrentFlag;
+        public FlagView Flag => PoliticalEntities.OrderByDescending(x => x.StartDate).FirstOrDefault()?.CurrentFlag;
 
         public string ImageSource => Flag?.ImageSource;
 
@@ -55,11 +55,14 @@ namespace MvcFactbook.ViewModels.Models.Main
         {
             if(PoliticalEntities.Count > 0)
             {
-                foreach (var item in PoliticalEntities)
+                foreach (var politicalEntity in PoliticalEntities)
                 {
-                    if(item.AbsoluteStart < date && date <= item.AbsoluteEnd)
+                    foreach (var era in politicalEntity.PoliticalEntityEras)
                     {
-                        return item;
+                        if(era.AbsoluteStart < date && date <= era.AbsoluteEnd)
+                        {
+                            return politicalEntity;
+                        }
                     }
                 }
 
