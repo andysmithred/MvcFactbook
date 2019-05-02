@@ -38,28 +38,157 @@
 <hr class="bg-light" />
 
 <div class="d-flex flex-row">
-    <div class="w-100 p-2">
-        <partial name="DetailsItemHeader" model='new {
-                Icon = "/images/icons/ship-light.png",
-                Label = "SHIPS"
-            }' />
-        <div class="mt-3" style="max-height:300px;overflow-y:auto;">
-            <partial name="ListShipServices" model=@Model.ActiveFleet.ServicesList />
-        </div>
-    </div>
-    <div class="w-100 p-2">
+    <div class="w-50 p-2">
         <partial name="DetailsItemHeader" model='new {
                 Icon = "/images/icons/shipcategory-light.png",
                 Label = "BY SHIP CATEGORY"
             }' />
-        <div class="d-flex flex-row flex-wrap mt-3">
-            @foreach (var item in Model.ActiveFleet.FleetServicesByShipCategory)
-            {
-                <div style="width:33%">
-                    <div class="text-muted"><h6>@item.Name</h6></div>
-                    <div class="text-white"><h4>@item.ServicesList.Count()</h4></div>
-                </div>
-            }
+        <div class="d-flex flex-row">
+            <partial name="ChartDonut" model='new { Id="ByCategoryChart", Items=@Model.ActiveFleet.FleetServicesByShipCategory }' />
+            <div class="mt-3 w-100" style="max-height:300px;overflow-y:auto;">
+                @foreach (var item in Model.ActiveFleet.FleetServicesByShipCategory)
+                {
+                    <div class="w-100 mb-2">
+                        <a asp-controller="Branch"
+                           asp-action="DetailsFleetItem"
+                           asp-route-id="@Model.Id"
+                           asp-route-fleetType="Active"
+                           asp-route-fleetItemListType="ByCategory"
+                           asp-route-fleetItemId="@item.Id">
+                            <div class="d-flex flex-row">
+                                <div class="mr-2">
+                                    <img src="~/images/icons/shipcategory-light.png" style="height:20px;opacity:0.4" />
+                                </div>
+                                <div class="mr-2">
+                                    <div class="text-white">@item.Name</div>
+                                </div>
+                                <div class="mr-2">
+                                    <img src="~/images/icons/chevron-right-light.png" style="height:20px;width:20px" />
+                                </div>
+                                <div class="mr-2">
+                                    <div class="text-muted">@item.ServicesList.Count()</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="w-50 p-2">
+        <partial name="DetailsItemHeader" model='new {
+                Icon = "/images/icons/shiptype-light.png",
+                Label = "BY SHIP TYPE"
+            }' />
+        <div class="d-flex flex-row">
+            <partial name="ChartDonut" model='new { Id="ByTypeChart", Items=@Model.ActiveFleet.FleetServicesByShipType }' />
+            <div class="mt-3 w-100" style="max-height:300px;overflow-y:auto;">
+                @foreach (var item in Model.ActiveFleet.FleetServicesByShipType)
+                {
+                    <div class="w-100 mb-2">
+                        <a asp-controller="Branch"
+                           asp-action="DetailsFleetItem"
+                           asp-route-id="@Model.Id"
+                           asp-route-fleetType="Active"
+                           asp-route-fleetItemListType="ByType"
+                           asp-route-fleetItemId="@item.Id">
+                            <div class="d-flex flex-row">
+                                <div class="mr-2">
+                                    <img src="~/images/icons/shiptype-light.png" style="height:20px;opacity:0.4" />
+                                </div>
+                                <div class="mr-2">
+                                    <div class="text-white">@item.Name</div>
+                                </div>
+                                <div class="mr-2">
+                                    <img src="~/images/icons/chevron-right-light.png" style="height:20px;width:20px" />
+                                </div>
+                                <div class="mr-2">
+                                    <div class="text-muted">@item.ServicesList.Count()</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="bg-light" />
+
+<div class="d-flex flex-row">
+    <div class="w-50 p-2">
+        <partial name="DetailsItemHeader" model='new {
+                Icon = "/images/icons/shipsubtype-light.png",
+                Label = "BY SHIP SUB-TYPE"
+            }' />
+        <div class="d-flex flex-row">
+            <partial name="ChartDonut" model='new { Id="BySubTypeChart", Items=@Model.ActiveFleet.FleetServicesByShipSubType }' />
+            <div class="mt-3 w-100" style="max-height:300px;overflow-y:auto;">
+                @foreach (var item in Model.ActiveFleet.FleetServicesByShipSubType)
+                {
+                    <div class="w-100 mb-2">
+                        <a asp-controller="Branch"
+                           asp-action="DetailsFleetItem"
+                           asp-route-id="@Model.Id"
+                           asp-route-fleetType="Active"
+                           asp-route-fleetItemListType="BySubType"
+                           asp-route-fleetItemId="@item.Id">
+                            <div class="d-flex flex-row">
+                                <div class="mr-2">
+                                    <img src="~/images/icons/shipsubtype-light.png" style="height:20px;opacity:0.4" />
+                                </div>
+                                <div class="mr-2">
+                                    <div class="text-white">@item.Name</div>
+                                </div>
+                                <div class="mr-2">
+                                    <img src="~/images/icons/chevron-right-light.png" style="height:20px;width:20px" />
+                                </div>
+                                <div class="mr-2">
+                                    <div class="text-muted">@item.ServicesList.Count()</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="w-50 p-2">
+        <partial name="DetailsItemHeader" model='new {
+                Icon = "/images/icons/shipclass-light.png",
+                Label = "BY SHIP CLASS"
+            }' />
+        <div class="d-flex flex-row">
+            <partial name="ChartDonut" model='new { Id="ByClassChart", Items=@Model.ActiveFleet.FleetServicesByShipClass }' />
+            <div class="mt-3 w-100" style="max-height:300px;overflow-y:auto;">
+                @foreach (var item in Model.ActiveFleet.FleetServicesByShipClass)
+                {
+                    <div class="w-100 mb-2">
+                        <a asp-controller="Branch"
+                           asp-action="DetailsFleetItem"
+                           asp-route-id="@Model.Id"
+                           asp-route-fleetType="Active"
+                           asp-route-fleetItemListType="ByClass"
+                           asp-route-fleetItemId="@item.Id">
+                            <div class="d-flex flex-row">
+                                <div class="mr-2">
+                                    <img src="~/images/icons/shipclass-light.png" style="height:20px;opacity:0.4" />
+                                </div>
+                                <div class="mr-2">
+                                    <div class="text-white">@item.Name</div>
+                                </div>
+                                <div class="mr-2">
+                                    <img src="~/images/icons/chevron-right-light.png" style="height:20px;width:20px" />
+                                </div>
+                                <div class="mr-2">
+                                    <div class="text-muted">@item.ServicesList.Count()</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
         </div>
     </div>
 </div>

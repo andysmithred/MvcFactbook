@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MvcFactbook.Code.Data;
+using MvcFactbook.Code.Enum;
 using MvcFactbook.Models;
 using MvcFactbook.ViewModels.Models.Main;
 using System;
@@ -101,6 +102,29 @@ namespace MvcFactbook.Controllers
         public async Task<IActionResult> ChartTest(int? id)
         {
             return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsFleetItem(int? id, string fleetType, string fleetItemListType, int? fleetItemId)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var item = await DataAccess.GetViewAsync(id.Value, GetItemFunction());
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                item.FleetType = (eFleetType)Enum.Parse(typeof(eFleetType), fleetType);
+                item.FleetItemListType = (eFleetItemListType)Enum.Parse(typeof(eFleetItemListType), fleetItemListType);
+                item.FleetItemId = fleetItemId.Value;
+            }
+
+            return View(item);
         }
 
         #endregion Details

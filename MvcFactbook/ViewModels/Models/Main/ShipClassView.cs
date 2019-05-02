@@ -46,7 +46,7 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         #region Other Properties
 
-        public override string ListName => Name + ":" + SubClassNameLabel + ":" + Year;
+        public override string ListName => Name + ":" + SubClassNameLabel;
 
         public string FullName => Name + " (" + Year + ")";
 

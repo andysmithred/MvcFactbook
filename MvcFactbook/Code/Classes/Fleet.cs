@@ -113,15 +113,17 @@ namespace MvcFactbook.Code.Classes
         {
             List<FleetItem> result = new List<FleetItem>();
 
-            foreach (var item in ShipCategoriesList)
+            foreach (var item in ShipCategoriesList.OrderBy(x => x.Category))
             {
                 IEnumerable<ShipServiceView> services = ServicesList.Where(x => x.ShipSubType.ShipType.ShipCategory.Category == item.Category);
-                
-                FleetItem fleet = new FleetItem(item.Category, services);
-                fleet.Id = item.Id;
-                fleet.Description = item.Category;
-                result.Add(fleet);
-                
+
+                if (services.Count() > 0)
+                {
+                    FleetItem fleet = new FleetItem(item.Category, services);
+                    fleet.Id = item.Id;
+                    fleet.Description = item.Category;
+                    result.Add(fleet);
+                }
             }
 
             return result;
@@ -131,7 +133,7 @@ namespace MvcFactbook.Code.Classes
         {
             List<FleetItem> result = new List<FleetItem>();
 
-            foreach (var item in ShipTypesList)
+            foreach (var item in ShipTypesList.OrderBy(x => x.Type))
             {
                 IEnumerable<ShipServiceView> services = ServicesList.Where(x => x.ShipSubType.ShipType.Type == item.Type);
 
@@ -151,7 +153,7 @@ namespace MvcFactbook.Code.Classes
         {
             List<FleetItem> result = new List<FleetItem>();
 
-            foreach (var item in ShipSubTypesList)
+            foreach (var item in ShipSubTypesList.OrderBy(x => x.Type))
             {
                 IEnumerable<ShipServiceView> services = ServicesList.Where(x => x.ShipSubType.Type == item.Type);
 
@@ -171,15 +173,15 @@ namespace MvcFactbook.Code.Classes
         {
             List<FleetItem> result = new List<FleetItem>();
 
-            foreach (var item in ShipClassesList)
+            foreach (var item in ShipClassesList.OrderBy(x => x.ListName))
             {
                 IEnumerable<ShipServiceView> services = ServicesList.Where(x => x.ShipClassId == item.Id);
 
                 if (services.Count() > 0)
                 {
-                    FleetItem fleet = new FleetItem(item.FullName, services);
+                    FleetItem fleet = new FleetItem(item.ListName, services);
                     fleet.Id = item.Id;
-                    fleet.Description = item.FullName;
+                    fleet.Description = item.ListName;
                     result.Add(fleet);
                 }
             }
