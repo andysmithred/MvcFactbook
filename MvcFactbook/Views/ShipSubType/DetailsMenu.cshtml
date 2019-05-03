@@ -27,5 +27,22 @@
                 }
             </div>
         </li>
+        @if (Model.TotalFleet.ServicesList.Count > 0)
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Fleet</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" asp-action="DetailsTotalFleet" asp-route-id="@Model.Id">Total Fleet</a>
+                    @if (Model.ActiveFleet.ServicesList.Count > 0)
+                    {
+                        <a class="dropdown-item" asp-action="DetailsActiveFleet" asp-route-id="@Model.Id">Active Fleet</a>
+                    }
+                    @if (Model.InactiveFleet.ServicesList.Count > 0)
+                    {
+                        <a class="dropdown-item" asp-action="DetailsInactiveFleet" asp-route-id="@Model.Id">Inactive Fleet</a>
+                    }
+                </div>
+            </li>
+        }
     </ul>
 </nav>

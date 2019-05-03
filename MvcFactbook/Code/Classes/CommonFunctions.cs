@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcFactbook.Code.Enum;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -184,6 +185,27 @@ namespace MvcFactbook.Code.Classes
         public static double GetAverage(double x, int y)
         {
             return x / y;
+        }
+
+        public static string GetFleetItemListTypeLabel(eFleetItemListType fleetItemListType)
+        {
+            switch (fleetItemListType)
+            {
+                case eFleetItemListType.ByCategory:
+                    return "By Category".ToUpper();
+                case eFleetItemListType.ByType:
+                    return "By Type".ToUpper();
+                case eFleetItemListType.BySubType:
+                    return "By Sub-Type".ToUpper();
+                case eFleetItemListType.ByClass:
+                    return "By Ship Class".ToUpper();
+                case eFleetItemListType.ByBranch:
+                    return "By Branch".ToUpper();
+                case eFleetItemListType.ByBuilder:
+                    return "By Builder".ToUpper();
+                default:
+                    return string.Empty;
+            }
         }
 
     }

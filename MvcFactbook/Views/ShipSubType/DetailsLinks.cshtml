@@ -1,6 +1,10 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ShipSubTypeView
 
+<partial name="LinkDetails" model='new { RouteId = Model.Id }' />
 <partial name="LinkShipServices" model='new { Controller = "ShipSubType", RouteId = Model.Id, Items = Model.ShipServices }' />
 <partial name="LinkBranches" model='new { Controller = "ShipSubType", RouteId = Model.Id, Items = Model.Branches }' />
 <partial name="LinkShipType" model="Model.ShipType" />
 <partial name="LinkShipCategory" model="Model.ShipType.ShipCategory" />
+<partial name="LinkActiveFleet" model='new { Controller = "ShipSubType", RouteId = Model.Id, Name = "Active Fleet" }' />
+<partial name="LinkInactiveFleet" model='new { Controller = "ShipSubType", RouteId = Model.Id, Name = "Inactive Fleet" }' />
+<partial name="LinkTotalFleet" model='new { Controller = "ShipSubType", RouteId = Model.Id, Name = "Total Fleet" }' />
