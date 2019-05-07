@@ -42,6 +42,7 @@ namespace MvcFactbook
                     o.ViewLocationFormats.Add("/Views/Shared/Components/Details/Lists/{0}" + RazorViewEngine.ViewExtension);
                     o.ViewLocationFormats.Add("/Views/Shared/Components/Details/Main/{0}" + RazorViewEngine.ViewExtension);
                     o.ViewLocationFormats.Add("/Views/Shared/Components/Details/Tables/{0}" + RazorViewEngine.ViewExtension);
+                    o.ViewLocationFormats.Add("/Views/Shared/Components/Fleet/{0}" + RazorViewEngine.ViewExtension);
                     o.ViewLocationFormats.Add("/Views/Shared/Components/Info/{0}" + RazorViewEngine.ViewExtension);
                     o.ViewLocationFormats.Add("/Views/Shared/Components/Links/{0}" + RazorViewEngine.ViewExtension);
                     o.ViewLocationFormats.Add("/Views/Shared/Components/Lists/{0}" + RazorViewEngine.ViewExtension);

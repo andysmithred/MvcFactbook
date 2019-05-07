@@ -58,6 +58,26 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
+        public async Task<IActionResult> DetailsShipSubTypes(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsShipServices(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsBranches(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> DetailsTotalFleet(int? id)
+        {
+            return await base.Details(id);
+        }
+
         #endregion Details
 
         #region Create
@@ -152,6 +172,24 @@ namespace MvcFactbook.Controllers
             return i => Context.ShipType
                         .Include(x => x.ShipCategory)
                         .Include(x => x.ShipSubTypes)
+                            .ThenInclude(x => x.ShipServices)
+                                .ThenInclude(x => x.Branch)
+                                    .ThenInclude(x => x.BranchFlags)
+                                        .ThenInclude(x => x.Flag)
+                        .Include(x => x.ShipSubTypes)
+                            .ThenInclude(x => x.ShipServices)
+                                .ThenInclude(x => x.Branch)
+                                    .ThenInclude(x => x.ArmedForce)
+                        .Include(x => x.ShipSubTypes)
+                            .ThenInclude(x => x.ShipServices)
+                                .ThenInclude(x => x.Branch)
+                                    .ThenInclude(x => x.BranchType)
+                        .Include(x => x.ShipSubTypes)
+                            .ThenInclude(x => x.ShipServices)
+                                .ThenInclude(x => x.ShipClass)
+                        .Include(x => x.ShipSubTypes)
+                            .ThenInclude(x => x.ShipServices)
+                                .ThenInclude(x => x.Ship)
                         .FirstOrDefault(x => x.Id == i);
         }
 

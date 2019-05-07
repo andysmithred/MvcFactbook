@@ -1,3 +1,8 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ShipTypeView
 
+<partial name="LinkDetails" model='new { RouteId = Model.Id }' />
+<partial name="LinkShipSubTypes" model='new { Controller = "ShipType", RouteId = Model.Id, Items = Model.ShipSubTypes }' />
+<partial name="LinkShipServices" model='new { Controller = "ShipType", RouteId = Model.Id, Items = Model.ShipServices }' />
+<partial name="LinkBranches" model='new { Controller = "ShipType", RouteId = Model.Id, Items = Model.Branches }' />
 <partial name="LinkShipCategory" model="Model.ShipCategory" />
+<partial name="LinkTotalFleet" model='new { Controller = "ShipType", RouteId = Model.Id, Name = "Total Fleet" }' />

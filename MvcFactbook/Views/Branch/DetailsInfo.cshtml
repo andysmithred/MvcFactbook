@@ -2,95 +2,14 @@
 
 <partial name="DetailsInfoMain" model='new { Partial = "InfoBranch", Item = @Model }' />
 
-<div class="w-100 p-2">
-    <partial name="DetailsItemHeader" model='new {
-                Icon = "/images/icons/ship-light.png",
-                Label = "TOTAL FLEET"
-    }' />
-    <div class="d-flex flex-row flex-wrap mt-3">
-        <div style="width:20%">
-            <div class="text-muted"><h6>Ships</h6></div>
-            <div class="text-white"><h4>@Model.TotalFleet.ServicesList.Count()</h4></div>
-        </div>
-        <div style="width:20%">
-            <div class="text-muted"><h6>Tonnage</h6></div>
-            <div class="text-white"><h4>@Model.TotalFleet.FleetServicesTotal.TonnageLabel</h4></div>
-        </div>
-        <div style="width:20%">
-            <div class="text-muted"><h6>Average Displacement</h6></div>
-            <div class="text-white"><h4>@Model.TotalFleet.FleetServicesTotal.DisplacementAverageLabel</h4></div>
-        </div>
-        <div style="width:20%">
-            <div class="text-muted"><h6>Average Length</h6></div>
-            <div class="text-white"><h4>@Model.TotalFleet.FleetServicesTotal.LengthAverageLabel</h4></div>
-        </div>
-        <div style="width:20%">
-            <div class="text-muted"><h6>Average Beam</h6></div>
-            <div class="text-white"><h4>@Model.TotalFleet.FleetServicesTotal.BeamAverageLabel</h4></div>
-        </div>
-    </div>
-</div>
+<partial name="FleetItemDetails" model='new { Label = "TOTAL FLEET", FleetItem = @Model.Fleet.TotalFleet.FleetServicesTotal }' />
 
 <hr class="bg-light" />
 
-<div class="w-100 p-2">
-    <partial name="DetailsItemHeader" model='new {
-                Icon = "/images/icons/ship-light.png",
-                Label = "ACTIVE FLEET"
-    }' />
-    <div class="d-flex flex-row flex-wrap mt-3">
-        <div style="width:20%">
-            <div class="text-muted"><h6>Ships</h6></div>
-            <div class="text-white"><h4>@Model.ActiveFleet.ServicesList.Count()</h4></div>
-        </div>
-        <div style="width:20%">
-            <div class="text-muted"><h6>Tonnage</h6></div>
-            <div class="text-white"><h4>@Model.ActiveFleet.FleetServicesTotal.TonnageLabel</h4></div>
-        </div>
-        <div style="width:20%">
-            <div class="text-muted"><h6>Average Displacement</h6></div>
-            <div class="text-white"><h4>@Model.ActiveFleet.FleetServicesTotal.DisplacementAverageLabel</h4></div>
-        </div>
-        <div style="width:20%">
-            <div class="text-muted"><h6>Average Length</h6></div>
-            <div class="text-white"><h4>@Model.ActiveFleet.FleetServicesTotal.LengthAverageLabel</h4></div>
-        </div>
-        <div style="width:20%">
-            <div class="text-muted"><h6>Average Beam</h6></div>
-            <div class="text-white"><h4>@Model.ActiveFleet.FleetServicesTotal.BeamAverageLabel</h4></div>
-        </div>
-    </div>
-</div>
+<partial name="FleetItemDetails" model='new { Label = "ACTIVE FLEET", FleetItem = @Model.Fleet.ActiveFleet.FleetServicesTotal }' />
 
 <hr class="bg-light" />
 
-<div class="w-100 p-2">
-    <partial name="DetailsItemHeader" model='new {
-                Icon = "/images/icons/ship-light.png",
-                Label = "INACTIVE FLEET"
-    }' />
-    <div class="d-flex flex-row flex-wrap mt-3">
-        <div style="width:20%">
-            <div class="text-muted"><h6>Ships</h6></div>
-            <div class="text-white"><h4>@Model.InactiveFleet.ServicesList.Count()</h4></div>
-        </div>
-        <div style="width:20%">
-            <div class="text-muted"><h6>Tonnage</h6></div>
-            <div class="text-white"><h4>@Model.InactiveFleet.FleetServicesTotal.TonnageLabel</h4></div>
-        </div>
-        <div style="width:20%">
-            <div class="text-muted"><h6>Average Displacement</h6></div>
-            <div class="text-white"><h4>@Model.InactiveFleet.FleetServicesTotal.DisplacementAverageLabel</h4></div>
-        </div>
-        <div style="width:20%">
-            <div class="text-muted"><h6>Average Length</h6></div>
-            <div class="text-white"><h4>@Model.InactiveFleet.FleetServicesTotal.LengthAverageLabel</h4></div>
-        </div>
-        <div style="width:20%">
-            <div class="text-muted"><h6>Average Beam</h6></div>
-            <div class="text-white"><h4>@Model.InactiveFleet.FleetServicesTotal.BeamAverageLabel</h4></div>
-        </div>
-    </div>
-</div>
+<partial name="FleetItemDetails" model='new { Label = "INACTIVE FLEET", FleetItem = @Model.Fleet.InactiveFleet.FleetServicesTotal }' />
 
 <hr class="bg-light" />

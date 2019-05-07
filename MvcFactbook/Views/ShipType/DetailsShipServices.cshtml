@@ -1,0 +1,13 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipTypeView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<partial name="DetailsMain" />
+
+<div class="d-flex flex-row">
+    <partial name="DetailsTableShipServices" model='new { Items=Model.ShipServices.OrderBy(x => x.Name) }' />
+</div>
+
+<hr class="bg-light" />

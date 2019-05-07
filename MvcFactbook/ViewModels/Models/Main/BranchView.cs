@@ -12,10 +12,8 @@ namespace MvcFactbook.ViewModels.Models.Main
     {
         #region Private Variables
 
-        private Fleet totalFleet = null;
-        private Fleet activeFleet = null;
-        private Fleet inactiveFleet = null;
-
+        private Fleet fleet = null;
+       
         #endregion Private Variables
 
         #region Database Properties
@@ -69,37 +67,7 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string Image => CurrentFlag?.Image;
 
-
-
-
-        public ICollection<ShipServiceView> ActiveServices => ShipServices.Where(x => x.Active).ToList();
-
-        public ICollection<ShipServiceView> InactiveServices => ShipServices.Where(x => !x.Active).ToList();
-
-        public bool HasFleet => ShipServices.Count > 0;
-
-        public Fleet TotalFleet => totalFleet ?? (totalFleet = new Fleet(ShipServices));
-
-        public Fleet ActiveFleet => activeFleet ?? (activeFleet = new Fleet(ActiveServices));
-
-        public Fleet InactiveFleet => inactiveFleet ?? (inactiveFleet = new Fleet(InactiveServices));
-
-
-
-
-        public int FleetItemId { get; set; }
-       
-        public eFleetItemListType FleetItemListType { get; set; }
-
-        public eFleetType FleetType { get; set; }
-
-        public FleetItem DisplayFleetItem => GetDisplayFleetItemList(FleetType, FleetItemListType).Where(x => x.Id == FleetItemId).FirstOrDefault();
-
-        public string DisplayFleetItemLabel => DisplayFleetItem.Name.ToUpper() + " " + FleetTypeLabel;
-
-        public string FleetTypeLabel => FleetType.ToString().ToUpper();
-
-        public string FleetItemListTypeLabel => GetFleetItemListTypeLabel(FleetItemListType);
+        public Fleet Fleet => fleet ?? (fleet = new Fleet(ShipServices));
 
         #endregion Other Properties
 
@@ -123,63 +91,6 @@ namespace MvcFactbook.ViewModels.Models.Main
             else
             {
                 return null;
-            }
-        }
-
-        private Fleet GetDisplayFleet(eFleetType fleetType)
-        {
-            switch (fleetType)
-            {
-                case eFleetType.Total:
-                    return TotalFleet;
-                case eFleetType.Active:
-                    return ActiveFleet;
-                case eFleetType.Inactive:
-                    return inactiveFleet;
-                default:
-                    return TotalFleet;
-            }
-        }
-
-        private IEnumerable<FleetItem> GetDisplayFleetItemList(eFleetType fleetType, eFleetItemListType fleetItemListType)
-        {
-            switch (fleetItemListType)
-            {
-                case eFleetItemListType.ByCategory:
-                    return GetDisplayFleet(fleetType).FleetServicesByShipCategory;
-                case eFleetItemListType.ByType:
-                    return GetDisplayFleet(fleetType).FleetServicesByShipType;
-                case eFleetItemListType.BySubType:
-                    return GetDisplayFleet(fleetType).FleetServicesByShipSubType;
-                case eFleetItemListType.ByClass:
-                    return GetDisplayFleet(fleetType).FleetServicesByShipClass;
-                case eFleetItemListType.ByBranch:
-                    return GetDisplayFleet(fleetType).FleetServicesByBranch;
-                case eFleetItemListType.ByBuilder:
-                    return GetDisplayFleet(fleetType).FleetServicesByBranch; //TODO: fix
-                default:
-                    return GetDisplayFleet(fleetType).FleetServicesByShipCategory;
-            }
-        }
-
-        private string GetFleetItemListTypeLabel(eFleetItemListType fleetItemListType)
-        {
-            switch (fleetItemListType)
-            {
-                case eFleetItemListType.ByCategory:
-                    return "By Category".ToUpper();
-                case eFleetItemListType.ByType:
-                    return "By Type".ToUpper();
-                case eFleetItemListType.BySubType:
-                    return "By Sub-Type".ToUpper();
-                case eFleetItemListType.ByClass:
-                    return "By Ship Class".ToUpper();
-                case eFleetItemListType.ByBranch:
-                    return "By Branch".ToUpper();
-                case eFleetItemListType.ByBuilder:
-                    return "By Builder".ToUpper();
-                default:
-                    return string.Empty;
             }
         }
 

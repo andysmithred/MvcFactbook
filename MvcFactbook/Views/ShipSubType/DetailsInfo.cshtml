@@ -1,6 +1,5 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ShipSubTypeView
 
-
 <div class="w-100 p-2">
     <partial name="DetailsItemHeader" model='new {
                 Icon = "/images/icons/ship-light.png",
@@ -9,23 +8,23 @@
     <div class="d-flex flex-row flex-wrap mt-3">
         <div style="width:20%">
             <div class="text-muted"><h6>Ships</h6></div>
-            <div class="text-white"><h4>@Model.TotalFleet.ServicesList.Count()</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.TotalFleet.FleetServicesTotal.ShipServices</h4></div>
         </div>
         <div style="width:20%">
             <div class="text-muted"><h6>Tonnage</h6></div>
-            <div class="text-white"><h4>@Model.TotalFleet.FleetServicesTotal.TonnageLabel</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.TotalFleet.FleetServicesTotal.TonnageLabel</h4></div>
         </div>
         <div style="width:20%">
             <div class="text-muted"><h6>Average Displacement</h6></div>
-            <div class="text-white"><h4>@Model.TotalFleet.FleetServicesTotal.DisplacementAverageLabel</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.TotalFleet.FleetServicesTotal.DisplacementAverageLabel</h4></div>
         </div>
         <div style="width:20%">
             <div class="text-muted"><h6>Average Length</h6></div>
-            <div class="text-white"><h4>@Model.TotalFleet.FleetServicesTotal.LengthAverageLabel</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.TotalFleet.FleetServicesTotal.LengthAverageLabel</h4></div>
         </div>
         <div style="width:20%">
             <div class="text-muted"><h6>Average Beam</h6></div>
-            <div class="text-white"><h4>@Model.TotalFleet.FleetServicesTotal.BeamAverageLabel</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.TotalFleet.FleetServicesTotal.BeamAverageLabel</h4></div>
         </div>
     </div>
 </div>
@@ -40,23 +39,23 @@
     <div class="d-flex flex-row flex-wrap mt-3">
         <div style="width:20%">
             <div class="text-muted"><h6>Ships</h6></div>
-            <div class="text-white"><h4>@Model.ActiveFleet.ServicesList.Count()</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.ActiveFleet.FleetServicesTotal.ShipServices</h4></div>
         </div>
         <div style="width:20%">
             <div class="text-muted"><h6>Tonnage</h6></div>
-            <div class="text-white"><h4>@Model.ActiveFleet.FleetServicesTotal.TonnageLabel</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.ActiveFleet.FleetServicesTotal.TonnageLabel</h4></div>
         </div>
         <div style="width:20%">
             <div class="text-muted"><h6>Average Displacement</h6></div>
-            <div class="text-white"><h4>@Model.ActiveFleet.FleetServicesTotal.DisplacementAverageLabel</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.ActiveFleet.FleetServicesTotal.DisplacementAverageLabel</h4></div>
         </div>
         <div style="width:20%">
             <div class="text-muted"><h6>Average Length</h6></div>
-            <div class="text-white"><h4>@Model.ActiveFleet.FleetServicesTotal.LengthAverageLabel</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.ActiveFleet.FleetServicesTotal.LengthAverageLabel</h4></div>
         </div>
         <div style="width:20%">
             <div class="text-muted"><h6>Average Beam</h6></div>
-            <div class="text-white"><h4>@Model.ActiveFleet.FleetServicesTotal.BeamAverageLabel</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.ActiveFleet.FleetServicesTotal.BeamAverageLabel</h4></div>
         </div>
     </div>
 </div>
@@ -71,23 +70,23 @@
     <div class="d-flex flex-row flex-wrap mt-3">
         <div style="width:20%">
             <div class="text-muted"><h6>Ships</h6></div>
-            <div class="text-white"><h4>@Model.InactiveFleet.ServicesList.Count()</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.InactiveFleet.FleetServicesTotal.ShipServices</h4></div>
         </div>
         <div style="width:20%">
             <div class="text-muted"><h6>Tonnage</h6></div>
-            <div class="text-white"><h4>@Model.InactiveFleet.FleetServicesTotal.TonnageLabel</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.InactiveFleet.FleetServicesTotal.TonnageLabel</h4></div>
         </div>
         <div style="width:20%">
             <div class="text-muted"><h6>Average Displacement</h6></div>
-            <div class="text-white"><h4>@Model.InactiveFleet.FleetServicesTotal.DisplacementAverageLabel</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.InactiveFleet.FleetServicesTotal.DisplacementAverageLabel</h4></div>
         </div>
         <div style="width:20%">
             <div class="text-muted"><h6>Average Length</h6></div>
-            <div class="text-white"><h4>@Model.InactiveFleet.FleetServicesTotal.LengthAverageLabel</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.InactiveFleet.FleetServicesTotal.LengthAverageLabel</h4></div>
         </div>
         <div style="width:20%">
             <div class="text-muted"><h6>Average Beam</h6></div>
-            <div class="text-white"><h4>@Model.InactiveFleet.FleetServicesTotal.BeamAverageLabel</h4></div>
+            <div class="text-white"><h4>@Model.Fleet.InactiveFleet.FleetServicesTotal.BeamAverageLabel</h4></div>
         </div>
     </div>
 </div>

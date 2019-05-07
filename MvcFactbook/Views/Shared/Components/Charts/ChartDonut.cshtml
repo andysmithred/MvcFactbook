@@ -9,7 +9,7 @@
             var result = [['Category', 'Number']];
 
             @foreach (var item in Model.Items) {
-                @:result.push(['@item.Name', @item.Services]);
+                @:result.push(['@item.Name', @item.ShipServices]);
             }
 
             var data = google.visualization.arrayToDataTable(result);
@@ -27,7 +27,7 @@
                 colors: ['#deeaee', '#c0ded9', '#d5f4e6'],
                 pieSliceBorderColor: 'darkgray',
                 tooltip: {
-                    trigger: 'hover'
+                    trigger: 'selection'
                 },
                 sliceVisibilityThreshold: 0.01
             };

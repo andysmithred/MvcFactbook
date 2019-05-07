@@ -1,11 +1,13 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ShipTypeView
 
-<div class="d-flex flex-row w-75">
-    <partial name="DetailsAddTableShipSubTypes" model='new {
-             Action="CreateByShipType" ,
-             RouteId=Model.Id,
-             Items=Model.ShipSubTypes.OrderBy(x => x.Type)
-        }' />
-</div>
+<partial name="FleetItemDetails" model='new { Label = "TOTAL FLEET", FleetItem = @Model.Fleet.TotalFleet.FleetServicesTotal }' />
+
+<hr class="bg-light" />
+
+<partial name="FleetItemDetails" model='new { Label = "ACTIVE FLEET", FleetItem = @Model.Fleet.ActiveFleet.FleetServicesTotal }' />
+
+<hr class="bg-light" />
+
+<partial name="FleetItemDetails" model='new { Label = "INACTIVE FLEET", FleetItem = @Model.Fleet.InactiveFleet.FleetServicesTotal }' />
 
 <hr class="bg-light" />

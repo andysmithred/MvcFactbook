@@ -1,4 +1,6 @@
-﻿<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipSubTypeView
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <img src="~/images/icons/shipsubtype-light.png" style="height:24px;width:24px" />
     <a class="navbar-brand pl-4 pr-4" href="#">Ship Type</a>
     <ul class="navbar-nav">
@@ -27,17 +29,17 @@
                 }
             </div>
         </li>
-        @if (Model.TotalFleet.ServicesList.Count > 0)
+        @if (Model.Fleet.TotalFleet.FleetServicesTotal.ShipServices > 0)
         {
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Fleet</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" asp-action="DetailsTotalFleet" asp-route-id="@Model.Id">Total Fleet</a>
-                    @if (Model.ActiveFleet.ServicesList.Count > 0)
+                    @if (Model.Fleet.ActiveFleet.FleetServicesTotal.ShipServices > 0)
                     {
                         <a class="dropdown-item" asp-action="DetailsActiveFleet" asp-route-id="@Model.Id">Active Fleet</a>
                     }
-                    @if (Model.InactiveFleet.ServicesList.Count > 0)
+                    @if (Model.Fleet.InactiveFleet.FleetServicesTotal.ShipServices > 0)
                     {
                         <a class="dropdown-item" asp-action="DetailsInactiveFleet" asp-route-id="@Model.Id">Inactive Fleet</a>
                     }

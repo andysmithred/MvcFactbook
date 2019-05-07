@@ -1,212 +1,135 @@
-﻿using MvcFactbook.Code.Data;
-using MvcFactbook.Models;
+﻿using MvcFactbook.Code.Enum;
 using MvcFactbook.ViewModels.Models.Main;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MvcFactbook.Code.Classes
 {
     public class Fleet
     {
-        #region Private Variables
+        #region Private Declarations
 
-        private FactbookContext context = null;
-
-        private IEnumerable<ShipServiceView> servicesList = null;
+        private IEnumerable<ShipServiceView> shipServicesList = null;
         private IEnumerable<ShipView> shipsList = null;
 
-        private IEnumerable<ShipCategoryView> shipCategoriesList = null;
-        private IEnumerable<ShipTypeView> shipTypesList = null;
-        private IEnumerable<ShipSubTypeView> shipSubTypesList = null;
+        #endregion Private Declarations
 
-        private IEnumerable<ShipClassView> shipClassesList = null;
-        private IEnumerable<BranchView> branchesList = null;
+        #region Constructors
 
-        private IEnumerable<BuilderView> buildersList = null;
-
-        #endregion Private Variables
-
-        #region Constructor
-
-        public Fleet(IEnumerable<ShipServiceView> services)
+        public Fleet(IEnumerable<ShipServiceView> shipServices)
         {
-            ServicesList = services;
+            ShipServicesList = shipServices;
         }
 
         public Fleet(IEnumerable<ShipView> ships)
         {
-            ShipsList = ships;        
+            ShipsList = ships;
         }
 
-        #endregion Contructor
+        #endregion Conbstructors
 
         #region Public Properties
 
-        public FactbookContext Context
-        {
-            get => context ?? (context = new FactbookContext());
-            set => context = value;
-        }
+        #region Total
 
-        public IEnumerable<ShipServiceView> ServicesList
+        public IEnumerable<ShipServiceView> ShipServicesList
         {
-            get => servicesList ?? (servicesList = ShipsList.SelectMany(x => x.ShipServices).Distinct(x => x.Id));
-            set => servicesList = value;
+            get => shipServicesList ?? (shipServicesList = ShipsList.SelectMany(x => x.ShipServices).Distinct(x => x.Id));
+            set => shipServicesList = value;
         }
 
         public IEnumerable<ShipView> ShipsList
         {
-            get => shipsList ?? (ShipsList = ServicesList.Select(x => x.Ship).Distinct(x => x.Id));
+            get => shipsList ?? (shipsList = ShipServicesList.Select(x => x.Ship).Distinct(x => x.Id));
             set => shipsList = value;
         }
 
-        public IEnumerable<ShipCategoryView> ShipCategoriesList
-        {
-            get => shipCategoriesList ?? (shipCategoriesList = new DataAccess<ShipCategory, ShipCategoryView>(Context, Context.ShipCategory).GetViews());
-            set => shipCategoriesList = value;
-        }
+        public FleetType TotalFleet => new FleetType(ShipServicesList);
 
-        public IEnumerable<ShipTypeView> ShipTypesList
-        {
-            get => shipTypesList ?? (shipTypesList = new DataAccess<ShipType, ShipTypeView>(Context, Context.ShipType).GetViews());
-            set => shipTypesList = value;
-        }
+        public bool HasFleet => ShipServicesList.Count() > 0;
 
-        public IEnumerable<ShipSubTypeView> ShipSubTypesList
-        {
-            get => shipSubTypesList ?? (shipSubTypesList = new DataAccess<ShipSubType, ShipSubTypeView>(Context, Context.ShipSubType).GetViews());
-            set => shipSubTypesList = value;
-        }
+        #endregion Total
 
-        public IEnumerable<ShipClassView> ShipClassesList
-        {
-            get => shipClassesList ?? (shipClassesList = new DataAccess<ShipClass, ShipClassView>(Context, Context.ShipClass).GetViews());
-            set => shipClassesList = value;
-        }
+        #region Active
 
-        public IEnumerable<BranchView> BranchesList
-        {
-            get => branchesList ?? (branchesList = new DataAccess<Branch, BranchView>(Context, Context.Branch).GetViews());
-            set => branchesList = value;
-        }
+        public IEnumerable<ShipServiceView> ActiveShipServicesList => ShipServicesList.Where(x => x.Active);
 
-        public IEnumerable<FleetItem> FleetServicesByShipCategory => GetFleetServicesByShipCategory();
+        public IEnumerable<ShipView> ActiveShipsList => ActiveShipServicesList.Select(x => x.Ship).Distinct(x => x.Id);
 
-        public IEnumerable<FleetItem> FleetServicesByShipType => GetFleetServicesByShipType();
+        public FleetType ActiveFleet => new FleetType(ShipServicesList.Where(x => x.Active));
 
-        public IEnumerable<FleetItem> FleetServicesByShipSubType => GetFleetServicesByShipSubType();
+        public bool HasActiveFleet => ShipServicesList.Count() > 0;
 
-        public IEnumerable<FleetItem> FleetServicesByShipClass => GetFleetServicesByShipClass();
+        #endregion Active
 
-        public IEnumerable<FleetItem> FleetServicesByBranch => GetFleetServicesByBranch();
+        #region Inactive
 
-        public FleetItem FleetServicesTotal => new FleetItem("Total", ServicesList);
+        public IEnumerable<ShipServiceView> InactiveShipServicesList => ShipServicesList.Where(x => !x.Active);
 
+        public IEnumerable<ShipView> InactiveShipsList => InactiveShipServicesList.Select(x => x.Ship).Distinct(x => x.Id);
+
+        public FleetType InactiveFleet => new FleetType(ShipServicesList.Where(x => !x.Active));
+
+        public bool HasInactiveFleet => ShipServicesList.Count() > 0;
+
+        #endregion Inactive
+
+        #region Get Fleet Item
+
+        public int FleetItemId { get; set; }
+
+        public eFleetItemListType FleetItemListType { get; set; }
+
+        public eFleetType FleetType { get; set; }
+
+        public FleetItem DisplayFleetItem => GetDisplayFleetItemList(FleetType, FleetItemListType).Where(x => x.Id == FleetItemId).FirstOrDefault();
+
+        public string DisplayFleetItemLabel => DisplayFleetItem.Name.ToUpper() + " " + FleetTypeLabel;
+
+        public string FleetTypeLabel => FleetType.ToString().ToUpper();
+
+        public string FleetItemListTypeLabel => CommonFunctions.GetFleetItemListTypeLabel(FleetItemListType);
+
+        #endregion Get Fleet Item
 
         #endregion Public Properties
 
         #region Methods
 
-        private IEnumerable<FleetItem> GetFleetServicesByShipCategory()
+        private FleetType GetDisplayFleet(eFleetType fleetType)
         {
-            List<FleetItem> result = new List<FleetItem>();
-
-            foreach (var item in ShipCategoriesList.OrderBy(x => x.Category))
+            switch (fleetType)
             {
-                IEnumerable<ShipServiceView> services = ServicesList.Where(x => x.ShipSubType.ShipType.ShipCategory.Category == item.Category);
-
-                if (services.Count() > 0)
-                {
-                    FleetItem fleet = new FleetItem(item.Category, services);
-                    fleet.Id = item.Id;
-                    fleet.Description = item.Category;
-                    result.Add(fleet);
-                }
+                case eFleetType.Total:
+                    return TotalFleet;
+                case eFleetType.Active:
+                    return ActiveFleet;
+                case eFleetType.Inactive:
+                    return InactiveFleet;
+                default:
+                    return TotalFleet;
             }
-
-            return result;
         }
 
-        private IEnumerable<FleetItem> GetFleetServicesByShipType()
+        private IEnumerable<FleetItem> GetDisplayFleetItemList(eFleetType fleetType, eFleetItemListType fleetItemListType)
         {
-            List<FleetItem> result = new List<FleetItem>();
-
-            foreach (var item in ShipTypesList.OrderBy(x => x.Type))
+            switch (fleetItemListType)
             {
-                IEnumerable<ShipServiceView> services = ServicesList.Where(x => x.ShipSubType.ShipType.Type == item.Type);
-
-                if(services.Count() > 0)
-                {
-                    FleetItem fleet = new FleetItem(item.Type, services);
-                    fleet.Id = item.Id;
-                    fleet.Description = item.Type;
-                    result.Add(fleet);
-                }
+                case eFleetItemListType.ByCategory:
+                    return GetDisplayFleet(fleetType).FleetServicesByShipCategory;
+                case eFleetItemListType.ByType:
+                    return GetDisplayFleet(fleetType).FleetServicesByShipType;
+                case eFleetItemListType.BySubType:
+                    return GetDisplayFleet(fleetType).FleetServicesByShipSubType;
+                case eFleetItemListType.ByClass:
+                    return GetDisplayFleet(fleetType).FleetServicesByShipClass;
+                case eFleetItemListType.ByBranch:
+                    return GetDisplayFleet(fleetType).FleetServicesByBranch;
+                case eFleetItemListType.ByBuilder:
+                    return GetDisplayFleet(fleetType).FleetServicesByBranch; //TODO: fix
+                default:
+                    return GetDisplayFleet(fleetType).FleetServicesByShipCategory;
             }
-
-            return result;
-        }
-
-        private IEnumerable<FleetItem> GetFleetServicesByShipSubType()
-        {
-            List<FleetItem> result = new List<FleetItem>();
-
-            foreach (var item in ShipSubTypesList.OrderBy(x => x.Type))
-            {
-                IEnumerable<ShipServiceView> services = ServicesList.Where(x => x.ShipSubType.Type == item.Type);
-
-                if (services.Count() > 0)
-                {
-                    FleetItem fleet = new FleetItem(item.Type, services);
-                    fleet.Id = item.Id;
-                    fleet.Description = item.Type;
-                    result.Add(fleet);
-                }
-            }
-
-            return result;
-        }
-
-        private IEnumerable<FleetItem> GetFleetServicesByShipClass()
-        {
-            List<FleetItem> result = new List<FleetItem>();
-
-            foreach (var item in ShipClassesList.OrderBy(x => x.ListName))
-            {
-                IEnumerable<ShipServiceView> services = ServicesList.Where(x => x.ShipClassId == item.Id);
-
-                if (services.Count() > 0)
-                {
-                    FleetItem fleet = new FleetItem(item.ListName, services);
-                    fleet.Id = item.Id;
-                    fleet.Description = item.ListName;
-                    result.Add(fleet);
-                }
-            }
-
-            return result;
-        }
-
-        private IEnumerable<FleetItem> GetFleetServicesByBranch()
-        {
-            List<FleetItem> result = new List<FleetItem>();
-
-            foreach (var item in BranchesList)
-            {
-                IEnumerable<ShipServiceView> services = ServicesList.Where(x => x.Branch.Name == item.Name);
-
-                if (services.Count() > 0)
-                {
-                    FleetItem fleet = new FleetItem(item.Name, services);
-                    fleet.Id = item.Id;
-                    fleet.Description = item.Name;
-                    result.Add(fleet);
-                }
-            }
-
-            return result;
         }
 
         #endregion Methods

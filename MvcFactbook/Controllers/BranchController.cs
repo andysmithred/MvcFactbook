@@ -99,11 +99,6 @@ namespace MvcFactbook.Controllers
             return await base.Details(id);
         }
 
-        public async Task<IActionResult> ChartTest(int? id)
-        {
-            return await base.Details(id);
-        }
-
         public async Task<IActionResult> DetailsFleetItem(int? id, string fleetType, string fleetItemListType, int? fleetItemId)
         {
             if (id == null)
@@ -119,9 +114,9 @@ namespace MvcFactbook.Controllers
             }
             else
             {
-                item.FleetType = (eFleetType)Enum.Parse(typeof(eFleetType), fleetType);
-                item.FleetItemListType = (eFleetItemListType)Enum.Parse(typeof(eFleetItemListType), fleetItemListType);
-                item.FleetItemId = fleetItemId.Value;
+                item.Fleet.FleetType = (eFleetType)Enum.Parse(typeof(eFleetType), fleetType);
+                item.Fleet.FleetItemListType = (eFleetItemListType)Enum.Parse(typeof(eFleetItemListType), fleetItemListType);
+                item.Fleet.FleetItemId = fleetItemId.Value;
             }
 
             return View(item);

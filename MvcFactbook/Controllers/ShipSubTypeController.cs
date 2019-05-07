@@ -99,9 +99,9 @@ namespace MvcFactbook.Controllers
             }
             else
             {
-                item.FleetType = (eFleetType)Enum.Parse(typeof(eFleetType), fleetType);
-                item.FleetItemListType = (eFleetItemListType)Enum.Parse(typeof(eFleetItemListType), fleetItemListType);
-                item.FleetItemId = fleetItemId.Value;
+                item.Fleet.FleetType = (eFleetType)Enum.Parse(typeof(eFleetType), fleetType);
+                item.Fleet.FleetItemListType = (eFleetItemListType)Enum.Parse(typeof(eFleetItemListType), fleetItemListType);
+                item.Fleet.FleetItemId = fleetItemId.Value;
             }
 
             return View(item);

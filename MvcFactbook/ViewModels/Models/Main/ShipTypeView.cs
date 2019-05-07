@@ -1,11 +1,19 @@
-﻿using MvcFactbook.Models;
+﻿using MvcFactbook.Code.Classes;
+using MvcFactbook.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace MvcFactbook.ViewModels.Models.Main
 {
     public class ShipTypeView : View<ShipType>
     {
+        #region Private Declarations
+
+        private Fleet fleet = null;
+
+        #endregion Private Declarations
+
         #region Database Properties
 
         [Key]
@@ -35,10 +43,13 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public override string ListName => Type + ":" + ShipCategory?.Category;
 
+        public ICollection<ShipServiceView> ShipServices => ShipSubTypes.SelectMany(x => x.ShipServices).Distinct(x => x.Id).ToList();
+
+        public ICollection<BranchView> Branches => ShipServices.Select(x => x.Branch).Distinct(x => x.Id).ToList();
+
+        public Fleet Fleet => fleet ?? (fleet = new Fleet(ShipServices));
+
         #endregion Other Properties
 
-        #region Methods
-
-        #endregion Methods
     }
 }

@@ -1,0 +1,13 @@
+﻿<div class="w-100 p-2">
+    <partial name="DetailsItemHeader" model='new {
+                Icon = "/images/icons/sail-light.png",
+                Label = @Model.Label
+    }' />
+    <div class="d-flex flex-row flex-wrap mt-3">
+        <partial name="FleetItemDetailsItem" model='new { Label = "Ship Services", Value = @Model.FleetItem.ShipServices }' />
+        <partial name="FleetItemDetailsItem" model='new { Label = "Tonnage", Value = @Model.FleetItem.TonnageLabel }' />
+        <partial name="FleetItemDetailsItem" model='new { Label = "Average Displacement", Value = @Model.FleetItem.DisplacementAverageLabel }' />
+        <partial name="FleetItemDetailsItem" model='new { Label = "Average Length", Value = @Model.FleetItem.LengthAverageLabel }' />
+        <partial name="FleetItemDetailsItem" model='new { Label = "Average Beam", Value = @Model.FleetItem.BeamAverageLabel }' />
+    </div>
+</div>

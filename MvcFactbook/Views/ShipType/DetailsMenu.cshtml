@@ -5,16 +5,41 @@
         <li class="nav-item"><a class="nav-link" asp-action="Index">Index</a></li>
         <li class="nav-item"><a class="nav-link" asp-action="Edit" asp-route-id="@Model.Id">Edit</a></li>
         <li class="nav-item"><a class="nav-link" asp-action="Delete" asp-route-id="@Model.Id">Delete</a></li>
+        <li class="nav-item"><a class="nav-link" asp-action="Details" asp-route-id="@Model.Id">Details</a></li>
         <!-- Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Lists</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" asp-action="DetailsShipServices" asp-route-id="@Model.Id">Ship Services</a>
+                <a class="dropdown-item" asp-action="DetailsBranches" asp-route-id="@Model.Id">Branches</a>
+            </div>
+        </li>
         <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Items</a>
             <div class="dropdown-menu">
-                @if(Model.ShipCategory != null)
+                @if (Model.ShipCategory != null)
                 {
                     <a class="dropdown-item" asp-controller="ShipCategory" asp-action="Details" asp-route-id="@Model.ShipCategoryId">@Model.ShipCategory.Category</a>
                 }
-                
+
             </div>
         </li>
+        @if (Model.Fleet.TotalFleet.FleetServicesTotal.ShipServices > 0)
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Fleet</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" asp-action="DetailsTotalFleet" asp-route-id="@Model.Id">Total Fleet</a>
+                    @if (Model.Fleet.ActiveFleet.FleetServicesTotal.ShipServices > 0)
+                    {
+                        <a class="dropdown-item" asp-action="DetailsActiveFleet" asp-route-id="@Model.Id">Active Fleet</a>
+                    }
+                    @if (Model.Fleet.InactiveFleet.FleetServicesTotal.ShipServices > 0)
+                    {
+                        <a class="dropdown-item" asp-action="DetailsInactiveFleet" asp-route-id="@Model.Id">Inactive Fleet</a>
+                    }
+                </div>
+            </li>
+        }
     </ul>
 </nav>
