@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using MvcFactbook.Code.Classes;
+using System.Text;
 
 namespace MvcFactbook.ViewModels.Models.Main
 {
@@ -32,6 +33,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public int? Crew => ViewObject.Crew;
 
+        public int? Year => ViewObject.Year;
+
         #endregion Database Properties
 
         #region Foreign Properties
@@ -46,9 +49,9 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         #region Other Properties
 
-        public override string ListName => Name + ":" + SubClassNameLabel;
+        public override string ListName => GetListName();
 
-        public string FullName => Name + " (" + Year + ")";
+        public string FullName => Name + (String.IsNullOrEmpty(SubClassName) ? string.Empty : ":" + SubClassName);
 
         public string SubClassNameLabel => String.IsNullOrEmpty(SubClassName) ? "--" : SubClassName;
 
@@ -64,6 +67,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string CrewLabel => Crew.HasValue ? Crew.Value.ToString("N0") : "--";
 
+        public string YearLabel => Year.HasValue ? Year.Value.ToString() : "--";
+
         public ICollection<ShipClassView> PrecedingShipClasses => PrecedingClasses.Select(x => x.PrecedingShipClass).Distinct(x => x.Id).ToList();
 
         public ICollection<ShipClassView> SucceedingShipClasses => SucceedingClasses.Select(x => x.SucceedingShipClass).Distinct(x => x.Id).ToList();
@@ -74,17 +79,60 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<ShipSubTypeView> ShipSubTypes => ShipServices.Select(x => x.ShipSubType).Distinct(x => x.Id).ToList();
 
-        public string Year => Ships.OrderBy(x => x.Launched).FirstOrDefault()?.Year;
-
         public DateTime? StartService => ShipServices.OrderBy(x => x.StartService)?.FirstOrDefault()?.StartService;
 
-        public DateTime? EndService => ShipServices.OrderByDescending(x => x.EndService)?.FirstOrDefault()?.EndService;
+        public DateTime? EndService => GetEndService(ShipServices);
+
+        [Display(Name = "In Commission")]
+        public string InCommission => CommonFunctions.GetYears(StartService, EndService);
 
         [Display(Name = "Years Service")]
         public TimeSpan? TimeSpan => CommonFunctions.GetTimepan(StartService, EndService);
 
         public string TimeSpanLabel => CommonFunctions.Format(TimeSpan);
 
+        public bool IsActive => ShipServices.Where(x => x.Active).Count() > 0;
+
         #endregion Other Properties
+
+        #region Methods
+
+        private string GetListName()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(Name);
+
+            //Add the SubClassName (if available)
+            if(!string.IsNullOrEmpty(SubClassName))
+            {
+                sb.Append(":");
+                sb.Append(SubClassName);
+            }
+
+            //Add the year (if available)
+            if(Year.HasValue)
+            {
+                sb.Append(":");
+                sb.Append(Year.Value.ToString());
+            }
+
+            return sb.ToString();
+        }
+
+        private DateTime? GetEndService(ICollection<ShipServiceView> shipServices)
+        {
+            if(IsActive)
+            {
+                return null;
+            }
+            else
+            {
+                return ShipServices.OrderByDescending(x => x.EndService)?.FirstOrDefault()?.EndService;
+            }
+        }
+
+        #endregion Methods
+
     }
 }

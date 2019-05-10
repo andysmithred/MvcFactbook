@@ -37,6 +37,8 @@ namespace MvcFactbook.Models
 
         public int? Crew { get; set; }
 
+        public int? Year { get; set; }
+
         #endregion Database Properties
 
         #region Foreign Properties

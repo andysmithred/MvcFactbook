@@ -65,7 +65,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,SubClassName,Displacement,Length,Beam,Propulsion,Speed,Crew")] ShipClass item)
+        public async Task<IActionResult> Create([Bind("Name,SubClassName,Displacement,Length,Beam,Propulsion,Speed,Crew,Year")] ShipClass item)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,SubClassName,Displacement,Length,Beam,Propulsion,Speed,Crew")] ShipClass item)
+        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,SubClassName,Displacement,Length,Beam,Propulsion,Speed,Crew,Year")] ShipClass item)
         {
             return await base.Edit(id, item);
         }

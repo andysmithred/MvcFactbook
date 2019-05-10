@@ -5,3 +5,6 @@
 <partial name="LinkShipServices" model='new { Controller = "Branch", RouteId = Model.Id, Items = Model.ShipServices }' />
 <partial name="LinkArmedForce" model="Model.ArmedForce" />
 <partial name="LinkBranchType" model="Model.BranchType" />
+<partial name="LinkTotalFleet" model='new { Controller = "Branch", RouteId = Model.Id, Name = "Total Fleet" }' />
+<partial name="LinkActiveFleet" model='new { Controller = "Branch", RouteId = Model.Id, Name = "Active Fleet" }' />
+<partial name="LinkInactiveFleet" model='new { Controller = "Branch", RouteId = Model.Id, Name = "Inactive Fleet" }' />
