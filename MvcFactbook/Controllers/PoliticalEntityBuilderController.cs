@@ -32,7 +32,7 @@ namespace MvcFactbook.Controllers
 
         public ICollection<PoliticalEntityView> PoliticalEntitiesList
         {
-            get => politicalEntitiesList ?? (politicalEntitiesList = PoliticalEntities.GetViews().OrderBy(x => x.ListName).ToList());
+            get => politicalEntitiesList ?? (politicalEntitiesList = PoliticalEntities.GetViews(() => Context.PoliticalEntity.Include(x => x.PoliticalEntityEras)).OrderBy(x => x.ListName).ToList());
             set => politicalEntitiesList = value;
         }
 
