@@ -51,8 +51,8 @@ namespace MvcFactbook
                     o.ViewLocationFormats.Add("/Views/Shared/Components/Tables/Index/{0}" + RazorViewEngine.ViewExtension);
                 });
 
-            var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\AndyS\OneDrive\Documents\Visual Studio 2017\Projects\MvcFactbook\MvcFactbook\Database\MvcFactbook.mdf;Integrated Security=True;Connect Timeout=30";
-            //var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\dev\MvcFactbook\MvcFactbook\Database\MvcFactbook.mdf;Integrated Security=True;Connect Timeout=30";
+            //var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\AndyS\OneDrive\Documents\Visual Studio 2017\Projects\MvcFactbook\MvcFactbook\Database\MvcFactbook.mdf;Integrated Security=True;Connect Timeout=30";
+            var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\dev\MvcFactbook\MvcFactbook\Database\MvcFactbook.mdf;Integrated Security=True;Connect Timeout=30";
             services.AddDbContext<FactbookContext>(options => options.UseSqlServer(connection));
         }
 
