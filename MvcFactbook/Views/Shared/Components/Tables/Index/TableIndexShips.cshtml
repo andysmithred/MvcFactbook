@@ -9,6 +9,7 @@
         columns.Add(model => model.Name).Titled("Name");
         columns.Add(model => model.Launched).Titled("Launched").Formatted("{0:d}");
         columns.Add(model => model.Builder.Name).Titled("Builder");
+        columns.Add(model => model.Complete).Titled("Complete");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
                 $"<a class='btn btn-outline-secondary btn-sm' href='/Ship/Edit/{model.Id}'>Edit</a>" +

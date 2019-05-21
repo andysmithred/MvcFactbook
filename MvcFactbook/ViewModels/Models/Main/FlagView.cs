@@ -42,10 +42,13 @@ namespace MvcFactbook.ViewModels.Models.Main
         [Required]
         public bool Active => ViewObject.Active;
 
+        [Required]
+        public bool Complete => ViewObject.Complete;
+
         #endregion Database Properties
 
         #region Foreign Properties
-        
+
         public ICollection<ArmedForceFlagView> ArmedForceFlags => GetViewList<ArmedForceFlagView, ArmedForceFlag>(ViewObject.ArmedForceFlags);
 
         public ICollection<BranchFlagView> BranchFlags => GetViewList<BranchFlagView, BranchFlag>(ViewObject.BranchFlags);

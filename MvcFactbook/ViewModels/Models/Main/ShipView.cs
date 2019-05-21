@@ -23,6 +23,9 @@ namespace MvcFactbook.ViewModels.Models.Main
         [Display(Name = "Builder Id")]
         public int? BuilderId => ViewObject.BuilderId;
 
+        [Required]
+        public bool Complete => ViewObject.Complete;
+
         #endregion Database Properties
 
         #region Foreign Properties

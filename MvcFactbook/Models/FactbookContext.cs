@@ -76,6 +76,9 @@ namespace MvcFactbook.Models
 
                 entity.Property(e => e.Active)
                     .IsRequired();
+
+                entity.Property(e => e.Complete)
+                    .IsRequired();
             });
 
             // Armed Force Flag
@@ -112,6 +115,9 @@ namespace MvcFactbook.Models
                     .IsRequired();
 
                 entity.Property(e => e.HasEmblem)
+                    .IsRequired();
+
+                entity.Property(e => e.Complete)
                     .IsRequired();
 
                 entity.HasOne(x => x.ArmedForce)
@@ -277,6 +283,9 @@ namespace MvcFactbook.Models
                 entity.Property(e => e.Name)
                     .IsRequired();
 
+                entity.Property(e => e.Complete)
+                    .IsRequired();
+
                 entity.HasOne(x => x.Builder)
                     .WithMany(y => y.Ships)
                     .HasForeignKey(y => y.BuilderId)
@@ -320,6 +329,9 @@ namespace MvcFactbook.Models
             {
                 entity.Property(e => e.Name)
                     .IsRequired();
+
+                entity.Property(e => e.Complete)
+                    .IsRequired();
             });
 
             // Ship Group
@@ -356,6 +368,12 @@ namespace MvcFactbook.Models
                     .HasMaxLength(10);
 
                 entity.Property(e => e.Name)
+                    .IsRequired();
+
+                entity.Property(e => e.Active)
+                    .IsRequired();
+
+                entity.Property(e => e.Complete)
                     .IsRequired();
 
                 entity.HasOne(x => x.Ship)

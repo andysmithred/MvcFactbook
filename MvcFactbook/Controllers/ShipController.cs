@@ -75,7 +75,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Launched,BuilderId")] Ship item)
+        public async Task<IActionResult> Create([Bind("Name,Launched,BuilderId,Complete")] Ship item)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByBuilder([Bind("Name,Launched,BuilderId")] Ship item)
+        public async Task<IActionResult> CreateByBuilder([Bind("Name,Launched,BuilderId,Complete")] Ship item)
         {
             if (ModelState.IsValid)
             {
@@ -120,7 +120,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,Launched,BuilderId")] Ship item)
+        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,Launched,BuilderId,Complete")] Ship item)
         {
             IActionResult result = await base.Edit(id, item);
             ViewBag.Builders = GetSelectList<BuilderView>(BuildersList, item.BuilderId);

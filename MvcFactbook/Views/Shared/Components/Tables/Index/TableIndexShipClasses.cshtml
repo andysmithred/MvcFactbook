@@ -14,6 +14,7 @@
             columns.Add(model => model.Propulsion).Titled("Propulsion").Formatted("{0:N0}");
             columns.Add(model => model.Speed).Titled("Speed").Formatted("{0:N0}");
             columns.Add(model => model.Crew).Titled("Crew").Formatted("{0:N0}");
+            columns.Add(model => model.Complete).Titled("Complete");
             columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-right'>" +
                     $"<a class='btn btn-outline-secondary btn-sm' href='/ShipClass/Edit/{model.Id}'>Edit</a>" +

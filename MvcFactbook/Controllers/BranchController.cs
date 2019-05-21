@@ -135,7 +135,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,ArmedForceId,BranchTypeId,HasEmblem")] Branch item)
+        public async Task<IActionResult> Create([Bind("Name,ArmedForceId,BranchTypeId,HasEmblem,Complete")] Branch item)
         {
             if (ModelState.IsValid)
             {
@@ -157,7 +157,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByArmedForce([Bind("Name,ArmedForceId,BranchTypeId,HasEmblem")] Branch item)
+        public async Task<IActionResult> CreateByArmedForce([Bind("Name,ArmedForceId,BranchTypeId,HasEmblem,Complete")] Branch item)
         {
             if (ModelState.IsValid)
             {
@@ -180,7 +180,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByBranchType([Bind("Name,ArmedForceId,BranchTypeId,HasEmblem")] Branch item)
+        public async Task<IActionResult> CreateByBranchType([Bind("Name,ArmedForceId,BranchTypeId,HasEmblem,Complete")] Branch item)
         {
             if (ModelState.IsValid)
             {
@@ -207,7 +207,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,ArmedForceId,BranchTypeId,HasEmblem")] Branch item)
+        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,ArmedForceId,BranchTypeId,HasEmblem,Complete")] Branch item)
         {
             IActionResult result = await base.Edit(id, item);
             ViewBag.ArmedForces = GetSelectList<ArmedForceView>(ArmedForcesList, item.ArmedForceId);

@@ -11,6 +11,7 @@
             columns.Add(model => model.StartDate).Titled("Start Date").Formatted("{0:d}");
             columns.Add(model => model.EndDate).Titled("End Date").Formatted("{0:d}");
             columns.Add(model => model.Active).Titled("Active");
+            columns.Add(model => model.Complete).Titled("Complete");
             columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-right'>" +
                     $"<a class='btn btn-outline-secondary btn-sm' href='/Flag/Edit/{model.Id}'>Edit</a>" +

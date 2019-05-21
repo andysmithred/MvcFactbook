@@ -10,6 +10,7 @@
             columns.Add(model => model.ArmedForce.Name).Titled("Armed Force");
             columns.Add(model => model.BranchType.Type).Titled("Branch Type");
             columns.Add(model => model.HasEmblem).Titled("Emblem");
+            columns.Add(model => model.Complete).Titled("Complete");
             columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-right'>" +
                     $"<a class='btn btn-outline-secondary btn-sm' href='/Branch/Edit/{model.Id}'>Edit</a>" +

@@ -51,7 +51,11 @@ namespace MvcFactbook.Models
 
         public string Fate { get; set; }
 
+        [Required]
         public bool Active { get; set; }
+
+        [Required]
+        public bool Complete { get; set; }
 
         #endregion Database Properties
 

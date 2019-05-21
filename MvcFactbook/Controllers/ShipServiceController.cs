@@ -118,7 +118,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Penant,Name,ShipId,ShipClassId,ShipSubTypeId,StartService,EndService,BranchId,Fate,Active")] ShipService item)
+        public async Task<IActionResult> Create([Bind("Penant,Name,ShipId,ShipClassId,ShipSubTypeId,StartService,EndService,BranchId,Fate,Active,Complete")] ShipService item)
         {
             if (ModelState.IsValid)
             {
@@ -144,7 +144,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByShip([Bind("Penant,Name,ShipId,ShipClassId,ShipSubTypeId,StartService,EndService,BranchId,Fate,Active")] ShipService item)
+        public async Task<IActionResult> CreateByShip([Bind("Penant,Name,ShipId,ShipClassId,ShipSubTypeId,StartService,EndService,BranchId,Fate,Active,Complete")] ShipService item)
         {
             if (ModelState.IsValid)
             {
@@ -171,7 +171,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByShipClass([Bind("Penant,Name,ShipId,ShipClassId,ShipSubTypeId,StartService,EndService,BranchId,Fate,Active")] ShipService item)
+        public async Task<IActionResult> CreateByShipClass([Bind("Penant,Name,ShipId,ShipClassId,ShipSubTypeId,StartService,EndService,BranchId,Fate,Active,Complete")] ShipService item)
         {
             if (ModelState.IsValid)
             {
@@ -198,7 +198,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByShipSubType([Bind("Penant,Name,ShipId,ShipClassId,ShipSubTypeId,StartService,EndService,BranchId,Fate,Active")] ShipService item)
+        public async Task<IActionResult> CreateByShipSubType([Bind("Penant,Name,ShipId,ShipClassId,ShipSubTypeId,StartService,EndService,BranchId,Fate,Active,Complete")] ShipService item)
         {
             if (ModelState.IsValid)
             {
@@ -225,7 +225,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByBranch([Bind("Penant,Name,ShipId,ShipClassId,ShipSubTypeId,StartService,EndService,BranchId,Fate,Active")] ShipService item)
+        public async Task<IActionResult> CreateByBranch([Bind("Penant,Name,ShipId,ShipClassId,ShipSubTypeId,StartService,EndService,BranchId,Fate,Active,Complete")] ShipService item)
         {
             if (ModelState.IsValid)
             {
@@ -256,7 +256,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public override async Task<IActionResult> Edit(int id, [Bind("Id,Penant,Name,ShipId,ShipClassId,ShipSubTypeId,StartService,EndService,BranchId,Fate,Active")] ShipService item)
+        public override async Task<IActionResult> Edit(int id, [Bind("Id,Penant,Name,ShipId,ShipClassId,ShipSubTypeId,StartService,EndService,BranchId,Fate,Active,Complete")] ShipService item)
         {
             IActionResult result = await base.Edit(id, item);
             ViewBag.Ships = GetSelectList<ShipView>(ShipsList, item.ShipId);

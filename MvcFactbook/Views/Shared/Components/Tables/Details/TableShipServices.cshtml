@@ -13,6 +13,7 @@
             columns.Add(model => model.ShipSubType.Type).Titled("Type");
             columns.Add(model => model.StartService).Titled("Start Service").Formatted("{0:d}");
             columns.Add(model => model.EndService).Titled("End Service").Formatted("{0:d}");
+            columns.Add(model => model.Complete).Titled("Complete");
             columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-right'>" +
                     $"<a class='btn btn-outline-secondary btn-sm' href='/ShipService/Details/{model.Id}'>Details</a>" +

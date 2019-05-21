@@ -37,6 +37,9 @@ namespace MvcFactbook.ViewModels.Models.Main
         [Display(Name = "Emblem")]
         public bool HasEmblem => ViewObject.HasEmblem;
 
+        [Required]
+        public bool Complete => ViewObject.Complete;
+
         #endregion Database Properties
 
         #region Foreign Properties

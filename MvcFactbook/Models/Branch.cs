@@ -37,6 +37,9 @@ namespace MvcFactbook.Models
         [Display(Name = "Emblem")]
         public bool HasEmblem { get; set; }
 
+        [Required]
+        public bool Complete { get; set; }
+
         #endregion Database Properties
 
         #region Foreign Properties

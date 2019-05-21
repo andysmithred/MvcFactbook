@@ -60,7 +60,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Code,Description,StartDate,EndDate,Active")] Flag item)
+        public async Task<IActionResult> Create([Bind("Id,Name,Code,Description,StartDate,EndDate,Active,Complete")] Flag item)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,Code,Description,StartDate,EndDate,Active")] Flag item)
+        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,Code,Description,StartDate,EndDate,Active,Complete")] Flag item)
         {
             return await base.Edit(id, item);
         }

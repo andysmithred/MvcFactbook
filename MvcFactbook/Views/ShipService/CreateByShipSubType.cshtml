@@ -92,6 +92,17 @@
             </div>
             <span asp-validation-for="Active" class="text-danger"></span>
         </div>
+        <div class="input-group input-group-sm mb-3 w-50">
+            <div class="input-group-prepend w-25">
+                <label asp-for="Complete" class="input-group-text w-100"></label>
+            </div>
+            <div class="input-group-prepend">
+                <div class="input-group-text  rounded-right">
+                    <input asp-for="Complete" type="checkbox">
+                </div>
+            </div>
+            <span asp-validation-for="Complete" class="text-danger"></span>
+        </div>
         <hr class="bg-secondary" />
         <div class="form-group">
             <input type="submit" value="Create" class="btn btn-outline-secondary btn-sm" />

@@ -29,6 +29,9 @@ namespace MvcFactbook.Models
         [Display(Name = "Builder Id")]
         public int? BuilderId { get; set; }
 
+        [Required]
+        public bool Complete { get; set; }
+
         #endregion Database Properties
 
         #region Foreign Properties

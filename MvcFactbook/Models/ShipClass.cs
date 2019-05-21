@@ -39,6 +39,9 @@ namespace MvcFactbook.Models
 
         public int? Year { get; set; }
 
+        [Required]
+        public bool Complete { get; set; }
+
         #endregion Database Properties
 
         #region Foreign Properties

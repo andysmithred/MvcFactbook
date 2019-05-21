@@ -8,7 +8,8 @@
     [Propulsion]   INT            NULL,
     [Speed]        FLOAT (53)     NULL,
     [Crew]         INT            NULL,
-    [Year] INT NULL, 
+    [Year]         INT            NULL,
+    [Complete] BIT NOT NULL DEFAULT 0, 
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 

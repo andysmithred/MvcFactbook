@@ -35,6 +35,9 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public int? Year => ViewObject.Year;
 
+        [Required]
+        public bool Complete => ViewObject.Complete;
+
         #endregion Database Properties
 
         #region Foreign Properties

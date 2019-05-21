@@ -12,6 +12,7 @@
             columns.Add(model => model.ShipClass.Name).Titled("Class");
             columns.Add(model => model.Branch.Name).Titled("Branch");
             columns.Add(model => model.ShipSubType.Type).Titled("Type");
+            columns.Add(model => model.Complete).Titled("Complete");
             columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-right'>" +
                     $"<a class='btn btn-outline-secondary btn-sm' href='/ShipService/Edit/{model.Id}'>Edit</a>" +
