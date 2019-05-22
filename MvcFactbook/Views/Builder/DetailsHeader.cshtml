@@ -21,3 +21,13 @@
         <h2>@Model.Defunct</h2>
     </div>
 }
+<div class="ml-auto pt-2">
+    @if (Model.Complete)
+    {
+        <img src="~/images/icons/lock-light.png" style="height:30px;" />
+    }
+    else
+    {
+        <img src="~/images/icons/unlock-light.png" style="height:30px;" />
+    }
+</div>

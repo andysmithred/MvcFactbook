@@ -10,6 +10,8 @@
             columns.Add(model => model.FoundedLabel).Titled("Founded");
             columns.Add(model => model.DefunctLabel).Titled("Defunct");
             columns.Add(model => model.Ships.Count).Titled("Ships");
+            columns.Add(model => model.Complete).Titled("Complete");
+            columns.Add().Encoded(false).RenderedAs(model => $"<img src='/images/icons/{model.CompleteIcon}' style='height: 20px; width: 20px' />");
             columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-right'>" +
                     $"<a class='btn btn-outline-secondary btn-sm' href='/Builder/Edit/{model.Id}'>Edit</a>" +

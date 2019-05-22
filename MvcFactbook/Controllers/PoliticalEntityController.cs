@@ -90,7 +90,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ShortName,Name,FullName,Code,StartDate,EndDate,Exists,HasEmblem,PoliticalEntityTypeId")] PoliticalEntity item)
+        public async Task<IActionResult> Create([Bind("ShortName,Name,FullName,Code,StartDate,EndDate,Exists,HasEmblem,PoliticalEntityTypeId,Complete")] PoliticalEntity item)
         {
             if (ModelState.IsValid)
             {
@@ -110,7 +110,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByPoliticalEntityType([Bind("ShortName,Name,FullName,Code,StartDate,EndDate,Exists,HasEmblem,PoliticalEntityTypeId")] PoliticalEntity item)
+        public async Task<IActionResult> CreateByPoliticalEntityType([Bind("ShortName,Name,FullName,Code,StartDate,EndDate,Exists,HasEmblem,PoliticalEntityTypeId,Complete")] PoliticalEntity item)
         {
             if (ModelState.IsValid)
             {
@@ -135,7 +135,7 @@ namespace MvcFactbook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public override async Task<IActionResult> Edit(int id, [Bind("Id,ShortName,Name,FullName,Code,StartDate,EndDate,Exists,HasEmblem,PoliticalEntityTypeId")] PoliticalEntity item)
+        public override async Task<IActionResult> Edit(int id, [Bind("Id,ShortName,Name,FullName,Code,StartDate,EndDate,Exists,HasEmblem,PoliticalEntityTypeId,Complete")] PoliticalEntity item)
         {
             IActionResult result = await base.Edit(id, item);
             ViewBag.PoliticalEntityTypes = GetSelectList<PoliticalEntityTypeView>(PoliticalEntityTypesList, item.PoliticalEntityTypeId);

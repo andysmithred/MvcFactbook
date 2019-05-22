@@ -49,6 +49,9 @@ namespace MvcFactbook.ViewModels.Models.Main
         [Required]
         public int PoliticalEntityTypeId => ViewObject.PoliticalEntityTypeId;
 
+        [Required]
+        public bool Complete => ViewObject.Complete;
+
         #endregion Database Properties
 
         #region Foreign Properties

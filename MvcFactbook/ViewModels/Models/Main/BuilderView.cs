@@ -21,6 +21,9 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public int? Defunct => ViewObject.Defunct;
 
+        [Required]
+        public bool Complete => ViewObject.Complete;
+
         #endregion Database Properties
 
         #region Foreign Properties
@@ -46,6 +49,8 @@ namespace MvcFactbook.ViewModels.Models.Main
         public FlagView Flag => PoliticalEntities.OrderByDescending(x => x.StartDate).FirstOrDefault()?.CurrentFlag;
 
         public string ImageSource => Flag?.ImageSource;
+
+        public string CompleteIcon => CommonFunctions.GetCompleteIcon(Complete);
 
         #endregion Other Properties
 

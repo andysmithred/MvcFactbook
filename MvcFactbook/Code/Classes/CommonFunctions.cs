@@ -15,6 +15,9 @@ namespace MvcFactbook.Code.Classes
         private const string ICON_PATH = "/images/icons/";
         private const string EXTENSION = ".png";
 
+        private const string LOCKED_ICON = "lock-light.png";
+        private const string UNLOCKED_ICON = "unlock-light.png";
+
         private const decimal DaysInAYear = 365.242M;
 
         public static string GetDateLabel(DateTime? date)
@@ -207,6 +210,8 @@ namespace MvcFactbook.Code.Classes
                     return string.Empty;
             }
         }
+
+        public static string GetCompleteIcon(bool complete) => complete ? LOCKED_ICON : UNLOCKED_ICON;
 
     }
 }

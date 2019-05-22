@@ -10,6 +10,7 @@
             columns.Add(model => model.FoundedLabel).Titled("Founded");
             columns.Add(model => model.DefunctLabel).Titled("Defunct");
             columns.Add(model => model.Ships.Count).Titled("Ships");
+            columns.Add(model => model.Complete).Titled("Complete");
             columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-right'>" +
                     $"<a class='btn btn-outline-secondary btn-sm' href='/Builder/Details/{model.Id}'>Details</a>" +

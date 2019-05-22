@@ -168,6 +168,9 @@ namespace MvcFactbook.Models
             {
                 entity.Property(e => e.Name)
                     .IsRequired();
+
+                entity.Property(e => e.Complete)
+                    .IsRequired();
             });
 
             // Political Entity
@@ -190,6 +193,9 @@ namespace MvcFactbook.Models
                     .IsRequired();
 
                 entity.Property(e => e.PoliticalEntityTypeId)
+                    .IsRequired();
+
+                entity.Property(e => e.Complete)
                     .IsRequired();
 
                 entity.HasOne(x => x.PoliticalEntityType)

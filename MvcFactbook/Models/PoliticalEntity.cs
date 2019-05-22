@@ -56,6 +56,9 @@ namespace MvcFactbook.Models
         [Required]
         public int PoliticalEntityTypeId { get; set; }
 
+        [Required]
+        public bool Complete { get; set; }
+
         #endregion Database Properties
 
         #region Foreign Properties

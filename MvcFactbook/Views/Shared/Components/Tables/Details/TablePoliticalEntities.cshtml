@@ -11,6 +11,7 @@
             columns.Add(model => model.FullName).Titled("Full Name");
             columns.Add(model => model.StartDate).Titled("Start").Formatted("{0:d}");
             columns.Add(model => model.EndDate).Titled("End").Formatted("{0:d}");
+            columns.Add(model => model.Complete).Titled("Complete");
             columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-right'>" +
                     $"<a class='btn btn-outline-secondary btn-sm' href='/PoliticalEntity/Details/{model.Id}'> Details </a>" +
