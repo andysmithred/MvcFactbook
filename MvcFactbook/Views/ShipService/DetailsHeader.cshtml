@@ -9,6 +9,13 @@
 <div class="ml-2 text-white">
     <h2>@Model.Name</h2>
 </div>
-<div class="ml-auto text-muted">
-    <h2>@Model.Penant</h2>
+<div class="ml-auto pt-2">
+    @if (Model.Complete)
+    {
+        <img src="~/images/icons/lock-light.png" style="height:30px;" />
+    }
+    else
+    {
+        <img src="~/images/icons/unlock-light.png" style="height:30px;" />
+    }
 </div>

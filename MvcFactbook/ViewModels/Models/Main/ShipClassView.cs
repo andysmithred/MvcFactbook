@@ -56,6 +56,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string FullName => Name + (String.IsNullOrEmpty(SubClassName) ? string.Empty : ":" + SubClassName);
 
+        public string HeaderLabel => Name + (String.IsNullOrEmpty(SubClassName) ? string.Empty : " - " + SubClassName);
+
         public string SubClassNameLabel => String.IsNullOrEmpty(SubClassName) ? "--" : SubClassName;
 
         public string DisplacementLabel => Displacement.HasValue ? Displacement.Value.ToString("N0") + " tons" : "--";
