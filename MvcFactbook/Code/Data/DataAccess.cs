@@ -46,9 +46,14 @@ namespace MvcFactbook.Code.Data
 
         #region Methods
 
-        private int Count()
+        public int Count()
         {
             return DataSet.Count();
+        }
+
+        public int Count(Func<T, bool> predicate)
+        {
+            return DataSet.Count(predicate);
         }
 
         public bool ItemExists(Func<T, bool> predicate)
