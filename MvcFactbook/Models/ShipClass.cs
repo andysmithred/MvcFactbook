@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using MvcFactbook.Code.Interfaces;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MvcFactbook.Models
 {
-    public partial class ShipClass
+    public partial class ShipClass: IComplete
     {
         #region Constructor
 

@@ -71,15 +71,21 @@ namespace MvcFactbook.Controllers
 
         public IActionResult Index()
         {
+            HomeView view = new HomeView(Context);
 
-            ViewBag.Total = ShipClassTotal.Value;
-            ViewBag.Complete = ShipClassComplete.Value;
-            ViewBag.Incomplete = ShipClassIncomplete.Value;
-
+            
 
 
 
-            return View();
+
+            ViewBag.Total = view.ShipClasses.Total;
+            ViewBag.Complete = view.ShipClasses.Complete;
+            ViewBag.Incomplete = view.ShipClasses.Incomplete;
+
+
+
+
+            return View(view);
         }
 
         public IActionResult About()

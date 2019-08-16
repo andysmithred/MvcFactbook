@@ -1,10 +1,11 @@
 ﻿using MvcFactbook.Code.Classes;
+using MvcFactbook.Code.Interfaces;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MvcFactbook.Models
 {
-    public partial class Branch
+    public partial class Branch: IComplete
     {
         #region Constructor
 

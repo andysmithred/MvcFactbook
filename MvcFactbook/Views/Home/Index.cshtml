@@ -1,6 +1,20 @@
-﻿@{
+﻿@model MvcFactbook.ViewModels.Models.Main.HomeView
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
+    <div>
+        <p>Total:<span>@Model.ShipClasses.Total</span></p>
+        <p>Complete:<span>@Model.ShipClasses.Complete</span></p>
+        <p>Incomplete:<span>@Model.ShipClasses.Incomplete</span></p>
+    </div>
+    <div>
+        <p>Total:<span>@Model.Ships.Total</span></p>
+        <p>Complete:<span>@Model.Ships.Complete</span></p>
+        <p>Incomplete:<span>@Model.Ships.Incomplete</span></p>
+    </div>
+
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
