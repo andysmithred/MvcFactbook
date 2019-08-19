@@ -15,6 +15,8 @@ namespace MvcFactbook.ViewModels.Models.Main
         private FactbookContext context = null;
         private CompleteItem<ShipClass> shipClasses = null;
         private CompleteItem<Ship> ships = null;
+        private CompleteItem<ShipService> shipServices = null;
+        private CompleteItem<Builder> builders = null;
 
         #endregion Private Declarations
 
@@ -36,6 +38,18 @@ namespace MvcFactbook.ViewModels.Models.Main
         {
             get => ships ?? (ships = new CompleteItem<Ship>(Context.Ship));
             set => ships = value;
+        }
+
+        public CompleteItem<ShipService> ShipServices
+        {
+            get => shipServices ?? (shipServices = new CompleteItem<ShipService>(Context.ShipService));
+            set => shipServices = value;
+        }
+
+        public CompleteItem<Builder> Builders
+        {
+            get => builders ?? (builders = new CompleteItem<Builder>(Context.Builder));
+            set => builders = value;
         }
 
         #endregion Public Properties

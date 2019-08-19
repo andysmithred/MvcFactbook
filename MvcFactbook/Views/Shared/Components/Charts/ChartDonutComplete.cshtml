@@ -1,0 +1,40 @@
+﻿<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var result = [['Category', 'Number']];
+
+            result.push(['Complete', @Model.Item.Complete]);
+            result.push(['Incomplete', @Model.Item.Incomplete]);
+           
+            var data = google.visualization.arrayToDataTable(result);
+
+            var options = {
+                backgroundColor: { fill: 'none' },
+                chartArea: { left: 10, top: 10, bottom: 10, width: '100%', height: '100%' },
+                pieHole: 0.3,
+                legend: 'none',
+                pieSliceText: 'value',
+                pieSliceTextStyle: {
+                    color: 'white',
+                    fontSize: 25
+                },
+                colors: ['#deeaee', '#c0ded9', '#d5f4e6'],
+                pieSliceBorderColor: 'darkgray',
+                tooltip: {
+                    trigger: 'selection'
+                },
+                sliceVisibilityThreshold: 0.01
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('@Model.Id'));
+            chart.draw(data, options);
+        }
+
+</script>
+
+<div id="@Model.Id" style="height:200px"></div>
