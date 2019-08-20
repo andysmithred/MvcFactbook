@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MvcFactbook.Code.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MvcFactbook.Models
 {
-    public partial class PoliticalEntity
+    public partial class PoliticalEntity: IComplete
     {
         #region Constructor
 
