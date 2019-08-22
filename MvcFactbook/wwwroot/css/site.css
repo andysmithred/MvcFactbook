@@ -73,18 +73,18 @@ a:hover {
     /*background-color: #555;*/
 }
 
-    .icon-bar a {
-        display: block; /* Make the links appear below each other instead of side-by-side */
-        text-align: center; /* Center-align text */
-        padding: 16px; /* Add some padding */
-        transition: all 0.3s ease; /* Add transition for hover effects */
-        color: white; /* White text color */
-        font-size: 18px; /* Increased font-size */
-    }
+.icon-bar a {
+    display: block; /* Make the links appear below each other instead of side-by-side */
+    text-align: center; /* Center-align text */
+    padding: 16px; /* Add some padding */
+    transition: all 0.3s ease; /* Add transition for hover effects */
+    color: white; /* White text color */
+    font-size: 18px; /* Increased font-size */
+}
 
-        .icon-bar a:hover {
-            background-color: #000; /* Add a hover color */
-        }
+.icon-bar a:hover {
+    background-color: #000; /* Add a hover color */
+}
 
 .active {
     background-color: #4CAF50; /* Add an active/current color */
@@ -149,6 +149,20 @@ a:hover {
 
 .header-large {
     font-size: 18px;
+}
+
+.home-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 1vh;
+    padding-right: 5vh;
+    transition: all 1s ease;
+}
+
+.home-item:hover {
+    background-color: darkslategray;
+    border-radius: 5px;
 }
 
 
