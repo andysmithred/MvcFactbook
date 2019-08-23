@@ -154,10 +154,9 @@ a:hover {
 .home-item {
     display: flex;
     flex-direction: row;
-    width: 100%;
-    padding: 1vh;
-    padding-right: 5vh;
-    transition: all 1s ease;
+    width: 25%;
+    transition: all 0.5s ease;
+    padding-bottom:1vh;
 }
 
 .home-item:hover {

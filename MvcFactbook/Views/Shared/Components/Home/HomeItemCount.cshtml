@@ -1,0 +1,15 @@
+﻿<div class="home-item">
+    <a asp-controller="@Model.Controller" asp-action="@Model.Action" class="w-100">
+        <div class="d-flex flex-row w-100">
+            <div class="ml-1">
+                <img src="@Model.Icon" alt="Card image" style="height:4vh;opacity:0.5;margin-top:1vh;margin-right:1vw" />
+            </div>
+            <div class="text-secondary mt-2" style="font-size:1.5rem;font-weight:700;opacity:0.5;">
+                @Model.Label
+            </div>
+            <div class="ml-auto text-white mt-2 mr-2" style="font-size:1.5rem;font-weight:500;">
+                @Model.Value
+            </div>
+        </div>
+    </a>
+</div>

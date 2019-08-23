@@ -163,6 +163,14 @@ namespace MvcFactbook.ViewModels.Models.Main
                         .Where(x => x.EndService.Value.Month == date.Month && x.EndService.Value.Day == date.Day);
         }
 
+        private int armedForces = default(int);
+
+        public int ArmedForces
+        {
+            get => armedForces == default(int) ? armedForces = Context.ArmedForce.Count() : armedForces;
+            set => armedForces = value;
+        }
+
         #endregion Public Properties
 
         #region Constructor

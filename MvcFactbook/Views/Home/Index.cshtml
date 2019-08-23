@@ -7,93 +7,66 @@
 <partial name='HomeMenu' model='new { Title = "HOME", Icon = "/images/icons/home-light.png" }' />
 <hr class="bg-light" />
 
-<div class="d-flex flex-row flex-wrap pb-1 mt-1">
-
-    <div class="home-item">
-        <a asp-controller="ArmedForce" asp-action="Index">
-            <div class="d-flex flex-row w-100 p-1 pr-2">
-                <div>
-                    <img src="/images/icons/armedforce-light.png" alt="Card image" style="height:4vh;opacity:0.5;margin-top:1vh;margin-right:1vw" />
-                </div>
-                <div class="text-secondary mt-1" style="font-size:2rem;font-weight:700;opacity:0.5">
-                    ARMED FORCES
-                </div>
-                <div class="ml-auto text-secondary" style="font-size:2.5rem;font-weight:500">
-                    @Model.Branches.Total
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="w-25">
-        <a asp-controller="Branch" asp-action="Index" class="w-100">
-            <div class="d-flex flex-row w-100 p-1 pr-2">
-                <div>
-                    <img src="/images/icons/branch-light.png" alt="Card image" style="height:4vh;opacity:0.5;margin-top:1vh;margin-right:1vw" />
-                </div>
-                <div class="text-secondary mt-1" style="font-size:2rem;font-weight:700;opacity:0.5">
-                    BRANCHES
-                </div>
-                <div class="ml-auto text-secondary" style="font-size:2.5rem;font-weight:500">
-                    @Model.Branches.Total
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="w-25">
-        <a asp-controller="Branch" asp-action="Index" class="text-white">
-            <div class="d-flex flex-row">
-                <div>
-                    <img src="/images/icons/branch-light.png" alt="Card image" style="height:4vh;" />
-                </div>
-                <div class="text-secondary header-large">
-                    BRANCHES
-                </div>
-                <div className="value">
-                    @Model.Branches.Total
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="w-25">
-        <a asp-controller="ArmedForce" asp-action="Index" class="text-white">
-            <div class="d-flex flex-row">
-                <div>
-                    <img src="/images/icons/armedforce-light.png" alt="Card image" style="height:4vh;" />
-                </div>
-                <div class="text-secondary header-large">
-                    ARMED FORCES
-                </div>
-                <div className="value">
-                    @Model.Branches.Total
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="w-25">
-        <a asp-controller="ArmedForce" asp-action="Index" class="text-white">
-            <div class="d-flex flex-row">
-                <div>
-                    <img src="/images/icons/armedforce-light.png" alt="Card image" style="height:4vh;" />
-                </div>
-                <div class="text-secondary header-large">
-                    ARMED FORCES
-                </div>
-                <div className="value">
-                    @Model.Branches.Total
-                </div>
-            </div>
-        </a>
-    </div>
-
-
-
-
-
-
-
+<div class="d-flex flex-row flex-wrap">
+    <partial name="HomeItemCount" model='new {
+                Icon = "/images/icons/armedforce-light.png",
+                Label = "ARMED FORCES",
+                Value = @Model.ArmedForces,
+                Controller = "ArmedForce",
+                Action = "Index",
+    }' />
+    <partial name="HomeItemCount" model='new {
+                Icon = "/images/icons/branch-light.png",
+                Label = "BRANCHES",
+                Value = @Model.Branches.Total,
+                Controller = "Branch",
+                Action = "Index",
+    }' />
+    <partial name="HomeItemCount" model='new {
+                Icon = "/images/icons/builder-light.png",
+                Label = "BUILDERS",
+                Value = @Model.Builders.Total,
+                Controller = "Builder",
+                Action = "Index",
+    }' />
+    <partial name="HomeItemCount" model='new {
+                Icon = "/images/icons/flag-light.png",
+                Label = "FLAGS",
+                Value = @Model.Flags.Total,
+                Controller = "Flag",
+                Action = "Index",
+    }' />
+    <partial name="HomeItemCount" model='new {
+                Icon = "/images/icons/embassy-light.png",
+                Label = "POLITICAL ENTITIES",
+                Value = @Model.PoliticalEntities.Total,
+                Controller = "PoliticalEntity",
+                Action = "Index",
+    }' />
+    <partial name="HomeItemCount" model='new {
+                Icon = "/images/icons/ship-light.png",
+                Label = "SHIPS",
+                Value = @Model.Ships.Total,
+                Controller = "Ship",
+                Action = "Index",
+    }' />
+    <partial name="HomeItemCount" model='new {
+                Icon = "/images/icons/shipservice-light.png",
+                Label = "SHIP SERVICES",
+                Value = @Model.ShipServices.Total,
+                Controller = "ShipService",
+                Action = "Index",
+    }' />
+    <partial name="HomeItemCount" model='new {
+                Icon = "/images/icons/shipclass-light.png",
+                Label = "SHIP CLASSES",
+                Value = @Model.ShipClasses.Total,
+                Controller = "ShipClass",
+                Action = "Index",
+    }' />
 </div>
 
-
+<hr class="bg-light" />
 
 <div class="d-flex flex-row flex-wrap">
     <div class="p-2">
