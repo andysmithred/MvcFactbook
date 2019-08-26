@@ -24,7 +24,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
 
 
-
+        private ShipDataAccess shipsDb = null;
+        private ShipView featuredShip = null;
 
 
         #endregion Private Declarations
@@ -78,6 +79,9 @@ namespace MvcFactbook.ViewModels.Models.Main
             get => politicalEntities ?? (politicalEntities = new CompleteItem<PoliticalEntity>(Context.PoliticalEntity));
             set => politicalEntities = value;
         }
+
+
+
 
 
 
@@ -169,6 +173,30 @@ namespace MvcFactbook.ViewModels.Models.Main
         {
             get => armedForces == default(int) ? armedForces = Context.ArmedForce.Count() : armedForces;
             set => armedForces = value;
+        }
+
+
+
+
+        public ShipDataAccess ShipsDb
+        {
+            get => shipsDb ?? (shipsDb = new ShipDataAccess(Context));
+            set => shipsDb = value;
+        }
+
+        public ShipView FeaturedShip
+        {
+            get => featuredShip ?? (featuredShip = ShipsDb.GetViews().ElementAt(Random.Next(shipsDb.Count())));
+            set => featuredShip = value;
+        }
+
+
+
+        Random rnd = null;
+
+        public Random Random
+        {
+            get => rnd ?? (rnd = new Random());
         }
 
         #endregion Public Properties
