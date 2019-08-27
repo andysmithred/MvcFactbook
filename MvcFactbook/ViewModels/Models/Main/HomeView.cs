@@ -191,6 +191,23 @@ namespace MvcFactbook.ViewModels.Models.Main
         }
 
 
+        private ShipServiceDataAccess shipServicesDb = null;
+        private ShipServiceView featuredShipService = null;
+
+
+        public ShipServiceDataAccess ShipServicesDb
+        {
+            get => shipServicesDb ?? (shipServicesDb = new ShipServiceDataAccess(Context));
+            set => shipServicesDb = value;
+        }
+
+        public ShipServiceView FeaturedShipService
+        {
+            get => featuredShipService ?? (featuredShipService = ShipServicesDb.GetRandomView());
+            set => featuredShipService = value;
+        }
+
+
 
         Random rnd = null;
 

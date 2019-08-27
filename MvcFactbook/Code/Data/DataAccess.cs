@@ -15,6 +15,7 @@ namespace MvcFactbook.Code.Data
 
         private DbSet<T> dataSet = null;
         private DbContext context = null;
+        private Random random = null;
 
         #endregion Private Declarations
 
@@ -30,6 +31,11 @@ namespace MvcFactbook.Code.Data
         {
             get => context ?? throw new NullReferenceException("The context object has not been set.");
             set => context = value;
+        }
+
+        public Random Random
+        {
+            get => random ?? (random = new Random());
         }
 
         #endregion Public Properties
@@ -80,6 +86,16 @@ namespace MvcFactbook.Code.Data
         public T GetItem(int id, Func<int, T> itemFunc)
         {
             return itemFunc(id);
+        }
+
+        public T GetRandomItem()
+        {
+            return GetItems().ToList().ElementAt(Random.Next(Count()));
+        }
+
+        public T GetRandomItem(Func<T, bool> itemFunc)
+        {
+            return DataSet.Where(itemFunc).ElementAt(Random.Next(Count(itemFunc)));
         }
 
         public void Add(T item)
@@ -133,6 +149,20 @@ namespace MvcFactbook.Code.Data
         {
             TView view = new TView();
             view.ViewObject = GetItem(id, itemFunc);
+            return view;
+        }
+
+        public TView GetRandomView()
+        {
+            TView view = new TView();
+            view.ViewObject = GetRandomItem();
+            return view;
+        }
+
+        public TView GetRandomView(Func<T, bool> itemFunc)
+        {
+            TView view = new TView();
+            view.ViewObject = GetRandomItem(itemFunc);
             return view;
         }
 
