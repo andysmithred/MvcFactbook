@@ -209,6 +209,42 @@ namespace MvcFactbook.ViewModels.Models.Main
 
 
 
+        private ShipClassDataAccess shipClassesDb = null;
+        private ShipClassView featuredShipClass = null;
+
+
+        public ShipClassDataAccess ShipClassesDb
+        {
+            get => shipClassesDb ?? (shipClassesDb = new ShipClassDataAccess(Context));
+            set => shipClassesDb = value;
+        }
+
+        public ShipClassView FeaturedShipClass
+        {
+            get => featuredShipClass ?? (featuredShipClass = ShipClassesDb.GetRandomView());
+            set => featuredShipClass = value;
+        }
+
+
+
+        private BuilderDataAccess buildersDb = null;
+        private BuilderView featuredBuilder = null;
+
+
+        public BuilderDataAccess BuildersDb
+        {
+            get => buildersDb ?? (buildersDb = new BuilderDataAccess(Context));
+            set => buildersDb = value;
+        }
+
+        public BuilderView FeaturedBuilder
+        {
+            get => featuredBuilder ?? (featuredBuilder = BuildersDb.GetRandomView());
+            set => featuredBuilder = value;
+        }
+
+
+
         Random rnd = null;
 
         public Random Random

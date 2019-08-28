@@ -69,8 +69,42 @@
 <hr class="bg-light" />
 
 <div class="d-flex flex-row flex-wrap">
-    <div class="p-2">
-        <partial name="DetailsItemLinkHeader" model='new {
+
+    <div class="w-25 p-1">
+        <partial name="DetailsItemHeader" model='new { Label = "FEATURED SHIP", Icon = "/images/icons/ship-light.png" }' />
+
+
+
+    </div>
+    <div class="w-25 p-1">
+        <partial name="DetailsItemHeader" model='new { Label = "FEATURED SERVICE", Icon = "/images/icons/shipservice-light.png" }' />
+
+
+
+    </div>
+    <div class="w-25 p-1">
+        <partial name="DetailsItemHeader" model='new { Label = "FEATURED CLASS", Icon = "/images/icons/shipclass-light.png" }' />
+
+
+
+    </div>
+    <div class="w-25 p-1">
+        <partial name="DetailsItemHeader" model='new { Label = "FEATURED BUILDER", Icon = "/images/icons/builder-light.png" }' />
+
+
+
+    </div>
+</div>
+
+
+
+
+
+<hr class="bg-light" />
+
+    <div class="d-flex flex-row flex-wrap">
+        <div class="p-2">
+            <partial name="DetailsItemLinkHeader" model='new {
                 Icon = "/images/icons/shipclass-light.png",
                 Label = "SHIP CLASSES",
                 Controller = "ShipClass",
@@ -78,12 +112,12 @@
                 Link = @Model.ShipClasses.Total,
                 Tooltip = "Ship Classes"
         }' />
-        <div class="d-flex flex-row">
-            <partial name="ChartDonutComplete" model='new { Id="ShipClassesChart", Item=@Model.ShipClasses }' />
+            <div class="d-flex flex-row">
+                <partial name="ChartDonutComplete" model='new { Id="ShipClassesChart", Item=@Model.ShipClasses }' />
+            </div>
         </div>
-    </div>
-    <div class="p-2">
-        <partial name="DetailsItemLinkHeader" model='new {
+        <div class="p-2">
+            <partial name="DetailsItemLinkHeader" model='new {
                 Icon = "/images/icons/ship-light.png",
                 Label = "SHIPS",
                 Controller = "Ship",
@@ -91,12 +125,12 @@
                 Link = @Model.Ships.Total,
                 Tooltip = "Ships"
         }' />
-        <div class="d-flex flex-row">
-            <partial name="ChartDonutComplete" model='new { Id="ShipsChart", Item=@Model.Ships }' />
+            <div class="d-flex flex-row">
+                <partial name="ChartDonutComplete" model='new { Id="ShipsChart", Item=@Model.Ships }' />
+            </div>
         </div>
-    </div>
-    <div class="p-2">
-        <partial name="DetailsItemLinkHeader" model='new {
+        <div class="p-2">
+            <partial name="DetailsItemLinkHeader" model='new {
                 Icon = "/images/icons/shipservice-light.png",
                 Label = "SHIP SERVICES",
                 Controller = "ShipService",
@@ -104,12 +138,12 @@
                 Link = @Model.ShipServices.Total,
                 Tooltip = "Ship Services"
         }' />
-        <div class="d-flex flex-row">
-            <partial name="ChartDonutComplete" model='new { Id="ShipServicesChart", Item=@Model.ShipServices }' />
+            <div class="d-flex flex-row">
+                <partial name="ChartDonutComplete" model='new { Id="ShipServicesChart", Item=@Model.ShipServices }' />
+            </div>
         </div>
-    </div>
-    <div class="p-2">
-        <partial name="DetailsItemLinkHeader" model='new {
+        <div class="p-2">
+            <partial name="DetailsItemLinkHeader" model='new {
                 Icon = "/images/icons/builder-light.png",
                 Label = "BUILDERS",
                 Controller = "Builder",
@@ -117,12 +151,12 @@
                 Link = @Model.Builders.Total,
                 Tooltip = "Builders"
         }' />
-        <div class="d-flex flex-row">
-            <partial name="ChartDonutComplete" model='new { Id="BuildersChart", Item=@Model.Builders }' />
+            <div class="d-flex flex-row">
+                <partial name="ChartDonutComplete" model='new { Id="BuildersChart", Item=@Model.Builders }' />
+            </div>
         </div>
-    </div>
-    <div class="p-2">
-        <partial name="DetailsItemLinkHeader" model='new {
+        <div class="p-2">
+            <partial name="DetailsItemLinkHeader" model='new {
                 Icon = "/images/icons/branch-light.png",
                 Label = "BRANCHES",
                 Controller = "Branch",
@@ -130,12 +164,12 @@
                 Link = @Model.Branches.Total,
                 Tooltip = "Branches"
         }' />
-        <div class="d-flex flex-row">
-            <partial name="ChartDonutComplete" model='new { Id="BranchesChart", Item=@Model.Branches }' />
+            <div class="d-flex flex-row">
+                <partial name="ChartDonutComplete" model='new { Id="BranchesChart", Item=@Model.Branches }' />
+            </div>
         </div>
-    </div>
-    <div class="p-2">
-        <partial name="DetailsItemLinkHeader" model='new {
+        <div class="p-2">
+            <partial name="DetailsItemLinkHeader" model='new {
                 Icon = "/images/icons/flag-light.png",
                 Label = "FLAGS",
                 Controller = "Flag",
@@ -143,12 +177,12 @@
                 Link = @Model.Flags.Total,
                 Tooltip = "Flags"
         }' />
-        <div class="d-flex flex-row">
-            <partial name="ChartDonutComplete" model='new { Id="FlagsChart", Item=@Model.Flags }' />
+            <div class="d-flex flex-row">
+                <partial name="ChartDonutComplete" model='new { Id="FlagsChart", Item=@Model.Flags }' />
+            </div>
         </div>
-    </div>
-    <div class="p-2">
-        <partial name="DetailsItemLinkHeader" model='new {
+        <div class="p-2">
+            <partial name="DetailsItemLinkHeader" model='new {
                 Icon = "/images/icons/embassy-light.png",
                 Label = "POLITICAL ENTITIES",
                 Controller = "PoliticalEntity",
@@ -156,60 +190,74 @@
                 Link = @Model.PoliticalEntities.Total,
                 Tooltip = "Political Entities"
         }' />
-        <div class="d-flex flex-row">
-            <partial name="ChartDonutComplete" model='new { Id="PoliticalEntitiesChart", Item=@Model.PoliticalEntities }' />
+            <div class="d-flex flex-row">
+                <partial name="ChartDonutComplete" model='new { Id="PoliticalEntitiesChart", Item=@Model.PoliticalEntities }' />
+            </div>
         </div>
+
     </div>
 
-</div>
+    <hr class="bg-light" />
 
-<hr class="bg-light" />
+    <div>
+        @foreach (var item in Model.X)
+        {
+            <span>@item.Name</span>
+        }
+    </div>
 
-<div>
-    @foreach (var item in Model.X)
-    {
-        <span>@item.Name</span>
-    }
-</div>
+    <hr class="bg-light" />
 
-<hr class="bg-light" />
+    <div>
+        @foreach (var item in Model.ShipsList)
+        {
+            <span>@item.Name</span>
+        }
+    </div>
 
-<div>
-    @foreach (var item in Model.ShipsList)
-    {
-        <span>@item.Name</span>
-    }
-</div>
+    <hr class="bg-light" />
 
-<hr class="bg-light" />
+    <div>
+        @foreach (var item in Model.StartServicesList)
+        {
+            <span>@item.Name</span>
+        }
+    </div>
 
-<div>
-    @foreach (var item in Model.StartServicesList)
-    {
-        <span>@item.Name</span>
-    }
-</div>
+    <hr class="bg-light" />
 
-<hr class="bg-light" />
+    <div>
+        @foreach (var item in Model.EndServicesList)
+        {
+            <span>@item.Name</span>
+        }
+    </div>
 
-<div>
-    @foreach (var item in Model.EndServicesList)
-    {
-        <span>@item.Name</span>
-    }
-</div>
+    <hr class="bg-light" />
 
-<hr class="bg-light" />
+    <div>
+        <span>Featured Ship</span>
+        <span>@Model.FeaturedShip.Name</span>
+    </div>
 
-<div>
-    <span>Featured Ship</span>
-    <span>@Model.FeaturedShip.Name</span>
-</div>
+    <hr class="bg-light" />
 
-<hr class="bg-light" />
+    <div>
+        <span>Featured Ship Service</span>
+        <span>@Model.FeaturedShipService.Name</span>
+    </div>
 
-<div>
-    <span>Featured Ship Service</span>
-    <span>@Model.FeaturedShipService.Name</span>
-</div>
+    <hr class="bg-light" />
+
+    <div>
+        <span>Featured Ship Class</span>
+        <span>@Model.FeaturedShipClass.Name</span>
+    </div>
+
+    <hr class="bg-light" />
+
+    <div>
+        <span>Featured Builder</span>
+        <span>@Model.FeaturedBuilder.Name</span>
+    </div>
 
