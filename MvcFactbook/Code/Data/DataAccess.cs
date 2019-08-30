@@ -52,6 +52,8 @@ namespace MvcFactbook.Code.Data
 
         #region Methods
 
+        #region Synchronous Methods
+
         public int Count()
         {
             return DataSet.Count();
@@ -67,6 +69,9 @@ namespace MvcFactbook.Code.Data
             return DataSet.Any(predicate);
         }
 
+
+
+
         public virtual IQueryable<T> GetItems()
         {
             return from item in DataSet
@@ -78,6 +83,8 @@ namespace MvcFactbook.Code.Data
             return itemFunc();
         }
 
+
+
         public T GetItem(int id)
         {
             return DataSet.Find(id);
@@ -88,6 +95,9 @@ namespace MvcFactbook.Code.Data
             return itemFunc(id);
         }
 
+
+
+
         public T GetRandomItem()
         {
             return GetItems().ToList().ElementAt(Random.Next(Count()));
@@ -97,6 +107,10 @@ namespace MvcFactbook.Code.Data
         {
             return DataSet.Where(itemFunc).ElementAt(Random.Next(Count(itemFunc)));
         }
+
+     
+
+
 
         public void Add(T item)
         {
@@ -165,6 +179,8 @@ namespace MvcFactbook.Code.Data
             view.ViewObject = GetRandomItem(itemFunc);
             return view;
         }
+
+        #endregion Synchronous Methods
 
         #region Asynchronous Methods
 

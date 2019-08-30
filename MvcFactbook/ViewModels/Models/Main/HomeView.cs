@@ -186,7 +186,7 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ShipView FeaturedShip
         {
-            get => featuredShip ?? (featuredShip = ShipsDb.GetViews().ElementAt(Random.Next(shipsDb.Count())));
+            get => featuredShip ?? (featuredShip = ShipsDb.GetRandomView());
             set => featuredShip = value;
         }
 

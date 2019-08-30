@@ -72,6 +72,37 @@
 
     <div class="w-25 p-1">
         <partial name="DetailsItemHeader" model='new { Label = "FEATURED SHIP", Icon = "/images/icons/ship-light.png" }' />
+        <div class="d-flex flex-row mt-2">
+            @if (Model.FeaturedShip.HasFlag)
+            {
+                <div class="mr-3">
+                    <img class="card-img-top-50 rounded" src="@Model.FeaturedShip.Flag.ImageSource" alt="Card image" style="height:30px;object-fit: cover;overflow: hidden;opacity:0.3" />
+                </div>
+            }
+            <div class="text-white"><h4>@Model.FeaturedShip.Name</h4></div>
+        </div>
+
+
+
+        <div class="d-flex flex-row">
+            
+        </div>
+        <div class="d-flex flex-row">
+            @Model.FeaturedShip.Builder.Name
+        </div>
+        <div class="d-flex flex-row">
+            @Model.FeaturedShip.HasFlag
+        </div>
+        <div class="d-flex flex-row">
+            @if (Model.FeaturedShip.HasFlag)
+            {
+                @Model.FeaturedShip.Flag.Name
+            }
+        </div>
+        <div class="d-flex flex-row">
+            @Model.FeaturedShip.LaunchedLabel
+        </div>
+
 
 
 
