@@ -72,7 +72,7 @@
 
     <div class="w-25 p-1">
         <partial name="DetailsItemHeader" model='new { Label = "FEATURED SHIP", Icon = "/images/icons/ship-light.png" }' />
-        <div class="d-flex flex-row mt-2">
+        <a asp-controller="Ship" asp-action="Details" asp-route-id="@Model.FeaturedShip.Id" class="w-100 home-link">
             @if (Model.FeaturedShip.HasFlag)
             {
                 <div class="mr-3">
@@ -80,7 +80,17 @@
                 </div>
             }
             <div class="text-white"><h4>@Model.FeaturedShip.Name</h4></div>
-        </div>
+            <div class="ml-auto">
+                @if (Model.FeaturedShip.Complete)
+                {
+                    <img src="~/images/icons/lock-light.png" style="height:20px;" />
+                }
+                else
+                {
+                    <img src="~/images/icons/unlock-light.png" style="height:20px;" />
+                }
+            </div>
+        </a>
 
 
 
@@ -109,9 +119,25 @@
     </div>
     <div class="w-25 p-1">
         <partial name="DetailsItemHeader" model='new { Label = "FEATURED SERVICE", Icon = "/images/icons/shipservice-light.png" }' />
-
-
-
+        <a asp-controller="ShipService" asp-action="Details" asp-route-id="@Model.FeaturedShipService.Id" class="w-100 home-link">
+            @if (Model.FeaturedShipService.HasFlag)
+            {
+                <div class="mr-3">
+                    <img class="card-img-top-50 rounded" src="@Model.FeaturedShipService.ImageSource" alt="Card image" style="height:30px;object-fit: cover;overflow: hidden;opacity:0.3" />
+                </div>
+            }
+            <div class="text-white"><h4>@Model.FeaturedShipService.Name</h4></div>
+            <div class="ml-auto">
+                @if (Model.FeaturedShipService.Complete)
+                {
+                    <img src="~/images/icons/lock-light.png" style="height:20px;" />
+                }
+                else
+                {
+                    <img src="~/images/icons/unlock-light.png" style="height:20px;" />
+                }
+            </div>
+        </a>
     </div>
     <div class="w-25 p-1">
         <partial name="DetailsItemHeader" model='new { Label = "FEATURED CLASS", Icon = "/images/icons/shipclass-light.png" }' />

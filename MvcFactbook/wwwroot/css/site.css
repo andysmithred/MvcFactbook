@@ -164,4 +164,20 @@ a:hover {
     border-radius: 5px;
 }
 
+.home-link {
+    display: flex;
+    flex-direction: row;
+    transition: all 0.5s ease;
+    width: 100%;
+    margin-top: 1vh;
+    /*padding-left:1vh;*/
+    padding-top:1vh;
+    padding-right:1vh;
+}
+
+    .home-link:hover {
+        background-color: darkslategray;
+        border-radius: 5px;
+    }
+
 
