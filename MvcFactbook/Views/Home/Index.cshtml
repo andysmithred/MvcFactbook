@@ -76,10 +76,10 @@
             @if (Model.FeaturedShip.HasFlag)
             {
                 <div class="mr-3">
-                    <img class="card-img-top-50 rounded" src="@Model.FeaturedShip.Flag.ImageSource" alt="Card image" style="height:30px;object-fit: cover;overflow: hidden;opacity:0.3" />
+                    <img class="card-img-top-50 rounded" src="@Model.FeaturedShip.Flag.ImageSource" alt="Card image" style="height:20px;object-fit: cover;overflow: hidden;opacity:0.3" />
                 </div>
             }
-            <div class="text-white"><h4>@Model.FeaturedShip.Name</h4></div>
+            <div class="text-white"><h5>@Model.FeaturedShip.Name</h5></div>
             <div class="ml-auto">
                 @if (Model.FeaturedShip.Complete)
                 {
@@ -91,31 +91,18 @@
                 }
             </div>
         </a>
-
-
-
-        <div class="d-flex flex-row">
-            
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">Builder</div>
+            <div class="text-white"><h5>@Model.FeaturedShip.Builder.Name</h5></div>
         </div>
-        <div class="d-flex flex-row">
-            @Model.FeaturedShip.Builder.Name
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">Launched</div>
+            <div class="text-white"><h5>@Model.FeaturedShip.LaunchedLabel</h5></div>
         </div>
-        <div class="d-flex flex-row">
-            @Model.FeaturedShip.HasFlag
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">Launched</div>
+            <div class="text-white"><h5>@Model.FeaturedShip.TimeSpanLabel</h5></div>
         </div>
-        <div class="d-flex flex-row">
-            @if (Model.FeaturedShip.HasFlag)
-            {
-                @Model.FeaturedShip.Flag.Name
-            }
-        </div>
-        <div class="d-flex flex-row">
-            @Model.FeaturedShip.LaunchedLabel
-        </div>
-
-
-
-
     </div>
     <div class="w-25 p-1">
         <partial name="DetailsItemHeader" model='new { Label = "FEATURED SERVICE", Icon = "/images/icons/shipservice-light.png" }' />
@@ -123,7 +110,7 @@
             @if (Model.FeaturedShipService.HasFlag)
             {
                 <div class="mr-3">
-                    <img class="card-img-top-50 rounded" src="@Model.FeaturedShipService.ImageSource" alt="Card image" style="height:30px;object-fit: cover;overflow: hidden;opacity:0.3" />
+                    <img class="card-img-top-50 rounded" src="@Model.FeaturedShipService.ImageSource" alt="Card image" style="height:30px;width:30px;object-fit: cover;overflow: hidden;opacity:0.3" />
                 </div>
             }
             <div class="text-white"><h4>@Model.FeaturedShipService.Name</h4></div>
@@ -141,15 +128,44 @@
     </div>
     <div class="w-25 p-1">
         <partial name="DetailsItemHeader" model='new { Label = "FEATURED CLASS", Icon = "/images/icons/shipclass-light.png" }' />
-
-
-
+        <a asp-controller="ShipClass" asp-action="Details" asp-route-id="@Model.FeaturedShipClass.Id" class="w-100 home-link">
+            <div class="mr-3">
+                <img src="~/images/icons/shipclass-light.png" style="height:30px;" />
+            </div>
+            <div class="text-white"><h4>@Model.FeaturedShipClass.Name</h4></div>
+            <div class="ml-auto">
+                @if (Model.FeaturedShipClass.Complete)
+                {
+                    <img src="~/images/icons/lock-light.png" style="height:20px;" />
+                }
+                else
+                {
+                    <img src="~/images/icons/unlock-light.png" style="height:20px;" />
+                }
+            </div>
+        </a>
     </div>
     <div class="w-25 p-1">
         <partial name="DetailsItemHeader" model='new { Label = "FEATURED BUILDER", Icon = "/images/icons/builder-light.png" }' />
-
-
-
+        <a asp-controller="Builder" asp-action="Details" asp-route-id="@Model.FeaturedBuilder.Id" class="w-100 home-link">
+            @if (Model.FeaturedBuilder.HasFlag)
+            {
+                <div class="mr-3">
+                    <img class="card-img-top-50 rounded" src="@Model.FeaturedBuilder.ImageSource" alt="Card image" style="height:30px;object-fit: cover;overflow: hidden;opacity:0.3" />
+                </div>
+            }
+            <div class="text-white"><h6>@Model.FeaturedBuilder.Name</h6></div>
+            <div class="ml-auto">
+                @if (Model.FeaturedBuilder.Complete)
+                {
+                    <img src="~/images/icons/lock-light.png" style="height:20px;" />
+                }
+                else
+                {
+                    <img src="~/images/icons/unlock-light.png" style="height:20px;" />
+                }
+            </div>
+        </a>
     </div>
 </div>
 

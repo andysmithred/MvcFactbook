@@ -21,7 +21,7 @@ namespace MvcFactbook.Code.Data
 
         public FactbookContext Context
         {
-            get => context ?? throw new NullReferenceException("");
+            get => context ?? throw new NullReferenceException("The context object has not been set.");
             set => context = value;
         }
 

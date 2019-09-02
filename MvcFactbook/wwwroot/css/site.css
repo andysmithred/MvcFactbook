@@ -170,8 +170,8 @@ a:hover {
     transition: all 0.5s ease;
     width: 100%;
     margin-top: 1vh;
-    /*padding-left:1vh;*/
-    padding-top:1vh;
+    padding-left:1vh;
+    padding-top:0.5vh;
     padding-right:1vh;
 }
 
