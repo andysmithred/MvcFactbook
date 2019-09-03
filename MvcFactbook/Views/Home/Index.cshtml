@@ -76,7 +76,7 @@
             @if (Model.FeaturedShip.HasFlag)
             {
                 <div class="mr-3">
-                    <img class="card-img-top-50 rounded" src="@Model.FeaturedShip.Flag.ImageSource" alt="Card image" style="height:20px;object-fit: cover;overflow: hidden;opacity:0.3" />
+                    <img class="card-img-top-50 rounded" src="@Model.FeaturedShip.Flag.ImageSource" alt="Card image" style="height:20px;width:30px;object-fit: cover;overflow: hidden;opacity:0.3" />
                 </div>
             }
             <div class="text-white"><h5>@Model.FeaturedShip.Name</h5></div>
@@ -110,10 +110,10 @@
             @if (Model.FeaturedShipService.HasFlag)
             {
                 <div class="mr-3">
-                    <img class="card-img-top-50 rounded" src="@Model.FeaturedShipService.ImageSource" alt="Card image" style="height:30px;width:30px;object-fit: cover;overflow: hidden;opacity:0.3" />
+                    <img class="card-img-top-50 rounded" src="@Model.FeaturedShipService.ImageSource" alt="Card image" style="height:20px;width:30px;object-fit: cover;overflow: hidden;opacity:0.3" />
                 </div>
             }
-            <div class="text-white"><h4>@Model.FeaturedShipService.Name</h4></div>
+            <div class="text-white"><h5>@Model.FeaturedShipService.Name</h5></div>
             <div class="ml-auto">
                 @if (Model.FeaturedShipService.Complete)
                 {
@@ -125,14 +125,30 @@
                 }
             </div>
         </a>
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">Start</div>
+            <div class="text-white"><h5>@Model.FeaturedShipService.StartServiceLabel</h5></div>
+        </div>
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">End</div>
+            <div class="text-white"><h5>@Model.FeaturedShipService.EndServiceLabel</h5></div>
+        </div>
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">Time Span</div>
+            <div class="text-white"><h5>@Model.FeaturedShipService.TimeSpanLabel</h5></div>
+        </div>
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">Fate</div>
+            <div class="text-white"><h5>@Model.FeaturedShipService.Fate</h5></div>
+        </div>
     </div>
     <div class="w-25 p-1">
         <partial name="DetailsItemHeader" model='new { Label = "FEATURED CLASS", Icon = "/images/icons/shipclass-light.png" }' />
         <a asp-controller="ShipClass" asp-action="Details" asp-route-id="@Model.FeaturedShipClass.Id" class="w-100 home-link">
             <div class="mr-3">
-                <img src="~/images/icons/shipclass-light.png" style="height:30px;" />
+                <img src="~/images/icons/shipclass-light.png" style="height:20px;" />
             </div>
-            <div class="text-white"><h4>@Model.FeaturedShipClass.Name</h4></div>
+            <div class="text-white"><h5>@Model.FeaturedShipClass.Name</h5></div>
             <div class="ml-auto">
                 @if (Model.FeaturedShipClass.Complete)
                 {
@@ -144,6 +160,22 @@
                 }
             </div>
         </a>
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">Sub-class</div>
+            <div class="text-white"><h5>@Model.FeaturedShipClass.SubClassNameLabel</h5></div>
+        </div>
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">Year</div>
+            <div class="text-white"><h5>@Model.FeaturedShipClass.YearLabel</h5></div>
+        </div>
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">Time Span</div>
+            <div class="text-white"><h5>@Model.FeaturedShipClass.TimeSpanLabel</h5></div>
+        </div>
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">Ships</div>
+            <div class="text-white"><h5>@Model.FeaturedShipClass.Ships.Count</h5></div>
+        </div>
     </div>
     <div class="w-25 p-1">
         <partial name="DetailsItemHeader" model='new { Label = "FEATURED BUILDER", Icon = "/images/icons/builder-light.png" }' />
@@ -151,10 +183,10 @@
             @if (Model.FeaturedBuilder.HasFlag)
             {
                 <div class="mr-3">
-                    <img class="card-img-top-50 rounded" src="@Model.FeaturedBuilder.ImageSource" alt="Card image" style="height:30px;object-fit: cover;overflow: hidden;opacity:0.3" />
+                    <img class="card-img-top-50 rounded" src="@Model.FeaturedBuilder.ImageSource" alt="Card image" style="height:20px;width:30px;object-fit: cover;overflow: hidden;opacity:0.3" />
                 </div>
             }
-            <div class="text-white"><h6>@Model.FeaturedBuilder.Name</h6></div>
+            <div class="text-white"><h5>@Model.FeaturedBuilder.Name</h5></div>
             <div class="ml-auto">
                 @if (Model.FeaturedBuilder.Complete)
                 {
@@ -166,6 +198,18 @@
                 }
             </div>
         </a>
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">Start</div>
+            <div class="text-white"><h5>@Model.FeaturedBuilder.FoundedLabel</h5></div>
+        </div>
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">End</div>
+            <div class="text-white"><h5>@Model.FeaturedBuilder.DefunctLabel</h5></div>
+        </div>
+        <div class="d-flex flex-column ml-2">
+            <div class="text-muted">Ships</div>
+            <div class="text-white"><h5>@Model.FeaturedBuilder.Ships.Count</h5></div>
+        </div>
     </div>
 </div>
 
