@@ -1,0 +1,106 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.HomeView
+
+@{
+    ViewData["Title"] = "Reconciliation Page";
+}
+
+<partial name='HomeMenu' model='new { Title = "RECONCILIATION", Icon = "/images/icons/completed-light.png" }' />
+
+<hr class="bg-light" />
+
+<div class="d-flex flex-row flex-wrap">
+    <div class="p-2">
+        <partial name="DetailsItemLinkHeader" model='new {
+                Icon = "/images/icons/shipclass-light.png",
+                Label = "SHIP CLASSES",
+                Controller = "ShipClass",
+                Action = "Index",
+                Link = @Model.ShipClasses.Total,
+                Tooltip = "Ship Classes"
+        }' />
+        <div class="d-flex flex-row">
+            <partial name="ChartDonutComplete" model='new { Id="ShipClassesChart", Item=@Model.ShipClasses }' />
+        </div>
+    </div>
+    <div class="p-2">
+        <partial name="DetailsItemLinkHeader" model='new {
+                Icon = "/images/icons/ship-light.png",
+                Label = "SHIPS",
+                Controller = "Ship",
+                Action = "Index",
+                Link = @Model.Ships.Total,
+                Tooltip = "Ships"
+        }' />
+        <div class="d-flex flex-row">
+            <partial name="ChartDonutComplete" model='new { Id="ShipsChart", Item=@Model.Ships }' />
+        </div>
+    </div>
+    <div class="p-2">
+        <partial name="DetailsItemLinkHeader" model='new {
+                Icon = "/images/icons/shipservice-light.png",
+                Label = "SHIP SERVICES",
+                Controller = "ShipService",
+                Action = "Index",
+                Link = @Model.ShipServices.Total,
+                Tooltip = "Ship Services"
+        }' />
+        <div class="d-flex flex-row">
+            <partial name="ChartDonutComplete" model='new { Id="ShipServicesChart", Item=@Model.ShipServices }' />
+        </div>
+    </div>
+    <div class="p-2">
+        <partial name="DetailsItemLinkHeader" model='new {
+                Icon = "/images/icons/builder-light.png",
+                Label = "BUILDERS",
+                Controller = "Builder",
+                Action = "Index",
+                Link = @Model.Builders.Total,
+                Tooltip = "Builders"
+        }' />
+        <div class="d-flex flex-row">
+            <partial name="ChartDonutComplete" model='new { Id="BuildersChart", Item=@Model.Builders }' />
+        </div>
+    </div>
+    <div class="p-2">
+        <partial name="DetailsItemLinkHeader" model='new {
+                Icon = "/images/icons/branch-light.png",
+                Label = "BRANCHES",
+                Controller = "Branch",
+                Action = "Index",
+                Link = @Model.Branches.Total,
+                Tooltip = "Branches"
+        }' />
+        <div class="d-flex flex-row">
+            <partial name="ChartDonutComplete" model='new { Id="BranchesChart", Item=@Model.Branches }' />
+        </div>
+    </div>
+    <div class="p-2">
+        <partial name="DetailsItemLinkHeader" model='new {
+                Icon = "/images/icons/flag-light.png",
+                Label = "FLAGS",
+                Controller = "Flag",
+                Action = "Index",
+                Link = @Model.Flags.Total,
+                Tooltip = "Flags"
+        }' />
+        <div class="d-flex flex-row">
+            <partial name="ChartDonutComplete" model='new { Id="FlagsChart", Item=@Model.Flags }' />
+        </div>
+    </div>
+    <div class="p-2">
+        <partial name="DetailsItemLinkHeader" model='new {
+                Icon = "/images/icons/embassy-light.png",
+                Label = "POLITICAL ENTITIES",
+                Controller = "PoliticalEntity",
+                Action = "Index",
+                Link = @Model.PoliticalEntities.Total,
+                Tooltip = "Political Entities"
+        }' />
+        <div class="d-flex flex-row">
+            <partial name="ChartDonutComplete" model='new { Id="PoliticalEntitiesChart", Item=@Model.PoliticalEntities }' />
+        </div>
+    </div>
+
+</div>
+
+<hr class="bg-light" />

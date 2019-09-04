@@ -66,25 +66,15 @@ namespace MvcFactbook.Controllers
             set => context = value;
         }
 
-
-
-
         public IActionResult Index()
         {
             HomeView view = new HomeView(Context);
+            return View(view);
+        }
 
-            
-
-
-
-
-            ViewBag.Total = view.ShipClasses.Total;
-            ViewBag.Complete = view.ShipClasses.Complete;
-            ViewBag.Incomplete = view.ShipClasses.Incomplete;
-
-
-
-
+        public IActionResult Reconciliation()
+        {
+            HomeView view = new HomeView(Context);
             return View(view);
         }
 

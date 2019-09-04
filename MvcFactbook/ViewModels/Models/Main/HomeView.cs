@@ -157,6 +157,10 @@ namespace MvcFactbook.ViewModels.Models.Main
         {
             return () => Context
                         .ShipService
+                        .Include(x => x.Branch)
+                            .ThenInclude(x => x.BranchFlags)
+                                .ThenInclude(x => x.Flag)
+                        .Include(x => x.ShipSubType)
                         .Where(x => x.StartService.Value.Month == date.Month && x.StartService.Value.Day == date.Day);
         }
 
@@ -164,6 +168,10 @@ namespace MvcFactbook.ViewModels.Models.Main
         {
             return () => Context
                         .ShipService
+                        .Include(x => x.Branch)
+                            .ThenInclude(x => x.BranchFlags)
+                                .ThenInclude(x => x.Flag)
+                        .Include(x => x.ShipSubType)
                         .Where(x => x.EndService.Value.Month == date.Month && x.EndService.Value.Day == date.Day);
         }
 
