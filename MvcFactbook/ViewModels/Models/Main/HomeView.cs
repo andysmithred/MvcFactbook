@@ -264,46 +264,46 @@ namespace MvcFactbook.ViewModels.Models.Main
         private ICollection<PoliticalEntityView>  startPoliticalEntitiesList = null;
         public ICollection<PoliticalEntityView> StartPoliticalEntitiesList
         {
-            get => startPoliticalEntitiesList ?? (startPoliticalEntitiesList = DbPoliticalEntities.GetViews(GetStartPoliticalEntitiesFunction(DateTime.Now)).OrderBy(x => x.ListName).ToList());
+            get => startPoliticalEntitiesList ?? (startPoliticalEntitiesList = DbPoliticalEntities.GetViews().Where(GetStartPoliticalEntitiesFunction(DateTime.Now)).ToList());
             set => startPoliticalEntitiesList = value;
         }
 
         private ICollection<PoliticalEntityView> endPoliticalEntitiesList = null;
         public ICollection<PoliticalEntityView> EndPoliticalEntitiesList
         {
-            get => endPoliticalEntitiesList ?? (endPoliticalEntitiesList = DbPoliticalEntities.GetViews(GetEndPoliticalEntitiesFunction(DateTime.Now)).OrderBy(x => x.ListName).ToList());
+            get => endPoliticalEntitiesList ?? (endPoliticalEntitiesList = DbPoliticalEntities.GetViews().Where(GetEndPoliticalEntitiesFunction(DateTime.Now)).ToList());
             set => endPoliticalEntitiesList = value;
         }
 
-        protected Func<IQueryable<PoliticalEntity>> GetStartPoliticalEntitiesFunction(DateTime date)
+        protected Func<PoliticalEntityView, bool> GetStartPoliticalEntitiesFunction(DateTime date)
         {
-            return () => Context
-                        .PoliticalEntity
-                        .Include(x => x.PoliticalEntityType)
-                        .Include(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
-                        .Include(x => x.PrecedingEntities).ThenInclude(x => x.PrecedingPoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
-                        .Include(x => x.PrecedingEntities).ThenInclude(x => x.SucceedingPoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
-                        .Include(x => x.SucceedingEntities).ThenInclude(x => x.PrecedingPoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
-                        .Include(x => x.SucceedingEntities).ThenInclude(x => x.SucceedingPoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
-                        .Include(x => x.PoliticalEntityBuilders).ThenInclude(x => x.Builder).ThenInclude(x => x.Ships)
-                        .Include(x => x.PoliticalEntityEras)
-                        .Where(x => x.StartDate.Value.Month == date.Month && x.StartDate.Value.Day == date.Day);
+            return x =>
+            {
+                if (x.StartDate.HasValue)
+                {
+                    if (x.StartDate.Value.Day == date.Day && x.StartDate.Value.Month == date.Month)
+                        return true;
+                }
+
+                return false;
+            };
         }
 
-        protected Func<IQueryable<PoliticalEntity>> GetEndPoliticalEntitiesFunction(DateTime date)
+        protected Func<PoliticalEntityView, bool> GetEndPoliticalEntitiesFunction(DateTime date)
         {
-            return () => Context
-                        .PoliticalEntity
-                        .Include(x => x.PoliticalEntityType)
-                        .Include(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
-                        .Include(x => x.PrecedingEntities).ThenInclude(x => x.PrecedingPoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
-                        .Include(x => x.PrecedingEntities).ThenInclude(x => x.SucceedingPoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
-                        .Include(x => x.SucceedingEntities).ThenInclude(x => x.PrecedingPoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
-                        .Include(x => x.SucceedingEntities).ThenInclude(x => x.SucceedingPoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
-                        .Include(x => x.PoliticalEntityBuilders).ThenInclude(x => x.Builder).ThenInclude(x => x.Ships)
-                        .Include(x => x.PoliticalEntityEras)
-                        .Where(x => x.EndDate.Value.Month == date.Month && x.EndDate.Value.Day == date.Day);
+            return x =>
+            {
+                if (x.EndDate.HasValue)
+                {
+                    if (x.EndDate.Value.Day == date.Day && x.EndDate.Value.Month == date.Month)
+                        return true;
+                }
+
+                return false;
+            };
         }
+
+
 
 
 
