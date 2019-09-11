@@ -1,8 +1,12 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.BuilderView
 
-<div class="d-flex flex-row flex-wrap">
-    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
-    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Founded), Value = Model.FoundedLabel }' />
-    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Defunct), Value = Model.DefunctLabel }' />
-    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Ships), Value = Model.Ships.Count }' />
-</div>
+    <div class="d-flex flex-row flex-wrap">
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.ShortName), Value = Model.ShortName }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.AlternativeNames), Value = Model.AlternativeNames }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Parent), Value = Model.Parent }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Location), Value = Model.Location }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Founded), Value = Model.FoundedLabel }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Defunct), Value = Model.DefunctLabel }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Ships), Value = Model.Ships.Count }' />
+    </div>

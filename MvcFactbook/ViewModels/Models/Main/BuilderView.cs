@@ -17,6 +17,16 @@ namespace MvcFactbook.ViewModels.Models.Main
         [Required]
         public string Name => ViewObject.Name;
 
+        [Display(Name = "Short Name")]
+        public string ShortName => ViewObject.ShortName;
+
+        [Display(Name = "Alternative Name")]
+        public string AlternativeNames => ViewObject.AlternativeNames;
+
+        public string Location => ViewObject.Location;
+
+        public string Parent => ViewObject.Parent;
+
         public int? Founded => ViewObject.Founded;
 
         public int? Defunct => ViewObject.Defunct;

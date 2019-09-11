@@ -24,6 +24,16 @@ namespace MvcFactbook.Models
         [Required]
         public string Name { get; set; }
 
+        [Display(Name = "Short Name")]
+        public string ShortName { get; set; }
+
+        [Display(Name = "Alternative Names")]
+        public string AlternativeNames { get; set; }
+
+        public string Location { get; set; }
+
+        public string Parent { get; set; }
+
         public int? Founded { get; set; }
 
         public int? Defunct { get; set; }

@@ -6,7 +6,9 @@
         .Build(columns =>
         {
             columns.Add().Encoded(false).RenderedAs(model => $"<img class='rounded' src='{model.ImageSource}' alt='Card image' style='height:20px;width:20px;object-fit:cover;overflow:hidden;opacity:0.4'>");
+            columns.Add(model => model.ShortName).Titled("Short Name");
             columns.Add(model => model.Name).Titled("Name");
+            columns.Add(model => model.Location).Titled("Location");
             columns.Add(model => model.FoundedLabel).Titled("Founded");
             columns.Add(model => model.DefunctLabel).Titled("Defunct");
             columns.Add(model => model.Ships.Count).Titled("Ships");
