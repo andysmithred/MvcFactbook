@@ -1,0 +1,207 @@
+
+
+https://en.wikipedia.org/wiki/List_of_shipbuilders_and_shipyards
+
+
+PATTERN
+
+Dockyard -> Use current Builder, may need to trim some fields.
+	-> name
+	-> location
+	-> Alternative names
+	-> Political entities
+
+
+Dockyard History -> 
+	-> owner / company
+	-> start
+	-> end
+
+Company / Owner / 
+	-> name
+	-> Short name
+
+
+
+
+
+UNITED STATES
+=============
+
+Vigor Shipyards => Seattle
+--------------------------
+
+Yesler's Wharf 1882
+Moran Brothers Shipyard 1906
+Seattle Construction and Drydock Company 1911 - 1916
+Todd Pacific Shipyards Corporation 1916 - 2011
+Vigor Shipyards 2011
+
+Locations: Seattle, Bremerton -> Puget Sound Naval Shipyard?, Everett, Portland Oregon
+
+
+
+William, Cramp & Sons
+---------------------
+
+
+
+
+UNITED KINGDOM
+==============
+
+
+British Shipbuilders 
+--------------------
+
+-> State owned nationalisation of all shipyards -> included a lot.
+
+
+
+Fairfields
+----------
+
+Fairfield Shipbuilding and Engineering Company -> from 1864 at site of Fairfields farm.
+
+-> 1834 -> first ship -> 1861
+Randolf Elliot
+Randolf Elder and Company
+
+Govan, Glasgow, Scotland
+
+Defunct 1968 (before nationalisation)
+
+
+Cammell Laird
+-------------
+
+Full: Cammell Laird & Company
+
+1828: Laird Company
+1874: Laird Brothers -> death of father, brothers continued
+1903: Cammell Laird -> merger of Laird and Johnson Cammell & Company
+1977: Nationalised to British Shipbuilders
+1986: Privitisation -> Part of VSEL (see vickers of Barrow) 
+1993: VSEL announces closure...now leased by Coastline Group
+1997: Coastline buys and uses Cammell Laird name
+2001: Receivership -> acquired by A&P Shiprepair Group
+2005: sold to Northwestern Shiprepairers & Shipbuilders (NWSL)
+2008: NWSL renamed Cammell Laird Shiprepairers & Shipbuilders Ltd.
+
+Birkenhead, Merseyside
+
+
+HM Dockyard, Chatham
+--------------------
+
+Chatham Dockyard
+
+Location: Chatham Kent
+
+Owned by Navy?State owned
+
+1567 -> established
+1586 -> first ship built
+1966 -> last ship / submarine launched
+1984 -> dockyard closed
+
+
+
+
+
+
+CHINA
+=====
+
+Hudong-Zhonghua Shipbuilding --> two merged to one
+----------------------------
+
+Hudong–Zhonghua Shipbuilding 2001
+Hudong Shipbuilding -> 1928 Molleis Shipbuilding and Engineering Works
+Zhonghua Shipyard -> 1926
+
+Shanghai
+Parent -> China State Shipbuilding Corporation
+31.2775,121.569444
+
+
+Taiwan
+======
+
+CSBC Corporation
+----------------
+
+Kaohsiung, Taiwan
+
+Parent: Government of Taiwan
+
+1937: Mitsubishi founded Taiwan Dockyard Corporation
+After war: 45/46: ROC established Taiwan Machinery and Shipbuilding Company
+1948: Split to Taiwan Machinery Corp and Tainwan Shipbuilding Corp
+1973: China Shipbuilding Corp (CSBC) founded.
+1977: CSBC reverted to government control.
+1978: CSBC and TSBC merged and known as China Shipbuilding Corporation
+2007: approved name change to Taiwan Shipbuilding Corporation
+
+
+
+CANADA
+======
+
+Saint John Shipbuilding
+-----------------------
+
+Saint John, New Brunswick
+
+1923 -> opned as St. John Drydock & Shipbuilding Co.
+1950s: renamed Saint John Shipbuilding & Dry Dock co., Ltd.
+1980s: became known as Saint John Shipbuilding
+
+
+
+RUSSIA / SOVIET UNION
+=====================
+
+
+
+
+AUSTRALIA
+=========
+
+Tenix Defence / Williamstown Dockyard
+-------------
+
+1956: founded as Transfield
+1988: Acquired Williamstown Dockyard through aquisition of AMECON
+1995: company split up and shipbuilding side evetually becoming Tenix
+1997: Company formed
+June 2008: acquired by BAE Systems now BAE Systems Australia
+
+Williamstown Dockyard-->
+1874 -> dockyard completed as Alfred Graving Dock
+1874 -> construction of Dockyard Pier
+1913 -> dockyard known as State Shipbuilding Yard
+1918 -> Requisitioned by Commonwealth
+1924: Ownership passed to Melbourne Harbour Trust
+1942: requisitioned by commonwealth became known as HM Naval Dockyard Williamstown
+1987: passed into private control as part of AMECON, Tenix
+
+
+Shipyards-> Williamstown, Victoria and Henderson, Western Australia
+HQ: Sydney, NSW
+
+
+BAE Systems Australia
+---------------------
+
+June 2008: formed after BAE Systems aquired Tenix Defence
+
+
+
+
+
+
+
+
+
+
