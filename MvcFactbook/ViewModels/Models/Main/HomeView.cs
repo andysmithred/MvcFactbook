@@ -14,6 +14,7 @@ namespace MvcFactbook.ViewModels.Models.Main
         #region Private Declarations
 
         private FactbookContext context = null;
+
         private CompleteItem<ShipClass> shipClasses = null;
         private CompleteItem<Ship> ships = null;
         private CompleteItem<ShipService> shipServices = null;
@@ -21,14 +22,40 @@ namespace MvcFactbook.ViewModels.Models.Main
         private CompleteItem<Branch> branches = null;
         private CompleteItem<Flag> flags = null;
         private CompleteItem<PoliticalEntity> politicalEntities = null;
-
-
+        private int armedForces = default(int);
 
         private ShipDataAccess shipsDb = null;
-        private ShipView featuredShip = null;
+        private ShipServiceDataAccess shipServicesDb = null;
+        private ShipClassDataAccess shipClassesDb = null;
+        private BuilderDataAccess buildersDb = null;
+        private PoliticalEntityDataAccess politicalEntitiesDb = null;
+        private FlagDataAccess flagDb = null;
+        private BranchDataAccess branchDb = null;
 
+        private ShipView featuredShip = null;
+        private ShipServiceView featuredShipService = null;
+        private ShipClassView featuredShipClass = null;
+        private BuilderView featuredBuilder = null;
+        private PoliticalEntityView featuredPoliticalEntity = null;
+        private FlagView featuredFlag = null;
+        private BranchView featuredBranch = null;
+
+        private ICollection<ShipView> shipsList = null;
+        private ICollection<ShipServiceView> startServiceList = null;
+        private ICollection<ShipServiceView> endServiceList = null;
+        private ICollection<PoliticalEntityView> startPoliticalEntitiesList = null;
+        private ICollection<PoliticalEntityView> endPoliticalEntitiesList = null;
 
         #endregion Private Declarations
+
+        #region Constructor
+
+        public HomeView(FactbookContext context)
+        {
+            Context = context;
+        }
+
+        #endregion Constructor
 
         #region Public Properties
 
@@ -37,6 +64,8 @@ namespace MvcFactbook.ViewModels.Models.Main
             get => context ?? throw new NullReferenceException("The Factbook Context object has not been set.");
             set => context = value;
         }
+
+        #region Counts
 
         public CompleteItem<ShipClass> ShipClasses
         {
@@ -80,47 +109,147 @@ namespace MvcFactbook.ViewModels.Models.Main
             set => politicalEntities = value;
         }
 
-        
-
-
-
-
-
-        private IEnumerable<Flag> x = null;
-        public IEnumerable<Flag> X
+        public int ArmedForces
         {
-            get => x ?? (x = GetItemsFunction(new DateTime(2008, 1, 17)));
-            set => x = value;
+            get => armedForces == default(int) ? armedForces = Context.ArmedForce.Count() : armedForces;
+            set => armedForces = value;
         }
 
-        protected IEnumerable<Flag> GetItemsFunction(DateTime date)
+        #endregion Counts
+
+        #region DataAccess
+
+        public ShipDataAccess ShipsDb
         {
-            return Context
-                        .Flag
-                        .Include(x => x.BranchFlags)
-                            .ThenInclude(x => x.Branch)
-                        .Include(x => x.ArmedForceFlags)
-                            .ThenInclude(x => x.ArmedForce)
-                        .Where(x => x.StartDate.Value.Month == date.Month && x.StartDate.Value.Day == date.Day);
+            get => shipsDb ?? (shipsDb = new ShipDataAccess(Context));
+            set => shipsDb = value;
         }
 
-
-        private DataAccess<Ship, ShipView> dbShips = null;
-        private ICollection<ShipView> shipsList = null;
-
-        public DataAccess<Ship, ShipView> DbShips
+        public ShipServiceDataAccess ShipServicesDb
         {
-            get => dbShips ?? (dbShips = new DataAccess<Ship, ShipView>(Context, Context.Ship));
-            set => dbShips = value;
+            get => shipServicesDb ?? (shipServicesDb = new ShipServiceDataAccess(Context));
+            set => shipServicesDb = value;
         }
+
+        public ShipClassDataAccess ShipClassesDb
+        {
+            get => shipClassesDb ?? (shipClassesDb = new ShipClassDataAccess(Context));
+            set => shipClassesDb = value;
+        }
+
+        public BuilderDataAccess BuildersDb
+        {
+            get => buildersDb ?? (buildersDb = new BuilderDataAccess(Context));
+            set => buildersDb = value;
+        }
+
+        public PoliticalEntityDataAccess PoliticalEntitiesDb
+        {
+            get => politicalEntitiesDb ?? (politicalEntitiesDb = new PoliticalEntityDataAccess(Context));
+            set => politicalEntitiesDb = value;
+        }
+
+        public FlagDataAccess FlagDb
+        {
+            get => flagDb ?? (flagDb = new FlagDataAccess(Context));
+            set => flagDb = value;
+        }
+
+        public BranchDataAccess BranchDb
+        {
+            get => branchDb ?? (branchDb = new BranchDataAccess(Context));
+            set => branchDb = value;
+        }
+
+        #endregion DataAccess
+
+        #region Featured Items
+
+        public ShipView FeaturedShip
+        {
+            get => featuredShip ?? (featuredShip = ShipsDb.GetRandomView());
+            set => featuredShip = value;
+        }
+
+        public ShipServiceView FeaturedShipService
+        {
+            get => featuredShipService ?? (featuredShipService = ShipServicesDb.GetRandomView());
+            set => featuredShipService = value;
+        }
+
+        public ShipClassView FeaturedShipClass
+        {
+            get => featuredShipClass ?? (featuredShipClass = ShipClassesDb.GetRandomView());
+            set => featuredShipClass = value;
+        }
+
+        public BuilderView FeaturedBuilder
+        {
+            get => featuredBuilder ?? (featuredBuilder = BuildersDb.GetRandomView());
+            set => featuredBuilder = value;
+        }
+
+        public PoliticalEntityView FeaturedPoliticalEntity
+        {
+            get => featuredPoliticalEntity ?? (featuredPoliticalEntity = PoliticalEntitiesDb.GetRandomView());
+            set => featuredPoliticalEntity = value;
+        }
+
+        public FlagView FeaturedFlag
+        {
+            get => featuredFlag ?? (featuredFlag = FlagDb.GetRandomView());
+            set => featuredFlag = value;
+        }
+
+        public BranchView FeaturedBranch
+        {
+            get => featuredBranch ?? (featuredBranch = BranchDb.GetRandomView());
+            set => featuredBranch = value;
+        }
+
+        #endregion Featured Items
+
+        #region On this day
 
         public ICollection<ShipView> ShipsList
         {
-            get => shipsList ?? (shipsList = DbShips.GetViews(GetShipsFunction(DateTime.Now)).OrderBy(x => x.ListName).ToList());
+            get => shipsList ?? (shipsList = ShipsDb.GetViews(GetShipsFunction(DateTime.Now)).OrderBy(x => x.ListName).ToList());
             set => shipsList = value;
         }
 
-        protected Func<IQueryable<Ship>> GetShipsFunction(DateTime date)
+        public ICollection<ShipServiceView> StartServicesList
+        {
+            get => startServiceList ?? (startServiceList = ShipServicesDb.GetViews(GetStartServicesFunction(DateTime.Now)).OrderBy(x => x.ListName).ToList());
+            set => startServiceList = value;
+        }
+
+        public ICollection<ShipServiceView> EndServicesList
+        {
+            get => endServiceList ?? (endServiceList = ShipServicesDb.GetViews(GetEndServicesFunction(DateTime.Now)).OrderBy(x => x.ListName).ToList());
+            set => endServiceList = value;
+        }
+
+        public ICollection<PoliticalEntityView> StartPoliticalEntitiesList
+        {
+            get => startPoliticalEntitiesList ?? (startPoliticalEntitiesList = PoliticalEntitiesDb.GetViews().Where(GetStartPoliticalEntitiesFunction(DateTime.Now)).ToList());
+            set => startPoliticalEntitiesList = value;
+        }
+
+        public ICollection<PoliticalEntityView> EndPoliticalEntitiesList
+        {
+            get => endPoliticalEntitiesList ?? (endPoliticalEntitiesList = PoliticalEntitiesDb.GetViews().Where(GetEndPoliticalEntitiesFunction(DateTime.Now)).ToList());
+            set => endPoliticalEntitiesList = value;
+        }
+
+        #endregion On this day
+
+        #endregion Public Properties
+
+        #region Methods
+
+        #region On this Day Function
+
+        private Func<IQueryable<Ship>> GetShipsFunction(DateTime date)
         {
             return () => Context
                         .Ship
@@ -130,31 +259,7 @@ namespace MvcFactbook.ViewModels.Models.Main
                         .Where(x => x.Launched.Value.Month == date.Month && x.Launched.Value.Day == date.Day);
         }
 
-        private DataAccess<ShipService, ShipServiceView> dbShipServices = null;
-
-        private ICollection<ShipServiceView> startServiceList = null;
-        private ICollection<ShipServiceView> endServiceList = null;
-
-
-        public DataAccess<ShipService, ShipServiceView> DbShipServices
-        {
-            get => dbShipServices ?? (dbShipServices = new DataAccess<ShipService, ShipServiceView>(Context, Context.ShipService));
-            set => dbShipServices = value;
-        }
-
-        public ICollection<ShipServiceView> StartServicesList
-        {
-            get => startServiceList ?? (startServiceList = DbShipServices.GetViews(GetStartServicesFunction(DateTime.Now)).OrderBy(x => x.ListName).ToList());
-            set => startServiceList = value;
-        }
-
-        public ICollection<ShipServiceView> EndServicesList
-        {
-            get => endServiceList ?? (endServiceList = DbShipServices.GetViews(GetEndServicesFunction(DateTime.Now)).OrderBy(x => x.ListName).ToList());
-            set => endServiceList = value;
-        }
-
-        protected Func<IQueryable<ShipService>> GetStartServicesFunction(DateTime date)
+        private Func<IQueryable<ShipService>> GetStartServicesFunction(DateTime date)
         {
             return () => Context
                         .ShipService
@@ -165,7 +270,7 @@ namespace MvcFactbook.ViewModels.Models.Main
                         .Where(x => x.StartService.Value.Month == date.Month && x.StartService.Value.Day == date.Day);
         }
 
-        protected Func<IQueryable<ShipService>> GetEndServicesFunction(DateTime date)
+        private Func<IQueryable<ShipService>> GetEndServicesFunction(DateTime date)
         {
             return () => Context
                         .ShipService
@@ -176,106 +281,7 @@ namespace MvcFactbook.ViewModels.Models.Main
                         .Where(x => x.EndService.Value.Month == date.Month && x.EndService.Value.Day == date.Day);
         }
 
-        private int armedForces = default(int);
-
-        public int ArmedForces
-        {
-            get => armedForces == default(int) ? armedForces = Context.ArmedForce.Count() : armedForces;
-            set => armedForces = value;
-        }
-
-
-
-
-        public ShipDataAccess ShipsDb
-        {
-            get => shipsDb ?? (shipsDb = new ShipDataAccess(Context));
-            set => shipsDb = value;
-        }
-
-        public ShipView FeaturedShip
-        {
-            get => featuredShip ?? (featuredShip = ShipsDb.GetRandomView());
-            set => featuredShip = value;
-        }
-
-
-        private ShipServiceDataAccess shipServicesDb = null;
-        private ShipServiceView featuredShipService = null;
-
-
-        public ShipServiceDataAccess ShipServicesDb
-        {
-            get => shipServicesDb ?? (shipServicesDb = new ShipServiceDataAccess(Context));
-            set => shipServicesDb = value;
-        }
-
-        public ShipServiceView FeaturedShipService
-        {
-            get => featuredShipService ?? (featuredShipService = ShipServicesDb.GetRandomView());
-            set => featuredShipService = value;
-        }
-
-
-
-        private ShipClassDataAccess shipClassesDb = null;
-        private ShipClassView featuredShipClass = null;
-
-
-        public ShipClassDataAccess ShipClassesDb
-        {
-            get => shipClassesDb ?? (shipClassesDb = new ShipClassDataAccess(Context));
-            set => shipClassesDb = value;
-        }
-
-        public ShipClassView FeaturedShipClass
-        {
-            get => featuredShipClass ?? (featuredShipClass = ShipClassesDb.GetRandomView());
-            set => featuredShipClass = value;
-        }
-
-
-
-        private BuilderDataAccess buildersDb = null;
-        private BuilderView featuredBuilder = null;
-
-
-        public BuilderDataAccess BuildersDb
-        {
-            get => buildersDb ?? (buildersDb = new BuilderDataAccess(Context));
-            set => buildersDb = value;
-        }
-
-        public BuilderView FeaturedBuilder
-        {
-            get => featuredBuilder ?? (featuredBuilder = BuildersDb.GetRandomView());
-            set => featuredBuilder = value;
-        }
-
-
-
-        private PoliticalEntityDataAccess dbPoliticalEntities = null;
-        public PoliticalEntityDataAccess DbPoliticalEntities
-        {
-            get => dbPoliticalEntities ?? (dbPoliticalEntities = new PoliticalEntityDataAccess(Context));
-            set => dbPoliticalEntities = value;
-        }
-
-        private ICollection<PoliticalEntityView>  startPoliticalEntitiesList = null;
-        public ICollection<PoliticalEntityView> StartPoliticalEntitiesList
-        {
-            get => startPoliticalEntitiesList ?? (startPoliticalEntitiesList = DbPoliticalEntities.GetViews().Where(GetStartPoliticalEntitiesFunction(DateTime.Now)).ToList());
-            set => startPoliticalEntitiesList = value;
-        }
-
-        private ICollection<PoliticalEntityView> endPoliticalEntitiesList = null;
-        public ICollection<PoliticalEntityView> EndPoliticalEntitiesList
-        {
-            get => endPoliticalEntitiesList ?? (endPoliticalEntitiesList = DbPoliticalEntities.GetViews().Where(GetEndPoliticalEntitiesFunction(DateTime.Now)).ToList());
-            set => endPoliticalEntitiesList = value;
-        }
-
-        protected Func<PoliticalEntityView, bool> GetStartPoliticalEntitiesFunction(DateTime date)
+        private Func<PoliticalEntityView, bool> GetStartPoliticalEntitiesFunction(DateTime date)
         {
             return x =>
             {
@@ -289,7 +295,7 @@ namespace MvcFactbook.ViewModels.Models.Main
             };
         }
 
-        protected Func<PoliticalEntityView, bool> GetEndPoliticalEntitiesFunction(DateTime date)
+        private Func<PoliticalEntityView, bool> GetEndPoliticalEntitiesFunction(DateTime date)
         {
             return x =>
             {
@@ -303,27 +309,9 @@ namespace MvcFactbook.ViewModels.Models.Main
             };
         }
 
+        #endregion On this Day Function
 
-
-
-
-        Random rnd = null;
-
-        public Random Random
-        {
-            get => rnd ?? (rnd = new Random());
-        }
-
-        #endregion Public Properties
-
-        #region Constructor
-
-        public HomeView(FactbookContext context)
-        {
-            Context = context;
-        }
-
-        #endregion Constructor
+        #endregion Methods
 
     }
 }
