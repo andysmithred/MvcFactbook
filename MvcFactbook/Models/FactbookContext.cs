@@ -18,10 +18,12 @@ namespace MvcFactbook.Models
         public virtual DbSet<Branch> Branch { get; set; }
         public virtual DbSet<BranchFlag> BranchFlag { get; set; }
         public virtual DbSet<BranchType> BranchType { get; set; }
-        public virtual DbSet<Builder> Builder { get; set; }
+        //public virtual DbSet<Builder> Builder { get; set; }
+        public virtual DbSet<Dockyard> Dockyard { get; set; }
         public virtual DbSet<Flag> Flag { get; set; }
         public virtual DbSet<PoliticalEntity> PoliticalEntity { get; set; }
-        public virtual DbSet<PoliticalEntityBuilder> PoliticalEntityBuilder { get; set; }
+        //public virtual DbSet<PoliticalEntityBuilder> PoliticalEntityBuilder { get; set; }
+        public virtual DbSet<PoliticalEntityDockyard> PoliticalEntityDockyard { get; set; }
         public virtual DbSet<PoliticalEntityEra> PoliticalEntityEra { get; set; }
         public virtual DbSet<PoliticalEntityFlag> PoliticalEntityFlag { get; set; }
         public virtual DbSet<PoliticalEntityType> PoliticalEntityType { get; set; }
@@ -164,7 +166,17 @@ namespace MvcFactbook.Models
             });
 
             // Builder
-            modelBuilder.Entity<Builder>(entity =>
+            //modelBuilder.Entity<Builder>(entity =>
+            //{
+            //    entity.Property(e => e.Name)
+            //        .IsRequired();
+
+            //    entity.Property(e => e.Complete)
+            //        .IsRequired();
+            //});
+
+            // Dockyard
+            modelBuilder.Entity<Dockyard>(entity =>
             {
                 entity.Property(e => e.Name)
                     .IsRequired();
@@ -204,24 +216,24 @@ namespace MvcFactbook.Models
                     .HasConstraintName("FK_PoliticalEntity_To_PoliticalEntityType");
             });
 
-            // Political Entity Builder
-            modelBuilder.Entity<PoliticalEntityBuilder>(entity =>
+            // Political Entity Dockyard
+            modelBuilder.Entity<PoliticalEntityDockyard>(entity =>
             {
                 entity.Property(e => e.PoliticalEntityId)
                     .IsRequired();
 
-                entity.Property(e => e.BuilderId)
+                entity.Property(e => e.DockyardId)
                     .IsRequired();
 
                 entity.HasOne(x => x.PoliticalEntity)
-                    .WithMany(y => y.PoliticalEntityBuilders)
+                    .WithMany(y => y.PoliticalEntityDockyards)
                     .HasForeignKey(y => y.PoliticalEntityId)
-                    .HasConstraintName("FK_PolitcalEntityBuilder_To_PoliticalEntity");
+                    .HasConstraintName("FK_PolitcalEntityDockyard_To_PoliticalEntity");
 
-                entity.HasOne(x => x.Builder)
-                    .WithMany(f => f.PoliticalEntityBuilders)
-                    .HasForeignKey(f => f.BuilderId)
-                    .HasConstraintName("FK_PolitcalEntityBuilder_To_Builder");
+                entity.HasOne(x => x.Dockyard)
+                    .WithMany(f => f.PoliticalEntityDockyards)
+                    .HasForeignKey(f => f.DockyardId)
+                    .HasConstraintName("FK_PolitcalEntityDockyard_To_Dockyard");
             });
 
             // Political Entity Era
@@ -292,10 +304,10 @@ namespace MvcFactbook.Models
                 entity.Property(e => e.Complete)
                     .IsRequired();
 
-                entity.HasOne(x => x.Builder)
+                entity.HasOne(x => x.Dockyard)
                     .WithMany(y => y.Ships)
-                    .HasForeignKey(y => y.BuilderId)
-                    .HasConstraintName("FK_Ship_To_Builder");
+                    .HasForeignKey(y => y.DockyardId)
+                    .HasConstraintName("FK_Ship_To_Dockyard");
             });
 
             // Ship Category

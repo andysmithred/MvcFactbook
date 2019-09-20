@@ -61,7 +61,7 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<PoliticalEntityFlagView> PoliticalEntityFlags => GetViewList<PoliticalEntityFlagView, PoliticalEntityFlag>(ViewObject.PoliticalEntityFlags);
 
-        public ICollection<PoliticalEntityBuilderView> PoliticalEntityBuilders => GetViewList<PoliticalEntityBuilderView, PoliticalEntityBuilder>(ViewObject.PoliticalEntityBuilders);
+        public ICollection<PoliticalEntityDockyardView> PoliticalEntityDockyards => GetViewList<PoliticalEntityDockyardView, PoliticalEntityDockyard>(ViewObject.PoliticalEntityDockyards);
 
         [Display(Name = "Preceding Entities")]
         public ICollection<PoliticalEntitySucceedingView> PrecedingEntities => GetViewList<PoliticalEntitySucceedingView, PoliticalEntitySucceeding>(ViewObject.PrecedingEntities);
@@ -119,7 +119,7 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<PoliticalEntityView> SucceedingPoliticalEntities => SucceedingEntities.Select(x => x.SucceedingEntity).Distinct(x => x.Id).ToList();
 
-        public ICollection<BuilderView> Builders => PoliticalEntityBuilders.Select(f => f.Builder).Distinct(f => f.Id).ToList();
+        public ICollection<DockyardView> Dockyards => PoliticalEntityDockyards.Select(f => f.Dockyard).Distinct(f => f.Id).ToList();
 
         #endregion Other Properties
 

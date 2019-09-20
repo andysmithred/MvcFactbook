@@ -15,22 +15,25 @@ namespace MvcFactbook.ViewModels.Models.Main
         public int Id => ViewObject.Id;
 
         [Required]
+        [Display(Name = "Name")]
         public string Name => ViewObject.Name;
 
         [DataType(DataType.Date)]
+        [Display(Name = "Launched")]
         public DateTime? Launched => ViewObject.Launched;
 
-        [Display(Name = "Builder Id")]
-        public int? BuilderId => ViewObject.BuilderId;
+        [Display(Name = "Dockyard Id")]
+        public int? DockyardId => ViewObject.DockyardId;
 
         [Required]
+        [Display(Name = "Complete")]
         public bool Complete => ViewObject.Complete;
 
         #endregion Database Properties
 
         #region Foreign Properties
 
-        public BuilderView Builder => GetView<BuilderView, Builder>(ViewObject.Builder);
+        public DockyardView Dockyard => GetView<DockyardView, Dockyard>(ViewObject.Dockyard);
 
         public ICollection<ShipServiceView> ShipServices => GetViewList<ShipServiceView, ShipService>(ViewObject.ShipServices);
 
@@ -59,9 +62,11 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<ShipClassView> ShipClasses => ShipServices.Select(f => f.ShipClass).Distinct(f => f.Id).ToList();
 
-        public bool HasFlag => Flag != null;
+        public bool HasFlag => HasDockyard ? Flag != null : false;
 
-        public FlagView Flag => Launched.HasValue ? Builder.GetFlagForDate(Launched.Value) : null;
+        public FlagView Flag => Launched.HasValue ? Dockyard.GetFlagForDate(Launched.Value) : null;
+
+        public bool HasDockyard => Dockyard != null;
 
         #endregion Other Properties
 

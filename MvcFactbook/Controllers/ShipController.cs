@@ -14,23 +14,23 @@ namespace MvcFactbook.Controllers
     {
         #region Private Declarations
 
-        private DataAccess<Builder, BuilderView> builders = null;
-        private ICollection<BuilderView> buildersList = null;
+        private DataAccess<Dockyard, DockyardView> dockyards = null;
+        private ICollection<DockyardView> dockyardsList = null;
 
         #endregion Private Declarations
 
         #region Public Properties
 
-        public DataAccess<Builder, BuilderView> Builders
+        public DataAccess<Dockyard, DockyardView> Builders
         {
-            get => builders ?? (builders = new DataAccess<Builder, BuilderView>(Context, Context.Builder));
-            set => builders = value;
+            get => dockyards ?? (dockyards = new DataAccess<Dockyard, DockyardView>(Context, Context.Dockyard));
+            set => dockyards = value;
         }
 
-        public ICollection<BuilderView> BuildersList
+        public ICollection<DockyardView> DockyardsList
         {
-            get => buildersList ?? (buildersList = Builders.GetViews().OrderBy(x => x.ListName).ToList());
-            set => buildersList = value;
+            get => dockyardsList ?? (dockyardsList = Builders.GetViews().OrderBy(x => x.ListName).ToList());
+            set => dockyardsList = value;
         }
 
         #endregion Public Properties
@@ -69,41 +69,41 @@ namespace MvcFactbook.Controllers
 
         public override IActionResult Create()
         {
-            ViewBag.Builders = GetSelectList<BuilderView>(BuildersList, null);
+            ViewBag.Dockyards = GetSelectList<DockyardView>(DockyardsList, null);
             return base.Create();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Launched,BuilderId,Complete")] Ship item)
+        public async Task<IActionResult> Create([Bind("Name,Launched,DockyardId,Complete")] Ship item)
         {
             if (ModelState.IsValid)
             {
                 await AddAsync(item);
                 return RedirectToAction("Details", new { id = item.Id });
             }
-            ViewBag.Builders = GetSelectList<BuilderView>(BuildersList, item.BuilderId);
+            ViewBag.Dockyards = GetSelectList<DockyardView>(DockyardsList, item.DockyardId);
             return View(item);
         }
 
-        public IActionResult CreateByBuilder(int id)
+        public IActionResult CreateByDockyard(int id)
         {
-            ViewBag.Builders = GetSelectList<BuilderView>(BuildersList, id);
+            ViewBag.Dockyards = GetSelectList<DockyardView>(DockyardsList, id);
             ViewBag.RouteId = id;
             return base.Create();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByBuilder([Bind("Name,Launched,BuilderId,Complete")] Ship item)
+        public async Task<IActionResult> CreateByDockyard([Bind("Name,Launched,DockyardId,Complete")] Ship item)
         {
             if (ModelState.IsValid)
             {
                 await AddAsync(item);
-                return RedirectToAction("Details", "Builder", new { id = item.BuilderId });
+                return RedirectToAction("Details", "Builder", new { id = item.DockyardId });
             }
-            ViewBag.Builders = GetSelectList<BuilderView>(BuildersList, item.BuilderId);
-            ViewBag.RouteId = item.BuilderId;
+            ViewBag.Dockyards = GetSelectList<DockyardView>(DockyardsList, item.DockyardId);
+            ViewBag.RouteId = item.DockyardId;
             return View(item);
         }
 
@@ -114,16 +114,16 @@ namespace MvcFactbook.Controllers
         public override async Task<IActionResult> Edit(int? id)
         {
             IActionResult result = await base.Edit(id);
-            ViewBag.Builders = GetSelectList<BuilderView>(BuildersList, Item.BuilderId);
+            ViewBag.Dockyards = GetSelectList<DockyardView>(DockyardsList, Item.DockyardId);
             return result;
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,Launched,BuilderId,Complete")] Ship item)
+        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,Launched,DockyardId,Complete")] Ship item)
         {
             IActionResult result = await base.Edit(id, item);
-            ViewBag.Builders = GetSelectList<BuilderView>(BuildersList, item.BuilderId);
+            ViewBag.Dockyards = GetSelectList<DockyardView>(DockyardsList, item.DockyardId);
             return result;
         }
 
@@ -155,13 +155,13 @@ namespace MvcFactbook.Controllers
         protected override Func<int, Ship> GetItemFunction()
         {
             return i => Context.Ship
-                        .Include(x => x.Builder)
-                            .ThenInclude(x => x.PoliticalEntityBuilders)
+                        .Include(x => x.Dockyard)
+                            .ThenInclude(x => x.PoliticalEntityDockyards)
                                 .ThenInclude(x => x.PoliticalEntity)
                                     .ThenInclude(x => x.PoliticalEntityFlags)
                                         .ThenInclude(x => x.Flag)
-                        .Include(x => x.Builder)
-                            .ThenInclude(x => x.PoliticalEntityBuilders)
+                        .Include(x => x.Dockyard)
+                            .ThenInclude(x => x.PoliticalEntityDockyards)
                                 .ThenInclude(x => x.PoliticalEntity)
                                     .ThenInclude(x => x.PoliticalEntityEras)
                         .Include(x => x.ShipServices)
@@ -178,7 +178,7 @@ namespace MvcFactbook.Controllers
         protected override Func<IQueryable<Ship>> GetItemsFunction()
         {
             return () => Context.Ship
-                            .Include(x => x.Builder)
+                            .Include(x => x.Dockyard)
                             .Include(x => x.ShipServices)
                                 .ThenInclude(x => x.Branch)
                                     .ThenInclude(x => x.BranchFlags)

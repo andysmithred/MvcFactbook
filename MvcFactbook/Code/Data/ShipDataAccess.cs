@@ -119,23 +119,18 @@ namespace MvcFactbook.Code.Data
             return DataAccess.GetViewAsync(id, GetItemFunction());
         }
 
-        
-
-
-
-
         private Func<int, Ship> GetItemFunction()
         {
             return i => Context.Ship
-                        .Include(x => x.Builder)
-                            .ThenInclude(x => x.PoliticalEntityBuilders)
-                                .ThenInclude(x => x.PoliticalEntity)
-                                    .ThenInclude(x => x.PoliticalEntityFlags)
-                                        .ThenInclude(x => x.Flag)
-                        .Include(x => x.Builder)
-                            .ThenInclude(x => x.PoliticalEntityBuilders)
-                                .ThenInclude(x => x.PoliticalEntity)
-                                    .ThenInclude(x => x.PoliticalEntityEras)
+                        .Include(x => x.Dockyard)
+                            //.ThenInclude(x => x.PoliticalEntityBuilders)
+                            //    .ThenInclude(x => x.PoliticalEntity)
+                            //        .ThenInclude(x => x.PoliticalEntityFlags)
+                            //            .ThenInclude(x => x.Flag)
+                        //.Include(x => x.Builder)
+                            //.ThenInclude(x => x.PoliticalEntityBuilders)
+                                //.ThenInclude(x => x.PoliticalEntity)
+                                //    .ThenInclude(x => x.PoliticalEntityEras)
                         .Include(x => x.ShipServices)
                             .ThenInclude(x => x.Branch)
                                 .ThenInclude(x => x.BranchFlags)
@@ -150,7 +145,7 @@ namespace MvcFactbook.Code.Data
         private Func<IQueryable<Ship>> GetItemsFunction()
         {
             return () => Context.Ship
-                            .Include(x => x.Builder)
+                            .Include(x => x.Dockyard)
                             .Include(x => x.ShipServices)
                                 .ThenInclude(x => x.Branch)
                                     .ThenInclude(x => x.BranchFlags)

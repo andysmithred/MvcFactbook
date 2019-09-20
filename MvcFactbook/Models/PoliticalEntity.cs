@@ -12,7 +12,7 @@ namespace MvcFactbook.Models
         public PoliticalEntity()
         {
             PoliticalEntityFlags = new HashSet<PoliticalEntityFlag>();
-            PoliticalEntityBuilders = new HashSet<PoliticalEntityBuilder>();
+            PoliticalEntityDockyards = new HashSet<PoliticalEntityDockyard>();
             PoliticalEntityEras = new HashSet<PoliticalEntityEra>();
         }
 
@@ -23,12 +23,13 @@ namespace MvcFactbook.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Short Name")]
         [StringLength(50)]
         [Required]
+        [Display(Name = "Short Name")]
         public string ShortName { get; set; }
 
         [Required]
+        [Display(Name = "Name")]
         public string Name { get; set; }
 
         [Display(Name = "Full Name")]
@@ -36,28 +37,31 @@ namespace MvcFactbook.Models
 
         [StringLength(3)]
         [Required]
+        [Display(Name = "Code")]
         public string Code { get; set; }
 
-        [Display(Name = "Start Date")]
         [DataType(DataType.Date)]
+        [Display(Name = "Start Date")]
         public DateTime? StartDate { get; set; }
 
-        [Display(Name = "End Date")]
         [DataType(DataType.Date)]
+        [Display(Name = "End Date")]
         public DateTime? EndDate { get; set; }
 
         [Required]
+        [Display(Name = "Exists")]
         public bool Exists { get; set; }
-
-        [Display(Name = "Emblem")]
+        
         [Required]
+        [Display(Name = "Emblem")]
         public bool HasEmblem { get; set; }
 
-        [Display(Name = "Political Entity Type Id")]
         [Required]
+        [Display(Name = "Political Entity Type Id")]
         public int PoliticalEntityTypeId { get; set; }
 
         [Required]
+        [Display(Name = "Complete")]
         public bool Complete { get; set; }
 
         #endregion Database Properties
@@ -67,7 +71,7 @@ namespace MvcFactbook.Models
         [Display(Name = "Political Entity Type")]
         public PoliticalEntityType PoliticalEntityType { get; set; }
 
-        public ICollection<PoliticalEntityBuilder> PoliticalEntityBuilders { get; set; }
+        public ICollection<PoliticalEntityDockyard> PoliticalEntityDockyards { get; set; }
 
         public ICollection<PoliticalEntityFlag> PoliticalEntityFlags { get; set; }
 

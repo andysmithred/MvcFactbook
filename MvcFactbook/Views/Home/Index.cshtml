@@ -22,13 +22,13 @@
                 Controller = "Branch",
                 Action = "Index",
     }' />
-    <partial name="HomeItemCount" model='new {
+    @*<partial name="HomeItemCount" model='new {
                 Icon = "/images/icons/builder-light.png",
                 Label = "BUILDERS",
                 Value = @Model.Builders.Total,
                 Controller = "Builder",
                 Action = "Index",
-    }' />
+    }' />*@
     <partial name="HomeItemCount" model='new {
                 Icon = "/images/icons/flag-light.png",
                 Label = "FLAGS",
@@ -132,7 +132,7 @@
             </div>
         </a>
     </div>
-    <div class="w-25 p-1">
+    @*<div class="w-25 p-1">
         <partial name="DetailsItemHeader" model='new { Label = "FEATURED BUILDER", Icon = "/images/icons/builder-light.png" }' />
         <a asp-controller="Builder" asp-action="Details" asp-route-id="@Model.FeaturedBuilder.Id" class="w-100 home-link">
             @if (Model.FeaturedBuilder.HasFlag)
@@ -153,7 +153,7 @@
                 }
             </div>
         </a>
-    </div>
+    </div>*@
     <div class="w-25 p-1">
         <partial name="DetailsItemHeader" model='new { Label = "FEATURED POLITICAL ENTITY", Icon = "/images/icons/embassy-light.png" }' />
         <a asp-controller="PoliticalEntity" asp-action="Details" asp-route-id="@Model.FeaturedPoliticalEntity.Id" class="w-100 home-link">
@@ -217,7 +217,7 @@
             </div>
         </a>
     </div>
-    <div class="w-25 p-1">
+    @*<div class="w-25 p-1">
         <partial name="DetailsItemHeader" model='new { Label = "FEATURED ARMED FORCE", Icon = "/images/icons/armedforce-light.png" }' />
         <a asp-controller="PoliticalEntity" asp-action="Details" asp-route-id="@Model.FeaturedBuilder.Id" class="w-100 home-link">
             @if (Model.FeaturedBuilder.HasFlag)
@@ -238,7 +238,7 @@
                 }
             </div>
         </a>
-    </div>
+    </div>*@
 </div>
 
 <hr class="bg-light" />

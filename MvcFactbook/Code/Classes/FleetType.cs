@@ -79,11 +79,11 @@ namespace MvcFactbook.Code.Classes
             set => branchesList = value;
         }
 
-        public IEnumerable<BuilderView> BuildersList
-        {
-            get => buildersList ?? (buildersList = new DataAccess<Builder, BuilderView>(Context, Context.Builder).GetViews());
-            set => buildersList = value;
-        }
+        //public IEnumerable<BuilderView> BuildersList
+        //{
+        //    get => buildersList ?? (buildersList = new DataAccess<Builder, BuilderView>(Context, Context.Builder).GetViews());
+        //    set => buildersList = value;
+        //}
 
         public IEnumerable<ShipView> ShipsList
         {

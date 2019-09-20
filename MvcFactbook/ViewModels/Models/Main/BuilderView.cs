@@ -38,7 +38,7 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         #region Foreign Properties
 
-        public ICollection<ShipView> Ships => GetViewList<ShipView, Ship>(ViewObject.Ships);
+        //public ICollection<ShipView> Ships => GetViewList<ShipView, Ship>(ViewObject.Ships);
 
         public ICollection<PoliticalEntityBuilderView> PoliticalEntityBuilders => GetViewList<PoliticalEntityBuilderView, PoliticalEntityBuilder>(ViewObject.PoliticalEntityBuilders);
 

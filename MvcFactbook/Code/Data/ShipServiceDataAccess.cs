@@ -123,7 +123,7 @@ namespace MvcFactbook.Code.Data
         private Func<int, ShipService> GetItemFunction()
         {
             return i => Context.ShipService
-                        .Include(x => x.Ship).ThenInclude(x => x.Builder)
+                        .Include(x => x.Ship).ThenInclude(x => x.Dockyard)
                         .Include(x => x.ShipClass)
                         .Include(x => x.ShipSubType).ThenInclude(x => x.ShipType).ThenInclude(x => x.ShipCategory)
                         .Include(x => x.Branch).ThenInclude(x => x.BranchFlags).ThenInclude(x => x.Flag)

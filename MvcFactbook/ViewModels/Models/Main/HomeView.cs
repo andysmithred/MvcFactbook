@@ -27,7 +27,7 @@ namespace MvcFactbook.ViewModels.Models.Main
         private ShipDataAccess shipsDb = null;
         private ShipServiceDataAccess shipServicesDb = null;
         private ShipClassDataAccess shipClassesDb = null;
-        private BuilderDataAccess buildersDb = null;
+        //private BuilderDataAccess buildersDb = null;
         private PoliticalEntityDataAccess politicalEntitiesDb = null;
         private FlagDataAccess flagDb = null;
         private BranchDataAccess branchDb = null;
@@ -85,11 +85,11 @@ namespace MvcFactbook.ViewModels.Models.Main
             set => shipServices = value;
         }
 
-        public CompleteItem<Builder> Builders
-        {
-            get => builders ?? (builders = new CompleteItem<Builder>(Context.Builder));
-            set => builders = value;
-        }
+        //public CompleteItem<Builder> Builders
+        //{
+        //    get => builders ?? (builders = new CompleteItem<Builder>(Context.Builder));
+        //    set => builders = value;
+        //}
 
         public CompleteItem<Branch> Branches
         {
@@ -137,11 +137,11 @@ namespace MvcFactbook.ViewModels.Models.Main
             set => shipClassesDb = value;
         }
 
-        public BuilderDataAccess BuildersDb
-        {
-            get => buildersDb ?? (buildersDb = new BuilderDataAccess(Context));
-            set => buildersDb = value;
-        }
+        //public BuilderDataAccess BuildersDb
+        //{
+        //    get => buildersDb ?? (buildersDb = new BuilderDataAccess(Context));
+        //    set => buildersDb = value;
+        //}
 
         public PoliticalEntityDataAccess PoliticalEntitiesDb
         {
@@ -183,11 +183,11 @@ namespace MvcFactbook.ViewModels.Models.Main
             set => featuredShipClass = value;
         }
 
-        public BuilderView FeaturedBuilder
-        {
-            get => featuredBuilder ?? (featuredBuilder = BuildersDb.GetRandomView());
-            set => featuredBuilder = value;
-        }
+        //public BuilderView FeaturedBuilder
+        //{
+        //    get => featuredBuilder ?? (featuredBuilder = BuildersDb.GetRandomView());
+        //    set => featuredBuilder = value;
+        //}
 
         public PoliticalEntityView FeaturedPoliticalEntity
         {
@@ -253,7 +253,7 @@ namespace MvcFactbook.ViewModels.Models.Main
         {
             return () => Context
                         .Ship
-                        .Include(x => x.Builder)
+                        .Include(x => x.Dockyard)
                         .Include(x => x.ShipServices)
                             .ThenInclude(x => x.Branch)
                         .Where(x => x.Launched.Value.Month == date.Month && x.Launched.Value.Day == date.Day);

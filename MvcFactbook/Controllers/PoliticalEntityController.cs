@@ -177,7 +177,7 @@ namespace MvcFactbook.Controllers
                         .Include(x => x.PrecedingEntities).ThenInclude(x => x.SucceedingPoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
                         .Include(x => x.SucceedingEntities).ThenInclude(x => x.PrecedingPoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
                         .Include(x => x.SucceedingEntities).ThenInclude(x => x.SucceedingPoliticalEntity).ThenInclude(x => x.PoliticalEntityFlags).ThenInclude(x => x.Flag)
-                        .Include(x => x.PoliticalEntityBuilders).ThenInclude(x => x.Builder).ThenInclude(x => x.Ships)
+                        .Include(x => x.PoliticalEntityDockyards).ThenInclude(x => x.Dockyard).ThenInclude(x => x.Ships)
                         .Include(x => x.PoliticalEntityEras)
                         .FirstOrDefault(x => x.Id == i);
         }
