@@ -1,12 +1,13 @@
-﻿CREATE TABLE [dbo].[Dockyard]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Name] NVARCHAR(MAX) NOT NULL, 
-    [Complete] NCHAR(10) NOT NULL DEFAULT 0, 
-    [ShortName] NVARCHAR(50) NULL, 
-    [AlternativeNames] NVARCHAR(MAX) NULL, 
-    [Location] NVARCHAR(MAX) NULL, 
-    [Latitude] FLOAT NULL, 
-    [Longitude] FLOAT NULL, 
-    [Zoom] INT NULL
-)
+﻿CREATE TABLE [dbo].[Dockyard] (
+    [Id]               INT            IDENTITY (1, 1) NOT NULL,
+    [Name]             NVARCHAR (MAX) NOT NULL,
+    [Complete]         BIT     DEFAULT ((0)) NOT NULL,
+    [ShortName]        NVARCHAR (50)  NULL,
+    [AlternativeNames] NVARCHAR (MAX) NULL,
+    [Location]         NVARCHAR (MAX) NULL,
+    [Latitude]         FLOAT (53)     NULL,
+    [Longitude]        FLOAT (53)     NULL,
+    [Zoom]             INT            NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
