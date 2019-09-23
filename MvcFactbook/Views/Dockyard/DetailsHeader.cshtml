@@ -1,0 +1,22 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.DockyardView
+
+    @if (Model.HasFlag)
+    {
+        <div class="pr-4 mt-2">
+            <img class="card-img-top-50 rounded" src="@Model.ImageSource" alt="Card image" style="height:50px;object-fit: cover;overflow: hidden;opacity:0.3" />
+        </div>
+    }
+    <div class="text-white pr-2">
+        <h2>@Model.ShortName</h2>
+        <h6>@Model.Name</h6>
+    </div>
+    <div class="ml-auto pt-2 mt-2">
+        @if (Model.Complete)
+        {
+            <img src="~/images/icons/lock-light.png" style="height:30px;" />
+        }
+        else
+        {
+            <img src="~/images/icons/unlock-light.png" style="height:30px;" />
+        }
+    </div>

@@ -1,0 +1,5 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.DockyardView
+
+<partial name="LinkDetails" model='new { RouteId = Model.Id }' />
+<partial name="LinkShips" model='new { Controller = "Dockyard", RouteId = Model.Id, Items = Model.Ships }' />
+<partial name="LinkPoliticalEntities" model='new { Controller = "Dockyard", RouteId = Model.Id, Items = Model.PoliticalEntities }' />

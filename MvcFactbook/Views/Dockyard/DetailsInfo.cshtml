@@ -1,0 +1,18 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.DockyardView
+
+<partial name="DetailsInfoMain" model='new { Partial = "InfoDockyard", Item = @Model }' />
+
+<div class="d-flex flex-row">
+    <partial name="DetailsAddListShips" model='new {
+                Action="CreateByDockyard" ,
+                RouteId=Model.Id,
+                Items=Model.Ships.OrderBy(x => x.Launched)
+        }' />
+    <partial name="DetailsAddListPoliticalEntityDockyardsPoliticalEntities" model='new {
+                Action="CreateByDockyard" ,
+                RouteId=Model.Id,
+                Items=Model.PoliticalEntities.OrderBy(x => x.StartDate)
+        }' />
+</div>
+
+<hr class="bg-light" />
