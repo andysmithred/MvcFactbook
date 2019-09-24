@@ -16,9 +16,9 @@
         <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">Items</a>
             <div class="dropdown-menu">
-                @if (Model.Builder != null)
+                @if (Model.Dockyard != null)
                 {
-                    <a class="dropdown-item" asp-controller="Builder" asp-action="Details" asp-route-id="@Model.BuilderId">@Model.Builder.Name</a>
+                    <a class="dropdown-item" asp-controller="Dockyard" asp-action="Details" asp-route-id="@Model.DockyardId">@Model.Dockyard.Name</a>
                 }
                 @foreach (var item in Model.ShipSubTypes)
                 {

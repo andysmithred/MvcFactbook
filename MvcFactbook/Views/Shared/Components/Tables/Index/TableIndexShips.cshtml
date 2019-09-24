@@ -8,7 +8,7 @@
         columns.Add().Encoded(false).RenderedAs(model => $"<img src='/images/icons/ship-light.png' style='height: 20px; width: 20px' />");
         columns.Add(model => model.Name).Titled("Name");
         columns.Add(model => model.Launched).Titled("Launched").Formatted("{0:d}");
-        columns.Add(model => model.Dockyard.Name);//.Titled("Builder");
+        columns.Add(model => model.Dockyard.Name).Titled("Dockyard");
         columns.Add(model => model.Complete).Titled("Complete");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
