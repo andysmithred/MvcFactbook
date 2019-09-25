@@ -1,0 +1,12 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.DockyardView
+
+@if (Model != null)
+{
+    <partial name="LinkItem" model='new {
+             Controller = "Dockyard",
+             Action = "Details",
+             RouteId = Model.Id,
+             Icon = "/images/icons/builder-light.png",
+             Label = Model.ShortName
+            }' />
+}

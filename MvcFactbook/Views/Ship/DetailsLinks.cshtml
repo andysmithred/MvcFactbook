@@ -2,8 +2,10 @@
 
 <partial name="LinkDetails" model='new { RouteId = Model.Id }' />
 <partial name="LinkShipServices" model='new { Controller = "Ship", RouteId = Model.Id, Items = Model.ShipServices }' />
-<partial name="LinkDockyard" model="Model.Dockyard" />
-
+@if (Model.HasDockyard)
+{
+    <partial name="LinkDockyard" model="Model.Dockyard" />
+}
 @foreach (var item in Model.ShipSubTypes)
 {
     <partial name="LinkShipSubType" model="item" />

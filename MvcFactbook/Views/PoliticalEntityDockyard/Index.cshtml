@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.PoliticalEntityDockyardView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name='IndexMenu' model='new { Title = "POLITICAL ENTITY DOCKYARDS", Icon = "/images/icons/join-light.png" }' />
+<hr class="bg-light" />
+<div class="p-2 w-100">
+    <partial name="TableIndexPoliticalEntityDockyards" model="@Model.OrderBy(x => x.PoliticalEntity.Name)" />
+</div>
+<hr class="bg-light" />
