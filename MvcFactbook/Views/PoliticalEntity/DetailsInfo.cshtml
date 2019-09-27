@@ -13,11 +13,11 @@
                  RouteId=Model.Id,
                  Items=Model.PoliticalEntityFlags.OrderBy(x => x.StartDate)
         }' />
-    @*<partial name="DetailsAddListPoliticalEntityBuildersBuilders" model='new {
+    <partial name="DetailsAddListPoliticalEntityDockyardsDockyards" model='new {
                 Action="CreateByPoliticalEntity" ,
                 RouteId=Model.Id,
-                Items=Model.Builders.OrderBy(x => x.Name)
-        }' />*@
+                Items=Model.Dockyards.OrderBy(x => x.Name)
+        }' />
 </div>
 
 <hr class="bg-light" />

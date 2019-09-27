@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MvcFactbook.Models
 {
-    public partial class Builder: IComplete
+    public partial class Shipbuilder: IComplete
     {
         #region Constructor
 
-        public Builder()
+        public Shipbuilder()
         {
             //Ships = new HashSet<Ship>();
             //PoliticalEntityBuilders = new HashSet<PoliticalEntityBuilder>();
@@ -30,13 +30,11 @@ namespace MvcFactbook.Models
         [Display(Name = "Alternative Names")]
         public string AlternativeNames { get; set; }
 
-        public string Location { get; set; }
-
         public string Parent { get; set; }
 
-        public int? Founded { get; set; }
+        public int? Start { get; set; }
 
-        public int? Defunct { get; set; }
+        public int? End { get; set; }
 
         [Required]
         public bool Complete { get; set; }
@@ -47,7 +45,7 @@ namespace MvcFactbook.Models
 
         //public ICollection<Ship> Ships { get; set; }
 
-        public ICollection<PoliticalEntityBuilder> PoliticalEntityBuilders { get; set; }
+        //public ICollection<PoliticalEntityBuilder> PoliticalEntityBuilders { get; set; }
 
         #endregion Foreign Properties
     }

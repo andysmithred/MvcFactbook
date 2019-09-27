@@ -9,45 +9,10 @@
 
 <div class="d-flex flex-row flex-wrap">
     <partial name="HomeItemCount" model='new {
-                Icon = "/images/icons/armedforce-light.png",
-                Label = "ARMED FORCES",
-                Value = @Model.ArmedForces,
-                Controller = "ArmedForce",
-                Action = "Index",
-    }' />
-    <partial name="HomeItemCount" model='new {
                 Icon = "/images/icons/branch-light.png",
                 Label = "BRANCHES",
                 Value = @Model.Branches.Total,
                 Controller = "Branch",
-                Action = "Index",
-    }' />
-    @*<partial name="HomeItemCount" model='new {
-                Icon = "/images/icons/builder-light.png",
-                Label = "BUILDERS",
-                Value = @Model.Builders.Total,
-                Controller = "Builder",
-                Action = "Index",
-    }' />*@
-    <partial name="HomeItemCount" model='new {
-                Icon = "/images/icons/flag-light.png",
-                Label = "FLAGS",
-                Value = @Model.Flags.Total,
-                Controller = "Flag",
-                Action = "Index",
-    }' />
-    <partial name="HomeItemCount" model='new {
-                Icon = "/images/icons/embassy-light.png",
-                Label = "POLITICAL ENTITIES",
-                Value = @Model.PoliticalEntities.Total,
-                Controller = "PoliticalEntity",
-                Action = "Index",
-    }' />
-    <partial name="HomeItemCount" model='new {
-                Icon = "/images/icons/ship-light.png",
-                Label = "SHIPS",
-                Value = @Model.Ships.Total,
-                Controller = "Ship",
                 Action = "Index",
     }' />
     <partial name="HomeItemCount" model='new {
@@ -58,10 +23,45 @@
                 Action = "Index",
     }' />
     <partial name="HomeItemCount" model='new {
+                Icon = "/images/icons/ship-light.png",
+                Label = "SHIPS",
+                Value = @Model.Ships.Total,
+                Controller = "Ship",
+                Action = "Index",
+    }' />
+    <partial name="HomeItemCount" model='new {
                 Icon = "/images/icons/shipclass-light.png",
                 Label = "SHIP CLASSES",
                 Value = @Model.ShipClasses.Total,
                 Controller = "ShipClass",
+                Action = "Index",
+    }' />
+    <partial name="HomeItemCount" model='new {
+                Icon = "/images/icons/builder-light.png",
+                Label = "SHIPBUILDERS",
+                Value = @Model.Shipbuilders.Total,
+                Controller = "Shipbuilder",
+                Action = "Index",
+    }' />
+    <partial name="HomeItemCount" model='new {
+                Icon = "/images/icons/builder-light.png",
+                Label = "DOCKYARDS",
+                Value = @Model.Dockyards.Total,
+                Controller = "Dockyard",
+                Action = "Index",
+    }' />
+    <partial name="HomeItemCount" model='new {
+                Icon = "/images/icons/embassy-light.png",
+                Label = "POLITICAL ENTITIES",
+                Value = @Model.PoliticalEntities.Total,
+                Controller = "PoliticalEntity",
+                Action = "Index",
+    }' />
+    <partial name="HomeItemCount" model='new {
+                Icon = "/images/icons/flag-light.png",
+                Label = "FLAGS",
+                Value = @Model.Flags.Total,
+                Controller = "Flag",
                 Action = "Index",
     }' />
 </div>
@@ -132,18 +132,18 @@
             </div>
         </a>
     </div>
-    @*<div class="w-25 p-1">
-        <partial name="DetailsItemHeader" model='new { Label = "FEATURED BUILDER", Icon = "/images/icons/builder-light.png" }' />
-        <a asp-controller="Builder" asp-action="Details" asp-route-id="@Model.FeaturedBuilder.Id" class="w-100 home-link">
-            @if (Model.FeaturedBuilder.HasFlag)
+    <div class="w-25 p-1">
+        <partial name="DetailsItemHeader" model='new { Label = "FEATURED DOCKYARD", Icon = "/images/icons/builder-light.png" }' />
+        <a asp-controller="Dockyard" asp-action="Details" asp-route-id="@Model.FeaturedDockyard.Id" class="w-100 home-link">
+            @if (Model.FeaturedDockyard.HasFlag)
             {
                 <div class="mr-3">
-                    <img class="card-img-top-50 rounded" src="@Model.FeaturedBuilder.ImageSource" alt="Card image" style="height:20px;width:30px;object-fit: cover;overflow: hidden;opacity:0.3" />
+                    <img class="card-img-top-50 rounded" src="@Model.FeaturedDockyard.ImageSource" alt="Card image" style="height:20px;width:30px;object-fit: cover;overflow: hidden;opacity:0.3" />
                 </div>
             }
-            <div class="text-white"><h5>@Model.FeaturedBuilder.Name</h5></div>
+            <div class="text-white"><h5>@Model.FeaturedDockyard.ShortName</h5></div>
             <div class="ml-auto">
-                @if (Model.FeaturedBuilder.Complete)
+                @if (Model.FeaturedDockyard.Complete)
                 {
                     <img src="~/images/icons/lock-light.png" style="height:20px;" />
                 }
@@ -153,7 +153,7 @@
                 }
             </div>
         </a>
-    </div>*@
+    </div>
     <div class="w-25 p-1">
         <partial name="DetailsItemHeader" model='new { Label = "FEATURED POLITICAL ENTITY", Icon = "/images/icons/embassy-light.png" }' />
         <a asp-controller="PoliticalEntity" asp-action="Details" asp-route-id="@Model.FeaturedPoliticalEntity.Id" class="w-100 home-link">

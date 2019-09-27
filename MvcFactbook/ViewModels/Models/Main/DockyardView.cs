@@ -58,7 +58,7 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public bool HasFlag => PoliticalEntities.Count > 0;
 
-        public FlagView Flag => PoliticalEntities.OrderByDescending(x => x.StartDate).FirstOrDefault()?.CurrentFlag;
+        public FlagView Flag => PoliticalEntities.OrderByDescending(x => x.AbsoluteEnd).FirstOrDefault()?.CurrentFlag;
 
         public string ImageSource => Flag?.ImageSource;
 

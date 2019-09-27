@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MvcFactbook.Models
 {
@@ -18,7 +14,6 @@ namespace MvcFactbook.Models
         public virtual DbSet<Branch> Branch { get; set; }
         public virtual DbSet<BranchFlag> BranchFlag { get; set; }
         public virtual DbSet<BranchType> BranchType { get; set; }
-        //public virtual DbSet<Builder> Builder { get; set; }
         public virtual DbSet<Dockyard> Dockyard { get; set; }
         public virtual DbSet<Flag> Flag { get; set; }
         public virtual DbSet<PoliticalEntity> PoliticalEntity { get; set; }
@@ -29,6 +24,7 @@ namespace MvcFactbook.Models
         public virtual DbSet<PoliticalEntityType> PoliticalEntityType { get; set; }
         public virtual DbSet<PoliticalEntitySucceeding> PoliticalEntitySucceeding { get; set; }
         public virtual DbSet<Ship> Ship { get; set; }
+        public virtual DbSet<Shipbuilder> Shipbuilder { get; set; }
         public virtual DbSet<ShipCategory> ShipCategory { get; set; }
         public virtual DbSet<ShipType> ShipType { get; set; }
         public virtual DbSet<ShipSubType> ShipSubType { get; set; }
@@ -165,16 +161,6 @@ namespace MvcFactbook.Models
                     .HasMaxLength(5);
             });
 
-            // Builder
-            //modelBuilder.Entity<Builder>(entity =>
-            //{
-            //    entity.Property(e => e.Name)
-            //        .IsRequired();
-
-            //    entity.Property(e => e.Complete)
-            //        .IsRequired();
-            //});
-
             // Dockyard
             modelBuilder.Entity<Dockyard>(entity =>
             {
@@ -308,6 +294,16 @@ namespace MvcFactbook.Models
                     .WithMany(y => y.Ships)
                     .HasForeignKey(y => y.DockyardId)
                     .HasConstraintName("FK_Ship_To_Dockyard");
+            });
+
+            // Shipbuilder
+            modelBuilder.Entity<Shipbuilder>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .IsRequired();
+
+                entity.Property(e => e.Complete)
+                    .IsRequired();
             });
 
             // Ship Category

@@ -3,37 +3,37 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MvcFactbook.ViewModels.Models.Main
 {
-    public class PoliticalEntityBuilderView : View<PoliticalEntityBuilder>
-    {
-        #region Database Properties
+    //public class PoliticalEntityBuilderView : View<PoliticalEntityBuilder>
+    //{
+    //    #region Database Properties
 
-        [Key]
-        public int Id => ViewObject.Id;
+    //    [Key]
+    //    public int Id => ViewObject.Id;
 
-        [Required]
-        [Display(Name = "Political Entity Id")]
-        public int PoliticalEntityId => ViewObject.PoliticalEntityId;
+    //    [Required]
+    //    [Display(Name = "Political Entity Id")]
+    //    public int PoliticalEntityId => ViewObject.PoliticalEntityId;
 
-        [Required]
-        [Display(Name = "Builder Id")]
-        public int BuilderId => ViewObject.BuilderId;
+    //    [Required]
+    //    [Display(Name = "Builder Id")]
+    //    public int BuilderId => ViewObject.BuilderId;
 
-        #endregion Database Properties
+    //    #endregion Database Properties
 
-        #region Foreign Properties
+    //    #region Foreign Properties
 
-        [Display(Name = "Political Entity")]
-        public PoliticalEntityView PoliticalEntity => GetView<PoliticalEntityView, PoliticalEntity>(ViewObject.PoliticalEntity);
+    //    [Display(Name = "Political Entity")]
+    //    public PoliticalEntityView PoliticalEntity => GetView<PoliticalEntityView, PoliticalEntity>(ViewObject.PoliticalEntity);
 
-        public BuilderView Builder => GetView<BuilderView, Builder>(ViewObject.Builder);
+    //    public BuilderView Builder => GetView<BuilderView, Builder>(ViewObject.Builder);
 
-        #endregion Foreign Properties
+    //    #endregion Foreign Properties
 
-        #region Other Properties
+    //    #region Other Properties
 
-        public override string ListName => PoliticalEntity.ShortName + ":" + Builder.Name;
+    //    public override string ListName => PoliticalEntity.ShortName + ":" + Builder.Name;
 
-        #endregion Other Properties
+    //    #endregion Other Properties
 
-    }
+    //}
 }

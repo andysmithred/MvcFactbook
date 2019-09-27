@@ -18,7 +18,8 @@ namespace MvcFactbook.ViewModels.Models.Main
         private CompleteItem<ShipClass> shipClasses = null;
         private CompleteItem<Ship> ships = null;
         private CompleteItem<ShipService> shipServices = null;
-        private CompleteItem<Builder> builders = null;
+        private CompleteItem<Dockyard> dockyards = null;
+        private CompleteItem<Shipbuilder> shipbuilders = null;
         private CompleteItem<Branch> branches = null;
         private CompleteItem<Flag> flags = null;
         private CompleteItem<PoliticalEntity> politicalEntities = null;
@@ -27,7 +28,8 @@ namespace MvcFactbook.ViewModels.Models.Main
         private ShipDataAccess shipsDb = null;
         private ShipServiceDataAccess shipServicesDb = null;
         private ShipClassDataAccess shipClassesDb = null;
-        //private BuilderDataAccess buildersDb = null;
+        private DockyardDataAccess dockyardsDb = null;
+        private ShipbuilderDataAccess shipbuildersDb = null;
         private PoliticalEntityDataAccess politicalEntitiesDb = null;
         private FlagDataAccess flagDb = null;
         private BranchDataAccess branchDb = null;
@@ -35,7 +37,8 @@ namespace MvcFactbook.ViewModels.Models.Main
         private ShipView featuredShip = null;
         private ShipServiceView featuredShipService = null;
         private ShipClassView featuredShipClass = null;
-        private BuilderView featuredBuilder = null;
+        private DockyardView featuredDockyard = null;
+        private ShipbuilderView featuredShipbuilder = null;
         private PoliticalEntityView featuredPoliticalEntity = null;
         private FlagView featuredFlag = null;
         private BranchView featuredBranch = null;
@@ -85,11 +88,17 @@ namespace MvcFactbook.ViewModels.Models.Main
             set => shipServices = value;
         }
 
-        //public CompleteItem<Builder> Builders
-        //{
-        //    get => builders ?? (builders = new CompleteItem<Builder>(Context.Builder));
-        //    set => builders = value;
-        //}
+        public CompleteItem<Dockyard> Dockyards
+        {
+            get => dockyards ?? (dockyards = new CompleteItem<Dockyard>(Context.Dockyard));
+            set => dockyards = value;
+        }
+
+        public CompleteItem<Shipbuilder> Shipbuilders
+        {
+            get => shipbuilders ?? (shipbuilders = new CompleteItem<Shipbuilder>(Context.Shipbuilder));
+            set => shipbuilders = value;
+        }
 
         public CompleteItem<Branch> Branches
         {
@@ -137,11 +146,17 @@ namespace MvcFactbook.ViewModels.Models.Main
             set => shipClassesDb = value;
         }
 
-        //public BuilderDataAccess BuildersDb
-        //{
-        //    get => buildersDb ?? (buildersDb = new BuilderDataAccess(Context));
-        //    set => buildersDb = value;
-        //}
+        public DockyardDataAccess DockyardsDb
+        {
+            get => dockyardsDb ?? (dockyardsDb = new DockyardDataAccess(Context));
+            set => dockyardsDb = value;
+        }
+
+        public ShipbuilderDataAccess ShipbuildersDb
+        {
+            get => shipbuildersDb ?? (shipbuildersDb = new ShipbuilderDataAccess(Context));
+            set => shipbuildersDb = value;
+        }
 
         public PoliticalEntityDataAccess PoliticalEntitiesDb
         {
@@ -183,11 +198,17 @@ namespace MvcFactbook.ViewModels.Models.Main
             set => featuredShipClass = value;
         }
 
-        //public BuilderView FeaturedBuilder
-        //{
-        //    get => featuredBuilder ?? (featuredBuilder = BuildersDb.GetRandomView());
-        //    set => featuredBuilder = value;
-        //}
+        public DockyardView FeaturedDockyard
+        {
+            get => featuredDockyard ?? (featuredDockyard = DockyardsDb.GetRandomView());
+            set => featuredDockyard = value;
+        }
+
+        public ShipbuilderView FeaturedShipbuilder
+        {
+            get => featuredShipbuilder ?? (featuredShipbuilder = ShipbuildersDb.GetRandomView());
+            set => featuredShipbuilder = value;
+        }
 
         public PoliticalEntityView FeaturedPoliticalEntity
         {

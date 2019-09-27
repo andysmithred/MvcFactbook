@@ -23,7 +23,7 @@ namespace MvcFactbook.Code.Classes
         private IEnumerable<ShipClassView> shipClassesList = null;
         private IEnumerable<BranchView> branchesList = null;
 
-        private IEnumerable<BuilderView> buildersList = null;
+        private IEnumerable<DockyardView> dockyardsList = null;
 
         #endregion Private Variables
 
@@ -79,11 +79,11 @@ namespace MvcFactbook.Code.Classes
             set => branchesList = value;
         }
 
-        //public IEnumerable<BuilderView> BuildersList
-        //{
-        //    get => buildersList ?? (buildersList = new DataAccess<Builder, BuilderView>(Context, Context.Builder).GetViews());
-        //    set => buildersList = value;
-        //}
+        public IEnumerable<DockyardView> DockyardsList
+        {
+            get => dockyardsList ?? (dockyardsList = new DataAccess<Dockyard, DockyardView>(Context, Context.Dockyard).GetViews());
+            set => dockyardsList = value;
+        }
 
         public IEnumerable<ShipView> ShipsList
         {
