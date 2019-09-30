@@ -1,25 +1,23 @@
-﻿@*@model MvcFactbook.ViewModels.Models.Main.BuilderView
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipbuilderView
 
-@if (Model.HasFlag)
-{
-    <div class="pr-4 mt-2">
-        <img class="card-img-top-50 rounded" src="@Model.ImageSource" alt="Card image" style="height:50px;object-fit: cover;overflow: hidden;opacity:0.3" />
+    <div class="pr-2">
+        <img src="~/images/icons/builder-light.png" alt="Card image" style="height:40px;">
     </div>
-}
+
 <div class="text-white pr-2">
     <h2>@Model.ShortName</h2>
     <h6>@Model.Name</h6>
 </div>
 <div class="text-muted pl-2 pr-2">
-    <h2>@Model.Founded</h2>
+    <h2>@Model.Start</h2>
 </div>
-@if (Model.Defunct.HasValue)
+@if (Model.End.HasValue)
 {
     <div class="text-muted pl-2 pr-2">
         <h2>-</h2>
     </div>
     <div class="text-muted pl-2 pr-2">
-        <h2>@Model.Defunct</h2>
+        <h2>@Model.End</h2>
     </div>
 }
 <div class="ml-auto pt-2 mt-2">
@@ -31,4 +29,4 @@
     {
         <img src="~/images/icons/unlock-light.png" style="height:30px;" />
     }
-</div>*@
+</div>

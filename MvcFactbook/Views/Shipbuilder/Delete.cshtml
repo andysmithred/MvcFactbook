@@ -1,4 +1,4 @@
-﻿@*@model MvcFactbook.Models.Builder
+﻿@model MvcFactbook.Models.Shipbuilder
 
 @{
     ViewData["Title"] = "Delete";
@@ -13,7 +13,7 @@
             <img src="~/images/icons/builder-light.png" style="height:40px;" />
         </div>
         <div class="text-white">
-            <h2>Builder</h2>
+            <h2>Shipbuilder</h2>
         </div>
     </div>
     <hr class="bg-secondary" />
@@ -22,10 +22,9 @@
         <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.ShortName), Value = Model.ShortName }' />
         <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Name), Value = Model.Name }' />
         <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.AlternativeNames), Value = Model.AlternativeNames }' />
-        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Location), Value = Model.Location }' />
         <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Parent), Value = Model.Parent }' />
-        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Founded), Value = Model.Founded }' />
-        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Defunct), Value = Model.Defunct }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Start), Value = Model.Start }' />
+        <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.End), Value = Model.End }' />
     </div>
     <hr class="bg-secondary" />
     <form asp-action="Delete">
@@ -33,4 +32,4 @@
         <input type="submit" value="Delete" class="btn btn-outline-secondary btn-sm" />
     </form>
 </div>
-<hr class="bg-light" />*@
+<hr class="bg-light" />

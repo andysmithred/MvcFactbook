@@ -1,0 +1,18 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.ShipbuilderView
+
+<partial name="DetailsInfoMain" model='new { Partial = "InfoShipbuilder", Item = @Model }' />
+
+@*<div class="d-flex flex-row">
+    <partial name="DetailsAddListShips" model='new {
+                Action="CreateByBuilder" ,
+                RouteId=Model.Id,
+                Items=Model.Ships.OrderBy(x => x.Launched)
+        }' />
+    <partial name="DetailsAddListPoliticalEntityBuildersPoliticalEntities" model='new {
+                Action="CreateByBuilder" ,
+                RouteId=Model.Id,
+                Items=Model.PoliticalEntities.OrderBy(x => x.StartDate)
+        }' />
+</div>*@
+
+<hr class="bg-light" />
