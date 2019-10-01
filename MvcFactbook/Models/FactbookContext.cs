@@ -15,9 +15,9 @@ namespace MvcFactbook.Models
         public virtual DbSet<BranchFlag> BranchFlag { get; set; }
         public virtual DbSet<BranchType> BranchType { get; set; }
         public virtual DbSet<Dockyard> Dockyard { get; set; }
+        public virtual DbSet<DockyardHistory> DockyardHistory { get; set; }
         public virtual DbSet<Flag> Flag { get; set; }
         public virtual DbSet<PoliticalEntity> PoliticalEntity { get; set; }
-        //public virtual DbSet<PoliticalEntityBuilder> PoliticalEntityBuilder { get; set; }
         public virtual DbSet<PoliticalEntityDockyard> PoliticalEntityDockyard { get; set; }
         public virtual DbSet<PoliticalEntityEra> PoliticalEntityEra { get; set; }
         public virtual DbSet<PoliticalEntityFlag> PoliticalEntityFlag { get; set; }
@@ -169,6 +169,26 @@ namespace MvcFactbook.Models
 
                 entity.Property(e => e.Complete)
                     .IsRequired();
+            });
+
+            // Dockyard History
+            modelBuilder.Entity<DockyardHistory>(entity =>
+            {
+                entity.Property(e => e.DockyardId)
+                    .IsRequired();
+
+                entity.Property(e => e.ShipbuilderId)
+                    .IsRequired();
+
+                entity.HasOne(x => x.Dockyard)
+                    .WithMany(y => y.DockyardHistory)
+                    .HasForeignKey(y => y.DockyardId)
+                    .HasConstraintName("FK_DockyardHistory_DockyardId_To_Dockyard");
+
+                entity.HasOne(x => x.Shipbuilder)
+                    .WithMany(f => f.DockyardHistory)
+                    .HasForeignKey(f => f.ShipbuilderId)
+                    .HasConstraintName("FK_DockyardHistory_ShipbuilderId_To_Shipbuilder");
             });
 
             // Political Entity

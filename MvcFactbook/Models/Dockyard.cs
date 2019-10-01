@@ -55,7 +55,8 @@ namespace MvcFactbook.Models
 
         public ICollection<PoliticalEntityDockyard> PoliticalEntityDockyards { get; set; }
 
-        #endregion Foreign Properties
+        public ICollection<DockyardHistory> DockyardHistory { get; set; }
 
+        #endregion Foreign Properties
     }
 }

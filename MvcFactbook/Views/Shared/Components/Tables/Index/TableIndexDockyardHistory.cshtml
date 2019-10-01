@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MvcFactbook.ViewModels.Models.Main.DockyardHistoryView>
+
+<div>
+    @(Html
+        .Grid(Model)
+        .Build(columns =>
+        {
+            columns.Add().Encoded(false).RenderedAs(model => $"<img src='/images/icons/join-light.png' style='height: 20px; width: 20px' />");
+            columns.Add(model => model.Dockyard.Name).Titled("Dockyard");
+            columns.Add(model => model.Dockyard.Location).Titled("Location");
+            columns.Add(model => model.Shipbuilder.Name).Titled("Shipbuilder");
+            columns.Add(model => model.Start).Titled("Start");
+            columns.Add(model => model.End).Titled("End");
+            columns.Add().Encoded(false).RenderedAs(model =>
+                "<div class='btn-group float-right'>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/DockyardHistory/Edit/{model.Id}'>Edit</a>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/DockyardHistory/Details/{model.Id}'>Details</a>" +
+                    $"<a class='btn btn-outline-secondary btn-sm' href='/DockyardHistory/Delete/{model.Id}'>Delete</a>" +
+                "</div>"
+            );
+        })
+        .Empty("No data found")
+        .Filterable()
+        .Sortable()
+        .Pageable(pager =>
+        {
+            pager.RowsPerPage = 14;
+        })
+        .AppendCss("table-hover")
+    )
+</div>

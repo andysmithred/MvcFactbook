@@ -48,6 +48,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<PoliticalEntityDockyardView> PoliticalEntityDockyards => GetViewList<PoliticalEntityDockyardView, PoliticalEntityDockyard>(ViewObject.PoliticalEntityDockyards);
 
+        public ICollection<DockyardHistoryView> DockyardHistory => GetViewList<DockyardHistoryView, DockyardHistory>(ViewObject.DockyardHistory);
+
         #endregion Foreign Properties
 
         #region Other Properties
