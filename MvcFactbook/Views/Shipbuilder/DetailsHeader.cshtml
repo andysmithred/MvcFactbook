@@ -1,22 +1,21 @@
 ﻿@model MvcFactbook.ViewModels.Models.Main.ShipbuilderView
 
-    <div class="pr-2">
-        <img src="~/images/icons/organization-light.png" alt="Card image" style="height:40px;">
-    </div>
-
-<div class="text-white pr-2">
-    <h2>@Model.ShortName</h2>
-    <h6>@Model.Name</h6>
+<div class="pr-4 mt-1">
+    <img src="~/images/icons/organization-light.png" alt="Card image" style="height:40px;">
 </div>
-<div class="text-muted pl-2 pr-2">
+
+<div class="text-white pr-2 mt-2">
+    <h2>@Model.Name</h2>
+</div>
+<div class="text-muted pl-2 pr-2 mt-2">
     <h2>@Model.Start</h2>
 </div>
 @if (Model.End.HasValue)
 {
-    <div class="text-muted pl-2 pr-2">
+    <div class="text-muted pl-2 pr-2 mt-2">
         <h2>-</h2>
     </div>
-    <div class="text-muted pl-2 pr-2">
+    <div class="text-muted pl-2 pr-2 mt-2">
         <h2>@Model.End</h2>
     </div>
 }

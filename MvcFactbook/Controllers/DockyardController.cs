@@ -118,6 +118,8 @@ namespace MvcFactbook.Controllers
                         .Include(x => x.PoliticalEntityDockyards)
                             .ThenInclude(x => x.PoliticalEntity)
                                 .ThenInclude(x => x.PoliticalEntityEras)
+                        .Include(x => x.DockyardHistory)
+                            .ThenInclude(x => x.Shipbuilder)
                         .FirstOrDefault(x => x.Id == i);
         }
 

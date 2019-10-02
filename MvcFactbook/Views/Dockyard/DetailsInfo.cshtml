@@ -3,6 +3,11 @@
 <partial name="DetailsInfoMain" model='new { Partial = "InfoDockyard", Item = @Model }' />
 
 <div class="d-flex flex-row">
+    <partial name="DetailsAddListDockyardHistoryShipbuilders" model='new {
+                Action="CreateByDockyard" ,
+                RouteId=Model.Id,
+                Items=Model.DockyardHistory.OrderBy(x => x.Start)
+        }' />
     <partial name="DetailsAddListShips" model='new {
                 Action="CreateByDockyard" ,
                 RouteId=Model.Id,

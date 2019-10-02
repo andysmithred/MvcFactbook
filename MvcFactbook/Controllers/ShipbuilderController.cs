@@ -110,6 +110,8 @@ namespace MvcFactbook.Controllers
         {
             return i => Context
                         .Shipbuilder
+                        .Include(x => x.DockyardHistory)
+                            .ThenInclude(x => x.Dockyard)
                         .FirstOrDefault(x => x.Id == i);
         }
 

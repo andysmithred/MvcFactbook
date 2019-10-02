@@ -1,0 +1,19 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.DockyardHistoryView
+
+<partial name="DetailsInfoMain" model='new { Partial = "InfoDockyardHistory", Item = @Model }' />
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "DOCKYARD", Icon = "/images/icons/builder-light.png" }' />
+</div>
+<div class="p-2">
+    <partial name="InfoDockyard" model=@Model.Dockyard />
+</div>
+<hr class="bg-light" />
+
+<div class="p-2">
+    <partial name="DetailsItemHeader" model='new { Label = "SHIPBUILDER", Icon = "/images/icons/organization-light.png" }' />
+</div>
+<div class="p-2">
+    <partial name="InfoShipbuilder" model=@Model.Shipbuilder />
+</div>
+<hr class="bg-light" />

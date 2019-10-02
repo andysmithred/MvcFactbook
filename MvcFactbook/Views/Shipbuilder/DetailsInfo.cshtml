@@ -2,6 +2,25 @@
 
 <partial name="DetailsInfoMain" model='new { Partial = "InfoShipbuilder", Item = @Model }' />
 
+<div class="d-flex flex-row">
+    <partial name="DetailsAddListDockyardHistoryDockyards" model='new {
+                Action="CreateByShipbuilder" ,
+                RouteId=Model.Id,
+                Items=Model.DockyardHistory.OrderBy(x => x.Start)
+        }' />
+    @*<partial name="DetailsAddListShips" model='new {
+                Action="CreateByDockyard" ,
+                RouteId=Model.Id,
+                Items=Model.Ships.OrderBy(x => x.Launched)
+        }' />*@
+    @*<partial name="DetailsAddListPoliticalEntityDockyardsPoliticalEntities" model='new {
+                Action="CreateByDockyard" ,
+                RouteId=Model.Id,
+                Items=Model.PoliticalEntities.OrderBy(x => x.StartDate)
+        }' />*@
+</div>
+
+
 @*<div class="d-flex flex-row">
     <partial name="DetailsAddListShips" model='new {
                 Action="CreateByBuilder" ,

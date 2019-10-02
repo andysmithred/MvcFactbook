@@ -1,0 +1,8 @@
+﻿@model MvcFactbook.ViewModels.Models.Main.DockyardHistoryView
+
+<div class="d-flex flex-row flex-wrap">
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Dockyard), Value = Model.Dockyard.ShortName }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Shipbuilder), Value = Model.Shipbuilder.ShortName }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.Start), Value = Model.StartLabel }' />
+    <partial name="InfoItem" model='new { Label = Html.DisplayNameFor(x => x.End), Value = Model.EndLabel }' />
+</div>

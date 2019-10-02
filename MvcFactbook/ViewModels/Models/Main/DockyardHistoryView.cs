@@ -40,6 +40,10 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public override string ListName => Dockyard.Name + "|" + Shipbuilder.Name;
 
+        public string StartLabel => Start.HasValue ? Start.Value.ToString() : "--";
+
+        public string EndLabel => End.HasValue ? End.Value.ToString() : "--";
+
         #endregion Other Properties
     }
 }
