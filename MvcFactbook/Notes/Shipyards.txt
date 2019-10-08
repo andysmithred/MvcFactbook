@@ -31,13 +31,26 @@ UNITED STATES
 Vigor Shipyards => Seattle
 --------------------------
 
-Yesler's Wharf 1882
-Moran Brothers Shipyard 1906
-Seattle Construction and Drydock Company 1911 - 1916
-Todd Pacific Shipyards Corporation 1916 - 2011
+1882 -> Yesler's Wharf
+1906 -> Moran Brothers Shipyard 1906
+1911 -> Seattle Construction and Drydock Company 1911 - 1916
+1916 -> Todd Shipyards Corp 
+1977 -> Todd Pacific Shipyards Corporation 1977 - 2011
 Vigor Shipyards 2011
 
 Locations: Seattle, Bremerton -> Puget Sound Naval Shipyard?, Everett, Portland Oregon
+
+
+Todd Pacific Shipyards, Los Angeles Division
+--------------------------------------------
+
+San Pedro, California
+
+1917 -> Los Angeles Shipbuilding and Dry Dock Company
+1943 -> Todd Shipyards Corp -> operated by
+1946 -> Todd Shipyards Corp -> purchased
+1977 -> Todd Pacific Shipyards, Los Angeles Division
+1989 -> closed
 
 
 
@@ -207,7 +220,7 @@ Tenix Defence / Williamstown Dockyard
 -------------
 
 1956: founded as Transfield
-1988: Acquired Williamstown Dockyard through aquisition of AMECON
+1988: Transfield acquired Williamstown Dockyard through aquisition of AMECON
 1995: company split up and shipbuilding side evetually becoming Tenix
 1997: Company formed
 June 2008: acquired by BAE Systems now BAE Systems Australia
