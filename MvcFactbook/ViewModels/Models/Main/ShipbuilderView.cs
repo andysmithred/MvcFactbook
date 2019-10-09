@@ -52,6 +52,10 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public string EndLabel => End.HasValue ? End.Value.ToString() : "--";
 
+        public int AbsoluteStart => Start.HasValue ? Start.Value : DateTime.MinValue.Year;
+
+        public int AbsoluteEnd => End.HasValue ? End.Value : DateTime.MaxValue.Year;
+
         //public ICollection<PoliticalEntityView> PoliticalEntities => PoliticalEntityBuilders.Select(f => f.PoliticalEntity).Distinct(f => f.Id).ToList();
 
         //public bool HasFlag => PoliticalEntities.Count > 0;

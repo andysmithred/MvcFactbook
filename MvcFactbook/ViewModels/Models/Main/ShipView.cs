@@ -68,6 +68,10 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public bool HasDockyard => Dockyard != null;
 
+        public bool HasShipbuilder => Shipbuilder != null;
+
+        public ShipbuilderView Shipbuilder => HasDockyard & Launched.HasValue ? Dockyard.GetShipbuilderForYear(Launched.Value.Year) : null;
+
         #endregion Other Properties
 
         #region Methods

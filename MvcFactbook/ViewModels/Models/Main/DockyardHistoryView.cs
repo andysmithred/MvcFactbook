@@ -1,4 +1,5 @@
 ﻿using MvcFactbook.Models;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace MvcFactbook.ViewModels.Models.Main
@@ -43,6 +44,10 @@ namespace MvcFactbook.ViewModels.Models.Main
         public string StartLabel => Start.HasValue ? Start.Value.ToString() : "--";
 
         public string EndLabel => End.HasValue ? End.Value.ToString() : "--";
+
+        public int AbsoluteStart => Start.HasValue ? Start.Value : DateTime.MinValue.Year;
+
+        public int AbsoluteEnd => End.HasValue ? End.Value : DateTime.MaxValue.Year;
 
         #endregion Other Properties
     }

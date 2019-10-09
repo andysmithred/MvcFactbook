@@ -58,6 +58,8 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public ICollection<PoliticalEntityView> PoliticalEntities => PoliticalEntityDockyards.Select(f => f.PoliticalEntity).Distinct(f => f.Id).ToList();
 
+        public ICollection<ShipbuilderView> Shipbuilders => DockyardHistory.Select(f => f.Shipbuilder).Distinct(f => f.Id).ToList();
+
         public bool HasFlag => PoliticalEntities.Count > 0;
 
         public FlagView Flag => PoliticalEntities.OrderByDescending(x => x.AbsoluteEnd).FirstOrDefault()?.CurrentFlag;
@@ -100,6 +102,26 @@ namespace MvcFactbook.ViewModels.Models.Main
             if (politicalEntity != null)
             {
                 return politicalEntity.GetFlagForDate(date);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public ShipbuilderView GetShipbuilderForYear(int year)
+        {
+            if (DockyardHistory.Count > 0)
+            {
+                foreach (var item in DockyardHistory)
+                {
+                    if (item.AbsoluteStart < year && year <= item.AbsoluteEnd)
+                    {
+                        return item.Shipbuilder;
+                    }
+                }
+
+                return null;
             }
             else
             {
