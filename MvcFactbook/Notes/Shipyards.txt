@@ -300,11 +300,113 @@ Royal Schelde
 
 
 
-Spain
+SPAIN
 =====
 
 Navantia
 --------
+
+
+
+
+JAPAN
+=====
+
+Dockyards:
+Yokosuka
+Yokohama
+Kure
+Uraga
+Ishikawajima, Tokyo
+
+
+
+
+
+
+Yokosuka Naval Arsenal
+----------------------
+
+
+
+now a US naval base
+
+
+Kure Naval Arsenal
+------------------
+
+Kure, Hiroshima --> 34.232000, 132.554000
+
+esb 1889 -> Kure Shipyards
+1903 -> renamed Kure Naval Arsenal
+1945 -> turned over to civilian hands --> needs research
+
+
+2013 => Japan Marine United (Japan Marine United Corporation) or JMU
+
+Kure Dockyard
+
+
+
+Japan Marine United
+-------------------
+
+est 2013 from IHI Marine United and Universal Shipbuilding Corp.
+
+Dockyards:
+Kure
+Yokohama
+with shipyard facilities in Kure, Hiroshima, Yokohama, Nagasu, Kumamoto, Kyoto and Mie prefectures.
+
+
+
+
+IHI Corporation
+---------------
+
+1853 - establishes shipyard on Ishikawajima in Tokyo Bay. -> Ishikawajima Shipyard
+1889 -> Ishikawajima Shipbuilding & Engineering Co., Ltd.
+1907 -> Harima Dock Co., Ltd.
+1945 -> Ishikawajima Heavy Industry Co., Ltd.
+1960 -> Ishikawajima-Harima Heavy Industries Co., Ltd. -> merger of Ishikawajima & Harima (Harima Shipbuilding & Engineering Company, Ltd.)
+1995 -> IHI and Sumitomo Heavy Industries merge -> Marine United Ltd.
+
+
+
+2007 -> name changed to IHI Corporation
+2013 -> est Japan Marine United Corporation -> merging Marine United Inc with Universal Shipbuilding Corp. 
+
+
+
+ 
+1968:
+After merging with Shibaura United Engineering, Harima merges with Kure Shipbuilding & Engineering Co., Ltd.
+1994:
+Yokohama Engineering Center built.
+2000:
+IHI Aerospace Co. Ltd. formed to take over Nissan operation.
+2002:
+Shipbuilding business becomes IHI Marine United Inc.
+2004:
+Machinery joint ventures set up in China.
+
+
+
+
+Uraga Dock Company
+------------------
+
+1869 -> founded
+1962 -> Merges with Uraga Tamashima Diesel Co., Ltd. to form Uraga Heavy Industries Co., Ltd.
+1969 -> acquired by Sumitumo -> Sumitomo Heavy Industries, Ltd.
+2003 -> operations closed down
+
+
+Yards:
+Uraga
+
+
+
 
 
 
