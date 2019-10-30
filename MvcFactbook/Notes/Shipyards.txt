@@ -28,6 +28,17 @@ Company / Owner /
 UNITED STATES
 =============
 
+
+Brooklyn Navy Yard
+------------------
+
+1801 -> established
+1806 -> started production
+1945 -> renamed New York Navy Yard
+1966 -> closed
+
+
+
 Vigor Shipyards => Seattle
 --------------------------
 
@@ -187,7 +198,7 @@ Swan Hunter
 
 
 Armstrong-Whitworth / Vickers-Armstrong
-=======================================
+---------------------------------------
 
 High Walker, Tyne and Wear, England
 
@@ -197,6 +208,23 @@ High Walker, Tyne and Wear, England
 
 As Vickers-Armstrong
 
+
+
+
+Yarrow
+------
+
+1865 -> founded Yarrow & Company, Limited, based in Poplar, London
+1898 -> moved to London Yard, Cubitt Town
+1906 -> moved to new yard in Scotstoun, Glasgow
+1908 -> last destroyers build in London
+1964 -> integrated Blythswood Shipbuilding Company and its yard
+1964 -> Yarrow Shipbuilders Limited (YSL)
+1968 -> became part of Upper Clyde Shipbuilders
+1971 -> back to Yarrow Shipbuilders Limited (YSL)
+1977 -> nationalised into British Shipbuilders
+1985 -> privatised and sold to GEC-Marconi to become Marconi Marine (YSL)
+1999 -> to BAE Systems Marine
 
 
 
@@ -341,7 +369,6 @@ esb 1889 -> Kure Shipyards
 1903 -> renamed Kure Naval Arsenal
 1945 -> turned over to civilian hands --> needs research
 
-
 2013 => Japan Marine United (Japan Marine United Corporation) or JMU
 
 Kure Dockyard
@@ -359,36 +386,58 @@ Yokohama
 with shipyard facilities in Kure, Hiroshima, Yokohama, Nagasu, Kumamoto, Kyoto and Mie prefectures.
 
 
+-------
+JFE -> 1912: Nippon Kolkan esb -> 1940: Merge NKK and Tsurumi Iron & Steel Co. Shipbuilding Dept. -> 1988: company unified as NKK 	--
+-------																	  -> 2002: Universal Shipbuilding Corp, merger of Hitachi Zosen and NKK
+Hitz -> 1881: Osaka Iron Works esb -> 1943: name change to Hitachi Zosen								--
+-------																											--> 2013 Japan Marine United																													
+IHI -> 1853: Ishikawajima Shipyard -> 1893: Ishikawajima Shipbuilding & Engineering Co., Ltd. -> 1945: Ishikawajima Heavy Industry Co., Ltd. -> 1960: Ishikawajima-Harima Heavy Industries Co., Ltd. (IHI) 	--
+-------																										  -> 1995 Marine United
+Sumitimo -> 1893: Uraga Dock Co., Ltd. -> 1969: Sumitomo Heavy Industries, Ltd. 																--
+-------
+
 
 
 IHI Corporation
 ---------------
 
-1853 - establishes shipyard on Ishikawajima in Tokyo Bay. -> Ishikawajima Shipyard
+Ishikawajima 
+
+1853 -> establishes shipyard on Ishikawajima in Tokyo Bay. -> Ishikawajima Shipyard
+1876 -> Ishikawajima Hirano Shipyard is established.
 1889 -> Ishikawajima Shipbuilding & Engineering Co., Ltd.
-1907 -> Harima Dock Co., Ltd.
 1945 -> Ishikawajima Heavy Industry Co., Ltd.
-1960 -> Ishikawajima-Harima Heavy Industries Co., Ltd. -> merger of Ishikawajima & Harima (Harima Shipbuilding & Engineering Company, Ltd.)
-1995 -> IHI and Sumitomo Heavy Industries merge -> Marine United Ltd.
+1960 -> Ishikawajima-Harima Heavy Industries Co., Ltd. (IHI) -> merger of Ishikawajima & Harima (Harima Shipbuilding & Engineering Company, Ltd.)
+1964 -> Yokohama No.1 Works (currently Yokohama Machinery Works) is established as a heavy machinery plant.
+     -> Yokohama No.2 Works (currently Japan Marine United Yokohama Shipyard) is established as a shipbuilding plant (operation on the first ship starts on October 22).
+1968 -> Merges with Kure Shipbuilding & Engineering Co., Ltd. (capital: 28.872 billion yen).
+1995 -> IHI and Sumitomo Heavy Industries merge warship business -> Marine United Ltd. -> Marine United is established jointly with Sumitomo Heavy Industries, Ltd.
+2002 -> Shipbuilding business becomes IHI Marine United Inc. -> Shipbuilding & Offshore Operations becomes a separate corporation, IHI Marine United Inc.
+2006 -> subsidiary of IHI Corporation
+2007 -> name changed to IHI Corporation -> The company name is changed from "Ishikawajima-Harima Heavy Industries Co., Ltd" to "IHI Corporation".
+2013 -> est Japan Marine United Corporation -> Merged IHI Marine United Inc. and Universal Shipbuilding Corporation owned by JFE Holdings, Inc., and established Japan Marine United Corporation.
+
+Harima
+
+1907 -> Harima Dock Co., Ltd.
+1929 -> Harima Dock Co., Ltd. is renamed to Harima Shipbuilding & Engineering Co., Ltd.
+1954 -> Kure Dock splits off from Harima Shipbuilding & Engineering Co., Ltd. and is established as Kure Shipbuilding & Engineering Co., Ltd.
+
+
+1968 -> After merging with Shibaura United Engineering, Harima merges with Kure Shipbuilding & Engineering Co., Ltd.
+
+
+Nagoya
+
+1941 -> Nagoya Shipbuilding Co., Ltd. is established (subject to a merger later on)
+1964 -> Merges with Nagoya Shipbuilding Co., Ltd. and Nagoya Heavy Industries Co., Ltd. (capital: 24 billion yen). --> IHI
 
 
 
-2007 -> name changed to IHI Corporation
-2013 -> est Japan Marine United Corporation -> merging Marine United Inc with Universal Shipbuilding Corp. 
-
-
-
- 
-1968:
-After merging with Shibaura United Engineering, Harima merges with Kure Shipbuilding & Engineering Co., Ltd.
-1994:
-Yokohama Engineering Center built.
-2000:
-IHI Aerospace Co. Ltd. formed to take over Nissan operation.
-2002:
-Shipbuilding business becomes IHI Marine United Inc.
-2004:
-Machinery joint ventures set up in China.
+Dockyards:
+Ishikawajima
+Kure
+Yokohama
 
 
 
@@ -397,13 +446,34 @@ Uraga Dock Company
 ------------------
 
 1869 -> founded
+1897 -> Incorporated as Uraga Dock Co., Ltd.
 1962 -> Merges with Uraga Tamashima Diesel Co., Ltd. to form Uraga Heavy Industries Co., Ltd.
-1969 -> acquired by Sumitumo -> Sumitomo Heavy Industries, Ltd.
+1969 -> acquired by Sumitumo -> becomes Sumitomo Heavy Industries, Ltd.
 2003 -> operations closed down
-
 
 Yards:
 Uraga
+
+
+Sumitomo Heavy Industries
+-------------------------
+
+1888 -> founded as Besshi Copper Mine
+1934 -> Sumitomo Machinery Co., Ltd.
+1969 -> Sumitomo Machinery Co., Ltd. merged with Uraga Heavy Industries Co., Ltd. to create Sumitomo Heavy Industries, Ltd. 
+1971 -> Establishment of Oppama Shipyard (currently known as Yokosuka Works)
+1973 -> Establishment of the Ohshima Shipyard
+1997 -> Oppama Shipyard is renamed Yokosuka Works
+
+2001? -> Joint establishment with NKK and Hitachi Zosen of JP Steel Plantech Co., Ltd., a sales company for steel manufacturing
+2003 -> The shipbuilding division is split up and subsequently, Sumitomo Heavy Industries Marine & Engineering Co., Ltd. is established
+
+Yards:
+Uraga
+Oppama (Yokosuka Works)
+Ohshima
+
+
 
 
 
