@@ -233,6 +233,14 @@ As Vickers-Armstrong
 
 
 
+William Beardmore
+-----------------
+
+
+
+
+
+
 Yarrow
 ------
 
@@ -282,6 +290,18 @@ Hudong-Zhonghua Shipbuilding --> two merged to one
 Hudong–Zhonghua Shipbuilding 2001
 Hudong Shipbuilding -> 1928 Molleis Shipbuilding and Engineering Works
 Zhonghua Shipyard -> 1926
+
+
+Zhonghua
+
+1926 -> established
+
+Hudong 
+
+1928 -> established as Molleis Shipbuilding and Engineering Works
+1952 -> renamed Hudong Shipyard
+1996 -> Hudong Shipbuilding Group
+
 
 Shanghai
 Parent -> China State Shipbuilding Corporation
