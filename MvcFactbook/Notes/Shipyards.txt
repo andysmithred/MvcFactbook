@@ -219,8 +219,8 @@ Swan Hunter
 
 
 
-Armstrong-Whitworth / Vickers-Armstrong
----------------------------------------
+Armstrong-Whitworth / Vickers-Armstrong / Vickers
+-------------------------------------------------
 
 High Walker, Tyne and Wear, England
 
@@ -229,6 +229,40 @@ High Walker, Tyne and Wear, England
 1927 -> merged with Vickers Limited to become Vickers-Armstrong
 
 As Vickers-Armstrong
+
+1927 - Vickers-Armstrongs Limited formed
+1955 - renamed Vickers-Armstrongs Shipbuilders
+1968 - Vickers Limited Shipbuilding Group 
+1968 - High Walker Yard transferred to Swan Hunter, Barrow yard remained part of Vickers
+1977 - British Shipbuilders Corporation
+
+High Walker Yard
+
+1968 - transferred to Swan Hunter
+1977 - nationalised to British Shipbuilders
+1986 - privatised to Swan Hunter
+1980's - closed.
+
+as Vickers
+
+1828 - founded in Sheffield (steel foundry)
+1867 - went public as Vickers, Sons & Company 
+1897 - entered shipbuilding with the purchase of Barrow Shipbuilding Company - Vickers, Sons and Maxim, Limited
+1911 - renamed Vickers Limited
+1927 - merged with Armstrong-Whitworth to become Vickers-Armstrong
+
+
+Barrow Yard
+
+1871 - Barrow Shipbuilding Company
+1888 - Naval Construction abd Armaments Company
+1897 - Vickers, Sons & Maxim
+1911 - Vickers Limited
+1927 - Vickers-Armstrong
+1955 - renamed Vickers-Armstrongs Shipbuilders
+1968 - Vickers Limited Shipbuilding Group 
+1977 - British Shipbuilders Corporation
+
 
 
 
@@ -342,9 +376,18 @@ Saint John, New Brunswick
 
 
 
-RUSSIA / SOVIET UNION
-=====================
+RUSSIA / SOVIET UNION / UKRAINE
+===============================
 
+Severnaya Verf
+--------------
+
+1890 -> founded -> Putilov Shipyard (Russian: Putilovskaya Verf)
+1922 -> Severnaya Verf  (Severnaya sudostroitel'naya verf )
+1935 -> renamed Shipyard No. 190 (in the name of Zhdanov) 
+1989 -> renamed back to Severnaya Verf
+
+Parent -> 	United Shipbuilding Corporation
 
 
 
