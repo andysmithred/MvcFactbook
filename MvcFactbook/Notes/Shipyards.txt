@@ -54,6 +54,8 @@ Vigor Shipyards 2011
 Locations: Seattle, Bremerton -> Puget Sound Naval Shipyard?, Everett, Portland Oregon
 
 
+
+
 Todd Pacific Shipyards, Los Angeles Division
 --------------------------------------------
 
@@ -64,6 +66,15 @@ San Pedro, California
 1946 -> Todd Shipyards Corp -> purchased
 1977 -> Todd Pacific Shipyards, Los Angeles Division
 1989 -> closed
+
+
+Puget Sound Naval Shipyard
+--------------------------
+
+1891 - established Naval Station Puget Sound
+1901 - Navy Yard Puget Sound
+1945 - Puget Sound Naval Shipyard
+
 
 
 
@@ -622,6 +633,28 @@ Ohshima
 
 
 
+
+
+GERMANY
+=======
+
+
+
+
+Wilhelmshaven Imperial Shipyard
+-------------------------------
+
+1853 - Königliche Werft
+1869 - 
+1871 - 
+
+
+Kriegsmarinewerft Wilhelmshaven
+-------------------------------
+
+1918 - founded on the site of the Wilhelmshaven Imperial Shipyard as Reichsmarinewerft Wilhelmshaven
+1935 - named changed to Kriegsmarinewerft Wilhelmshaven
+1945 - closed
 
 
 
