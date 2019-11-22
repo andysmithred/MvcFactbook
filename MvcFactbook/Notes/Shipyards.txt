@@ -179,6 +179,27 @@ The Navy Yard, Philadelphia Naval Shipyard and Philadelphia Naval Business Cente
 
 
 
+Mare Island Naval Shipyard - MINSY
+--------------------------
+
+Vallejo, California - 38.09,-122.263333
+
+1854 - shipbuilding operations commenced.
+1996 - facility decomissioned
+
+
+Dravo Corporation
+-----------------
+
+Neville Island shipyard, Pittsburgh
+Wilmington Shipyard, Delaware
+
+1891 - founded
+1936 - went public
+1982 - neville island closed
+1998 - bought out Carmeuse
+
+
 
 
 
@@ -217,6 +238,24 @@ Randolf Elder and Company
 Govan, Glasgow, Scotland
 
 Defunct 1968 (before nationalisation)
+
+Upper Clyde Shipbuilders
+
+1968 - Upper Clyde Shipbuilders
+1971/2 - Upper Clyde defunct
+
+Govan Shipbuilders Ltd (GSL) 
+
+1972 - formed
+1977 - nationalised
+1988 - sold to Kvaerner Industries ->  Kvaerner Govan -> privitised
+
+Kvaerner Govan
+
+1988 - founded
+1999 - to BAE Systems Marine
+
+
 
 
 Cammell Laird
@@ -400,6 +439,42 @@ John Brown & Company
 1972 -> ship yard sold to Marathon Manufacturing Company -> ships no longer built
 1980 -> Union Industrielle d'Entreprise (UIE) (part of the French Bouygues group) bought the yard, using it to build Jack-up and Semi-submersible rigs for North Sea oil fields. 
 2001 -> UIE closed the yard
+
+
+
+VT Group / Vosper Thornycroft
+-----------------------------
+
+Vosper & Company (Vospers)
+
+1871 - Vosper & Company (Vospers) founded. -> based in Portsmouth -> Camber Dock (https://www.baesystems.com/en/heritage/vosper-of-portmouth)
+1936 - Vosper, Limited -> also moved to yard at Portchester
+1966 - merged with John I. THornycroft & company -> Vosper Thornycroft -> Woolston
+2003 - relocated to Portsmouth operating as VT Group
+2008 - VT Group and BAE systems merged -> BVT Surface Fleet
+2009 - BAE Systems Surface Ships
+
+John I. Thornycroft & Company (Thornycroft)
+
+1866 - John I. Thornycroft & Company Limited founded -> Chiswick dock
+1908 - moved to Woolston, Southampton
+1966 - merged with Vosper & Company to form Vosper Thornycroft
+2003 - moved to new yard Portchester
+2010 - absorbed by Babcock INternational
+
+VT Group
+
+1977 - nationalised
+1985 - privitaised
+1998 - Vosper Thornycroft acquired Halmatic based in Portchester
+2001 - known as VT Group plc.
+2003 - moved to Portsmouth  HMNB Portsmouth - VT Shipbuilding
+2008 - VT Group and BAE Systems merge -> BVT Surface Fleet
+2009 - BAE Systems Surface Ships
+
+
+
+
 
 
 
@@ -714,6 +789,30 @@ Kriegsmarinewerft Wilhelmshaven
 
 Blohm+Voss
 ----------
+
+Hamburg, Germany
+53.539556, 9.964354
+Blohm & Voss, Blohm und Voﬂ
+
+1877 - founded Blohm & Voss
+
+1955 - Blohm+Voss
+
+
+
+
+
+INDIA
+=====
+
+Mazagon Dock Shipbuilders
+-------------------------
+
+Mazagaon, Mumbai, Maharashtra, India
+18.967130, 72.849930
+
+1934 - Mazagon Dock Limited was registered as a public company
+1960 - Mazagon Dock Shipbuilders Limited (MDL)
 
 
 
