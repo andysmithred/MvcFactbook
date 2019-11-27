@@ -98,9 +98,6 @@ Fore River Shipyard
 1986 -> closed
 
 
-Bethlehem Steel
----------------
-
 
 
 New York Shipbuilding Corporation
@@ -198,6 +195,25 @@ Wilmington Shipyard, Delaware
 1936 - went public
 1982 - neville island closed
 1998 - bought out Carmeuse
+
+
+
+Union Iron Works
+----------------
+
+37.760744,-122.384447
+San Francisco, California
+Potrero Point Dockyard
+
+1849 - founded
+1885 - first ship, so about this time for dock.
+1902 - United States Shipbuilding Company
+1905 - Bethlehem Steel Corporation Shipbuilding Division - Bethlehem Shipbuilding Corporation
+
+
+
+Bethlehem Shipbuilding Corporation
+----------------------------------
 
 
 
@@ -510,6 +526,23 @@ Parent -> China State Shipbuilding Corporation
 31.2775,121.569444
 
 
+
+Luda Shipyard -> could this be the same as Dalian Old???
+
+
+Dalian Old Shipyard
+
+
+Dalian New Shipyard
+
+
+
+
+
+
+
+
+
 Taiwan
 ======
 
@@ -541,6 +574,28 @@ Saint John, New Brunswick
 1923 -> opned as St. John Drydock & Shipbuilding Co.
 1950s: renamed Saint John Shipbuilding & Dry Dock co., Ltd.
 1980s: became known as Saint John Shipbuilding
+
+
+Davie Shipbuilding
+------------------
+
+Lauzon, Quebec
+46.830245, -71.159412
+
+1825 - Davie shipyard
+1850 - George T. Davie & Sons
+1914 - Davie Shipbuilding & Repairing
+1985 - Versatile Davie Incorporated --> owned by Versatile
+1986 - MIL Davie Shipbuilding - merger of Marine Industries Ltd. and Versatile Davie Inc
+2000 - Industries Davie, Ltd
+2006 - Davie Yards Incorporated - owned by TECO Maritime
+2011 - Chantier Davie Canada Inc.
+
+
+
+
+
+
 
 
 
