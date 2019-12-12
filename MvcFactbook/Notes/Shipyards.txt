@@ -304,8 +304,8 @@ BAE Systems Naval Ships
 BAE Systems Surface Fleet Solutions
 -----------------------------------
 
--> Fairfields
--> Yarrow
+-> Fairfields, Govan
+-> Yarrow, Scotstoun
 
 2003 - split from BAE Systems Marine
 2008 - merged with VT Shipbuilding - BVT Surface Fleet
@@ -548,7 +548,13 @@ VT Group
 
 
 
+Scotts
+======
 
+Scotts Shipbuilding and Engineering Company -> Greenock, Scotland
+
+1711 -> company founded but not shipbuilding yet
+1850 -> started building ships at Cartsdyke Dockyard
 
 
 
@@ -579,6 +585,28 @@ Hudong
 Shanghai
 Parent -> China State Shipbuilding Corporation
 31.2775,121.569444
+
+
+Jiangnan Shipyard (Group) Co. Ltd.
+----------------------------------
+
+shipyards:
+Kiangnan Arsenal/Kiangnan Shipyard
+Changxing Island Shipyard
+Chongqing Shipyard
+
+1865 -> founded as Kiangnan Arsenal
+1905 -> de-merged into Kiangnan Shipyard
+1937 -> shipyard moved to Chongqing
+1953 -> Jiangnan Shipbuilding Factory
+1996 -> corporised -> Jiangnan Shipyard (Group) Co. Ltd. under China State Shipbuilding Corporation.
+2010 -> Moved to Changxing Island
+
+
+
+
+
+
 
 
 
