@@ -955,6 +955,21 @@ Imperial Shipyard, Kiel, Germany
 1955 -> reactivated again as Howaldtswerke-Deutsche Werft
 
 
+Schichau-Werke
+--------------
+
+Elbing, Germany -> now Elblag, Poland
+Danzig, Germany -> now Gdansk, Poland -> 54.376124, 18.649210
+After WW2 moved to Bremerhaven
+
+1854 -> shipyard built at Elbing -> Elbinger Dampfschiffs-Reederei F. Schichau ('Elbing Steamship Shipping Company F. Schichau')
+1872 -> Schichau acquired Mitzlaff's yard.
+1892 -> second shipyard in Danzig
+1945 -> Danzig shipyard becomes Gdansk Shipyard in Poland
+1951 -> opened a shipyard in Bremerhaven (after moving there after end of WW2)
+
+
+
 
 
 INDIA
