@@ -103,9 +103,14 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public bool HasFlag => Flags.Count > 0;
 
+        //TODO:AS remove
         public FlagView CurrentFlag => Flags.OrderByDescending(x => x.StartDate).FirstOrDefault();
 
-        public string ImageSource => CurrentFlag?.ImageSource;
+        public FlagView LastFlag => EndDate.HasValue ? GetFlagForDate(EndDate.Value) : GetFlagForDate(DateTime.Now);
+
+
+        public string ImageSourceCurrent => CurrentFlag?.ImageSource;
+        public string ImageSource => LastFlag?.ImageSource;
 
         public string Image => CurrentFlag?.Image;
 
@@ -158,7 +163,15 @@ namespace MvcFactbook.ViewModels.Models.Main
 
         public FlagView GetFlagForDate(DateTime date)
         {
-            if(PoliticalEntityFlags.Count > 0)
+            Console.WriteLine("#######");
+            Console.WriteLine("IN --> GetFlagForDate: " + date.ToString());
+            Console.WriteLine("Name: " + CombinedName);
+            Console.WriteLine("StartDate: " + StartDate);
+            Console.WriteLine("EndDate: " + EndDate);
+            Console.WriteLine("PoliticalEntityEras: " + PoliticalEntityEras.Count);
+
+
+            if (PoliticalEntityFlags.Count > 0)
             {
                 foreach (var item in PoliticalEntityFlags)
                 {
@@ -168,10 +181,12 @@ namespace MvcFactbook.ViewModels.Models.Main
                     }
                 }
 
+                Console.WriteLine("RETURNING --> NULL 1: " + date.ToString());
                 return null;
             }
             else
             {
+                Console.WriteLine("RETURNING  --> Null 2: " + date.ToString());
                 return null;
             }
         }
